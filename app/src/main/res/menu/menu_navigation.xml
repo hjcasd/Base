@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_item1"
+            android:icon="@mipmap/icon_add"
+            android:title="Item1" />
+        <item
+            android:id="@+id/nav_item2"
+            android:icon="@mipmap/icon_add"
+            android:title="Item2" />
+
+        <item android:title="子条目1">
+            <menu>
+                <item
+                    android:id="@+id/nav_item3"
+                    android:icon="@mipmap/icon_add"
+                    android:title="Item3" />
+                <item
+                    android:id="@+id/nav_item4"
+                    android:icon="@mipmap/icon_add"
+                    android:title="Item4" />
+            </menu>
+        </item>
+
+        <item android:title="子条目2">
+            <menu>
+                <item
+                    android:id="@+id/nav_item5"
+                    android:icon="@mipmap/icon_add"
+                    android:title="Item5" />
+                <item
+                    android:id="@+id/nav_item6"
+                    android:icon="@mipmap/icon_add"
+                    android:title="Item6" />
+            </menu>
+        </item>
+
+    </group>
+
+</menu>

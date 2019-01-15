@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.hjc.base.widget.TitleBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:titleColor="@color/white"
+        app:titleText="tab4" />
+
+    <Button
+        android:id="@+id/btn_keyboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="keyboard"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="dialog"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_drawer_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="drawer + navigation"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_drawer_custom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="drawer + custom"
+        android:textAllCaps="false" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="界面四" />
+
+</LinearLayout>

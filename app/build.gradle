@@ -1,0 +1,159 @@
+apply plugin: 'com.android.application'
+
+//获取当前日期
+def static releaseTime() {
+    return new Date().format("yyyyMMdd")
+}
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    defaultConfig {
+        applicationId "com.hjc.base"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'//, 'x86',  'x86_64'
+        }
+    }
+
+    //签名信息
+    signingConfigs {
+        release {
+            storeFile file('base.jks')
+            storePassword '123456'
+            keyAlias 'base'
+            keyPassword '123456'
+        }
+
+        debug {
+            storeFile file("base.jks")
+            storePassword '123456'
+            keyAlias 'base'
+            keyPassword '123456'
+        }
+    }
+
+    buildTypes {
+        release {
+            //是否混淆
+            minifyEnabled false
+            //是否移除无用资源
+            zipAlignEnabled false
+            //前一部分代表系统默认的android程序的混淆文件，该文件已经包含了基本的混淆声明,后者为自定义混淆文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            signingConfig signingConfigs.release
+        }
+
+        debug {
+            minifyEnabled false
+            zipAlignEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    //指定打包路径和apk名称
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def fileName = "Base_V${variant.versionName}"
+            fileName = fileName + "_${releaseTime()}"
+            if ('debug' == variant.buildType.name) {
+                fileName = fileName + "_debug.apk"
+            } else {
+                fileName = fileName + "_release.apk"
+            }
+            outputFileName = fileName
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+
+    lintOptions{
+        disable 'GoogleAppIndexingWarning'
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:design:$rootProject.supportLibraryVersion"
+
+    //分包处理
+    implementation 'com.android.support:multidex:1.0.3'
+
+    //Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
+
+    //RxJava
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.4'
+    implementation 'com.trello.rxlifecycle2:rxlifecycle:2.1.0'
+    implementation 'com.trello.rxlifecycle2:rxlifecycle-components:2.1.0'
+
+    //注解
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    //事件
+    implementation 'org.greenrobot:eventbus:3.1.1'
+
+    //图片处理框架
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+    implementation 'jp.wasabeef:glide-transformations:4.0.1'
+
+    //权限
+    implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
+
+    //沉浸式
+    implementation 'com.gyf.immersionbar:immersionbar:2.3.2-beta01'
+
+    //工具类
+    implementation 'com.blankj:utilcode:1.22.6'
+
+    //Json
+    implementation 'com.google.code.gson:gson:2.8.2'
+
+    //Loading动画
+    implementation 'com.github.ybq:Android-SpinKit:1.2.0'
+
+    //Banner
+    implementation 'com.youth.banner:banner:1.4.10'
+
+    //Bugly
+    implementation 'com.tencent.bugly:crashreport:2.8.6'
+    implementation 'com.tencent.bugly:nativecrashreport:3.6.0'
+
+    //列表
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.44'
+
+    //刷新
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-18'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-18'
+}

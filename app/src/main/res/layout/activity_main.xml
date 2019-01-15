@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/fl_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </FrameLayout>
+
+    <View style="@style/divide_line_grey" />
+
+    <RadioGroup
+        android:id="@+id/rg_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <RadioButton
+            android:id="@+id/rb_tab1"
+            style="@style/MenuTabStyle"
+            android:checked="true"
+            android:drawableTop="@drawable/selector_rb_tab1"
+            android:text="@string/tab1" />
+
+        <RadioButton
+            android:id="@+id/rb_tab2"
+            style="@style/MenuTabStyle"
+            android:drawableTop="@drawable/selector_rb_tab2"
+            android:text="@string/tab2" />
+
+
+        <RadioButton
+            android:id="@+id/rb_tab3"
+            style="@style/MenuTabStyle"
+            android:drawableTop="@drawable/selector_rb_tab3"
+            android:text="@string/tab3"
+            android:textColor="@drawable/selector_tab_text" />
+
+        <RadioButton
+            android:id="@+id/rb_tab4"
+            style="@style/MenuTabStyle"
+            android:drawableTop="@drawable/selector_rb_tab4"
+            android:text="@string/tab4" />
+
+    </RadioGroup>
+
+</LinearLayout>
