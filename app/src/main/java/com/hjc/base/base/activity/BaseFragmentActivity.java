@@ -6,11 +6,13 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.blankj.utilcode.util.ToastUtils;
 import com.gyf.barlibrary.ImmersionBar;
 import com.hjc.base.R;
 import com.hjc.base.base.fragment.BaseFragment;
-import com.hjc.base.utils.helper.ActivityManager;
 import com.hjc.base.utils.FastClickUtils;
+import com.hjc.base.utils.helper.ActivityManager;
 import com.trello.rxlifecycle2.components.support.RxFragmentActivity;
 
 import butterknife.ButterKnife;
@@ -31,6 +33,7 @@ public abstract class BaseFragmentActivity extends RxFragmentActivity implements
         setContentView(getLayoutId());
 
         mBinder = ButterKnife.bind(this);
+        ARouter.getInstance().inject(this);
 
         if (isImmersionBarEnabled()) {
             initImmersionBar();
@@ -98,6 +101,7 @@ public abstract class BaseFragmentActivity extends RxFragmentActivity implements
     public void onClick(View v) {
         //避免快速点击
         if (FastClickUtils.isFastClick()){
+            ToastUtils.showShort("点的太快了,歇会呗!");
             return;
         }
         onSingleClick(v);

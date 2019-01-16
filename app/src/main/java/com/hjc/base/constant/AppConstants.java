@@ -13,4 +13,6 @@ public class AppConstants {
     public static final String DOWNLOAD_APK_DIR = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "YBT";
     public static final String DOWNLOAD_APK_NAME = "test.apk";
     public static final String DOWNLOAD_APK_PATH = DOWNLOAD_APK_DIR + File.separator + DOWNLOAD_APK_NAME;
+
+    public static boolean isDebug = true;
 }

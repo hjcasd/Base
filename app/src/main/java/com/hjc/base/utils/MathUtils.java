@@ -25,8 +25,8 @@ public class MathUtils {
      *
      * @param a
      * @param b
-     * @return 返回1， 表示a大于b <br/>
-     * 返回0 ，表示a等于b <br/>
+     * @return 返回1， 表示a大于b
+     * 返回0 ，表示a等于b
      * 返回-1，表示a小于b
      */
     public static int compareTo(BigDecimal a, BigDecimal b) {
@@ -38,8 +38,8 @@ public class MathUtils {
      *
      * @param a
      * @param b
-     * @return 返回1， 表示a大于b <br/>
-     * 返回0 ，表示a等于b <br/>
+     * @return 返回1， 表示a大于b
+     * 返回0 ，表示a等于b
      * 返回-1，表示a小于b
      */
     public static int compareTo(double a, double b) {
@@ -51,8 +51,8 @@ public class MathUtils {
      *
      * @param a
      * @param b
-     * @return 返回1， 表示a大于b <br/>
-     * 返回0 ，表示a等于b <br/>
+     * @return 返回1， 表示a大于b
+     * 返回0 ，表示a等于b
      * 返回-1，表示a小于b
      */
     public static int compareTo(float a, float b) {
@@ -65,8 +65,8 @@ public class MathUtils {
      *
      * @param a
      * @param b
-     * @return 返回1， 表示a大于b <br/>
-     * 返回0 ，表示a等于b <br/>
+     * @return 返回1， 表示a大于b
+     * 返回0 ，表示a等于b
      * 返回-1，表示a小于b
      */
     public static int compareTo(String a, String b) {

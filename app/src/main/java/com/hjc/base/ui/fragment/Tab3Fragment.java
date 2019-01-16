@@ -8,11 +8,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.hjc.base.R;
 import com.hjc.base.base.event.Event;
 import com.hjc.base.base.event.EventManager;
 import com.hjc.base.base.fragment.BaseImmersionFragment;
 import com.hjc.base.constant.EventCode;
+import com.hjc.base.constant.RoutePath;
 import com.hjc.base.ui.list.ListEmptyActivity;
 import com.hjc.base.ui.list.ListRefreshActivity;
 import com.hjc.base.ui.search.SearchActivity;
@@ -32,6 +34,8 @@ public class Tab3Fragment extends BaseImmersionFragment {
     Button btnEmpty;
     @BindView(R.id.btn_refresh)
     Button btnRefresh;
+    @BindView(R.id.btn_router)
+    Button btnRouter;
 
     public static Tab3Fragment newInstance() {
         Tab3Fragment fragment = new Tab3Fragment();
@@ -66,6 +70,7 @@ public class Tab3Fragment extends BaseImmersionFragment {
         btnSearch.setOnClickListener(this);
         btnEmpty.setOnClickListener(this);
         btnRefresh.setOnClickListener(this);
+        btnRouter.setOnClickListener(this);
     }
 
     @Override
@@ -81,6 +86,10 @@ public class Tab3Fragment extends BaseImmersionFragment {
 
             case R.id.btn_refresh:
                 startActivity(new Intent(mContext, ListRefreshActivity.class));
+                break;
+
+            case R.id.btn_router:
+                ARouter.getInstance().build(RoutePath.URL_LOGIN).navigation();
                 break;
         }
     }

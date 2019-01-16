@@ -11,9 +11,11 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.R;
 import com.hjc.base.base.mvp.BaseMvpActivity;
+import com.hjc.base.constant.RoutePath;
 import com.hjc.base.ui.MainActivity;
 import com.hjc.base.ui.login.contract.LoginContract;
 import com.hjc.base.ui.login.model.LoginRequest;
@@ -22,6 +24,7 @@ import com.hjc.base.widget.dialog.LoadingDialog;
 
 import butterknife.BindView;
 
+@Route(path = RoutePath.URL_LOGIN)
 public class LoginActivity extends BaseMvpActivity<LoginContract.View, LoginPresenter> implements LoginContract.View {
 
     @BindView(R.id.et_phone)
