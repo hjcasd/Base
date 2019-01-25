@@ -39,8 +39,7 @@
             android:id="@+id/rb_tab3"
             style="@style/MenuTabStyle"
             android:drawableTop="@drawable/selector_rb_tab3"
-            android:text="@string/tab3"
-            android:textColor="@drawable/selector_tab_text" />
+            android:text="@string/tab3" />
 
         <RadioButton
             android:id="@+id/rb_tab4"

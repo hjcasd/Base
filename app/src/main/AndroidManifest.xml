@@ -85,6 +85,7 @@
             android:name=".ui.drawer.DrawerCustomActivity"
             android:screenOrientation="portrait" />
 
+
         <!--              ==================更新相关=================              -->
         <service android:name=".ui.update.download.DownloadService" />
 
