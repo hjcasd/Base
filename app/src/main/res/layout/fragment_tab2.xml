@@ -40,6 +40,13 @@
         android:text="camera"
         android:textAllCaps="false" />
 
+    <Button
+        android:id="@+id/btn_contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="contacts"
+        android:textAllCaps="false" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
