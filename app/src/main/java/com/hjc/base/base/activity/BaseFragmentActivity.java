@@ -34,6 +34,7 @@ public abstract class BaseFragmentActivity extends RxFragmentActivity implements
 
         mBinder = ButterKnife.bind(this);
         ARouter.getInstance().inject(this);
+        ActivityManager.addActivity(this);
 
         if (isImmersionBarEnabled()) {
             initImmersionBar();
@@ -41,12 +42,6 @@ public abstract class BaseFragmentActivity extends RxFragmentActivity implements
         initView();
         initData(savedInstanceState);
         addListeners();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        ActivityManager.addActivity(this);
     }
 
     /**
