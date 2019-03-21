@@ -47,7 +47,7 @@ public class ListEmptyActivity extends BaseActivity {
 
     @Override
     public void initData(Bundle savedInstanceState) {
-        loadingDialog.show(getSupportFragmentManager());
+        loadingDialog.showDialog(getSupportFragmentManager());
 
         rvList.setLayoutManager(new LinearLayoutManager(this));
         mAdapter = new ListAdapter(null);
@@ -82,7 +82,7 @@ public class ListEmptyActivity extends BaseActivity {
     public void onSingleClick(View v) {
         switch (v.getId()){
             case R.id.tv_state_content:
-                loadingDialog.show(getSupportFragmentManager());
+                loadingDialog.showDialog(getSupportFragmentManager());
                 Observable.timer(2, TimeUnit.SECONDS)
                         .compose(RxSchedulers.ioToMain())
                         .subscribe(aLong -> {

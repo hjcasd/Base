@@ -1,6 +1,5 @@
 package com.hjc.base.ui;
 
-import android.Manifest;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.view.View;
@@ -13,7 +12,8 @@ import com.hjc.base.ui.fragment.Tab1Fragment;
 import com.hjc.base.ui.fragment.Tab2Fragment;
 import com.hjc.base.ui.fragment.Tab3Fragment;
 import com.hjc.base.ui.fragment.Tab4Fragment;
-import com.tbruyelle.rxpermissions2.RxPermissions;
+import com.hjc.base.utils.permission.PermissionCallBack;
+import com.hjc.base.utils.permission.PermissionManager;
 
 import butterknife.BindView;
 
@@ -53,19 +53,18 @@ public class MainActivity extends BaseFragmentActivity {
      * 申请权限
      */
     private void requestPermission() {
-        RxPermissions rxPermissions = new RxPermissions(this);
+        PermissionManager manager = new PermissionManager(this);
+        manager.requestStoragePermission(new PermissionCallBack() {
+            @Override
+            public void onGranted() {
+                ToastUtils.showShort("申请存储权限成功");
+            }
 
-        rxPermissions.requestEach(Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO, Manifest.permission.CAMERA)
-                .subscribe(permission -> {
-                    if (permission.granted) {
-                        ToastUtils.showShort("申请存储,录音,相机权限成功");
-                    } else if (permission.shouldShowRequestPermissionRationale) {
-                        ToastUtils.showShort("该应用需要存储,录音,相机权限,否则可能会导致应用异常");
-                    } else {
-                        ToastUtils.showShort("申请存储,录音,相机权限失败");
-                    }
-                });
+            @Override
+            public void onDenied() {
+                ToastUtils.showShort("申请存储权限失败");
+            }
+        });
     }
 
     @Override

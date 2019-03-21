@@ -25,7 +25,7 @@ public class DownloadManager {
 
     public static DownloadManager getInstance() {
         if (downloadManager == null) {
-            synchronized (HttpClient.class) {
+            synchronized (DownloadManager.class) {
                 if (downloadManager == null) {
                     downloadManager = new DownloadManager();
                 }

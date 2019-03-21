@@ -32,7 +32,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
 
     <!--录音-->
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
         android:name=".application.App"
@@ -58,8 +58,9 @@
             android:screenOrientation="portrait" />
 
 
-        <activity android:name=".ui.login.LoginActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".ui.search.SearchActivity"
@@ -83,6 +84,10 @@
 
         <activity
             android:name=".ui.drawer.DrawerCustomActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.WebActivity"
             android:screenOrientation="portrait" />
 
 

@@ -1,6 +1,8 @@
 package com.hjc.base.http.Interceptor;
 
 import com.blankj.utilcode.util.LogUtils;
+import com.hjc.base.constant.AppConstants;
+import com.hjc.base.utils.FormatUtils;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -29,15 +31,19 @@ public class LogInterceptor implements Interceptor {
         source.request(Long.MAX_VALUE);
         Buffer buffer = source.buffer();
 
-        String log = ""
-                .concat("\nrequest code ====== " + response.code())
-                .concat("\nrequest url ====== " + request.url())
-                .concat("\nrequest duration ====== " + (response.receivedResponseAtMillis() - response.sentRequestAtMillis()) + "ms")
-                .concat("\nrequest header ====== " + request.headers())
-                .concat("\nrequest body ====== " + bodyToString(request.body()))
-                .concat("\nresponse body ====== " + buffer.clone().readString(UTF8));
 
-        LogUtils.e("请求信息" + log);
+        if (AppConstants.isDebug) {
+            String requestJson = "请求信息:"
+                    .concat("\nrequest code ====== " + response.code())
+                    .concat("\nrequest url ====== " + request.url())
+                    .concat("\nrequest duration ====== " + (response.receivedResponseAtMillis() - response.sentRequestAtMillis()) + "ms")
+                    .concat("\nrequest header ====== " + request.headers().toString())
+                    .concat("\nrequest body ====== " + bodyToString(request.body()));
+
+            LogUtils.e(requestJson);
+            String responseJson = buffer.clone().readString(UTF8);
+            FormatUtils.formatJsonAndLog(responseJson);
+        }
         return response;
     }
 

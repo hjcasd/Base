@@ -11,151 +11,141 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.request.RequestOptions;
+import com.hjc.base.R;
 
 import java.io.File;
 
 import jp.wasabeef.glide.transformations.BlurTransformation;
 
+
 /**
- * Glide封装类
+ * @Author: HJC
+ * @Date: 2019/3/21 17:44
+ * @Description: Glide封装类
  */
 public class ImageLoader {
 
-
     /**
-     * 默认加载方式
+     * 加载图片(默认方式)
      *
-     * @param context
-     * @param url
-     * @param imageView
+     * @param imageView 控件id
+     * @param url       图片地址
+     * @param type      默认图片类型
      */
-    public static void loadImage(Context context, String url, ImageView imageView) {
+    public static void loadImage(ImageView imageView, String url, int type) {
         RequestOptions requestOptions = new RequestOptions()
-                .priority(Priority.HIGH)
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .dontAnimate();
+                .placeholder(getDefaultPic(type))
+                .error(getDefaultPic(type))
+                .diskCacheStrategy(DiskCacheStrategy.RESOURCE);
 
-        Glide.with(context)
+        Glide.with(imageView.getContext())
                 .load(url)
                 .apply(requestOptions)
-                .transition(DrawableTransitionOptions.withCrossFade())
+                .transition(DrawableTransitionOptions.withCrossFade(500))
                 .into(imageView);
     }
+
 
     /**
      * 加载圆形图片
      *
-     * @param context
-     * @param url
-     * @param imageView
+     * @param imageView 控件id
+     * @param url       图片地址
+     * @param type      默认图片类型
      */
-    public static void loadCircleImage(Context context, String url, ImageView imageView) {
+    public static void loadCircleImage(ImageView imageView, String url, int type) {
         RequestOptions requestOptions = new RequestOptions()
-                .priority(Priority.HIGH)
-                .dontAnimate()
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .bitmapTransform(new CircleCrop());
+                .placeholder(getDefaultPic(type))
+                .error(getDefaultPic(type))
+                .transforms(new CircleCrop())
+                .diskCacheStrategy(DiskCacheStrategy.RESOURCE);
 
-        Glide.with(context)
+        Glide.with(imageView.getContext())
                 .load(url)
                 .apply(requestOptions)
-                .transition(DrawableTransitionOptions.withCrossFade())
+                .transition(DrawableTransitionOptions.withCrossFade(500))
                 .into(imageView);
     }
 
     /**
      * 加载圆角图片
      *
-     * @param context
-     * @param url
-     * @param imageView
+     * @param imageView 控件id
+     * @param url       图片地址
      * @param radius    圆角大小
+     * @param type      默认图片类型
      */
-    public static void loadRoundImage(Context context, String url, ImageView imageView, int radius) {
+    public static void loadRoundImage(ImageView imageView, String url, int radius, int type) {
         RequestOptions requestOptions = new RequestOptions()
-                .priority(Priority.HIGH)
-                .dontAnimate()
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .transforms(new CenterCrop(), new RoundedCorners(radius));
+                .placeholder(getDefaultPic(type))
+                .error(getDefaultPic(type))
+                .transforms(new CenterCrop(), new RoundedCorners(radius))
+                .diskCacheStrategy(DiskCacheStrategy.RESOURCE);
 
-        Glide.with(context)
+        Glide.with(imageView.getContext())
                 .load(url)
                 .apply(requestOptions)
-                .transition(DrawableTransitionOptions.withCrossFade())
+                .transition(DrawableTransitionOptions.withCrossFade(500))
                 .into(imageView);
     }
 
     /**
      * 加载图片指定大小
      *
-     * @param context
-     * @param url
-     * @param imageView
-     * @param width
-     * @param height
+     * @param imageView 控件id
+     * @param url       图片地址
+     * @param width     控件宽度
+     * @param height    控件高度
+     * @param type      默认图片类型
      */
-    public static void loadSizeImage(Context context, String url, ImageView imageView, int width, int height) {
+    public static void loadSizeImage(ImageView imageView, String url, int width, int height, int type) {
         RequestOptions requestOptions = new RequestOptions()
-                .priority(Priority.HIGH)
+                .placeholder(getDefaultPic(type))
+                .error(getDefaultPic(type))
                 .override(width, height)
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE);
 
-        Glide.with(context)
+        Glide.with(imageView.getContext())
                 .load(url)
                 .apply(requestOptions)
-                .transition(DrawableTransitionOptions.withCrossFade())
+                .transition(DrawableTransitionOptions.withCrossFade(500))
                 .into(imageView);
     }
 
     /**
-     * 加载本地图片文件
+     * 加载高斯模糊图片
      *
-     * @param context
-     * @param file
-     * @param imageView
-     */
-    public static void loadFileImage(Context context, File file, ImageView imageView) {
-        RequestOptions requestOptions = new RequestOptions()
-                .priority(Priority.HIGH)
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .centerCrop();
-
-        Glide.with(context)
-                .load(file)
-                .apply(requestOptions)
-                .into(imageView);
-    }
-
-    /**
-     * 加载高斯模糊
-     *
-     * @param context
-     * @param url
-     * @param imageView
+     * @param imageView 控件id
+     * @param url       图片地址
      * @param radius    模糊级数 最大25
+     * @param sampling  采样率
      */
-    public static void loadBlurImage(Context context, String url, ImageView imageView, int radius) {
+    public static void loadBlurImage(ImageView imageView, String url, int radius, int sampling) {
         RequestOptions requestOptions = new RequestOptions()
-                .override(300)
-                .transforms(new BlurTransformation(radius));
+                .placeholder(getDefaultPic(0))
+                .error(getDefaultPic(0))
+                .transforms(new BlurTransformation(radius, sampling))
+                .diskCacheStrategy(DiskCacheStrategy.RESOURCE);
 
-        Glide.with(context)
+        Glide.with(imageView.getContext())
                 .load(url)
                 .apply(requestOptions)
-                .transition(DrawableTransitionOptions.withCrossFade())
+                .transition(DrawableTransitionOptions.withCrossFade(500))
                 .into(imageView);
     }
 
     /**
-     * 加载gif图
+     * 设置默认图片
      *
-     * @param context
-     * @param url
-     * @param imageView
+     * @param type 图片类型
+     * @return 图片id
      */
-    public static void loadGifImage(Context context, String url, ImageView imageView) {
-        Glide.with(context)
-                .load(url)
-                .into(imageView);
+    private static int getDefaultPic(int type) {
+        switch (type) {
+            case 0:
+                return R.mipmap.ic_launcher;
+            default:
+                return R.mipmap.ic_launcher;
+        }
     }
 }

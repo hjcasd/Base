@@ -23,7 +23,8 @@ import com.hjc.base.base.fragment.BaseImmersionFragment;
 import com.hjc.base.constant.EventCode;
 import com.hjc.base.ui.update.utils.UpdateHelper;
 import com.hjc.base.utils.PhotoUtils;
-import com.tbruyelle.rxpermissions2.RxPermissions;
+import com.hjc.base.utils.permission.PermissionCallBack;
+import com.hjc.base.utils.permission.PermissionManager;
 import com.tencent.bugly.crashreport.CrashReport;
 
 import butterknife.BindView;
@@ -89,35 +90,49 @@ public class Tab2Fragment extends BaseImmersionFragment {
                 break;
 
             case R.id.btn_camera:
-                PhotoUtils.openCamera((Activity) mContext);
-//                PhotoUtils.openAlbum((Activity) mContext);
+                openCamera();
                 break;
 
             case R.id.btn_contact:
-                requestPermission();
+                selectContact();
                 break;
         }
     }
 
-    private void requestPermission() {
-        RxPermissions rxPermissions = new RxPermissions(this);
+    /**
+     * 打开相机
+     */
+    private void openCamera() {
+        PermissionManager manager = new PermissionManager(mContext);
+        manager.requestCameraPermission(new PermissionCallBack() {
+            @Override
+            public void onGranted() {
+                ToastUtils.showShort("申请相机权限成功");
+                PhotoUtils.openCamera((Activity) mContext);
+            }
 
-        rxPermissions.requestEach(Manifest.permission.READ_CONTACTS)
-                .subscribe(permission -> {
-                    if (permission.granted) {
-                        ToastUtils.showShort("申请通讯录权限成功");
-                        selectContact();
-                    } else if (permission.shouldShowRequestPermissionRationale) {
-                        ToastUtils.showShort("该应用需要通讯录权限,否则可能会导致应用异常");
-                    } else {
-                        ToastUtils.showShort("申请通讯录权限失败");
-                    }
-                });
+            @Override
+            public void onDenied() {
+                ToastUtils.showShort("申请相机权限失败");
+            }
+        });
     }
 
     private void selectContact() {
-        Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
-        startActivityForResult(intent, 0);
+        PermissionManager manager = new PermissionManager(mContext);
+        manager.requestContactsPermission(new PermissionCallBack() {
+            @Override
+            public void onGranted() {
+                ToastUtils.showShort("申请通讯录权限成功");
+                Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+                startActivityForResult(intent, 0);
+            }
+
+            @Override
+            public void onDenied() {
+                ToastUtils.showShort("申请通讯录权限失败");
+            }
+        });
     }
 
     @Override

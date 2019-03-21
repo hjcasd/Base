@@ -49,7 +49,7 @@ public class UpdateHelper {
                             bundle.putBoolean("isForceUpdate", false);
                             UpdateDialog.newInstance(bundle)
                                     .setAnimStyle(R.style.ActionSheetDialogAnimation)
-                                    .show(fragment.getFragmentManager());
+                                    .showDialog(fragment.getFragmentManager());
                         }
                     }
                 });
@@ -77,7 +77,7 @@ public class UpdateHelper {
                             bundle.putBoolean("isForceUpdate", true);
                             UpdateDialog.newInstance(bundle)
                                     .setAnimStyle(R.style.ActionSheetDialogAnimation)
-                                    .show(activity.getSupportFragmentManager());
+                                    .showDialog(activity.getSupportFragmentManager());
                             return;
                         }
                         //需要更新
@@ -87,7 +87,7 @@ public class UpdateHelper {
                             bundle.putBoolean("isForceUpdate", false);
                             UpdateDialog.newInstance(bundle)
                                     .setAnimStyle(R.style.ActionSheetDialogAnimation)
-                                    .show(activity.getSupportFragmentManager());
+                                    .showDialog(activity.getSupportFragmentManager());
                         }
                     }
                 });
@@ -115,7 +115,7 @@ public class UpdateHelper {
                             bundle.putBoolean("isForceUpdate", true);
                             UpdateDialog.newInstance(bundle)
                                     .setAnimStyle(R.style.ActionSheetDialogAnimation)
-                                    .show(activity.getSupportFragmentManager());
+                                    .showDialog(activity.getSupportFragmentManager());
                             return;
                         }
                         //需要更新
@@ -125,7 +125,7 @@ public class UpdateHelper {
                             bundle.putBoolean("isForceUpdate", false);
                             UpdateDialog.newInstance(bundle)
                                     .setAnimStyle(R.style.ActionSheetDialogAnimation)
-                                    .show(activity.getSupportFragmentManager());
+                                    .showDialog(activity.getSupportFragmentManager());
                         }
                     }
                 });

@@ -146,8 +146,8 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
     implementation 'jp.wasabeef:glide-transformations:4.0.1'
 
-    //权限
-    implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
+    //权限(适配国产手机)
+    implementation 'com.yanzhenjie:permission:2.0.0-rc12'
 
     //沉浸式
     implementation 'com.gyf.immersionbar:immersionbar:2.3.2-beta01'

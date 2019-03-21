@@ -10,8 +10,11 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 
+
 /**
- * 图片相关工具类
+ * @Author: HJC
+ * @Date: 2019/3/21 17:44
+ * @Description: 图片相关工具类
  */
 public class ImageUtils {
 

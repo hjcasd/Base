@@ -50,7 +50,7 @@ public abstract class ProgressObserver<T> extends BaseObserver<T> {
 
     private void showLoading() {
         if (loadingDialog != null) {
-            loadingDialog.show(fragmentManager);
+            loadingDialog.showDialog(fragmentManager);
         }
     }
 
