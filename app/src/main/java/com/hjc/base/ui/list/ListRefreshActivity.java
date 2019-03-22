@@ -28,7 +28,7 @@ public class ListRefreshActivity extends BaseActivity {
     @BindView(R.id.smart_refresh_layout)
     SmartRefreshLayout smartRefreshLayout;
 
-    private ListAdapter mAdapter;
+    private RefreshAdapter mAdapter;
 
     @Override
     public int getLayoutId() {
@@ -45,7 +45,7 @@ public class ListRefreshActivity extends BaseActivity {
     public void initData(Bundle savedInstanceState) {
         rvList.setLayoutManager(new LinearLayoutManager(this));
         rvList.addItemDecoration(new LinearItemDecoration(this, LinearItemDecoration.VERTICAL_LIST, R.drawable.shape_rv_divider));
-        mAdapter = new ListAdapter(generateData());
+        mAdapter = new RefreshAdapter(generateData());
         rvList.setAdapter(mAdapter);
 
         mAdapter.openLoadAnimation();

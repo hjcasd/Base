@@ -30,7 +30,7 @@ public class ListEmptyActivity extends BaseActivity {
     private TextView tvStateContent;
 
     private LoadingDialog loadingDialog;
-    private ListAdapter mAdapter;
+    private EmptyAdapter mAdapter;
 
     @Override
     public int getLayoutId() {
@@ -50,7 +50,7 @@ public class ListEmptyActivity extends BaseActivity {
         loadingDialog.showDialog(getSupportFragmentManager());
 
         rvList.setLayoutManager(new LinearLayoutManager(this));
-        mAdapter = new ListAdapter(null);
+        mAdapter = new EmptyAdapter(null);
         rvList.setAdapter(mAdapter);
 
         Observable.timer(2, TimeUnit.SECONDS)

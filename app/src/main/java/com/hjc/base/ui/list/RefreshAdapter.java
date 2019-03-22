@@ -14,13 +14,13 @@ import com.hjc.base.R;
 
 import java.util.List;
 
-public class ListAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
+public class RefreshAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
 
     private SparseArray<String> sparseArray = new SparseArray();
 
     private int focusPosition = -1;
 
-    public ListAdapter(@Nullable List<String> data) {
+    public RefreshAdapter(@Nullable List<String> data) {
         super(R.layout.item_rv_list, data);
     }
 
