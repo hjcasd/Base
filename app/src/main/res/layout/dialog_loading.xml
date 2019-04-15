@@ -2,14 +2,16 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_loading_round"
+    android:padding="10dp">
 
     <com.github.ybq.android.spinkit.SpinKitView
         android:id="@+id/spin_kit_view"
         style="@style/SpinKitView.Circle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:SpinKit_Color="@color/colorPrimary"
+        app:SpinKit_Color="@color/colorPrimaryDark"
         app:layout_constraintBottom_toTopOf="@id/tv_desc"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -20,8 +22,9 @@
         android:id="@+id/tv_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="加载中,请稍后..."
         android:layout_marginTop="10dp"
+        android:text="加载中,请稍后..."
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

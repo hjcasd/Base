@@ -6,5 +6,7 @@ package com.hjc.base.base.mvp;
  * @Description: View层基类
  */
 public interface BaseView {
+    void showLoading();
 
+    void hideLoading();
 }

@@ -1,4 +1,4 @@
-package com.hjc.base.widget;
+package com.hjc.base.widget.text;
 
 import android.content.Context;
 import android.graphics.Canvas;

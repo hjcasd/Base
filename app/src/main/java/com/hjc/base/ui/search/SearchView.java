@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.hjc.base.R;
-import com.hjc.base.widget.DeleteEditText;
+import com.hjc.base.widget.text.DeleteEditText;
 
 import java.util.ArrayList;
 import java.util.List;

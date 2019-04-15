@@ -201,15 +201,15 @@ public class TitleBar extends LinearLayout {
         }
     }
 
-    //设置标题大小
-    public void setTitleSize(int size) {
-        tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
-    }
-
-    //设置标题颜色
-    public void setTitleTextColor(int color) {
-        tvTitle.setTextColor(color);
-    }
+//    //设置标题大小
+//    public void setTitleSize(int size) {
+//        tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
+//    }
+//
+//    //设置标题颜色
+//    public void setTitleTextColor(int color) {
+//        tvTitle.setTextColor(color);
+//    }
 
     //设置左标题
     public void setLeftText(String title) {
@@ -221,15 +221,15 @@ public class TitleBar extends LinearLayout {
         }
     }
 
-    //设置左标题大小
-    public void setLeftTextSize(int size) {
-        tvLeft.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
-    }
-
-    //设置左标题颜色
-    public void setLeftTextColor(int color) {
-        tvLeft.setTextColor(color);
-    }
+//    //设置左标题大小
+//    public void setLeftTextSize(int size) {
+//        tvLeft.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
+//    }
+//
+//    //设置左标题颜色
+//    public void setLeftTextColor(int color) {
+//        tvLeft.setTextColor(color);
+//    }
 
     //设置左图标
     public void setLeftDrawable(int res) {
@@ -251,15 +251,15 @@ public class TitleBar extends LinearLayout {
         }
     }
 
-    //设置右标题大小
-    public void setRightTextSize(int size) {
-        tvRight.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
-    }
-
-    //设置右标题颜色
-    public void setRightTextColor(int color) {
-        tvRight.setTextColor(color);
-    }
+//    //设置右标题大小
+//    public void setRightTextSize(int size) {
+//        tvRight.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
+//    }
+//
+//    //设置右标题颜色
+//    public void setRightTextColor(int color) {
+//        tvRight.setTextColor(color);
+//    }
 
     //设置右图标
     public void setRightDrawable(int res) {

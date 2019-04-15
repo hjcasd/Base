@@ -3,7 +3,7 @@ package com.hjc.base.http.observer;
 import android.support.v4.app.FragmentManager;
 
 import com.blankj.utilcode.util.ToastUtils;
-import com.hjc.base.widget.dialog.LoadingDialog;
+import com.hjc.base.utils.dialog.LoadingDialog;
 
 import io.reactivex.disposables.Disposable;
 

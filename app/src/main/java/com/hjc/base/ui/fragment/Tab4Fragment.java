@@ -12,7 +12,7 @@ import com.hjc.base.http.helper.RxSchedulers;
 import com.hjc.base.ui.drawer.DrawerCustomActivity;
 import com.hjc.base.ui.drawer.DrawerNavigationActivity;
 import com.hjc.base.ui.keyboard.KeyboardActivity;
-import com.hjc.base.widget.dialog.LoadingDialog;
+import com.hjc.base.utils.dialog.LoadingDialog;
 
 import java.util.concurrent.TimeUnit;
 

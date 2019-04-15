@@ -59,6 +59,9 @@ public class HttpClient {
         return mBuilder;
     }
 
+    /**
+     * 数字签名
+     */
     private SSLSocketFactory createSSLSocketFactory() {
         SSLSocketFactory sSLSocketFactory = null;
         try {

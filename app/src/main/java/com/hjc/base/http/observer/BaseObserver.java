@@ -2,7 +2,7 @@ package com.hjc.base.http.observer;
 
 import com.hjc.base.http.bean.BaseResponse;
 import com.hjc.base.http.exception.ApiException;
-import com.hjc.base.http.exception.RxExceptionUtils;
+import com.hjc.base.http.exception.ExceptionUtils;
 import com.hjc.base.http.exception.ServerCode;
 
 import io.reactivex.Observer;
@@ -26,7 +26,7 @@ public abstract class BaseObserver<T> implements Observer<BaseResponse<T>> {
 
     @Override
     public void onError(Throwable e) {
-        onFailure(RxExceptionUtils.handleException(e));
+        onFailure(ExceptionUtils.handleException(e));
     }
 
     @Override

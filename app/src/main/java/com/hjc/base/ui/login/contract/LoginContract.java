@@ -8,10 +8,6 @@ public interface LoginContract {
 
     interface View extends BaseView {
         void toMainActivity();
-
-        void showLoading();
-
-        void hideLoading();
     }
 
     interface Presenter {

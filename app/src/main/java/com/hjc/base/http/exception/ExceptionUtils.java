@@ -13,7 +13,7 @@ import retrofit2.HttpException;
  * @Date: 2019/1/7 11:48
  * @Description: 对返回的错误进行处理
  */
-public class RxExceptionUtils {
+public class ExceptionUtils {
     public static String handleException(Throwable e) {
         String error = "未知错误";
         if (e instanceof UnknownHostException) {

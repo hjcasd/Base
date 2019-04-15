@@ -20,7 +20,7 @@ import com.hjc.base.ui.MainActivity;
 import com.hjc.base.ui.login.contract.LoginContract;
 import com.hjc.base.ui.login.model.LoginRequest;
 import com.hjc.base.ui.login.presenter.LoginPresenter;
-import com.hjc.base.widget.dialog.LoadingDialog;
+import com.hjc.base.utils.dialog.LoadingDialog;
 
 import butterknife.BindView;
 

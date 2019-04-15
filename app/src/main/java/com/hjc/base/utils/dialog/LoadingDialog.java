@@ -1,4 +1,4 @@
-package com.hjc.base.widget.dialog;
+package com.hjc.base.utils.dialog;
 
 import android.os.Bundle;
 import android.view.View;
@@ -36,7 +36,7 @@ public class LoadingDialog extends BaseDialog {
     @Override
     public void initData(Bundle savedInstanceState) {
         //去掉遮盖层
-//        getDialog().getWindow().setDimAmount(0f);
+        getDialog().getWindow().setDimAmount(0f);
         setCancelable(false);
     }
 
