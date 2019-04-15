@@ -16,13 +16,14 @@ import java.util.List;
  */
 public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseViewHolder> {
     protected Context mContext;
-    protected List<T> mDataList;
+    private List<T> mDataList;
 
     public BaseRecyclerAdapter(Context context, List<T> dataList) {
         this.mContext = context;
         this.mDataList = dataList;
     }
 
+    @NonNull
     @Override
     public BaseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext).inflate(getLayoutId(), parent, false);

@@ -33,6 +33,7 @@ public abstract class BaseFragmentActivity extends RxFragmentActivity implements
         setContentView(getLayoutId());
 
         mBinder = ButterKnife.bind(this);
+
         ARouter.getInstance().inject(this);
         ActivityManager.addActivity(this);
 

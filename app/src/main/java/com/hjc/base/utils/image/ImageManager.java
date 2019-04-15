@@ -1,10 +1,8 @@
 package com.hjc.base.utils.image;
 
-import android.content.Context;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
@@ -12,8 +10,6 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.request.RequestOptions;
 import com.hjc.base.R;
-
-import java.io.File;
 
 import jp.wasabeef.glide.transformations.BlurTransformation;
 
@@ -23,7 +19,7 @@ import jp.wasabeef.glide.transformations.BlurTransformation;
  * @Date: 2019/3/21 17:44
  * @Description: Glide封装类
  */
-public class ImageLoader {
+public class ImageManager {
 
     /**
      * 加载图片(默认方式)

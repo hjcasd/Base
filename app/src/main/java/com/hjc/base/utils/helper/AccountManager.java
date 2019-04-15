@@ -29,8 +29,8 @@ public class AccountManager {
     }
 
     public void init(boolean isLogin, String username) {
-        AccountManager.getInstance().setLogin(isLogin);
-        AccountManager.getInstance().setUsername(username);
+        setLogin(isLogin);
+        setUsername(username);
     }
 
     /**
@@ -77,8 +77,8 @@ public class AccountManager {
      * 清除账户信息
      */
     public void clear() {
-        AccountManager.getInstance().setLogin(false);
-        AccountManager.getInstance().setUsername("");
-        AccountManager.getInstance().setCookie("");
+        setLogin(false);
+        setUsername("");
+        setCookie("");
     }
 }

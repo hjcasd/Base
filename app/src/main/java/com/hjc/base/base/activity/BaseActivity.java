@@ -29,6 +29,7 @@ public abstract class BaseActivity extends RxAppCompatActivity implements View.O
         setContentView(getLayoutId());
 
         mBinder = ButterKnife.bind(this);
+
         ARouter.getInstance().inject(this);
         ActivityManager.addActivity(this);
 
