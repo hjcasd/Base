@@ -11,7 +11,7 @@ import com.hjc.base.R;
 import com.hjc.base.base.activity.BaseActivity;
 import com.hjc.base.http.helper.RxSchedulers;
 import com.hjc.base.widget.TitleBar;
-import com.hjc.base.utils.dialog.LoadingDialog;
+import com.hjc.base.widget.dialog.LoadingDialog;
 
 import java.util.ArrayList;
 import java.util.List;

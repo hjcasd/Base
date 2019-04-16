@@ -1,7 +1,9 @@
-package com.hjc.base.utils.dialog;
+package com.hjc.base.widget.dialog;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.hjc.base.R;
@@ -34,9 +36,17 @@ public class LoadingDialog extends BaseDialog {
     }
 
     @Override
+    protected int getWidth() {
+        return WindowManager.LayoutParams.WRAP_CONTENT;
+    }
+
+    @Override
     public void initData(Bundle savedInstanceState) {
         //去掉遮盖层
-        getDialog().getWindow().setDimAmount(0f);
+        Window window = getDialog().getWindow();
+        if (window != null) {
+            window.setDimAmount(0f);
+        }
         setCancelable(false);
     }
 
