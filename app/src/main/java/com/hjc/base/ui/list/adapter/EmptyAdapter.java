@@ -1,4 +1,4 @@
-package com.hjc.base.ui.list;
+package com.hjc.base.ui.list.adapter;
 
 import android.support.annotation.Nullable;
 

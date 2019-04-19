@@ -16,7 +16,7 @@
         app:leftText="返回"
         app:leftTextColor="@color/white"
         app:leftTextSize="16sp"
-        app:titleText="列表"
+        app:titleText="列表刷新"
         app:titleColor="@color/white"/>
 
     <com.scwang.smartrefresh.layout.SmartRefreshLayout

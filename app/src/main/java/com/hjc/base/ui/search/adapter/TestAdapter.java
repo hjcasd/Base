@@ -1,4 +1,4 @@
-package com.hjc.base.ui.search;
+package com.hjc.base.ui.search.adapter;
 
 import android.content.Context;
 
