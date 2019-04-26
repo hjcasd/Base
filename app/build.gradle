@@ -168,13 +168,14 @@ dependencies {
     implementation 'com.tencent.bugly:crashreport:2.8.6'
     implementation 'com.tencent.bugly:nativecrashreport:3.6.0'
 
-    //列表
+    //列表适配器
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.44'
 
     //刷新
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-18'
     implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-18'
 
+    //路由
     implementation 'com.alibaba:arouter-api:1.4.1'
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
 }

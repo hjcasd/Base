@@ -75,6 +75,14 @@
             android:screenOrientation="portrait" />
 
         <activity
+            android:name=".ui.list.ListExpandActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.list.StateViewActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name=".ui.keyboard.KeyboardActivity"
             android:screenOrientation="portrait" />
 

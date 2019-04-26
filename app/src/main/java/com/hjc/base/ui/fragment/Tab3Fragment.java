@@ -17,6 +17,7 @@ import com.hjc.base.constant.EventCode;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.ui.list.ListEmptyActivity;
 import com.hjc.base.ui.list.ListRefreshActivity;
+import com.hjc.base.ui.list.StateViewActivity;
 import com.hjc.base.ui.search.SearchActivity;
 
 import org.greenrobot.eventbus.Subscribe;
@@ -36,6 +37,8 @@ public class Tab3Fragment extends BaseImmersionFragment {
     Button btnRefresh;
     @BindView(R.id.btn_router)
     Button btnRouter;
+    @BindView(R.id.btn_state)
+    Button btnState;
 
     public static Tab3Fragment newInstance() {
         Tab3Fragment fragment = new Tab3Fragment();
@@ -70,6 +73,7 @@ public class Tab3Fragment extends BaseImmersionFragment {
         btnSearch.setOnClickListener(this);
         btnEmpty.setOnClickListener(this);
         btnRefresh.setOnClickListener(this);
+        btnState.setOnClickListener(this);
         btnRouter.setOnClickListener(this);
     }
 
@@ -88,6 +92,10 @@ public class Tab3Fragment extends BaseImmersionFragment {
                 startActivity(new Intent(mContext, ListRefreshActivity.class));
                 break;
 
+            case R.id.btn_state:
+                startActivity(new Intent(mContext, StateViewActivity.class));
+                break;
+
             case R.id.btn_router:
                 ARouter.getInstance().build(RoutePath.URL_LOGIN).navigation();
                 break;
@@ -99,4 +107,5 @@ public class Tab3Fragment extends BaseImmersionFragment {
         super.onDestroy();
         EventManager.unregister(this);
     }
+
 }
