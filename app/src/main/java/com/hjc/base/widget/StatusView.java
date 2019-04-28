@@ -15,7 +15,7 @@ import java.util.ArrayList;
 /**
  * @Author: HJC
  * @Date: 2019/4/26 11:56
- * @Description: 多状态视图
+ * @Description: 页面多状态视图
  */
 public class StatusView extends RelativeLayout {
     private static final LayoutParams DEFAULT_LAYOUT_PARAMS = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
