@@ -33,13 +33,7 @@ public class RefreshAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
         EditText etTest = helper.getView(R.id.et_test);
         etTest.setText(sparseArray.get(position));
 
-//        if (focusPosition == position) {
-//            etTest.requestFocus();
-//            etTest.setSelection(etTest.getText().length());
-//        }
-
         etTest.addTextChangedListener(textWatcher);
-
         etTest.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
@@ -48,16 +42,10 @@ public class RefreshAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
                 }
             }
         });
+    }
 
-//        etTest.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                if (event.getAction() == MotionEvent.ACTION_UP) {
-//                    focusPosition = position;
-//                }
-//                return false;
-//            }
-//        });
+    public String getText(int position){
+        return sparseArray.get(position);
     }
 
     @Override

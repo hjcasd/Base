@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.hjc.base.R;
 import com.hjc.base.base.activity.BaseActivity;
 import com.hjc.base.ui.list.adapter.RefreshAdapter;
@@ -46,6 +47,7 @@ public class ListRefreshActivity extends BaseActivity {
     public void initData(Bundle savedInstanceState) {
         rvList.setLayoutManager(new LinearLayoutManager(this));
         rvList.addItemDecoration(new LinearItemDecoration(this, LinearItemDecoration.VERTICAL_LIST, R.drawable.shape_rv_divider));
+
         mAdapter = new RefreshAdapter(generateData());
         rvList.setAdapter(mAdapter);
 
@@ -62,7 +64,7 @@ public class ListRefreshActivity extends BaseActivity {
 
             @Override
             public void rightClick(View view) {
-
+//                complete();
             }
         });
 
@@ -75,10 +77,28 @@ public class ListRefreshActivity extends BaseActivity {
         });
     }
 
-    private List<String> generateData(){
+    private void complete() {
+        RecyclerView.LayoutManager manager = rvList.getLayoutManager();
+
+        //RecyclerView条目总数量,50
+        int itemCount = manager.getItemCount();
+
+        //RecyclerView可视条目总数量,10
+        int childCount = manager.getChildCount();
+
+        LogUtils.e("ItemCount===" + itemCount);
+        LogUtils.e("ChildCount===" + childCount);
+
+        for (int i = 0; i < itemCount; i++) {
+            String text = mAdapter.getText(i);
+            LogUtils.e(text);
+        }
+    }
+
+    private List<String> generateData() {
         List<String> list = new ArrayList<>();
         for (int i = 0; i < 50; i++) {
-            list.add("我是第" + i + "个条目");
+            list.add("我是第" + (i + 1) + "个条目");
         }
         return list;
     }
