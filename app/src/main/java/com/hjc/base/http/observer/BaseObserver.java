@@ -20,7 +20,7 @@ public abstract class BaseObserver<T> implements Observer<BaseResponse<T>> {
         if (ServerCode.CODE_SUCCESS.equals(response.getCode())) {  //请求成功
             onSuccess(response.getData());
         } else { //请求成功,Code错误,抛出ApiException
-            ObservableError.error(new ApiException(response.getMessage(), response.getCode()));
+            onError(new ApiException(response.getMessage(), response.getCode()));
         }
     }
 

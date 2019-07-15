@@ -1,17 +1,13 @@
 package com.hjc.base.ui.fragment;
 
 
-import android.Manifest;
-import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.blankj.utilcode.util.LogUtils;
@@ -26,10 +22,9 @@ import com.hjc.base.utils.PhotoUtils;
 import com.hjc.base.utils.permission.PermissionCallBack;
 import com.hjc.base.utils.permission.PermissionManager;
 import com.tencent.bugly.crashreport.CrashReport;
+import com.yanzhenjie.permission.runtime.Permission;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 
 public class Tab2Fragment extends BaseImmersionFragment {
@@ -103,42 +98,47 @@ public class Tab2Fragment extends BaseImmersionFragment {
      * 打开相机
      */
     private void openCamera() {
-        PermissionManager manager = new PermissionManager(mContext);
-        manager.requestCameraPermission(new PermissionCallBack() {
-            @Override
-            public void onGranted() {
-                ToastUtils.showShort("申请相机权限成功");
-                PhotoUtils.openCamera((Activity) mContext);
-            }
+        PermissionManager.getInstance()
+                .with(this)
+                .requestPermissionInFragment(new PermissionCallBack() {
+                    @Override
+                    public void onGranted() {
+                        PhotoUtils.openCamera(getActivity());
+                    }
 
-            @Override
-            public void onDenied() {
-                ToastUtils.showShort("申请相机权限失败");
-            }
-        });
+                    @Override
+                    public void onDenied() {
+                        ToastUtils.showShort("申请相机权限失败");
+                    }
+                }, Permission.Group.CAMERA);
     }
 
+    /**
+     * 选择联系人
+     */
     private void selectContact() {
-        PermissionManager manager = new PermissionManager(mContext);
-        manager.requestContactsPermission(new PermissionCallBack() {
-            @Override
-            public void onGranted() {
-                ToastUtils.showShort("申请通讯录权限成功");
-                Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
-                startActivityForResult(intent, 0);
-            }
+        PermissionManager.getInstance()
+                .with(this)
+                .requestPermissionInFragment(new PermissionCallBack() {
+                    @Override
+                    public void onGranted() {
+                        Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+                        startActivityForResult(intent, 100);
+                    }
 
-            @Override
-            public void onDenied() {
-                ToastUtils.showShort("申请通讯录权限失败");
-            }
-        });
+                    @Override
+                    public void onDenied() {
+                        ToastUtils.showShort("申请通讯录权限失败");
+                    }
+                }, Permission.READ_CONTACTS);
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        getContacts(data);
+        if (requestCode == 100) {
+            getContacts(data);
+        }
     }
 
     private void getContacts(Intent data) {
@@ -154,7 +154,6 @@ public class Tab2Fragment extends BaseImmersionFragment {
         Uri contactUri = data.getData();
         Cursor cursor = mContext.getContentResolver().query(contactUri, null, null, null, null);
 
-        LogUtils.e("11111111111");
         if (cursor.moveToFirst()) {
             String name = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
             String id = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID));
@@ -190,6 +189,5 @@ public class Tab2Fragment extends BaseImmersionFragment {
             }
             cursor.close();
         }
-        LogUtils.e("333333333333");
     }
 }

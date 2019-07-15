@@ -1,15 +1,10 @@
 package com.hjc.base.utils.permission;
 
+import android.app.Activity;
 import android.content.Context;
-import android.support.v7.app.AlertDialog;
-import android.text.TextUtils;
+import android.support.v4.app.Fragment;
 
-import com.blankj.utilcode.util.ToastUtils;
-import com.hjc.base.R;
 import com.yanzhenjie.permission.AndPermission;
-import com.yanzhenjie.permission.Permission;
-
-import java.util.List;
 
 /**
  * @Author: HJC
@@ -17,108 +12,96 @@ import java.util.List;
  * @Description: 权限管理封装类
  */
 public class PermissionManager {
+    private static PermissionManager mInstance;
+
     private Context mContext;
+    private Activity mActivity;
+    private Fragment mFragment;
 
-    public PermissionManager(Context context) {
+    private PermissionManager() {
+    }
+
+    public static PermissionManager getInstance() {
+        if (mInstance == null) {
+            synchronized (PermissionManager.class) {
+                if (mInstance == null) {
+                    mInstance = new PermissionManager();
+                }
+            }
+        }
+        return mInstance;
+    }
+
+    public PermissionManager with(Context context) {
         this.mContext = context;
+        return mInstance;
+    }
+
+    public PermissionManager with(Activity activity) {
+        this.mActivity = activity;
+        return mInstance;
+    }
+
+    public PermissionManager with(Fragment fragment) {
+        this.mFragment = fragment;
+        return mInstance;
     }
 
     /**
-     * 获取存储权限
+     * 申请权限(Context)
      *
-     * @param callBack 回调
+     * @param callBack    回调
+     * @param permissions 要申请的权限
      */
-    public void requestStoragePermission(PermissionCallBack callBack) {
+    public void requestPermission(PermissionCallBack callBack, String... permissions) {
+        if (mContext == null) {
+            return;
+        }
         AndPermission.with(mContext)
                 .runtime()
-                .permission(Permission.Group.STORAGE)
+                .permission(permissions)
                 .rationale(new RuntimeRationale())
-                .onGranted(permissions -> callBack.onGranted())
-                .onDenied(permissions -> {
-                    if (AndPermission.hasAlwaysDeniedPermission(mContext, permissions)) {
-                        showSettingDialog(permissions);
-                    } else {
-                        callBack.onDenied();
-                    }
-                })
+                .onGranted(data -> callBack.onGranted())
+                .onDenied(data -> callBack.onDenied())
                 .start();
     }
 
     /**
-     * 获取相机权限
+     * 申请权限(Activity)
      *
-     * @param callBack 回调
+     * @param callBack    回调
+     * @param permissions 要申请的权限
      */
-    public void requestCameraPermission(PermissionCallBack callBack) {
-        AndPermission.with(mContext)
+    public void requestPermissionInActivity(PermissionCallBack callBack, String... permissions) {
+        if (mActivity == null) {
+            return;
+        }
+        AndPermission.with(mActivity)
                 .runtime()
-                .permission(Permission.Group.CAMERA)
+                .permission(permissions)
                 .rationale(new RuntimeRationale())
-                .onGranted(permissions -> callBack.onGranted())
-                .onDenied(permissions -> {
-                    if (AndPermission.hasAlwaysDeniedPermission(mContext, permissions)) {
-                        showSettingDialog(permissions);
-                    } else {
-                        callBack.onDenied();
-                    }
-                })
+                .onGranted(data -> callBack.onGranted())
+                .onDenied(data -> callBack.onDenied())
                 .start();
     }
 
-
     /**
-     * 获取通讯录权限
+     * 申请权限(Fragment)
      *
-     * @param callBack 回调
+     * @param callBack    回调
+     * @param permissions 要申请的权限
      */
-    public void requestContactsPermission(PermissionCallBack callBack) {
-        AndPermission.with(mContext)
+    public void requestPermissionInFragment(PermissionCallBack callBack, String... permissions) {
+        if (mFragment == null) {
+            return;
+        }
+        AndPermission.with(mFragment)
                 .runtime()
-                .permission(Permission.READ_CONTACTS)
+                .permission(permissions)
                 .rationale(new RuntimeRationale())
-                .onGranted(permissions -> callBack.onGranted())
-                .onDenied(permissions -> {
-                    if (AndPermission.hasAlwaysDeniedPermission(mContext, permissions)) {
-                        showSettingDialog(permissions);
-                    } else {
-                        callBack.onDenied();
-                    }
-                })
+                .onGranted(data -> callBack.onGranted())
+                .onDenied(data -> callBack.onDenied())
                 .start();
     }
 
-
-    /**
-     * 显示去设置页面手动开启权限的dialog
-     */
-    private void showSettingDialog(final List<String> permissions) {
-        List<String> permissionNames = Permission.transformText(mContext, permissions);
-        String message = mContext.getString(R.string.message_permission_always_failed, TextUtils.join("\n", permissionNames));
-
-        new AlertDialog.Builder(mContext)
-                .setCancelable(false)
-                .setTitle(R.string.tip)
-                .setMessage(message)
-                .setPositiveButton(R.string.setting, (dialog, which) -> toSetPermission(mContext, permissions))
-                .setNegativeButton(R.string.cancel, (dialog, which) -> ToastUtils.showLong("请去设置页面申请权限,以便程序继续运行"))
-                .show();
-    }
-
-
-    /**
-     * 去设置页面手动开启权限
-     */
-    private void toSetPermission(Context context, List<String> permissions) {
-        AndPermission.with(context)
-                .runtime()
-                .setting()
-                .onComeback(() -> {
-                    if (AndPermission.hasPermissions(context, permissions.toArray(new String[]{}))) {
-                        ToastUtils.showShort("权限申请成功");
-                    } else {
-                        ToastUtils.showShort("权限申请失败,请重新去设置页面申请");
-                    }
-                })
-                .start();
-    }
 }

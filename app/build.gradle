@@ -129,8 +129,8 @@ dependencies {
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
 
     //RxJava
-    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.7'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
     implementation 'com.trello.rxlifecycle2:rxlifecycle:2.2.1'
     implementation 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.1'
 
@@ -142,12 +142,12 @@ dependencies {
     implementation 'org.greenrobot:eventbus:3.1.1'
 
     //图片处理框架
-    implementation 'com.github.bumptech.glide:glide:4.8.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
     implementation 'jp.wasabeef:glide-transformations:4.0.1'
 
     //权限(适配国产手机)
-    implementation 'com.yanzhenjie:permission:2.0.0-rc12'
+    implementation 'com.yanzhenjie.permission:support:2.0.1'
 
     //沉浸式
     implementation 'com.gyf.immersionbar:immersionbar:2.3.2-beta01'
@@ -169,7 +169,7 @@ dependencies {
     implementation 'com.tencent.bugly:nativecrashreport:3.6.0'
 
     //列表适配器
-    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.44'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46'
 
     //刷新
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-18'

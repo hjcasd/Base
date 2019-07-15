@@ -14,6 +14,7 @@ import com.hjc.base.ui.fragment.Tab3Fragment;
 import com.hjc.base.ui.fragment.Tab4Fragment;
 import com.hjc.base.utils.permission.PermissionCallBack;
 import com.hjc.base.utils.permission.PermissionManager;
+import com.yanzhenjie.permission.runtime.Permission;
 
 import butterknife.BindView;
 
@@ -53,18 +54,19 @@ public class MainActivity extends BaseFragmentActivity {
      * 申请权限
      */
     private void requestPermission() {
-        PermissionManager manager = new PermissionManager(this);
-        manager.requestStoragePermission(new PermissionCallBack() {
-            @Override
-            public void onGranted() {
-                ToastUtils.showShort("申请存储权限成功");
-            }
+        PermissionManager.getInstance()
+                .with(this)
+                .requestPermissionInActivity(new PermissionCallBack() {
+                    @Override
+                    public void onGranted() {
+                        ToastUtils.showShort("申请存储权限成功");
+                    }
 
-            @Override
-            public void onDenied() {
-                ToastUtils.showShort("申请存储权限失败");
-            }
-        });
+                    @Override
+                    public void onDenied() {
+                        ToastUtils.showShort("申请存储权限失败");
+                    }
+                }, Permission.Group.STORAGE);
     }
 
     @Override
