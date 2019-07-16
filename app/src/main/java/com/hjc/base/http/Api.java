@@ -3,7 +3,9 @@ package com.hjc.base.http;
 
 import com.hjc.base.http.bean.BaseResponse;
 import com.hjc.base.http.config.URLConfig;
+import com.hjc.base.model.request.LoginReq;
 import com.hjc.base.model.request.UpdateRequest;
+import com.hjc.base.model.response.LoginResp;
 import com.hjc.base.model.response.VersionBean;
 
 import io.reactivex.Observable;
@@ -28,4 +30,8 @@ public interface Api {
     @Streaming
     @GET
     Observable<ResponseBody> downloadApk(@Url String url);
+
+    //登录
+    @POST(URLConfig.URL_LOGIN)
+    Observable<BaseResponse<LoginResp>> login(@Body LoginReq req);
 }

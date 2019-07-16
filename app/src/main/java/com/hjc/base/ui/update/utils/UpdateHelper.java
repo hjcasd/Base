@@ -3,7 +3,7 @@ package com.hjc.base.ui.update.utils;
 import android.os.Bundle;
 
 import com.hjc.base.R;
-import com.hjc.base.http.RetrofitClient;
+import com.hjc.base.http.RetrofitClient2;
 import com.hjc.base.http.helper.RxHelper;
 import com.hjc.base.http.observer.CommonObserver;
 import com.hjc.base.model.request.UpdateRequest;
@@ -20,7 +20,7 @@ public class UpdateHelper {
     public static void check(RxFragment fragment) {
         UpdateRequest request = new UpdateRequest();
         request.setAppType("1");
-        RetrofitClient.getInstance().getAPI()
+        RetrofitClient2.getInstance().getAPI()
                 .checkVersion(request)
                 .compose(RxHelper.bind(fragment))
                 .subscribe(new CommonObserver<VersionBean>() {
@@ -58,7 +58,7 @@ public class UpdateHelper {
     public static void check(RxAppCompatActivity activity) {
         UpdateRequest request = new UpdateRequest();
         request.setAppType("1");
-        RetrofitClient.getInstance().getAPI()
+        RetrofitClient2.getInstance().getAPI()
                 .checkVersion(request)
                 .compose(RxHelper.bind(activity))
                 .subscribe(new CommonObserver<VersionBean>() {
@@ -96,7 +96,7 @@ public class UpdateHelper {
     public static void check(RxFragmentActivity activity) {
         UpdateRequest request = new UpdateRequest();
         request.setAppType("1");
-        RetrofitClient.getInstance().getAPI()
+        RetrofitClient2.getInstance().getAPI()
                 .checkVersion(request)
                 .compose(RxHelper.bind(activity))
                 .subscribe(new CommonObserver<VersionBean>() {

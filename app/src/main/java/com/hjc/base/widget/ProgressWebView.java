@@ -21,10 +21,10 @@ public class ProgressWebView extends WebView {
     public ProgressWebView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mProgressBar = new ProgressBar(context, null, android.R.attr.progressBarStyleHorizontal);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 8);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 2);
         mProgressBar.setLayoutParams(layoutParams);
 
-        Drawable drawable = context.getResources().getDrawable(R.drawable.web_progress_bar_bg);
+        Drawable drawable = context.getResources().getDrawable(R.drawable.shape_web_progress_bar);
         mProgressBar.setProgressDrawable(drawable);
         addView(mProgressBar);
         setWebChromeClient(new WebChromeClient());

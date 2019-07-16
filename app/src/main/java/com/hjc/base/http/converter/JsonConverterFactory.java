@@ -1,6 +1,8 @@
 package com.hjc.base.http.converter;
 
 import com.google.gson.Gson;
+import com.google.gson.TypeAdapter;
+import com.google.gson.reflect.TypeToken;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
@@ -15,26 +17,29 @@ import retrofit2.Retrofit;
  * @Date: 2019/1/7 11:43
  * @Description: Gson数据转换
  */
-public class MyGsonConverterFactory extends Converter.Factory {
+public class JsonConverterFactory extends Converter.Factory {
     private final Gson mGson;
 
-    private MyGsonConverterFactory(Gson gson) {
-        if (gson == null) throw new NullPointerException("gson == null");
+    private JsonConverterFactory(Gson gson) {
+        if (gson == null) {
+            throw new NullPointerException("gson == null");
+        }
         this.mGson = gson;
     }
 
-    public static MyGsonConverterFactory create() {
-        return new MyGsonConverterFactory(new Gson());
+    public static JsonConverterFactory create() {
+        return new JsonConverterFactory(new Gson());
     }
 
     @Override
     public Converter<?, RequestBody> requestBodyConverter(Type type, Annotation[] parameterAnnotations, Annotation[] methodAnnotations, Retrofit retrofit) {
-        return new MyGsonRequestConverter<>();
+        TypeAdapter<?> adapter = mGson.getAdapter(TypeToken.get(type));
+        return new JsonRequestBodyConverter<>(mGson, adapter);  //请求
     }
 
 
     @Override
     public Converter<ResponseBody, ?> responseBodyConverter(Type type, Annotation[] annotations, Retrofit retrofit) {
-        return new MyGsonResponseConverter<>(mGson, type);
+        return new JsonResponseBodyConverter<>(mGson, type);  //响应
     }
 }

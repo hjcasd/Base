@@ -13,11 +13,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * @Date: 2019/1/7 11:55
  * @Description: Retrofit封装
  */
-public class RetrofitClient {
-    private static RetrofitClient mRetrofitClient;
+public class RetrofitClient2 {
+    private static RetrofitClient2 mRetrofitClient;
     private static Api mAPI;
 
-    private RetrofitClient() {
+    private RetrofitClient2() {
         OkHttpClient.Builder builder = HttpClient.getInstance().getBuilder();
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -30,11 +30,11 @@ public class RetrofitClient {
         mAPI = retrofit.create(Api.class);
     }
 
-    public static RetrofitClient getInstance() {
+    public static RetrofitClient2 getInstance() {
         if (mRetrofitClient == null) {
-            synchronized (RetrofitClient.class) {
+            synchronized (RetrofitClient2.class) {
                 if (mRetrofitClient == null)
-                    mRetrofitClient = new RetrofitClient();
+                    mRetrofitClient = new RetrofitClient2();
             }
         }
         return mRetrofitClient;

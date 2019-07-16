@@ -1,5 +1,7 @@
 package com.hjc.base.http.bean;
 
+import android.support.annotation.NonNull;
+
 /**
  * @Author: HJC
  * @Date: 2019/1/7 11:46
@@ -34,6 +36,7 @@ public class BaseResponse<T> {
         this.data = data;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "BaseResponse{" + "code=" + code + ", message='" + message + '\'' + ", data=" + data + '}';

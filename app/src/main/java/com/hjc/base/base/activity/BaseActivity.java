@@ -8,7 +8,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.ToastUtils;
 import com.gyf.barlibrary.ImmersionBar;
 import com.hjc.base.R;
-import com.hjc.base.utils.FastClickUtils;
+import com.hjc.base.utils.ClickUtils;
 import com.hjc.base.utils.helper.ActivityManager;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
@@ -87,7 +87,7 @@ public abstract class BaseActivity extends RxAppCompatActivity implements View.O
     @Override
     public void onClick(View v) {
         //避免快速点击
-        if (FastClickUtils.isFastClick()) {
+        if (ClickUtils.isFastClick()) {
             ToastUtils.showShort("点的太快了,歇会呗!");
             return;
         }

@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.ToastUtils;
-import com.hjc.base.utils.FastClickUtils;
+import com.hjc.base.utils.ClickUtils;
 import com.trello.rxlifecycle2.components.support.RxFragment;
 
 import butterknife.ButterKnife;
@@ -78,7 +78,7 @@ public abstract class BaseFragment extends RxFragment implements View.OnClickLis
 	@Override
 	public void onClick(View view) {
         //避免快速点击
-        if (FastClickUtils.isFastClick()){
+        if (ClickUtils.isFastClick()){
             ToastUtils.showShort("点的太快了,歇会呗!");
             return;
         }

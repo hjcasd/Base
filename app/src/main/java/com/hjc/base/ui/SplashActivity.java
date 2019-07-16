@@ -7,7 +7,6 @@ import android.view.View;
 import com.hjc.base.R;
 import com.hjc.base.base.activity.BaseActivity;
 import com.hjc.base.http.helper.RxSchedulers;
-import com.hjc.base.ui.login.LoginActivity;
 
 import java.util.concurrent.TimeUnit;
 

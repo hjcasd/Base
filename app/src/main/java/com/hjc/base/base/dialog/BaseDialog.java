@@ -21,7 +21,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.blankj.utilcode.util.ToastUtils;
-import com.hjc.base.utils.FastClickUtils;
+import com.hjc.base.utils.ClickUtils;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -177,7 +177,7 @@ public abstract class BaseDialog extends DialogFragment implements View.OnClickL
     @Override
     public void onClick(View view) {
         //避免快速点击
-        if (FastClickUtils.isFastClick()) {
+        if (ClickUtils.isFastClick()) {
             ToastUtils.showShort("点的太快了,歇会呗!");
             return;
         }

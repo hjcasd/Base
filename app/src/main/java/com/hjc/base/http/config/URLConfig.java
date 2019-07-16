@@ -11,5 +11,5 @@ public class URLConfig {
     //检查版本更新
     public static final String URL_CHECK_VERSION = "ifs/services/bffq/v1/appVersion";
 
-    public static final String URL_TEST2 = "/zjvo/login";
+    public static final String URL_LOGIN = "ifs/services/bffq/v1/appLogin";
 }

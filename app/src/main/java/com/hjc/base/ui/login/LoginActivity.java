@@ -11,20 +11,19 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.alibaba.android.arouter.facade.annotation.Route;
 import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.R;
 import com.hjc.base.base.mvp.BaseMvpActivity;
-import com.hjc.base.constant.RoutePath;
+import com.hjc.base.constant.AppConstants;
+import com.hjc.base.model.request.LoginReq;
+import com.hjc.base.model.response.LoginResp;
 import com.hjc.base.ui.MainActivity;
 import com.hjc.base.ui.login.contract.LoginContract;
-import com.hjc.base.ui.login.model.LoginRequest;
 import com.hjc.base.ui.login.presenter.LoginPresenter;
-import com.hjc.base.widget.dialog.LoadingDialog;
+import com.hjc.base.utils.SchemeUtils;
 
 import butterknife.BindView;
 
-@Route(path = RoutePath.URL_LOGIN)
 public class LoginActivity extends BaseMvpActivity<LoginContract.View, LoginPresenter> implements LoginContract.View {
 
     @BindView(R.id.et_phone)
@@ -40,11 +39,9 @@ public class LoginActivity extends BaseMvpActivity<LoginContract.View, LoginPres
     @BindView(R.id.tv_protocol)
     TextView tvProtocol;
 
-    private LoadingDialog loadingDialog;
-
-    private boolean isPhoneCompleted;
-    private boolean isCodeCompleted;
-    private boolean isProtocolCompleted;
+    private boolean isPhoneCompleted = false;
+    private boolean isCodeCompleted = false;
+    private boolean isProtocolCompleted = true;
 
     @Override
     protected LoginPresenter createPresenter() {
@@ -63,7 +60,7 @@ public class LoginActivity extends BaseMvpActivity<LoginContract.View, LoginPres
 
     @Override
     public void initView() {
-        loadingDialog = LoadingDialog.newInstance();
+
     }
 
     @Override
@@ -74,6 +71,7 @@ public class LoginActivity extends BaseMvpActivity<LoginContract.View, LoginPres
     @Override
     public void addListeners() {
         btnLogin.setOnClickListener(this);
+        tvProtocol.setOnClickListener(this);
 
         etPhone.addTextChangedListener(new TextWatcher() {
             @Override
@@ -85,10 +83,10 @@ public class LoginActivity extends BaseMvpActivity<LoginContract.View, LoginPres
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (s.length() == 11) {
                     isPhoneCompleted = true;
-                    if (isPhoneCompleted && isCodeCompleted && isProtocolCompleted) {
+                    if (isCodeCompleted && isProtocolCompleted) {
                         btnLogin.setEnabled(true);
                     }
-                }else{
+                } else {
                     isPhoneCompleted = false;
                     btnLogin.setEnabled(false);
                 }
@@ -108,12 +106,12 @@ public class LoginActivity extends BaseMvpActivity<LoginContract.View, LoginPres
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (s.length() >= 4 && s.length() <= 6) {
+                if (s.length() == 4) {
                     isCodeCompleted = true;
-                    if (isPhoneCompleted && isCodeCompleted && isProtocolCompleted) {
+                    if (isPhoneCompleted && isProtocolCompleted) {
                         btnLogin.setEnabled(true);
                     }
-                }else{
+                } else {
                     isCodeCompleted = false;
                     btnLogin.setEnabled(false);
                 }
@@ -130,10 +128,10 @@ public class LoginActivity extends BaseMvpActivity<LoginContract.View, LoginPres
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     isProtocolCompleted = true;
-                    if (isPhoneCompleted && isCodeCompleted && isProtocolCompleted) {
+                    if (isPhoneCompleted && isCodeCompleted) {
                         btnLogin.setEnabled(true);
                     }
-                }else{
+                } else {
                     isProtocolCompleted = false;
                     btnLogin.setEnabled(false);
                 }
@@ -144,11 +142,18 @@ public class LoginActivity extends BaseMvpActivity<LoginContract.View, LoginPres
     @Override
     public void onSingleClick(View v) {
         switch (v.getId()) {
+
+            // 登录
             case R.id.btn_login:
-                LoginRequest loginRequest = new LoginRequest();
-                loginRequest.setPhone(etPhone.getText().toString());
-                loginRequest.setVerifyCode(etVerifyCode.getText().toString());
-                getPresenter().login(loginRequest);
+                LoginReq loginReq = new LoginReq();
+                loginReq.setPhoneNo(etPhone.getText().toString());
+                loginReq.setVerifyCode(etVerifyCode.getText().toString());
+                getPresenter().login(loginReq);
+                break;
+
+            // 登录
+            case R.id.tv_protocol:
+                SchemeUtils.jumpToWeb(this, AppConstants.SERVICES_PRIVACY_AGREEMENTS, "服务与隐私协议");
                 break;
 
             default:
@@ -157,19 +162,20 @@ public class LoginActivity extends BaseMvpActivity<LoginContract.View, LoginPres
     }
 
     @Override
-    public void toMainActivity() {
-        ToastUtils.showShort(" login success");
-        startActivity(new Intent(this, MainActivity.class));
+    public void toMainActivity(LoginResp result) {
+        ToastUtils.showShort("登录成功");
+
+        startActivity(new Intent(LoginActivity.this, MainActivity.class));
         finish();
     }
 
     @Override
     public void showLoading() {
-        loadingDialog.showDialog(getSupportFragmentManager());
+
     }
 
     @Override
     public void hideLoading() {
-        loadingDialog.dismiss();
+
     }
 }
