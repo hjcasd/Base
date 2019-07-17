@@ -19,6 +19,8 @@ public abstract class BasePagerAdapter<T> extends PagerAdapter {
     private SparseArray<View> mViews;
     protected List<T> mDataList;
 
+    private onItemClickListener onItemClickListener;
+
     public BasePagerAdapter(Context context, List<T> list) {
         this.mContext = context;
         this.mDataList = list;
@@ -44,6 +46,16 @@ public abstract class BasePagerAdapter<T> extends PagerAdapter {
             initView(view, position);
             mViews.put(position, view);
         }
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onItemClickListener != null){
+                    onItemClickListener.onItemClick(position);
+                }
+            }
+        });
+
         container.addView(view);
         return view;
     }
@@ -56,4 +68,13 @@ public abstract class BasePagerAdapter<T> extends PagerAdapter {
     protected abstract int getLayoutId();
 
     protected abstract void initView(View itemView, int position);
+
+
+    public interface onItemClickListener {
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(onItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
 }

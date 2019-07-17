@@ -13,7 +13,8 @@ import com.blankj.utilcode.util.ToastUtils;
 import com.gyf.barlibrary.ImmersionBar;
 import com.hjc.base.R;
 import com.hjc.base.base.activity.BaseActivity;
-import com.hjc.base.widget.TitleBar;
+import com.hjc.base.widget.bar.OnViewLeftClickListener;
+import com.hjc.base.widget.bar.TitleBar;
 
 import butterknife.BindView;
 
@@ -55,15 +56,10 @@ public class DrawerNavigationActivity extends BaseActivity {
     @Override
     public void addListeners() {
         btnShow.setOnClickListener(this);
-        titleBar.setOnViewClickListener(new TitleBar.onViewClick() {
+        titleBar.setOnViewLeftClickListener(new OnViewLeftClickListener() {
             @Override
             public void leftClick(View view) {
                 finish();
-            }
-
-            @Override
-            public void rightClick(View view) {
-
             }
         });
 

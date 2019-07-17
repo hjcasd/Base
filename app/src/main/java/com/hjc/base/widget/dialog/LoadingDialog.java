@@ -3,13 +3,9 @@ package com.hjc.base.widget.dialog;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 
-import com.github.ybq.android.spinkit.SpinKitView;
 import com.hjc.base.R;
 import com.hjc.base.base.dialog.BaseDialog;
-
-import butterknife.BindView;
 
 /**
  * @Author: HJC
@@ -17,12 +13,9 @@ import butterknife.BindView;
  * @Description: 加载框
  */
 public class LoadingDialog extends BaseDialog {
-    @BindView(R.id.spin_kit_view)
-    SpinKitView spinKitView;
 
     public static LoadingDialog newInstance() {
-        LoadingDialog loadingDialog = new LoadingDialog();
-        return loadingDialog;
+        return new LoadingDialog();
     }
 
     @Override
@@ -33,11 +26,6 @@ public class LoadingDialog extends BaseDialog {
     @Override
     public int getLayoutId() {
         return R.layout.dialog_loading;
-    }
-
-    @Override
-    protected int getWidth() {
-        return WindowManager.LayoutParams.WRAP_CONTENT;
     }
 
     @Override

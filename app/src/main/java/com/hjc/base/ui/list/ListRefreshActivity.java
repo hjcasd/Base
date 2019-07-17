@@ -10,8 +10,9 @@ import com.blankj.utilcode.util.LogUtils;
 import com.hjc.base.R;
 import com.hjc.base.base.activity.BaseActivity;
 import com.hjc.base.ui.list.adapter.RefreshAdapter;
-import com.hjc.base.widget.TitleBar;
-import com.hjc.base.widget.helper.LinearItemDecoration;
+import com.hjc.base.widget.bar.OnViewLeftClickListener;
+import com.hjc.base.widget.bar.TitleBar;
+import com.hjc.base.widget.tools.LinearItemDecoration;
 import com.scwang.smartrefresh.header.MaterialHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -56,15 +57,10 @@ public class ListRefreshActivity extends BaseActivity {
 
     @Override
     public void addListeners() {
-        titleBar.setOnViewClickListener(new TitleBar.onViewClick() {
+        titleBar.setOnViewLeftClickListener(new OnViewLeftClickListener() {
             @Override
             public void leftClick(View view) {
                 finish();
-            }
-
-            @Override
-            public void rightClick(View view) {
-//                complete();
             }
         });
 

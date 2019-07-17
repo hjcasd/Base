@@ -1,8 +1,7 @@
-package com.hjc.base.ui.update.utils;
+package com.hjc.base.utils;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
@@ -21,15 +20,13 @@ import java.io.File;
 import java.util.List;
 
 /**
- * Created by Vector
- * on 2017/6/6 0006.
+ * @Author: HJC
+ * @Date: 2019/7/17 14:28
+ * @Description: 安装apk工具类
  */
-
 public class ApkUtils {
     /**
      * 判断是否已经下载APK
-     *
-     * @return
      */
     public static boolean appIsDownloaded() {
         File file = new File(AppConstants.DOWNLOAD_APK_PATH);
@@ -57,9 +54,6 @@ public class ApkUtils {
 
     /**
      * 安装Apk
-     *
-     * @param context
-     * @param appFile
      */
     public static void installApp(Context context, File appFile) {
         try {
@@ -90,36 +84,8 @@ public class ApkUtils {
         }
     }
 
-    public static String getVersionName(Context context) {
-        PackageInfo packageInfo = getPackageInfo(context);
-        if (packageInfo != null) {
-            return packageInfo.versionName;
-        }
-        return "";
-    }
-
-
-    public static String getAppName(Context context) {
-        PackageInfo packageInfo = getPackageInfo(context);
-        if (packageInfo != null) {
-            return packageInfo.applicationInfo.loadLabel(context.getPackageManager()).toString();
-        }
-        return "";
-    }
-
-    private static PackageInfo getPackageInfo(Context context) {
-        try {
-            return context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
     /**
      * 获取App图标
-     * @param context
-     * @return
      */
     public static Bitmap getAppIcon(Context context) {
         try {
@@ -140,8 +106,8 @@ public class ApkUtils {
     /**
      * 判断客户端版本
      *
-     * @param version1
-     * @param version2
+     * @param version1 当前版本
+     * @param version2 服务器版本
      * @return 0代表相等，1代表version1大于version2，-1代表version1小于version2
      */
     public static int compareVersion(String version1, String version2) {

@@ -5,19 +5,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.hjc.base.widget.TitleBar
+    <com.hjc.base.widget.bar.TitleBar
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
         app:leftImage="@mipmap/icon_back"
-        app:leftText="返回"
-        app:leftTextColor="@color/white"
-        app:leftTextSize="16sp"
         app:titleText="键盘"
         app:titleColor="@color/white">
 
-    </com.hjc.base.widget.TitleBar>
+    </com.hjc.base.widget.bar.TitleBar>
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"

@@ -5,15 +5,15 @@ package com.hjc.base.base.event;
  * @Date: 2019/1/4 14:55
  * @Description: 封装用于EventBus传递消息类
  */
-public class Event<T> {
+public class MessageEvent<T> {
     private int code;
     private T data;
 
-    public Event(int code) {
+    public MessageEvent(int code) {
         this.code = code;
     }
 
-    public Event(int code, T data) {
+    public MessageEvent(int code, T data) {
         this.code = code;
         this.data = data;
     }

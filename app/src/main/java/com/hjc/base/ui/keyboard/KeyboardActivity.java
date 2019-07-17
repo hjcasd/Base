@@ -6,7 +6,8 @@ import android.view.View;
 import com.gyf.barlibrary.ImmersionBar;
 import com.hjc.base.R;
 import com.hjc.base.base.activity.BaseActivity;
-import com.hjc.base.widget.TitleBar;
+import com.hjc.base.widget.bar.OnViewLeftClickListener;
+import com.hjc.base.widget.bar.TitleBar;
 
 import butterknife.BindView;
 
@@ -46,15 +47,10 @@ public class KeyboardActivity extends BaseActivity {
 
     @Override
     public void addListeners() {
-        titleBar.setOnViewClickListener(new TitleBar.onViewClick() {
+        titleBar.setOnViewLeftClickListener(new OnViewLeftClickListener() {
             @Override
             public void leftClick(View view) {
                 finish();
-            }
-
-            @Override
-            public void rightClick(View view) {
-
             }
         });
     }

@@ -11,7 +11,7 @@ import com.hjc.base.base.dialog.BaseDialog;
 import com.hjc.base.constant.AppConstants;
 import com.hjc.base.model.response.VersionBean;
 import com.hjc.base.ui.update.download.DownloadService;
-import com.hjc.base.ui.update.utils.ApkUtils;
+import com.hjc.base.utils.ApkUtils;
 import com.hjc.base.utils.helper.ActivityManager;
 
 import java.io.File;
@@ -29,11 +29,10 @@ public class UpdateDialog extends BaseDialog {
     @BindView(R.id.btn_cancel)
     Button btnCancel;
 
-    private VersionBean mVersionBean;
     private String apkDownloadUrl;
-    private boolean isCompleted = false;
 
-    private boolean isForceUpdate;
+    private boolean isCompleted = false;
+    private boolean isForceUpdate = false;
 
     public static UpdateDialog newInstance(Bundle bundle) {
         UpdateDialog fragment = new UpdateDialog();
@@ -44,7 +43,7 @@ public class UpdateDialog extends BaseDialog {
 
     @Override
     public int getStyleRes() {
-        return R.style.Dialog_Base;
+        return R.style.Dialog_Action_Sheet;
     }
 
     @Override
@@ -57,25 +56,28 @@ public class UpdateDialog extends BaseDialog {
         setCancelable(false);
 
         Bundle bundle = getArguments();
-        mVersionBean = (VersionBean) getArguments().getSerializable("version");
-        isForceUpdate = bundle.getBoolean("isForceUpdate");
+        if (bundle != null) {
+            VersionBean versionBean = (VersionBean) getArguments().getSerializable("version");
+            isForceUpdate = bundle.getBoolean("isForceUpdate");
 
-        apkDownloadUrl = mVersionBean.getFilePath();
-        apkDownloadUrl = "data4/apk/201809/06/f2a4dbd1b6cc2dca6567f42ae7a91f11_45629100.apk";
+            apkDownloadUrl = versionBean.getFilePath();
+            apkDownloadUrl = "data4/apk/201809/06/f2a4dbd1b6cc2dca6567f42ae7a91f11_45629100.apk";
 
-        String newVersion = mVersionBean.getNewVersion();
-        String updateLog = mVersionBean.getUpdateLog();
+            String newVersion = versionBean.getNewVersion();
+            String updateLog = versionBean.getUpdateLog();
 
-        tvTitle.setText("当前有新版本,是否升级到" + newVersion + "版本？");
-        tvUpdateInfo.setText(updateLog);
+            String content = "当前有新版本,是否升级到" + newVersion + "版本？";
+            tvTitle.setText(content);
+            tvUpdateInfo.setText(updateLog);
 
-        //检测是否已下载过APK
-        if (ApkUtils.appIsDownloaded()) {
-            isCompleted = true;
-            btnUpdate.setText("安装");
-        } else {
-            isCompleted = false;
-            btnUpdate.setText("升级");
+            //检测是否已下载过APK
+            if (ApkUtils.appIsDownloaded()) {
+                isCompleted = true;
+                btnUpdate.setText("安装");
+            } else {
+                isCompleted = false;
+                btnUpdate.setText("升级");
+            }
         }
     }
 
@@ -100,9 +102,9 @@ public class UpdateDialog extends BaseDialog {
 
             //取消升级
             case R.id.btn_cancel:
-                if (isForceUpdate){
+                if (isForceUpdate) {
                     ActivityManager.finishAllActivities();
-                }else{
+                } else {
                     dismiss();
                 }
                 break;

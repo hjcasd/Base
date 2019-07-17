@@ -12,15 +12,12 @@ public abstract class BasePresenter<V> {
     /**
      * 持有UI接口的弱引用
      */
-    protected WeakReference<V> mViewRef;
+    private WeakReference<V> mViewRef;
 
     /**
-     * 绑定
-     * 在onCreate()中调用
-     *
-     * @param view
+     * 绑定(在onCreate()中调用)
      */
-    public void attachView(V view) {
+    void attachView(V view) {
         mViewRef = new WeakReference<>(view);
     }
 
@@ -29,10 +26,9 @@ public abstract class BasePresenter<V> {
     }
 
     /**
-     * 解绑
-     * 在onDestroy方法中调用，防止内存泄漏
+     * 解绑(在onDestroy方法中调用，防止内存泄漏)
      */
-    public void detachView() {
+    void detachView() {
         if (mViewRef != null) {
             mViewRef.clear();
             mViewRef = null;

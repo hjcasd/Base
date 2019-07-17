@@ -35,8 +35,9 @@ public abstract class BaseImmersionFragment extends BaseFragment implements View
     private void initImmersionBar() {
         mImmersionBar = ImmersionBar.with(this);
         //使用该属性,必须指定状态栏颜色
-        mImmersionBar.fitsSystemWindows(true)
+        mImmersionBar
                 .statusBarColor(R.color.colorPrimary)
+                .fitsSystemWindows(true)
                 .init();
     }
 

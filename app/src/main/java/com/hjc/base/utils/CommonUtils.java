@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
-import android.widget.EditText;
 
 import com.blankj.utilcode.util.TimeUtils;
 
@@ -127,17 +126,6 @@ public class CommonUtils {
             String key2 = o2.getName();
             return key1.compareTo(key2);
         });
-    }
-
-    /**
-     * 将EditText的光标至于末尾
-     *
-     * @param editText 控件
-     */
-    public static void setEditTextSelectionInEnd(EditText editText) {
-        if (!TextUtils.isEmpty(editText.getText())) {
-            editText.setSelection(editText.getText().length());
-        }
     }
 
     /**

@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.blankj.utilcode.util.LogUtils;
-import com.hjc.base.ui.update.utils.ApkUtils;
+import com.hjc.base.utils.ApkUtils;
 
 /**
  * 应用安装监听

@@ -16,19 +16,16 @@
             android:layout_height="0dp"
             android:background="@color/colorPrimary" />
 
-        <com.hjc.base.widget.TitleBar
+        <com.hjc.base.widget.bar.TitleBar
             android:id="@+id/title_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             app:leftImage="@mipmap/icon_back"
-            app:leftText="返回"
-            app:leftTextColor="@color/white"
-            app:leftTextSize="16sp"
             app:titleColor="@color/white"
             app:titleText="侧滑+Navigation">
 
-        </com.hjc.base.widget.TitleBar>
+        </com.hjc.base.widget.bar.TitleBar>
 
 
         <Button

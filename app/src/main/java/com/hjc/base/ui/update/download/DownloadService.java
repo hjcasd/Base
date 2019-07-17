@@ -8,11 +8,12 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
-import android.widget.Toast;
 
+import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.SPUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.R;
-import com.hjc.base.ui.update.utils.ApkUtils;
+import com.hjc.base.utils.ApkUtils;
 
 import java.io.File;
 
@@ -87,7 +88,7 @@ public class DownloadService extends IntentService {
 
             @Override
             public void onDownloadFail(String msg) {
-                Toast.makeText(DownloadService.this, "更新新版本出错，" + msg, Toast.LENGTH_SHORT).show();
+                ToastUtils.showShort("更新新版本出错，" + msg);
 
                 mNotificationManager.cancel(NOTIFY_ID);
                 stopSelf();
@@ -98,7 +99,7 @@ public class DownloadService extends IntentService {
                 int rate = progress;
                 if (oldRate != rate) {
                     if (mBuilder != null) {
-                        mBuilder.setContentTitle("正在下载：" + ApkUtils.getAppName(DownloadService.this))
+                        mBuilder.setContentTitle("正在下载：" + AppUtils.getAppName())
                                 .setContentText(progress + "%")
                                 .setProgress(100, progress, false)
                                 .setWhen(System.currentTimeMillis());

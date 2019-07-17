@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.hjc.base.R;
-import com.hjc.base.base.event.Event;
+import com.hjc.base.base.event.MessageEvent;
 import com.hjc.base.base.event.EventManager;
 import com.hjc.base.base.fragment.BaseImmersionFragment;
 import com.hjc.base.constant.EventCode;
@@ -61,7 +61,7 @@ public class Tab3Fragment extends BaseImmersionFragment {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
-    public void handleEvent(Event<String> event) {
+    public void handleEvent(MessageEvent<String> event) {
         if (event.getCode() == EventCode.A) {
             String data = event.getData();
             tvEvent.setText(data);

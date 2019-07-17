@@ -19,7 +19,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder implements View.OnLo
 
     private onItemCommonClickListener commonClickListener;
 
-    public BaseViewHolder(View itemView) {
+    BaseViewHolder(View itemView) {
         super(itemView);
         itemView.setOnClickListener(this);
         itemView.setOnLongClickListener(this);

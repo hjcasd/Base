@@ -21,11 +21,11 @@ public class EventManager {
         }
     }
 
-    public static void sendEvent(Event event) {
+    public static void sendEvent(MessageEvent event) {
         EventBus.getDefault().post(event);
     }
 
-    public static void sendStickyEvent(Event event) {
+    public static void sendStickyEvent(MessageEvent event) {
         EventBus.getDefault().postSticky(event);
     }
 

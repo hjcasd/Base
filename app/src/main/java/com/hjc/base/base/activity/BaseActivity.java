@@ -54,8 +54,8 @@ public abstract class BaseActivity extends RxAppCompatActivity implements View.O
     protected void initImmersionBar() {
         //使用该属性,必须指定状态栏颜色
         ImmersionBar.with(this)
-                .fitsSystemWindows(true)
                 .statusBarColor(R.color.colorPrimary)
+                .fitsSystemWindows(true)
                 .init();
     }
 
