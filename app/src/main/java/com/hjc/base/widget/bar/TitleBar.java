@@ -13,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.blankj.utilcode.util.ConvertUtils;
 import com.hjc.base.R;
 
 
@@ -61,14 +60,13 @@ public class TitleBar extends LinearLayout {
         addListener();
     }
 
-
     private void initTypeArray(AttributeSet attrs) {
         TypedArray ta = mContext.obtainStyledAttributes(attrs, R.styleable.TitleBar);
 
         mLeftImage = ta.getResourceId(R.styleable.TitleBar_leftImage, 0);
 
         mTitleText = ta.getString(R.styleable.TitleBar_titleText);
-        mTitleSize = ta.getDimensionPixelSize(R.styleable.TitleBar_titleSize, ConvertUtils.sp2px(18));
+        mTitleSize = ta.getDimensionPixelSize(R.styleable.TitleBar_titleSize, sp2px(18));
         mTitleColor = ta.getColor(R.styleable.TitleBar_titleColor, Color.BLACK);
 
         mRightImage = ta.getResourceId(R.styleable.TitleBar_rightImage, 0);
@@ -100,7 +98,7 @@ public class TitleBar extends LinearLayout {
         if (!TextUtils.isEmpty(mTitleText)) {
             tvTitle.setVisibility(View.VISIBLE);
             tvTitle.setText(mTitleText);
-            tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, ConvertUtils.px2sp(mTitleSize));
+            tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, px2sp(mTitleSize));
             tvTitle.setTextColor(mTitleColor);
         } else {
             tvTitle.setVisibility(View.GONE);
@@ -167,6 +165,16 @@ public class TitleBar extends LinearLayout {
     //设置标题颜色
     public void setTitleTextColor(int color) {
         tvTitle.setTextColor(color);
+    }
+
+    private int sp2px(float spValue) {
+        final float fontScale = mContext.getResources().getDisplayMetrics().scaledDensity;
+        return (int) (spValue * fontScale + 0.5f);
+    }
+
+    private int px2sp(float pxValue) {
+        final float fontScale = mContext.getResources().getDisplayMetrics().scaledDensity;
+        return (int) (pxValue / fontScale + 0.5f);
     }
 
     public void setOnViewClickListener(OnViewClickListener listener) {

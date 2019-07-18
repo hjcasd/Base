@@ -9,6 +9,7 @@ import com.blankj.utilcode.util.Utils;
 import com.hjc.base.constant.AppConstants;
 import com.hjc.base.utils.helper.CrashHandler;
 import com.tencent.bugly.crashreport.CrashReport;
+import com.tencent.smtt.sdk.QbSdk;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -31,7 +32,9 @@ public class App extends MultiDexApplication {
         initUtils();
         initARouter();
         initBugly();
+        initX5Core();
     }
+
 
     /**
      * 初始化工具类
@@ -97,5 +100,25 @@ public class App extends MultiDexApplication {
             }
         }
         return null;
+    }
+
+    /**
+     * 预加载X5内核
+     */
+    private void initX5Core() {
+        QbSdk.PreInitCallback cb = new QbSdk.PreInitCallback() {
+
+            @Override
+            public void onViewInitFinished(boolean isX5Core) {
+                //x5內核初始化完成的回调，为true表示x5内核加载成功，否则表示x5内核加载失败，会自动切换到系统内核。
+                LogUtils.e("onViewInitFinished is " + isX5Core);
+            }
+
+            @Override
+            public void onCoreInitFinished() {
+            }
+        };
+        //x5内核初始化接口
+        QbSdk.initX5Environment(getApplicationContext(),  cb);
     }
 }
