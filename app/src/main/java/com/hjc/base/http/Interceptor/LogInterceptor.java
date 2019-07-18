@@ -1,5 +1,7 @@
 package com.hjc.base.http.Interceptor;
 
+import android.support.annotation.NonNull;
+
 import com.blankj.utilcode.util.LogUtils;
 import com.hjc.base.constant.AppConstants;
 import com.hjc.base.utils.FormatUtils;
@@ -22,8 +24,9 @@ import okio.BufferedSource;
 public class LogInterceptor implements Interceptor {
     private static final Charset UTF8 = Charset.forName("UTF-8");
 
+    @NonNull
     @Override
-    public Response intercept(Chain chain) throws IOException {
+    public Response intercept(@NonNull Chain chain) throws IOException {
         Request request = chain.request();
         Response response = chain.proceed(request);
 

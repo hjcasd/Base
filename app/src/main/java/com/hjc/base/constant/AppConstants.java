@@ -2,8 +2,6 @@ package com.hjc.base.constant;
 
 import android.os.Environment;
 
-import com.hjc.base.http.config.HttpConfig;
-
 import java.io.File;
 
 /**
@@ -15,8 +13,6 @@ public class AppConstants {
     public static final String DOWNLOAD_APK_DIR = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "YBT";
     public static final String DOWNLOAD_APK_NAME = "test.apk";
     public static final String DOWNLOAD_APK_PATH = DOWNLOAD_APK_DIR + File.separator + DOWNLOAD_APK_NAME;
-
-    public static final String SERVICES_PRIVACY_AGREEMENTS = HttpConfig.BASE_URL + "ifs/webH5/serviceAndSecret.html";
 
     //调试模式
     public static boolean isDebug = true;

@@ -1,6 +1,8 @@
 package com.hjc.base.http.Interceptor;
 
 
+import android.support.annotation.NonNull;
+
 import com.blankj.utilcode.util.NetworkUtils;
 
 import java.io.IOException;
@@ -13,8 +15,9 @@ import okhttp3.Response;
 
 public class AddCacheInterceptor implements Interceptor {
 
+    @NonNull
     @Override
-    public Response intercept(Chain chain) throws IOException {
+    public Response intercept(@NonNull Chain chain) throws IOException {
 
         CacheControl.Builder cacheBuilder = new CacheControl.Builder();
         cacheBuilder.maxAge(0, TimeUnit.SECONDS);

@@ -1,5 +1,6 @@
 package com.hjc.base.http.Interceptor;
 
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 
@@ -21,13 +22,13 @@ import okhttp3.Response;
 public class ReceivedCookiesInterceptor implements Interceptor {
     private static final String COOKIE_HEADER = "Set-Cookie";
 
+    @NonNull
     @Override
-    public Response intercept(Chain chain) throws IOException {
+    public Response intercept(@NonNull Chain chain) throws IOException {
         Response originalResponse = chain.proceed(chain.request());
         //获取请求返回的cookie
-        if (!originalResponse.headers(COOKIE_HEADER).isEmpty()) {
-            List<String> cookieList = originalResponse.headers(COOKIE_HEADER);
-
+        List<String> cookieList = originalResponse.headers(COOKIE_HEADER);
+        if (!cookieList.isEmpty()) {
             // 返回cookie
             if (!TextUtils.isEmpty(cookieList.toString())) {
                 String oldCookie = AccountManager.getInstance().getCookie();

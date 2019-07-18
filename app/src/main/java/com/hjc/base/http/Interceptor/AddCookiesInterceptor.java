@@ -2,6 +2,9 @@ package com.hjc.base.http.Interceptor;
 
 
 
+import android.support.annotation.NonNull;
+
+import com.blankj.utilcode.util.StringUtils;
 import com.hjc.base.utils.helper.AccountManager;
 
 import java.io.IOException;
@@ -16,12 +19,16 @@ import okhttp3.Response;
  * @Description: 将登录后的cookie添加到请求中
  */
 public class AddCookiesInterceptor implements Interceptor {
+    private static final String COOKIE = "Cookie";
 
+    @NonNull
     @Override
-    public Response intercept(Chain chain) throws IOException {
+    public Response intercept(@NonNull Chain chain) throws IOException {
         Request.Builder builder = chain.request().newBuilder();
         String cookie = AccountManager.getInstance().getCookie();
-        builder.addHeader("Cookie", cookie);
+        if (!StringUtils.isEmpty(cookie)){
+            builder.addHeader(COOKIE, cookie);
+        }
         return chain.proceed(builder.build());
     }
 }

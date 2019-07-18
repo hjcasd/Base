@@ -1,5 +1,7 @@
 package com.hjc.base.http.Interceptor;
 
+import android.support.annotation.NonNull;
+
 import java.io.IOException;
 
 import okhttp3.Interceptor;
@@ -19,10 +21,11 @@ public class TokenInterceptor implements Interceptor {
         this.token = token;
     }
 
+    @NonNull
     @Override
-    public Response intercept(Chain chain) throws IOException {
+    public Response intercept(@NonNull Chain chain) throws IOException {
         Request originalRequest = chain.request();
-        if (token == null || originalRequest.header("Authorization") != null) {
+        if (token == null || originalRequest.header(USER_TOKEN) != null) {
             return chain.proceed(originalRequest);
         }
         Request request = originalRequest.newBuilder()

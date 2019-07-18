@@ -4,7 +4,7 @@
     <!--背景-->
     <item android:id="@android:id/background">
         <shape>
-            <size android:height="0.5dp" />
+            <size android:height="1dp" />
             <solid android:color="@color/white" />
         </shape>
     </item>
@@ -13,11 +13,11 @@
     <item android:id="@android:id/progress">
         <clip>
             <shape>
-                <size android:height="0.5dp" />
+                <size android:height="1dp" />
                 <gradient
                     android:angle="180"
-                    android:endColor="@color/colorPrimaryDark"
-                    android:startColor="@color/colorPrimaryDark" />
+                    android:endColor="@color/colorPrimary"
+                    android:startColor="@color/colorPrimary" />
             </shape>
         </clip>
     </item>

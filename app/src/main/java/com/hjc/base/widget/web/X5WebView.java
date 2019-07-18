@@ -83,16 +83,13 @@ public class X5WebView extends WebView {
         //设置是否支持插件
         webSetting.setPluginState(WebSettings.PluginState.ON_DEMAND);
 
-        // 设置字体默认缩放大小
-        webSetting.setTextZoom(100);
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             //设置安全的来源
             webSetting.setMixedContentMode(webSetting.getMixedContentMode());
         }
 
         // 不缩放
-       setInitialScale(100);
+        setInitialScale(100);
     }
 
     private void initClient() {
