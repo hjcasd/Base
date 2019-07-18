@@ -60,7 +60,7 @@ public class HttpClient {
     }
 
     /**
-     * 数字签名
+     * 设置https证书
      */
     private SSLSocketFactory createSSLSocketFactory() {
         SSLSocketFactory sSLSocketFactory = null;
