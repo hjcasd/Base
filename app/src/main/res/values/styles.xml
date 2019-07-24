@@ -28,7 +28,7 @@
         <item name="android:textColor">@drawable/selector_tab_text</item>
     </style>
 
-    <style name="Dialog_Base" parent="android:Theme.Holo.Light.Dialog">
+    <style name="Dialog_Base" parent="Theme.AppCompat.Light.Dialog">
         <!--背景颜色及和透明程度-->
         <item name="android:windowBackground">@android:color/transparent</item>
         <!--是否去除标题 -->
@@ -42,7 +42,7 @@
     </style>
 
     <!-- 自定义仿IOS的ActionSheet底部Dialog的样式 ，有模糊效果 -->
-    <style name="Dialog_Action_Sheet" parent="@android:style/Theme.Dialog">
+    <style name="Dialog_Action_Sheet" parent="Theme.AppCompat.Light.Dialog">
         <!-- 背景透明 -->
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowContentOverlay">@null</item>
@@ -61,7 +61,7 @@
     </style>
 
     <!-- ActionSheet进出动画 -->
-    <style name="ActionSheetDialogAnimation" parent="@android:style/Animation.Dialog">
+    <style name="ActionSheetDialogAnimation" parent="Theme.AppCompat.Light.Dialog">
         <item name="android:windowEnterAnimation">@anim/dialog_action_sheet_in</item>
         <item name="android:windowExitAnimation">@anim/dialog_action_sheet_out</item>
     </style>

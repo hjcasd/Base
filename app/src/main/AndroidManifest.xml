@@ -12,18 +12,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-    <!--通讯录-->
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-
-    <!--手机状态-->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission
-        android:name="android.permission.READ_LOGS"
-        tools:ignore="ProtectedPermissions" />
-
-    <!--安装应用-->
-    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
-
     <!--位置-->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -32,18 +20,47 @@
     <!--相机-->
     <uses-permission android:name="android.permission.CAMERA" />
 
-    <!--录音-->
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!--通讯录-->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <!--安装应用-->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
+    <!--手机状态-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission
+        android:name="android.permission.READ_LOGS"
+        tools:ignore="ProtectedPermissions" />
+
 
     <application
         android:name=".application.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:maxAspectRatio="2.4"
         android:networkSecurityConfig="@xml/network_security_config"
+        android:resizeableActivity="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="AllowBackup,UnusedAttribute">
+
+        <!--适配通用刘海屏-->
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.4" />
+
+        <!--适配华为刘海屏-->
+        <meta-data
+            android:name="android.notch_support"
+            android:value="true" />
+
+        <!--适配小米刘海屏-->
+        <meta-data
+            android:name="notch.config"
+            android:value="portrait|landscape" />
+
 
         <activity
             android:name=".ui.SplashActivity"
@@ -65,10 +82,6 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.search.SearchActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
             android:name=".ui.list.ListEmptyActivity"
             android:screenOrientation="portrait" />
 
@@ -85,10 +98,6 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.keyboard.KeyboardActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
             android:name=".ui.drawer.DrawerNavigationActivity"
             android:screenOrientation="portrait" />
 
@@ -101,9 +110,8 @@
             android:screenOrientation="portrait" />
 
 
-        <!--              ==================更新相关=================              -->
+        <!--============================================更新相关=========================================-->
         <service android:name=".ui.update.download.DownloadService" />
-
         <receiver
             android:name=".ui.update.download.InstallBroadCastReceiver"
             android:enabled="true">
@@ -116,7 +124,7 @@
             </intent-filter>
         </receiver>
 
-        <!--7.0文件访问权限-->
+        <!--============================================7.0文件访问权限=========================================-->
         <provider
             android:name=".utils.MyFileProvider"
             android:authorities="${applicationId}.fileProvider"

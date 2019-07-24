@@ -20,13 +20,6 @@
         android:textAllCaps="false" />
 
     <Button
-        android:id="@+id/btn_event"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="event"
-        android:textAllCaps="false" />
-
-    <Button
         android:id="@+id/btn_bugly"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

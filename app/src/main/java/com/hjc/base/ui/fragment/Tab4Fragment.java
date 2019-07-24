@@ -11,7 +11,6 @@ import com.hjc.base.base.fragment.BaseImmersionFragment;
 import com.hjc.base.http.helper.RxSchedulers;
 import com.hjc.base.ui.drawer.DrawerCustomActivity;
 import com.hjc.base.ui.drawer.DrawerNavigationActivity;
-import com.hjc.base.ui.keyboard.KeyboardActivity;
 import com.hjc.base.widget.dialog.LoadingDialog;
 
 import java.util.concurrent.TimeUnit;
@@ -21,8 +20,6 @@ import io.reactivex.Observable;
 
 
 public class Tab4Fragment extends BaseImmersionFragment {
-    @BindView(R.id.btn_keyboard)
-    Button btnKeyboard;
     @BindView(R.id.btn_dialog)
     Button btnDialog;
     @BindView(R.id.btn_drawer_navigation)
@@ -33,8 +30,7 @@ public class Tab4Fragment extends BaseImmersionFragment {
     private LoadingDialog loadingDialog;
 
     public static Tab4Fragment newInstance() {
-        Tab4Fragment fragment = new Tab4Fragment();
-        return fragment;
+        return new Tab4Fragment();
     }
 
     @Override
@@ -54,7 +50,6 @@ public class Tab4Fragment extends BaseImmersionFragment {
 
     @Override
     public void addListeners() {
-        btnKeyboard.setOnClickListener(this);
         btnDialog.setOnClickListener(this);
         btnDrawerNavigation.setOnClickListener(this);
         btnDrawerCustom.setOnClickListener(this);
@@ -63,10 +58,6 @@ public class Tab4Fragment extends BaseImmersionFragment {
     @Override
     public void onSingleClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_keyboard:
-                startActivity(new Intent(mContext, KeyboardActivity.class));
-                break;
-
             case R.id.btn_dialog:
                 loadingDialog.showDialog(getFragmentManager());
                 Observable.timer(2, TimeUnit.SECONDS)

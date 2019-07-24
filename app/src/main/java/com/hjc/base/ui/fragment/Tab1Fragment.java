@@ -25,8 +25,7 @@ public class Tab1Fragment extends BaseImmersionFragment {
     Banner banner;
 
     public static Tab1Fragment newInstance() {
-        Tab1Fragment homeFragment = new Tab1Fragment();
-        return homeFragment;
+        return new Tab1Fragment();
     }
 
     @Override

@@ -13,13 +13,6 @@
         app:titleText="tab3" />
 
     <Button
-        android:id="@+id/btn_search"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="search"
-        android:textAllCaps="false" />
-
-    <Button
         android:id="@+id/btn_empty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

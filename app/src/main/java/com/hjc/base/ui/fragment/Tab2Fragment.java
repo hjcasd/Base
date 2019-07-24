@@ -14,10 +14,7 @@ import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.R;
-import com.hjc.base.base.event.EventManager;
-import com.hjc.base.base.event.MessageEvent;
 import com.hjc.base.base.fragment.BaseImmersionFragment;
-import com.hjc.base.constant.EventCode;
 import com.hjc.base.http.RetrofitClient2;
 import com.hjc.base.http.helper.RxHelper;
 import com.hjc.base.http.observer.CommonObserver;
@@ -37,8 +34,6 @@ import butterknife.BindView;
 public class Tab2Fragment extends BaseImmersionFragment {
     @BindView(R.id.btn_update)
     Button btnUpdate;
-    @BindView(R.id.btn_event)
-    Button btnEvent;
     @BindView(R.id.btn_bugly)
     Button btnBugly;
     @BindView(R.id.btn_camera)
@@ -47,8 +42,7 @@ public class Tab2Fragment extends BaseImmersionFragment {
     Button btnContact;
 
     public static Tab2Fragment newInstance() {
-        Tab2Fragment fragment = new Tab2Fragment();
-        return fragment;
+        return new Tab2Fragment();
     }
 
     @Override
@@ -69,7 +63,6 @@ public class Tab2Fragment extends BaseImmersionFragment {
     @Override
     public void addListeners() {
         btnUpdate.setOnClickListener(this);
-        btnEvent.setOnClickListener(this);
         btnBugly.setOnClickListener(this);
         btnCamera.setOnClickListener(this);
         btnContact.setOnClickListener(this);
@@ -80,10 +73,6 @@ public class Tab2Fragment extends BaseImmersionFragment {
         switch (v.getId()) {
             case R.id.btn_update:
                 checkVersion();
-                break;
-
-            case R.id.btn_event:
-                EventManager.sendStickyEvent(new MessageEvent<>(EventCode.A, "我是event消息"));
                 break;
 
             case R.id.btn_bugly:

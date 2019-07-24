@@ -13,17 +13,10 @@
         app:titleText="tab4" />
 
     <Button
-        android:id="@+id/btn_keyboard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="keyboard"
-        android:textAllCaps="false" />
-
-    <Button
         android:id="@+id/btn_dialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="dialog"
+        android:text="show loading"
         android:textAllCaps="false" />
 
     <Button
