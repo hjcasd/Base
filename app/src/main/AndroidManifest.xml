@@ -76,33 +76,8 @@
             android:name=".ui.MainActivity"
             android:screenOrientation="portrait" />
 
-
         <activity
             android:name=".ui.login.LoginActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.list.ListEmptyActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.list.ListRefreshActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.list.ListExpandActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.list.StateViewActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.drawer.DrawerNavigationActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.drawer.DrawerCustomActivity"
             android:screenOrientation="portrait" />
 
         <activity
@@ -110,10 +85,62 @@
             android:screenOrientation="portrait" />
 
 
+        <!--===============================首页=================================-->
+        <activity
+            android:name=".ui.home.ToastyActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.home.PickerActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.home.stateview.StateViewActivity"
+            android:screenOrientation="portrait" />
+
+
+        <!--===============================框架=================================-->
+        <activity
+            android:name=".ui.frame.eventbus.EventPostActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.frame.eventbus.EventReceiveActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.frame.quickadapter.ListHelperActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.frame.quickadapter.ListEmptyActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.frame.quickadapter.ListExpandActivity"
+            android:screenOrientation="portrait" />
+
+
+        <!--===============================多媒体=================================-->
+        <activity
+            android:name=".ui.media.ListRefreshActivity"
+            android:screenOrientation="portrait" />
+
+
+        <!--===============================其他=================================-->
+        <activity
+            android:name=".ui.other.DrawerNavigationActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.other.DrawerCustomActivity"
+            android:screenOrientation="portrait" />
+
+
         <!--============================================更新相关=========================================-->
-        <service android:name=".ui.update.download.DownloadService" />
+        <service android:name=".ui.other.update.download.DownloadService" />
         <receiver
-            android:name=".ui.update.download.InstallBroadCastReceiver"
+            android:name=".ui.other.update.download.InstallBroadCastReceiver"
             android:enabled="true">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_ADDED" />

@@ -4,8 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
+import com.hjc.base.R;
 import com.hjc.base.ui.WebActivity;
 
 /**
@@ -35,5 +37,16 @@ public class SchemeUtils {
         bundle.putString("url", url);
         intent.putExtras(bundle);
         context.startActivity(intent);
+    }
+
+    /**
+     * 页面跳转
+     * @param path 要跳转页面对应的路由url
+     */
+    public static void jump(String path) {
+        ARouter.getInstance()
+                .build(path)
+                .withTransition(R.anim.slide_enter_bottom, R.anim.slide_exit_bottom)
+                .navigation();
     }
 }

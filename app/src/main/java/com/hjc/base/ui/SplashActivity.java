@@ -25,7 +25,7 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     public void initData(Bundle savedInstanceState) {
-        Observable.timer(1, TimeUnit.SECONDS)
+        Observable.timer(500, TimeUnit.MILLISECONDS)
                 .compose(RxSchedulers.ioToMain())
                 .subscribe(aLong -> startActivity(new Intent(SplashActivity.this, MainActivity.class)));
 //                .subscribe(aLong -> startActivity(new Intent(SplashActivity.this, LoginActivity.class)));
@@ -40,4 +40,5 @@ public class SplashActivity extends BaseActivity {
     public void onSingleClick(View v) {
 
     }
+
 }

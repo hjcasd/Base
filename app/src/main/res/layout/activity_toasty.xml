@@ -6,31 +6,55 @@
     android:orientation="vertical">
 
     <com.hjc.base.widget.bar.TitleBar
+        android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
+        app:leftImage="@mipmap/icon_back"
         app:titleColor="@color/white"
-        app:titleText="框架部分" />
+        app:titleText="Toasty" />
 
     <Button
-        android:id="@+id/btn_event_bus"
+        android:id="@+id/btn_error"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="EventBus"
+        android:text="error"
         android:textAllCaps="false" />
 
     <Button
-        android:id="@+id/btn_bugly"
+        android:id="@+id/btn_success"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bugly"
+        android:text="success"
         android:textAllCaps="false" />
 
     <Button
-        android:id="@+id/btn_quick"
+        android:id="@+id/btn_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="BaseQuickAdapterHelper"
+        android:text="info"
         android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_warning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="warning"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_normal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="normal"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_custom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="custom"
+        android:textAllCaps="false" />
+
 
 </LinearLayout>

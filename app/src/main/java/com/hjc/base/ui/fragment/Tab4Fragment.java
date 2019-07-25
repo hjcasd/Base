@@ -6,11 +6,19 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 
+import com.blankj.utilcode.util.AppUtils;
 import com.hjc.base.R;
 import com.hjc.base.base.fragment.BaseImmersionFragment;
+import com.hjc.base.http.RetrofitClient2;
+import com.hjc.base.http.helper.RxHelper;
 import com.hjc.base.http.helper.RxSchedulers;
-import com.hjc.base.ui.drawer.DrawerCustomActivity;
-import com.hjc.base.ui.drawer.DrawerNavigationActivity;
+import com.hjc.base.http.observer.CommonObserver;
+import com.hjc.base.model.request.UpdateRequest;
+import com.hjc.base.model.response.VersionBean;
+import com.hjc.base.ui.other.DrawerCustomActivity;
+import com.hjc.base.ui.other.DrawerNavigationActivity;
+import com.hjc.base.ui.other.update.UpdateDialog;
+import com.hjc.base.utils.ApkUtils;
 import com.hjc.base.widget.dialog.LoadingDialog;
 
 import java.util.concurrent.TimeUnit;
@@ -26,8 +34,11 @@ public class Tab4Fragment extends BaseImmersionFragment {
     Button btnDrawerNavigation;
     @BindView(R.id.btn_drawer_custom)
     Button btnDrawerCustom;
+    @BindView(R.id.btn_update)
+    Button btnUpdate;
 
     private LoadingDialog loadingDialog;
+
 
     public static Tab4Fragment newInstance() {
         return new Tab4Fragment();
@@ -53,6 +64,7 @@ public class Tab4Fragment extends BaseImmersionFragment {
         btnDialog.setOnClickListener(this);
         btnDrawerNavigation.setOnClickListener(this);
         btnDrawerCustom.setOnClickListener(this);
+        btnUpdate.setOnClickListener(this);
     }
 
     @Override
@@ -62,9 +74,7 @@ public class Tab4Fragment extends BaseImmersionFragment {
                 loadingDialog.showDialog(getFragmentManager());
                 Observable.timer(2, TimeUnit.SECONDS)
                         .compose(RxSchedulers.ioToMain())
-                        .subscribe(aLong -> {
-                            loadingDialog.dismiss();
-                        });
+                        .subscribe(aLong -> loadingDialog.dismiss());
                 break;
 
             case R.id.btn_drawer_navigation:
@@ -75,7 +85,51 @@ public class Tab4Fragment extends BaseImmersionFragment {
                 startActivity(new Intent(mContext, DrawerCustomActivity.class));
                 break;
 
+            case R.id.btn_update:
+                checkVersion();
+                break;
         }
+    }
+
+    private void checkVersion() {
+        UpdateRequest request = new UpdateRequest();
+        request.setAppType("1");
+        RetrofitClient2.getInstance().getAPI()
+                .checkVersion(request)
+                .compose(RxHelper.bind(this))
+                .subscribe(new CommonObserver<VersionBean>() {
+                    @Override
+                    public void onSuccess(VersionBean result) {
+                        String newVersion = result.getNewVersion();
+                        String lowVersion = result.getLowVersion();
+
+                        String currentVersionName = AppUtils.getAppVersionName();
+                        int flag1 = ApkUtils.compareVersion(currentVersionName, lowVersion);
+                        //强制更新
+                        if (flag1 == -1) {
+                            showUpdateDialog(result, true);
+                            return;
+                        }
+
+                        int flag2 = ApkUtils.compareVersion(currentVersionName, newVersion);
+                        //需要更新
+                        if (flag2 == -1) {
+                            showUpdateDialog(result, false);
+                        }
+                    }
+                });
+    }
+
+    /**
+     * 显示更新dialog
+     */
+    private void showUpdateDialog(VersionBean result, boolean isForceUpdate) {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("version", result);
+        bundle.putBoolean("isForceUpdate", isForceUpdate);
+        UpdateDialog.newInstance(bundle)
+                .setAnimStyle(R.style.ActionSheetDialogAnimation)
+                .showDialog(getChildFragmentManager());
     }
 
 }

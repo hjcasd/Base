@@ -6,31 +6,31 @@
     android:orientation="vertical">
 
     <com.hjc.base.widget.bar.TitleBar
+        android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
+        app:leftImage="@mipmap/icon_back"
         app:titleColor="@color/white"
-        app:titleText="框架部分" />
+        app:titleText="PickerView" />
+
 
     <Button
-        android:id="@+id/btn_event_bus"
+        android:id="@+id/btn_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="EventBus"
-        android:textAllCaps="false" />
+        android:text="日期选择器" />
 
     <Button
-        android:id="@+id/btn_bugly"
+        android:id="@+id/btn_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bugly"
-        android:textAllCaps="false" />
+        android:text="地区选择器" />
 
     <Button
-        android:id="@+id/btn_quick"
+        android:id="@+id/btn_custom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="BaseQuickAdapterHelper"
-        android:textAllCaps="false" />
+        android:text="自定义布局" />
 
 </LinearLayout>

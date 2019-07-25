@@ -1,34 +1,25 @@
 package com.hjc.base.ui.fragment;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
-import com.alibaba.android.arouter.launcher.ARouter;
+import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.R;
 import com.hjc.base.base.fragment.BaseImmersionFragment;
-import com.hjc.base.constant.RoutePath;
-import com.hjc.base.ui.list.ListEmptyActivity;
-import com.hjc.base.ui.list.ListRefreshActivity;
-import com.hjc.base.ui.list.StateViewActivity;
+import com.hjc.base.utils.PhotoUtils;
+import com.hjc.base.utils.permission.PermissionCallBack;
+import com.hjc.base.utils.permission.PermissionManager;
+import com.yanzhenjie.permission.runtime.Permission;
 
 import butterknife.BindView;
 
 public class Tab3Fragment extends BaseImmersionFragment {
-    @BindView(R.id.tv_event)
-    TextView tvEvent;
-    @BindView(R.id.btn_empty)
-    Button btnEmpty;
-    @BindView(R.id.btn_refresh)
-    Button btnRefresh;
-    @BindView(R.id.btn_router)
-    Button btnRouter;
-    @BindView(R.id.btn_state)
-    Button btnState;
+    @BindView(R.id.btn_camera)
+    Button btnCamera;
+
 
     public static Tab3Fragment newInstance() {
         return new Tab3Fragment();
@@ -51,31 +42,35 @@ public class Tab3Fragment extends BaseImmersionFragment {
 
     @Override
     public void addListeners() {
-        btnEmpty.setOnClickListener(this);
-        btnRefresh.setOnClickListener(this);
-        btnState.setOnClickListener(this);
-        btnRouter.setOnClickListener(this);
+        btnCamera.setOnClickListener(this);
     }
 
     @Override
     public void onSingleClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_empty:
-                startActivity(new Intent(mContext, ListEmptyActivity.class));
-                break;
-
-            case R.id.btn_refresh:
-                startActivity(new Intent(mContext, ListRefreshActivity.class));
-                break;
-
-            case R.id.btn_state:
-                startActivity(new Intent(mContext, StateViewActivity.class));
-                break;
-
-            case R.id.btn_router:
-                ARouter.getInstance().build(RoutePath.URL_LOGIN).navigation();
+            case R.id.btn_camera:
+                openCamera();
                 break;
         }
+    }
+
+    /**
+     * 打开相机
+     */
+    private void openCamera() {
+        PermissionManager.getInstance()
+                .with(this)
+                .requestPermissionInFragment(new PermissionCallBack() {
+                    @Override
+                    public void onGranted() {
+                        PhotoUtils.openCamera(getActivity());
+                    }
+
+                    @Override
+                    public void onDenied() {
+                        ToastUtils.showShort("申请相机权限失败");
+                    }
+                }, Permission.Group.CAMERA);
     }
 
 }

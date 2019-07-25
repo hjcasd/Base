@@ -9,7 +9,9 @@ import android.widget.BaseAdapter;
 import java.util.List;
 
 /**
- * MarqueeLayout 基类adapter
+ * @Author: HJC
+ * @Date: 2019/7/25 14:29
+ * @Description: MarqueeLayout 基类adapter
  */
 public abstract class MarqueeBaseAdapter<T> extends BaseAdapter {
     private List<T> mDataList;
@@ -61,7 +63,7 @@ public abstract class MarqueeBaseAdapter<T> extends BaseAdapter {
         void onClick(View view, int position);
     }
 
-    public void setItemClickListener(OnItemClickListener itemClickListener) {
+    public void setOnItemClickListener(OnItemClickListener itemClickListener) {
         this.mItemClickListener = itemClickListener;
     }
 }

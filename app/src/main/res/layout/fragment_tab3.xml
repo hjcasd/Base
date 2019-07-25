@@ -10,41 +10,13 @@
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
         app:titleColor="@color/white"
-        app:titleText="tab3" />
+        app:titleText="多媒体部分" />
 
     <Button
-        android:id="@+id/btn_empty"
+        android:id="@+id/btn_camera"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="empty"
+        android:text="camera"
         android:textAllCaps="false" />
-
-    <Button
-        android:id="@+id/btn_refresh"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="refresh"
-        android:textAllCaps="false" />
-
-    <Button
-        android:id="@+id/btn_state"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="state"
-        android:textAllCaps="false" />
-
-    <Button
-        android:id="@+id/btn_router"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="router"
-        android:textAllCaps="false" />
-
-    <TextView
-        android:id="@+id/tv_event"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="界面三" />
 
 </LinearLayout>

@@ -183,4 +183,10 @@ dependencies {
 
     //X5WebView
     implementation files('libs/tbs_sdk_thirdapp_v3.6.0.jar')
+
+    //条件选择器
+    implementation 'com.contrarywind:Android-PickerView:4.1.8'
+
+    //自定义Toast
+    implementation 'com.github.GrenderG:Toasty:1.4.2'
 }

@@ -1,5 +1,6 @@
-package com.hjc.base.ui.list;
+package com.hjc.base.ui.frame.quickadapter;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -7,11 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.hjc.base.R;
 import com.hjc.base.base.activity.BaseActivity;
+import com.hjc.base.constant.RoutePath;
 import com.hjc.base.http.helper.RxSchedulers;
-import com.hjc.base.ui.list.adapter.EmptyAdapter;
-import com.hjc.base.widget.bar.OnViewLeftClickListener;
+import com.hjc.base.ui.frame.quickadapter.adapter.EmptyAdapter;
 import com.hjc.base.widget.bar.TitleBar;
 import com.hjc.base.widget.dialog.LoadingDialog;
 
@@ -22,6 +24,8 @@ import java.util.concurrent.TimeUnit;
 import butterknife.BindView;
 import io.reactivex.Observable;
 
+@SuppressLint("CheckResult")
+@Route(path = RoutePath.URL_LIST_EMPTY)
 public class ListEmptyActivity extends BaseActivity {
     @BindView(R.id.title_bar)
     TitleBar titleBar;
@@ -65,14 +69,9 @@ public class ListEmptyActivity extends BaseActivity {
 
     @Override
     public void addListeners() {
-        titleBar.setOnViewLeftClickListener(new OnViewLeftClickListener() {
-            @Override
-            public void leftClick(View view) {
-                finish();
-            }
-        });
-
         tvStateContent.setOnClickListener(this);
+
+        titleBar.setOnViewLeftClickListener(view -> finish());
     }
 
     @Override
@@ -80,6 +79,7 @@ public class ListEmptyActivity extends BaseActivity {
         switch (v.getId()){
             case R.id.tv_state_content:
                 loadingDialog.showDialog(getSupportFragmentManager());
+
                 Observable.timer(2, TimeUnit.SECONDS)
                         .compose(RxSchedulers.ioToMain())
                         .subscribe(aLong -> {

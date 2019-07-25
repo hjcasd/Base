@@ -10,26 +10,53 @@
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
         app:titleColor="@color/white"
-        app:titleText="tab1" />
+        app:titleText="UI部分" />
 
     <com.youth.banner.Banner
         android:id="@+id/banner"
         android:layout_width="match_parent"
         android:layout_height="160dp"
-        app:delay_time="3000"
         app:banner_default_image="@mipmap/ic_launcher"
+        app:delay_time="3000"
         app:image_scale_type="fit_xy"
         app:indicator_drawable_selected="@mipmap/icon_point_selected"
         app:indicator_drawable_unselected="@mipmap/icon_point_unselected"
+        app:indicator_height="15dp"
         app:indicator_margin="5dp"
-        app:indicator_width="15dp"
-        app:indicator_height="15dp"/>
+        app:indicator_width="15dp" />
 
-    <TextView
+    <com.hjc.base.widget.marquee.MarqueeLayout
+        android:id="@+id/marquee_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="界面一" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:orientation="up"
+        app:scrollTime="1000"
+        app:switchTime="3000">
+
+    </com.hjc.base.widget.marquee.MarqueeLayout>
+
+    <Button
+        android:id="@+id/btn_toasty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Toasty(自定义吐司)"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_picker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PickerView(滚动选择器)"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="StateView(状态布局)"
+        android:textAllCaps="false" />
 
 
 </LinearLayout>

@@ -15,6 +15,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+import es.dmoral.toasty.Toasty;
+
 
 /**
  * @Author: HJC
@@ -33,6 +35,7 @@ public class App extends MultiDexApplication {
         initARouter();
         initBugly();
         initX5Core();
+        initToasty();
     }
 
 
@@ -120,5 +123,11 @@ public class App extends MultiDexApplication {
         };
         //x5内核初始化接口
         QbSdk.initX5Environment(getApplicationContext(),  cb);
+    }
+
+    private void initToasty() {
+        Toasty.Config.getInstance()
+                .setTextSize(14)
+                .apply();
     }
 }

@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">Base</string>
 
-    <string name="tab1">tab1</string>
-    <string name="tab2">tab2</string>
-    <string name="tab3">tab3</string>
-    <string name="tab4">tab4</string>
+    <string name="tab1">首页</string>
+    <string name="tab2">框架</string>
+    <string name="tab3">多媒体</string>
+    <string name="tab4">其他</string>
 
     <!--权限相关-->
     <string name="message_permission_always_failed">请去设置页面申请以下权限,以便程序继续运行\n\n%1$s</string>

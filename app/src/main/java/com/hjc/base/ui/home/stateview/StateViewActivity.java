@@ -1,5 +1,6 @@
-package com.hjc.base.ui.list;
+package com.hjc.base.ui.home.stateview;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -7,7 +8,6 @@ import com.hjc.base.R;
 import com.hjc.base.base.activity.BaseActivity;
 import com.hjc.base.http.helper.RxSchedulers;
 import com.hjc.base.widget.StatusView;
-import com.hjc.base.widget.bar.OnViewLeftClickListener;
 import com.hjc.base.widget.bar.TitleBar;
 
 import java.util.concurrent.TimeUnit;
@@ -15,6 +15,7 @@ import java.util.concurrent.TimeUnit;
 import butterknife.BindView;
 import io.reactivex.Observable;
 
+@SuppressLint("CheckResult")
 public class StateViewActivity extends BaseActivity {
     @BindView(R.id.title_bar)
     TitleBar titleBar;
@@ -28,7 +29,7 @@ public class StateViewActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        stateView.showLoading();
+
     }
 
     @Override
@@ -41,25 +42,18 @@ public class StateViewActivity extends BaseActivity {
                 });
     }
 
+
     @Override
     public void addListeners() {
-        titleBar.setOnViewLeftClickListener(new OnViewLeftClickListener() {
-            @Override
-            public void leftClick(View view) {
-                finish();
-            }
-        });
+        titleBar.setOnViewLeftClickListener(view -> finish());
 
-        stateView.setOnRetryClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                stateView.showLoading();
-                Observable.timer(2, TimeUnit.SECONDS)
-                        .compose(RxSchedulers.ioToMain())
-                        .subscribe(aLong -> {
-                            stateView.showContent();
-                        });
-            }
+        stateView.setOnRetryClickListener(v -> {
+            stateView.showLoading();
+            Observable.timer(2, TimeUnit.SECONDS)
+                    .compose(RxSchedulers.ioToMain())
+                    .subscribe(aLong -> {
+                        stateView.showContent();
+                    });
         });
     }
 

@@ -1,4 +1,4 @@
-package com.hjc.base.ui.update.download;
+package com.hjc.base.ui.other.update.download;
 
 
 import com.hjc.base.constant.AppConstants;

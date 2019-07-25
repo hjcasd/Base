@@ -1,8 +1,7 @@
-package com.hjc.base.ui.update.download;
+package com.hjc.base.ui.other.update.download;
 
 
 import com.hjc.base.http.Api;
-import com.hjc.base.http.HttpClient;
 
 import java.io.File;
 

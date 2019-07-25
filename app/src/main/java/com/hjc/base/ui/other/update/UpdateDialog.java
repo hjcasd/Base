@@ -1,4 +1,4 @@
-package com.hjc.base.ui.update;
+package com.hjc.base.ui.other.update;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import com.hjc.base.R;
 import com.hjc.base.base.dialog.BaseDialog;
 import com.hjc.base.constant.AppConstants;
 import com.hjc.base.model.response.VersionBean;
-import com.hjc.base.ui.update.download.DownloadService;
+import com.hjc.base.ui.other.update.download.DownloadService;
 import com.hjc.base.utils.ApkUtils;
 import com.hjc.base.utils.helper.ActivityManager;
 

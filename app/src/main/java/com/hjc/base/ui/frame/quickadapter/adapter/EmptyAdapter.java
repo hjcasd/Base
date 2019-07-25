@@ -1,4 +1,4 @@
-package com.hjc.base.ui.list.adapter;
+package com.hjc.base.ui.frame.quickadapter.adapter;
 
 import android.support.annotation.Nullable;
 
@@ -11,7 +11,7 @@ import java.util.List;
 public class EmptyAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
 
     public EmptyAdapter(@Nullable List<String> data) {
-        super(R.layout.item_rv_test, data);
+        super(R.layout.item_empty, data);
     }
 
     @Override

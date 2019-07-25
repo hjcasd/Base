@@ -8,4 +8,24 @@ package com.hjc.base.constant;
 public class RoutePath {
     //登录页面
     public static final String URL_LOGIN = "/base/login";
+
+    //PickerView页面
+    public static final String URL_PICK_VIEW = "/base/picker";
+
+    //Toasty页面
+    public static final String URL_TOASTY = "/base/toasty";
+
+    //StateView页面
+    public static final String URL_STATE_VIEW = "/base/state";
+
+
+    //EventBus页面
+    public static final String URL_EVENT_POST = "/base/event/post";
+    public static final String URL_EVENT_RECEIVE = "/base/event/receive";
+
+
+    //EventBus页面
+    public static final String URL_LIST_HELPER = "/base/adapter";
+    public static final String URL_LIST_EMPTY = "/base/adapter/empty";
+    public static final String URL_LIST_EXPAND = "/base/adapter/expand";
 }

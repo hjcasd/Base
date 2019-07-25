@@ -1,4 +1,4 @@
-package com.hjc.base.ui.list.adapter;
+package com.hjc.base.ui.frame.quickadapter.adapter;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -21,7 +21,7 @@ public class RefreshAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
     private int focusPosition = -1;
 
     public RefreshAdapter(@Nullable List<String> data) {
-        super(R.layout.item_rv_list, data);
+        super(R.layout.item_refresh, data);
     }
 
     @Override
