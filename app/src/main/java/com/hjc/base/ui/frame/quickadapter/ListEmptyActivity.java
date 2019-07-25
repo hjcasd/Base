@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.blankj.utilcode.util.ToastUtils;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.hjc.base.R;
 import com.hjc.base.base.activity.BaseActivity;
 import com.hjc.base.constant.RoutePath;
@@ -53,11 +55,11 @@ public class ListEmptyActivity extends BaseActivity {
 
     @Override
     public void initData(Bundle savedInstanceState) {
-        loadingDialog.showDialog(getSupportFragmentManager());
-
         rvList.setLayoutManager(new LinearLayoutManager(this));
         mAdapter = new EmptyAdapter(null);
         rvList.setAdapter(mAdapter);
+
+        loadingDialog.showDialog(getSupportFragmentManager());
 
         Observable.timer(2, TimeUnit.SECONDS)
                 .compose(RxSchedulers.ioToMain())
@@ -72,11 +74,18 @@ public class ListEmptyActivity extends BaseActivity {
         tvStateContent.setOnClickListener(this);
 
         titleBar.setOnViewLeftClickListener(view -> finish());
+
+        mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                ToastUtils.showShort("position---" + position);
+            }
+        });
     }
 
     @Override
     public void onSingleClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.tv_state_content:
                 loadingDialog.showDialog(getSupportFragmentManager());
 

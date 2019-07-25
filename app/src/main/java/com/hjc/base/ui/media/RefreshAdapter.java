@@ -1,4 +1,4 @@
-package com.hjc.base.ui.frame.quickadapter.adapter;
+package com.hjc.base.ui.media;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;

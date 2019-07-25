@@ -9,7 +9,6 @@ import android.view.View;
 import com.blankj.utilcode.util.LogUtils;
 import com.hjc.base.R;
 import com.hjc.base.base.activity.BaseActivity;
-import com.hjc.base.ui.frame.quickadapter.adapter.RefreshAdapter;
 import com.hjc.base.widget.bar.OnViewLeftClickListener;
 import com.hjc.base.widget.bar.TitleBar;
 import com.hjc.base.widget.tools.LinearItemDecoration;

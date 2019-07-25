@@ -11,7 +11,7 @@ import java.util.List;
 public class EmptyAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
 
     public EmptyAdapter(@Nullable List<String> data) {
-        super(R.layout.item_empty, data);
+        super(R.layout.item_card_test, data);
     }
 
     @Override
