@@ -189,4 +189,7 @@ dependencies {
 
     //自定义Toast
     implementation 'com.github.GrenderG:Toasty:1.4.2'
+
+    //Zxing二维码
+    implementation 'cn.bingoogolapple:bga-qrcode-zxing:1.3.6'
 }

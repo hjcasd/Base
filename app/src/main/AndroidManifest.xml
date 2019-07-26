@@ -120,6 +120,14 @@
             android:name=".ui.frame.quickadapter.ListExpandActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".ui.frame.zxing.QRCodeActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.frame.zxing.ScanCodeActivity"
+            android:screenOrientation="portrait" />
+
 
         <!--===============================多媒体=================================-->
         <activity

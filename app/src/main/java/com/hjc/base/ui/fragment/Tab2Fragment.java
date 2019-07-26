@@ -11,7 +11,10 @@ import com.hjc.base.R;
 import com.hjc.base.base.fragment.BaseImmersionFragment;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.utils.SchemeUtils;
+import com.hjc.base.utils.permission.PermissionCallBack;
+import com.hjc.base.utils.permission.PermissionManager;
 import com.tencent.bugly.crashreport.CrashReport;
+import com.yanzhenjie.permission.runtime.Permission;
 
 import butterknife.BindView;
 
@@ -27,6 +30,8 @@ public class Tab2Fragment extends BaseImmersionFragment {
     Button btnBugly;
     @BindView(R.id.btn_quick)
     Button btnQuick;
+    @BindView(R.id.btn_code)
+    Button btnCode;
 
 
     public static Tab2Fragment newInstance() {
@@ -53,6 +58,7 @@ public class Tab2Fragment extends BaseImmersionFragment {
         btnEventBus.setOnClickListener(this);
         btnBugly.setOnClickListener(this);
         btnQuick.setOnClickListener(this);
+        btnCode.setOnClickListener(this);
     }
 
     @Override
@@ -70,7 +76,26 @@ public class Tab2Fragment extends BaseImmersionFragment {
             case R.id.btn_quick:
                 SchemeUtils.jump(RoutePath.URL_LIST_HELPER);
                 break;
+
+            case R.id.btn_code:
+                requestPermissions();
+                break;
         }
     }
-    
+
+    private void requestPermissions() {
+        PermissionManager.getInstance()
+                .with(this)
+                .requestPermissionInFragment(new PermissionCallBack() {
+                    @Override
+                    public void onGranted() {
+                        SchemeUtils.jump(RoutePath.URL_QR_CODE);
+                    }
+
+                    @Override
+                    public void onDenied() {
+                        ToastUtils.showShort("申请相机权限失败");
+                    }
+                }, Permission.CAMERA);
+    }
 }

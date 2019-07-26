@@ -28,4 +28,8 @@ public class RoutePath {
     public static final String URL_LIST_HELPER = "/base/adapter";
     public static final String URL_LIST_EMPTY = "/base/adapter/empty";
     public static final String URL_LIST_EXPAND = "/base/adapter/expand";
+
+    //Zxing页面
+    public static final String URL_QR_CODE = "/base/zxing";
+    public static final String URL_SCAN_CODE = "/base/zxing/scan";
 }

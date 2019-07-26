@@ -47,12 +47,9 @@ public abstract class BasePagerAdapter<T> extends PagerAdapter {
             mViews.put(position, view);
         }
 
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (onItemClickListener != null){
-                    onItemClickListener.onItemClick(position);
-                }
+        view.setOnClickListener(v -> {
+            if (onItemClickListener != null){
+                onItemClickListener.onItemClick(position);
             }
         });
 

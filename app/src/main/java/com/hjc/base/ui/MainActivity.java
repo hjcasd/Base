@@ -14,14 +14,14 @@ import com.hjc.base.ui.fragment.Tab4Fragment;
 import butterknife.BindView;
 
 public class MainActivity extends BaseFragmentActivity {
-
     @BindView(R.id.rg_tab)
-    RadioGroup rg_tab;
+    RadioGroup rgTab;
 
     private Tab1Fragment mTab1Fragment;
     private Tab2Fragment mTab2Fragment;
     private Tab3Fragment mTab3Fragment;
     private Tab4Fragment mTab4Fragment;
+
 
     @Override
     public int getLayoutId() {
@@ -45,7 +45,7 @@ public class MainActivity extends BaseFragmentActivity {
 
     @Override
     public void addListeners() {
-        rg_tab.setOnCheckedChangeListener((group, checkedId) -> {
+        rgTab.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
                 case R.id.rb_tab1:
                     showFragment(mTab1Fragment);
