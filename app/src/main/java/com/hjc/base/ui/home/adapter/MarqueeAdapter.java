@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.R;
 import com.hjc.base.widget.marquee.MarqueeBaseAdapter;
 
@@ -23,5 +24,7 @@ public class MarqueeAdapter  extends MarqueeBaseAdapter<String> {
     protected void initView(View itemView, int position, String item) {
         TextView tvContent = itemView.findViewById(R.id.tv_content);
         tvContent.setText(item);
+
+        itemView.setOnClickListener(v -> ToastUtils.showShort(item));
     }
 }

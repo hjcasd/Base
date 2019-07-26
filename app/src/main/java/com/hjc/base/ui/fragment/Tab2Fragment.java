@@ -15,7 +15,11 @@ import com.tencent.bugly.crashreport.CrashReport;
 
 import butterknife.BindView;
 
-
+/**
+ * @Author: HJC
+ * @Date: 2019/7/26 10:43
+ * @Description: 常用框架使用
+ */
 public class Tab2Fragment extends BaseImmersionFragment {
     @BindView(R.id.btn_event_bus)
     Button btnEventBus;

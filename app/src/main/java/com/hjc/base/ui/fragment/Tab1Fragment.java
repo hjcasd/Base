@@ -12,19 +12,21 @@ import com.hjc.base.constant.RoutePath;
 import com.hjc.base.ui.home.adapter.MarqueeAdapter;
 import com.hjc.base.utils.SchemeUtils;
 import com.hjc.base.utils.image.GlideImageLoader;
-import com.hjc.base.widget.marquee.MarqueeBaseAdapter;
 import com.hjc.base.widget.marquee.MarqueeLayout;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
-import com.youth.banner.listener.OnBannerListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 
-
+/**
+ * @Author: HJC
+ * @Date: 2019/7/26 10:42
+ * @Description: 常用UI效果实现及UI框架使用
+ */
 public class Tab1Fragment extends BaseImmersionFragment {
     @BindView(R.id.banner)
     Banner banner;
@@ -36,8 +38,6 @@ public class Tab1Fragment extends BaseImmersionFragment {
     Button btnPicker;
     @BindView(R.id.btn_state)
     Button btnState;
-
-    private MarqueeAdapter marqueeAdapter;
 
 
     public static Tab1Fragment newInstance() {
@@ -79,7 +79,7 @@ public class Tab1Fragment extends BaseImmersionFragment {
             list.add("我是滚动消息" + (i + 1));
         }
 
-        marqueeAdapter = new MarqueeAdapter(mContext, list);
+        MarqueeAdapter marqueeAdapter = new MarqueeAdapter(mContext, list);
         marqueeLayout.setAdapter(marqueeAdapter);
 
         marqueeLayout.start();
@@ -91,19 +91,7 @@ public class Tab1Fragment extends BaseImmersionFragment {
         btnPicker.setOnClickListener(this);
         btnState.setOnClickListener(this);
 
-        banner.setOnBannerListener(new OnBannerListener() {
-            @Override
-            public void OnBannerClick(int position) {
-                ToastUtils.showShort("position---" + position);
-            }
-        });
-
-        marqueeAdapter.setOnItemClickListener(new MarqueeBaseAdapter.OnItemClickListener() {
-            @Override
-            public void onClick(View view, int position) {
-                ToastUtils.showShort("position---" + position);
-            }
-        });
+        banner.setOnBannerListener(position -> ToastUtils.showShort("position---" + position));
     }
 
     @Override

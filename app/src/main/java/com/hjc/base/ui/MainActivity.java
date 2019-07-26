@@ -1,7 +1,6 @@
 package com.hjc.base.ui;
 
 import android.os.Bundle;
-import android.support.annotation.IdRes;
 import android.view.View;
 import android.widget.RadioGroup;
 
@@ -46,29 +45,26 @@ public class MainActivity extends BaseFragmentActivity {
 
     @Override
     public void addListeners() {
-        rg_tab.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
-                switch (checkedId) {
-                    case R.id.rb_tab1:
-                        showFragment(mTab1Fragment);
-                        break;
+        rg_tab.setOnCheckedChangeListener((group, checkedId) -> {
+            switch (checkedId) {
+                case R.id.rb_tab1:
+                    showFragment(mTab1Fragment);
+                    break;
 
-                    case R.id.rb_tab2:
-                        showFragment(mTab2Fragment);
-                        break;
+                case R.id.rb_tab2:
+                    showFragment(mTab2Fragment);
+                    break;
 
-                    case R.id.rb_tab3:
-                        showFragment(mTab3Fragment);
-                        break;
+                case R.id.rb_tab3:
+                    showFragment(mTab3Fragment);
+                    break;
 
-                    case R.id.rb_tab4:
-                        showFragment(mTab4Fragment);
-                        break;
+                case R.id.rb_tab4:
+                    showFragment(mTab4Fragment);
+                    break;
 
-                    default:
-                        break;
-                }
+                default:
+                    break;
             }
         });
     }

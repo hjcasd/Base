@@ -1,6 +1,5 @@
 package com.hjc.base.ui.fragment;
 
-
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -16,6 +15,11 @@ import com.yanzhenjie.permission.runtime.Permission;
 
 import butterknife.BindView;
 
+/**
+ * @Author: HJC
+ * @Date: 2019/7/26 10:44
+ * @Description: 多媒体框架使用及常用功能实现
+ */
 public class Tab3Fragment extends BaseImmersionFragment {
     @BindView(R.id.btn_camera)
     Button btnCamera;

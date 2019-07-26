@@ -20,6 +20,11 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.BindView;
 
+/**
+ * @Author: HJC
+ * @Date: 2019/7/26 11:23
+ * @Description: EventBus发送非粘性事件
+ */
 @Route(path = RoutePath.URL_EVENT_RECEIVE)
 public class EventReceiveActivity extends BaseActivity {
     @BindView(R.id.title_bar)

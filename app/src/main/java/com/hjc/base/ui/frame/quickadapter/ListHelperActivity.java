@@ -13,6 +13,11 @@ import com.hjc.base.widget.bar.TitleBar;
 
 import butterknife.BindView;
 
+/**
+ * @Author: HJC
+ * @Date: 2019/7/26 11:27
+ * @Description: BaseQuickAdapterHelper的使用
+ */
 @Route(path = RoutePath.URL_LIST_HELPER)
 public class ListHelperActivity extends BaseActivity {
     @BindView(R.id.title_bar)

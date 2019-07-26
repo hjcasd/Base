@@ -26,7 +26,11 @@ import java.util.concurrent.TimeUnit;
 import butterknife.BindView;
 import io.reactivex.Observable;
 
-
+/**
+ * @Author: HJC
+ * @Date: 2019/7/26 10:45
+ * @Description: 其他框架使用及常用效果实现
+ */
 public class Tab4Fragment extends BaseImmersionFragment {
     @BindView(R.id.btn_dialog)
     Button btnDialog;

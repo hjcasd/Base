@@ -17,8 +17,6 @@ public abstract class MarqueeBaseAdapter<T> extends BaseAdapter {
     private List<T> mDataList;
     protected Context mContext;
 
-    private OnItemClickListener mItemClickListener;
-
     public MarqueeBaseAdapter(Context context, List<T> list) {
         this.mContext = context;
         this.mDataList = list;
@@ -43,27 +41,10 @@ public abstract class MarqueeBaseAdapter<T> extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         View itemView = LayoutInflater.from(mContext).inflate(getItemLayoutId(), parent, false);
         initView(itemView, position, getItem(position));
-
-        if (mItemClickListener != null) {
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    mItemClickListener.onClick(v, position);
-                }
-            });
-        }
         return itemView;
     }
 
     protected abstract int getItemLayoutId();
 
     protected abstract void initView(View itemView, int position, T item);
-
-    public interface OnItemClickListener {
-        void onClick(View view, int position);
-    }
-
-    public void setOnItemClickListener(OnItemClickListener itemClickListener) {
-        this.mItemClickListener = itemClickListener;
-    }
 }
