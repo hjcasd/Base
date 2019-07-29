@@ -167,7 +167,6 @@ dependencies {
 
     //Bugly
     implementation 'com.tencent.bugly:crashreport:2.8.6'
-
     implementation 'com.tencent.bugly:nativecrashreport:3.6.0'
 
     //列表适配器

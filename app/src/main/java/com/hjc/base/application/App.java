@@ -122,6 +122,9 @@ public class App extends MultiDexApplication {
         QbSdk.initX5Environment(getApplicationContext(),  cb);
     }
 
+    /**
+     * 初始化Toasty
+     */
     private void initToasty() {
         Toasty.Config.getInstance()
                 .setTextSize(14)

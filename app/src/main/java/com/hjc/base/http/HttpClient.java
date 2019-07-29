@@ -2,6 +2,7 @@ package com.hjc.base.http;
 
 import android.annotation.SuppressLint;
 
+import com.hjc.base.constant.AppConstants;
 import com.hjc.base.http.interceptor.AddCookiesInterceptor;
 import com.hjc.base.http.interceptor.LogInterceptor;
 import com.hjc.base.http.interceptor.ReceivedCookiesInterceptor;
@@ -39,8 +40,11 @@ public class HttpClient {
                 .sslSocketFactory(createSSLSocketFactory(), (X509TrustManager) trustAllCerts[0])
                 .hostnameVerifier(new TrustAllHostnameVerifier())
                 .addInterceptor(new ReceivedCookiesInterceptor())
-                .addInterceptor(new AddCookiesInterceptor())
-                .addInterceptor(new LogInterceptor());
+                .addInterceptor(new AddCookiesInterceptor());
+
+        if (AppConstants.isDebug){
+            mBuilder.addInterceptor(new LogInterceptor());
+        }
     }
 
     public static HttpClient getInstance() {
