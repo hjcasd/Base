@@ -8,8 +8,13 @@ package com.hjc.base.http.config;
  */
 public class URLConfig {
 
-    //检查版本更新
+    /**
+     * 检查版本更新url
+     */
     public static final String URL_CHECK_VERSION = "ifs/services/bffq/v1/appVersion";
 
+    /**
+     * 登录url
+     */
     public static final String URL_LOGIN = "ifs/services/bffq/v1/appLogin";
 }

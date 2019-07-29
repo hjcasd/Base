@@ -33,8 +33,9 @@ public class RetrofitClient1 {
     public static RetrofitClient1 getInstance() {
         if (mRetrofitClient == null) {
             synchronized (RetrofitClient1.class) {
-                if (mRetrofitClient == null)
+                if (mRetrofitClient == null) {
                     mRetrofitClient = new RetrofitClient1();
+                }
             }
         }
         return mRetrofitClient;

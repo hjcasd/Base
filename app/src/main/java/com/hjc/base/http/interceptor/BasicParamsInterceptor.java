@@ -1,5 +1,6 @@
-package com.hjc.base.http.Interceptor;
+package com.hjc.base.http.interceptor;
 
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 import java.io.IOException;
@@ -26,18 +27,21 @@ import okio.Buffer;
  * @Description: 公共参数的拦截器(暂时用不到)
  */
 public class BasicParamsInterceptor implements Interceptor {
-
     private Map<String, String> queryParamsMap = new HashMap<>();
     private Map<String, String> paramsMap = new HashMap<>();
     private Map<String, String> headerParamsMap = new HashMap<>();
     private List<String> headerLinesList = new ArrayList<>();
 
+    private static final String REQUEST_METHOD = "POST";
+    private static final String MEDIA_TYPE = "x-www-form-urlencoded";
+
     private BasicParamsInterceptor() {
 
     }
 
+    @NonNull
     @Override
-    public Response intercept(Chain chain) throws IOException {
+    public Response intercept(@NonNull Chain chain) throws IOException {
         Request request = chain.request();
         Request.Builder requestBuilder = request.newBuilder();
 
@@ -84,7 +88,7 @@ public class BasicParamsInterceptor implements Interceptor {
         if (request == null) {
             return false;
         }
-        if (!TextUtils.equals(request.method(), "POST")) {
+        if (!TextUtils.equals(request.method(), REQUEST_METHOD)) {
             return false;
         }
         RequestBody body = request.body();
@@ -95,13 +99,12 @@ public class BasicParamsInterceptor implements Interceptor {
         if (mediaType == null) {
             return false;
         }
-        if (!TextUtils.equals(mediaType.subtype(), "x-www-form-urlencoded")) {
+        if (!TextUtils.equals(mediaType.subtype(), MEDIA_TYPE)) {
             return false;
         }
         return true;
     }
 
-    // func to inject params into url
     private Request injectParamsIntoUrl(HttpUrl.Builder httpUrlBuilder, Request.Builder requestBuilder, Map<String, String> paramsMap) {
         if (paramsMap.size() > 0) {
             Iterator iterator = paramsMap.entrySet().iterator();
@@ -118,12 +121,12 @@ public class BasicParamsInterceptor implements Interceptor {
 
     private static String bodyToString(final RequestBody request) {
         try {
-            final RequestBody copy = request;
             final Buffer buffer = new Buffer();
-            if (copy != null)
-                copy.writeTo(buffer);
-            else
+            if (request != null) {
+                request.writeTo(buffer);
+            } else {
                 return "";
+            }
             return buffer.readUtf8();
         } catch (final IOException e) {
             return "did not work";
@@ -131,7 +134,6 @@ public class BasicParamsInterceptor implements Interceptor {
     }
 
     public static class Builder {
-
         BasicParamsInterceptor interceptor;
 
         public Builder() {

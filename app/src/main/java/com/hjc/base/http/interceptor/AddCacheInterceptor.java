@@ -1,4 +1,4 @@
-package com.hjc.base.http.Interceptor;
+package com.hjc.base.http.interceptor;
 
 
 import android.support.annotation.NonNull;
@@ -12,6 +12,11 @@ import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
 
+/**
+ * @Author: HJC
+ * @Date: 2019/7/29 14:15
+ * @Description: 缓存拦截器
+ */
 public class AddCacheInterceptor implements Interceptor {
 
     @NonNull
@@ -33,7 +38,7 @@ public class AddCacheInterceptor implements Interceptor {
             //当然如果你想在有网络的情况下都直接走网络，那么只需要
             //将其超时时间maxAge设为0即可
             return response.newBuilder()
-                    .header("Cache-Control",cacheControl)
+                    .header("Cache-Control", cacheControl)
                     .removeHeader("Pragma").build();
         } else {
             //无网络时直接取缓存数据，该缓存数据保存1周

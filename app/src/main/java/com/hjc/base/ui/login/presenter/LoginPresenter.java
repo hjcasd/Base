@@ -1,15 +1,19 @@
 package com.hjc.base.ui.login.presenter;
 
-
 import com.hjc.base.base.mvp.BasePresenter;
 import com.hjc.base.http.RetrofitClient1;
 import com.hjc.base.http.helper.RxHelper;
-import com.hjc.base.http.observer.ProgressObserver;
+import com.hjc.base.http.observer.BaseProgressObserver;
 import com.hjc.base.model.request.LoginReq;
 import com.hjc.base.model.response.LoginResp;
 import com.hjc.base.ui.login.LoginActivity;
 import com.hjc.base.ui.login.contract.LoginContract;
 
+/**
+ * @Author: HJC
+ * @Date: 2019/7/29 14:24
+ * @Description: 登录presenter
+ */
 public class LoginPresenter extends BasePresenter<LoginContract.View> implements LoginContract.Presenter {
 
     @Override
@@ -19,7 +23,7 @@ public class LoginPresenter extends BasePresenter<LoginContract.View> implements
         RetrofitClient1.getInstance().getAPI()
                 .login(loginReq)
                 .compose(RxHelper.bind(loginActivity))
-                .subscribe(new ProgressObserver<LoginResp>(loginActivity.getSupportFragmentManager()) {
+                .subscribe(new BaseProgressObserver<LoginResp>(loginActivity.getSupportFragmentManager()) {
 
                     @Override
                     public void onSuccess(LoginResp result) {

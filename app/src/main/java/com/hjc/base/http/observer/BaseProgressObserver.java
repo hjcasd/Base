@@ -17,17 +17,17 @@ import io.reactivex.disposables.Disposable;
  * @Date: 2019/1/7 11:52
  * @Description: 带进度的Observer
  */
-public abstract class ProgressObserver<T> implements Observer<BaseResponse<T>> {
+public abstract class BaseProgressObserver<T> implements Observer<BaseResponse<T>> {
     private LoadingDialog mLoadingDialog;
     private FragmentManager mFragmentManager;
     private boolean isShowLoading = true;
 
-    public ProgressObserver(FragmentManager fragmentManager) {
+    public BaseProgressObserver(FragmentManager fragmentManager) {
         this.mFragmentManager = fragmentManager;
         mLoadingDialog = LoadingDialog.newInstance();
     }
 
-    public ProgressObserver(FragmentManager fragmentManager, boolean isShow) {
+    public BaseProgressObserver(FragmentManager fragmentManager, boolean isShow) {
         this.mFragmentManager = fragmentManager;
         this.isShowLoading = isShow;
         mLoadingDialog = LoadingDialog.newInstance();

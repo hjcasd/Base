@@ -8,7 +8,9 @@ import com.blankj.utilcode.util.LogUtils;
 import com.hjc.base.utils.ApkUtils;
 
 /**
- * 应用安装监听
+ * @Author: HJC
+ * @Date: 2019/7/29 14:20
+ * @Description: 应用安装监听
  */
 public class InstallBroadCastReceiver extends BroadcastReceiver {
     @Override

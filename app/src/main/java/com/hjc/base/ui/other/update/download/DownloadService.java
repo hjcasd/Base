@@ -17,6 +17,11 @@ import com.hjc.base.utils.ApkUtils;
 
 import java.io.File;
 
+/**
+ * @Author: HJC
+ * @Date: 2019/7/29 14:17
+ * @Description: 下载服务类
+ */
 public class DownloadService extends IntentService {
     private static final int NOTIFY_ID = 0;
     private static final String CHANNEL_ID = "app_update_id";
@@ -75,7 +80,7 @@ public class DownloadService extends IntentService {
      *
      */
     private void download() {
-        DownloadManager.getInstance().download(apkUrl, new DownloadObserver<File>() {
+        DownloadManager.getInstance().download(apkUrl, new BaseDownloadObserver<File>() {
             @Override
             public void onDownloadSuccess(File file) {
                 SPUtils.getInstance().put("isDownloadedApk", true);

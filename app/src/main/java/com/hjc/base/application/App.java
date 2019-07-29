@@ -7,7 +7,6 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.Utils;
 import com.hjc.base.constant.AppConstants;
-import com.hjc.base.utils.helper.CrashHandler;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.tencent.smtt.sdk.QbSdk;
 
@@ -28,8 +27,6 @@ public class App extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-
-        CrashHandler.getInstance().init(this);
 
         initUtils();
         initARouter();

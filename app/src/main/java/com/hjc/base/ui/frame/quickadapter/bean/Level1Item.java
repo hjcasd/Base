@@ -4,7 +4,11 @@ import com.chad.library.adapter.base.entity.AbstractExpandableItem;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.hjc.base.ui.frame.quickadapter.adapter.ExpandAdapter;
 
-
+/**
+ * @Author: HJC
+ * @Date: 2019/7/29 14:20
+ * @Description: 一级列表bean
+ */
 public class Level1Item extends AbstractExpandableItem<Level2Item> implements MultiItemEntity {
     private String title;
 

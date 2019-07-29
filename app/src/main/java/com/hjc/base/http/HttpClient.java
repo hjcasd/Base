@@ -2,9 +2,9 @@ package com.hjc.base.http;
 
 import android.annotation.SuppressLint;
 
-import com.hjc.base.http.Interceptor.AddCookiesInterceptor;
-import com.hjc.base.http.Interceptor.LogInterceptor;
-import com.hjc.base.http.Interceptor.ReceivedCookiesInterceptor;
+import com.hjc.base.http.interceptor.AddCookiesInterceptor;
+import com.hjc.base.http.interceptor.LogInterceptor;
+import com.hjc.base.http.interceptor.ReceivedCookiesInterceptor;
 import com.hjc.base.http.config.HttpConfig;
 
 import java.security.SecureRandom;
@@ -43,7 +43,6 @@ public class HttpClient {
                 .addInterceptor(new LogInterceptor());
     }
 
-    //双重检验锁单例模式
     public static HttpClient getInstance() {
         if (mHttpClient == null) {
             synchronized (HttpClient.class) {

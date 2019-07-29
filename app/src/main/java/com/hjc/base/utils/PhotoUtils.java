@@ -13,6 +13,7 @@ import com.hjc.base.BuildConfig;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * @Author: HJC
@@ -52,7 +53,9 @@ public class PhotoUtils {
         // 判断存储卡是否可以用，可用进行存储
         if (hasSdcard()) {
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            String pictureName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date()) + ".jpg";
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-hh-mm-ss", Locale.getDefault());
+            String time = sdf.format(new Date());
+            String pictureName = time + ".jpg";
             //图片路径
             String picturePath = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + pictureName;
             File file = new File(picturePath);

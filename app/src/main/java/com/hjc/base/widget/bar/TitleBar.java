@@ -136,7 +136,7 @@ public class TitleBar extends LinearLayout {
             public void onClick(View v) {
                 if (ivLeftImg.getVisibility() == View.VISIBLE) {
                     if (mClickListener != null) {
-                        mClickListener.leftClick(v);
+                        mClickListener.rightClick(v);
                     }
                 } else {
                     if (mRightClickListener != null) {
@@ -147,7 +147,6 @@ public class TitleBar extends LinearLayout {
         });
     }
 
-    //设置标题
     public void setTitle(String title) {
         if (!TextUtils.isEmpty(title)) {
             tvTitle.setVisibility(View.VISIBLE);
@@ -157,12 +156,10 @@ public class TitleBar extends LinearLayout {
         }
     }
 
-    //设置标题大小
     public void setTitleSize(int size) {
         tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
     }
 
-    //设置标题颜色
     public void setTitleTextColor(int color) {
         tvTitle.setTextColor(color);
     }

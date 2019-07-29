@@ -11,10 +11,7 @@ import com.hjc.base.R;
 import com.hjc.base.base.fragment.BaseImmersionFragment;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.utils.SchemeUtils;
-import com.hjc.base.utils.permission.PermissionCallBack;
-import com.hjc.base.utils.permission.PermissionManager;
 import com.tencent.bugly.crashreport.CrashReport;
-import com.yanzhenjie.permission.runtime.Permission;
 
 import butterknife.BindView;
 
@@ -78,24 +75,11 @@ public class Tab2Fragment extends BaseImmersionFragment {
                 break;
 
             case R.id.btn_code:
-                requestPermissions();
+                SchemeUtils.jump(RoutePath.URL_QR_CODE);
+                break;
+
+            default:
                 break;
         }
-    }
-
-    private void requestPermissions() {
-        PermissionManager.getInstance()
-                .with(this)
-                .requestPermissionInFragment(new PermissionCallBack() {
-                    @Override
-                    public void onGranted() {
-                        SchemeUtils.jump(RoutePath.URL_QR_CODE);
-                    }
-
-                    @Override
-                    public void onDenied() {
-                        ToastUtils.showShort("申请相机权限失败");
-                    }
-                }, Permission.CAMERA);
     }
 }

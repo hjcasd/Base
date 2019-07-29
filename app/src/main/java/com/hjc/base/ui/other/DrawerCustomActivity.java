@@ -66,6 +66,9 @@ public class DrawerCustomActivity extends BaseActivity {
             case R.id.btn_show:
                 drawerLayout.openDrawer(Gravity.START);
                 break;
+
+                default:
+                    break;
         }
     }
 

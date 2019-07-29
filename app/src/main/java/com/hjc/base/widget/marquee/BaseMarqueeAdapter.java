@@ -13,11 +13,11 @@ import java.util.List;
  * @Date: 2019/7/25 14:29
  * @Description: MarqueeLayout 基类adapter
  */
-public abstract class MarqueeBaseAdapter<T> extends BaseAdapter {
+public abstract class BaseMarqueeAdapter<T> extends BaseAdapter {
     private List<T> mDataList;
     protected Context mContext;
 
-    public MarqueeBaseAdapter(Context context, List<T> list) {
+    public BaseMarqueeAdapter(Context context, List<T> list) {
         this.mContext = context;
         this.mDataList = list;
     }

@@ -26,6 +26,11 @@ import java.util.concurrent.TimeUnit;
 import butterknife.BindView;
 import io.reactivex.Observable;
 
+/**
+ * @Author: HJC
+ * @Date: 2019/7/29 14:21
+ * @Description: 列表空布局
+ */
 @SuppressLint("CheckResult")
 @Route(path = RoutePath.URL_LIST_EMPTY)
 public class ListEmptyActivity extends BaseActivity {
@@ -99,6 +104,9 @@ public class ListEmptyActivity extends BaseActivity {
                             mAdapter.setNewData(list);
                             loadingDialog.dismiss();
                         });
+                break;
+
+            default:
                 break;
         }
     }

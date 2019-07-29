@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -31,7 +32,7 @@ public class X5WebView extends WebView {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, ConvertUtils.dp2px(1));
         mProgressBar.setLayoutParams(layoutParams);
 
-        Drawable drawable = context.getResources().getDrawable(R.drawable.shape_web_progress_bar);
+        Drawable drawable = ContextCompat.getDrawable(context, R.drawable.shape_web_progress_bar);
         mProgressBar.setProgressDrawable(drawable);
         addView(mProgressBar);
 
@@ -96,6 +97,7 @@ public class X5WebView extends WebView {
         setWebViewClient(new WebViewClient() {
 
             // 防止加载网页时调起系统浏览器
+            @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);
                 return true;
@@ -106,24 +108,14 @@ public class X5WebView extends WebView {
 
             @Override
             public void onProgressChanged(WebView webView, int newProgress) {
+                mProgressBar.setProgress(newProgress);
                 if (newProgress == 100) {
                     mProgressBar.setVisibility(GONE);
                 } else {
-                    if (mProgressBar.getVisibility() == GONE)
-                        mProgressBar.setVisibility(VISIBLE);
-                    mProgressBar.setProgress(newProgress);
+                    mProgressBar.setVisibility(VISIBLE);
                 }
                 super.onProgressChanged(webView, newProgress);
             }
         });
     }
-
-//    @Override
-//    protected void onScrollChanged(int l, int t, int oldl, int oldt) {
-//        AbsoluteLayout.LayoutParams lp = (AbsoluteLayout.LayoutParams) mProgressBar.getLayoutParams();
-//        lp.x = l;
-//        lp.y = t;
-//        mProgressBar.setLayoutParams(lp);
-//        super.onScrollChanged(l, t, oldl, oldt);
-//    }
 }

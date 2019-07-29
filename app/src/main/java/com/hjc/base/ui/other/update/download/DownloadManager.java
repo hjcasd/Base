@@ -15,8 +15,12 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * @Author: HJC
+ * @Date: 2019/7/29 14:16
+ * @Description: 下载管理类
+ */
 public class DownloadManager {
-
     private static DownloadManager downloadManager;
 
     private DownloadManager() {
@@ -33,7 +37,7 @@ public class DownloadManager {
         return downloadManager;
     }
 
-    public void download(String url, final DownloadObserver<File> downloadObserver) {
+    public void download(String url, final BaseDownloadObserver<File> downloadObserver) {
         Retrofit retrofit = new Retrofit.Builder()
                 .client(new OkHttpClient())
                 .baseUrl("http://www.apk.anzhi.com/")

@@ -13,6 +13,11 @@ import com.hjc.base.ui.fragment.Tab4Fragment;
 
 import butterknife.BindView;
 
+/**
+ * @Author: HJC
+ * @Date: 2019/7/29 14:25
+ * @Description: 主页
+ */
 public class MainActivity extends BaseFragmentActivity {
     @BindView(R.id.rg_tab)
     RadioGroup rgTab;

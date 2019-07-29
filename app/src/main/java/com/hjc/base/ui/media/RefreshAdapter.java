@@ -14,6 +14,11 @@ import com.hjc.base.R;
 
 import java.util.List;
 
+/**
+ * @Author: HJC
+ * @Date: 2019/7/29 14:28
+ * @Description: 刷新adapter
+ */
 public class RefreshAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
 
     private SparseArray<String> sparseArray = new SparseArray();

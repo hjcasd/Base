@@ -21,6 +21,11 @@ import java.util.List;
 
 import butterknife.BindView;
 
+/**
+ * @Author: HJC
+ * @Date: 2019/7/29 14:22
+ * @Description: 多级伸缩列表
+ */
 @Route(path = RoutePath.URL_LIST_EXPAND)
 public class ListExpandActivity extends BaseActivity {
     @BindView(R.id.title_bar)

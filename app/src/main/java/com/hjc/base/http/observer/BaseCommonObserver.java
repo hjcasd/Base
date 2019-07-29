@@ -7,7 +7,7 @@ import com.blankj.utilcode.util.ToastUtils;
  * @Date: 2019/1/7 11:52
  * @Description: 通用的Observer
  */
-public abstract class CommonObserver<T> extends BaseObserver<T> {
+public abstract class BaseCommonObserver<T> extends BaseObserver<T> {
     @Override
     public void onFailure(String errorMsg) {
         ToastUtils.showShort(errorMsg);

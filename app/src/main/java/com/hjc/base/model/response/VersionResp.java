@@ -2,8 +2,12 @@ package com.hjc.base.model.response;
 
 import java.io.Serializable;
 
-public class VersionBean implements Serializable {
-
+/**
+ * @Author: HJC
+ * @Date: 2019/7/29 14:31
+ * @Description: 更新响应bean
+ */
+public class VersionResp implements Serializable {
     private String lowVersion;
     private String newVersion;
     private String updateLog;
@@ -43,7 +47,7 @@ public class VersionBean implements Serializable {
 
     @Override
     public String toString() {
-        return "VersionBean{" +
+        return "VersionResp{" +
                 "lowVersion='" + lowVersion + '\'' +
                 ", newVersion='" + newVersion + '\'' +
                 ", updateLog='" + updateLog + '\'' +

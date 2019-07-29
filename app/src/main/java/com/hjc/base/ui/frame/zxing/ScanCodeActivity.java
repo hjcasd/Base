@@ -15,6 +15,11 @@ import butterknife.BindView;
 import cn.bingoogolapple.qrcode.core.QRCodeView;
 import cn.bingoogolapple.qrcode.zxing.ZXingView;
 
+/**
+ * @Author: HJC
+ * @Date: 2019/7/29 14:29
+ * @Description: 扫描二维码
+ */
 @Route(path = RoutePath.URL_SCAN_CODE)
 public class ScanCodeActivity extends BaseActivity implements QRCodeView.Delegate {
     @BindView(R.id.title_bar)
@@ -41,7 +46,6 @@ public class ScanCodeActivity extends BaseActivity implements QRCodeView.Delegat
     protected void onStart() {
         super.onStart();
         zxingView.startCamera(); // 打开后置摄像头开始预览，但是并未开始识别
-//        mZXingView.startCamera(Camera.CameraInfo.CAMERA_FACING_FRONT); // 打开前置摄像头开始预览，但是并未开始识别
         zxingView.startSpotAndShowRect(); // 显示扫描框，并开始识别
     }
 

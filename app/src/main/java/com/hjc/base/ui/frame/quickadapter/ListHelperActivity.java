@@ -60,6 +60,9 @@ public class ListHelperActivity extends BaseActivity {
             case R.id.btn_expand:
                 SchemeUtils.jump(RoutePath.URL_LIST_EXPAND);
                 break;
+
+            default:
+                break;
         }
     }
 

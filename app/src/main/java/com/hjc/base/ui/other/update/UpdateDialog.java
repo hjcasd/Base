@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.hjc.base.R;
 import com.hjc.base.base.dialog.BaseDialog;
 import com.hjc.base.constant.AppConstants;
-import com.hjc.base.model.response.VersionBean;
+import com.hjc.base.model.response.VersionResp;
 import com.hjc.base.ui.other.update.download.DownloadService;
 import com.hjc.base.utils.ApkUtils;
 import com.hjc.base.utils.helper.ActivityManager;
@@ -18,8 +18,12 @@ import java.io.File;
 
 import butterknife.BindView;
 
+/**
+ * @Author: HJC
+ * @Date: 2019/7/29 14:30
+ * @Description: 更新dialog
+ */
 public class UpdateDialog extends BaseDialog {
-
     @BindView(R.id.tv_title)
     TextView tvTitle;
     @BindView(R.id.tv_update_info)
@@ -57,18 +61,20 @@ public class UpdateDialog extends BaseDialog {
 
         Bundle bundle = getArguments();
         if (bundle != null) {
-            VersionBean versionBean = (VersionBean) getArguments().getSerializable("version");
+            VersionResp versionBean = (VersionResp) getArguments().getSerializable("version");
             isForceUpdate = bundle.getBoolean("isForceUpdate");
 
-            apkDownloadUrl = versionBean.getFilePath();
-            apkDownloadUrl = "data4/apk/201809/06/f2a4dbd1b6cc2dca6567f42ae7a91f11_45629100.apk";
+            if (versionBean != null){
+                apkDownloadUrl = versionBean.getFilePath();
+                apkDownloadUrl = "data4/apk/201809/06/f2a4dbd1b6cc2dca6567f42ae7a91f11_45629100.apk";
 
-            String newVersion = versionBean.getNewVersion();
-            String updateLog = versionBean.getUpdateLog();
+                String newVersion = versionBean.getNewVersion();
+                String updateLog = versionBean.getUpdateLog();
 
-            String content = "当前有新版本,是否升级到" + newVersion + "版本？";
-            tvTitle.setText(content);
-            tvUpdateInfo.setText(updateLog);
+                String content = "当前有新版本,是否升级到" + newVersion + "版本？";
+                tvTitle.setText(content);
+                tvUpdateInfo.setText(updateLog);
+            }
 
             //检测是否已下载过APK
             if (ApkUtils.appIsDownloaded()) {
@@ -107,6 +113,9 @@ public class UpdateDialog extends BaseDialog {
                 } else {
                     dismiss();
                 }
+                break;
+
+            default:
                 break;
         }
     }

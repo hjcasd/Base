@@ -14,6 +14,11 @@ import com.hjc.base.widget.bar.TitleBar;
 import butterknife.BindView;
 import es.dmoral.toasty.Toasty;
 
+/**
+ * @Author: HJC
+ * @Date: 2019/7/29 14:29
+ * @Description: Toasty的使用
+ */
 @Route(path = RoutePath.URL_TOASTY)
 public class ToastyActivity extends BaseActivity {
     @BindView(R.id.title_bar)
@@ -83,6 +88,9 @@ public class ToastyActivity extends BaseActivity {
 
             case R.id.btn_custom:
                 Toasty.custom(this, "自定义Toast", R.mipmap.ic_launcher, R.color.colorPrimary, Toast.LENGTH_LONG, true, true).show();
+                break;
+
+            default:
                 break;
         }
     }

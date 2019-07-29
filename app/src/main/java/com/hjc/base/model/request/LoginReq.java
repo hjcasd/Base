@@ -1,5 +1,10 @@
 package com.hjc.base.model.request;
 
+/**
+ * @Author: HJC
+ * @Date: 2019/7/29 14:24
+ * @Description: 登录请求bean
+ */
 public class LoginReq {
     private String phoneNo;
     private String verifyCode;

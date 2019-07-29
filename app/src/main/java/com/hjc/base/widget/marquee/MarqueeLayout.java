@@ -14,13 +14,14 @@ import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.Scroller;
 
-
 import com.hjc.base.R;
 
 import java.lang.ref.WeakReference;
 
 /**
- *  自定义滚动条
+ * @Author: HJC
+ * @Date: 2019/7/29 14:25
+ * @Description: 自定义滚动条
  */
 public class MarqueeLayout extends ViewGroup {
 
@@ -50,7 +51,7 @@ public class MarqueeLayout extends ViewGroup {
     private boolean mIsStart;
 
 
-    private MarqueeBaseAdapter mAdapter;
+    private BaseMarqueeAdapter mAdapter;
 
     private MarqueeObserver mMarqueeObserver = new MarqueeObserver();
 
@@ -230,23 +231,29 @@ public class MarqueeLayout extends ViewGroup {
                         mCurrentPosition = 0;
                     }
                     break;
+
                 case ORIENTATION_DOWN:
                     if (mCurrentPosition <= 0) {
                         fastScroll((mItemCount - 1) * mScrollDistance);
                         mCurrentPosition = mItemCount - 1;
                     }
                     break;
+
                 case ORIENTATION_LEFT:
                     if (mCurrentPosition >= mItemCount - 1) {
                         fastScroll(-mCurrentPosition * mScrollDistance);
                         mCurrentPosition = 0;
                     }
                     break;
+
                 case ORIENTATION_RIGHT:
                     if (mCurrentPosition <= 0) {
                         fastScroll((mItemCount - 1) * mScrollDistance);
                         mCurrentPosition = mItemCount - 1;
                     }
+                    break;
+
+                default:
                     break;
             }
             invalidate();
@@ -285,23 +292,29 @@ public class MarqueeLayout extends ViewGroup {
                 notReachBorder = mCurrentPosition != 0;
                 relativeChildPosition = mCurrentPosition - 1;
                 break;
+
             case ORIENTATION_DOWN:
                 rate = (mScroller.getCurrY() - mScroller.getStartY()) * 1.0f / (mScroller.getFinalY() - mScroller.getStartY()) / 2.0f +
                         0.5f;
                 notReachBorder = mCurrentPosition != mItemCount - 1;
                 relativeChildPosition = mCurrentPosition + 1;
                 break;
+
             case ORIENTATION_LEFT:
                 rate = (mScroller.getCurrX() - mScroller.getStartX()) * 1.0f / (mScroller.getFinalX() - mScroller.getStartX()) / 2.0f +
                         0.5f;
                 notReachBorder = mCurrentPosition != 0;
                 relativeChildPosition = mCurrentPosition - 1;
                 break;
+
             case ORIENTATION_RIGHT:
                 rate = (mScroller.getCurrX() - mScroller.getStartX()) * 1.0f / (mScroller.getFinalX() - mScroller.getStartX()) / 2.0f +
                         0.5f;
                 notReachBorder = mCurrentPosition != mItemCount - 1;
                 relativeChildPosition = mCurrentPosition + 1;
+                break;
+
+            default:
                 break;
         }
 
@@ -327,25 +340,33 @@ public class MarqueeLayout extends ViewGroup {
         }
     }
 
-    // 生成默认的布局参数
+    /**
+     * 生成默认的布局参数
+     */
     @Override
     protected LayoutParams generateDefaultLayoutParams() {
         return new MarginLayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
     }
 
-    // 生成布局参数,将布局参数包装成我们的
+    /**
+     * 生成布局参数,将布局参数包装成我们的
+     */
     @Override
     protected LayoutParams generateLayoutParams(LayoutParams p) {
         return new MarginLayoutParams(p);
     }
 
-    // 生成布局参数,从属性配置中生成我们的布局参数
+    /**
+     * 生成布局参数,从属性配置中生成我们的布局参数
+     */
     @Override
     public LayoutParams generateLayoutParams(AttributeSet attrs) {
         return new MarginLayoutParams(getContext(), attrs);
     }
 
-    // 查当前布局参数是否是我们定义的类型这在code声明布局参数时常常用到
+    /**
+     * 查当前布局参数是否是我们定义的类型这在code声明布局参数时常常用到
+     */
     @Override
     protected boolean checkLayoutParams(LayoutParams p) {
         return p instanceof MarginLayoutParams;
@@ -397,12 +418,12 @@ public class MarqueeLayout extends ViewGroup {
 
     }
 
-    public void setAdapter(MarqueeBaseAdapter adapter) {
+    public void setAdapter(BaseMarqueeAdapter adapter) {
         adapter.registerDataSetObserver(mMarqueeObserver);
         addChildView(adapter);
     }
 
-    private void addChildView(MarqueeBaseAdapter adapter) {
+    private void addChildView(BaseMarqueeAdapter adapter) {
         mAdapter = adapter;
 
         removeAllViews();
@@ -418,10 +439,14 @@ public class MarqueeLayout extends ViewGroup {
                     // 首添加到尾
                     addView(adapter.getView(0, null, this), getChildCount());
                     break;
+
                 case MarqueeLayout.ORIENTATION_DOWN:
                 case MarqueeLayout.ORIENTATION_RIGHT:
                     // 尾添加到首
                     addView(adapter.getView(getChildCount() - 1, null, this), 0);
+                    break;
+
+                default:
                     break;
             }
             mItemCount = adapter.getCount() + 1;
@@ -503,17 +528,23 @@ public class MarqueeLayout extends ViewGroup {
                             marqueeLayout.mCurrentPosition++;
                             marqueeLayout.smoothScroll(marqueeLayout.mScrollDistance);
                             break;
+
                         case ORIENTATION_DOWN:
                             marqueeLayout.mCurrentPosition--;
                             marqueeLayout.smoothScroll(-marqueeLayout.mScrollDistance);
                             break;
+
                         case ORIENTATION_LEFT:
                             marqueeLayout.mCurrentPosition++;
                             marqueeLayout.smoothScroll(marqueeLayout.mScrollDistance);
                             break;
+
                         case ORIENTATION_RIGHT:
                             marqueeLayout.mCurrentPosition--;
                             marqueeLayout.smoothScroll(-marqueeLayout.mScrollDistance);
+                            break;
+
+                        default:
                             break;
                     }
                     marqueeLayout.postInvalidate();

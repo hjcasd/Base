@@ -9,9 +9,7 @@ import java.util.Map;
  * @Description: 点击工具类
  */
 public class ClickUtils {
-
     private static Map<String, Long> records = new HashMap<>();
-
     private static Map<String, Long> record2s = new HashMap<>();
 
     public static boolean isFastClick() {

@@ -110,6 +110,9 @@ public class EventPostActivity extends BaseActivity {
             case R.id.btn_receive:
                 SchemeUtils.jump(RoutePath.URL_EVENT_RECEIVE);
                 break;
+
+            default:
+                break;
         }
     }
 

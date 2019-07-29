@@ -108,6 +108,9 @@ public class Tab1Fragment extends BaseImmersionFragment {
             case R.id.btn_state:
                 SchemeUtils.jump(RoutePath.URL_STATE_VIEW);
                 break;
+
+            default:
+                break;
         }
     }
 

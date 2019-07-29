@@ -11,7 +11,12 @@ import java.io.InputStream;
 import io.reactivex.observers.DefaultObserver;
 import okhttp3.ResponseBody;
 
-public abstract class DownloadObserver<T> extends DefaultObserver<T> {
+/**
+ * @Author: HJC
+ * @Date: 2019/7/29 14:16
+ * @Description: 下载observer
+ */
+public abstract class BaseDownloadObserver<T> extends DefaultObserver<T> {
 
     @Override
     public void onNext(T t) {
@@ -27,13 +32,29 @@ public abstract class DownloadObserver<T> extends DefaultObserver<T> {
     public void onComplete() {
     }
 
-    //下载成功的回调
+
+    /**
+     * 下载成功的回调
+     *
+     * @param t 下载数据
+     */
     public abstract void onDownloadSuccess(T t);
 
-    //下载失败回调
+
+    /**
+     * 下载失败回调
+     *
+     * @param msg 失败信息
+     */
     public abstract void onDownloadFail(String msg);
 
-    //下载进度监听
+
+    /**
+     * 下载进度监听
+     *
+     * @param progress 实时进度
+     * @param total    总进度
+     */
     public abstract void onProgress(int progress, long total);
 
     /**
@@ -69,12 +90,16 @@ public abstract class DownloadObserver<T> extends DefaultObserver<T> {
 
         } finally {
             try {
-                if (inputStream != null) inputStream.close();
+                if (inputStream != null) {
+                    inputStream.close();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
             try {
-                if (fos != null) fos.close();
+                if (fos != null) {
+                    fos.close();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }

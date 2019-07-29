@@ -55,6 +55,9 @@ public class Tab3Fragment extends BaseImmersionFragment {
             case R.id.btn_camera:
                 openCamera();
                 break;
+
+            default:
+                break;
         }
     }
 
@@ -62,8 +65,7 @@ public class Tab3Fragment extends BaseImmersionFragment {
      * 打开相机
      */
     private void openCamera() {
-        PermissionManager.getInstance()
-                .with(this)
+        new PermissionManager(this)
                 .requestPermissionInFragment(new PermissionCallBack() {
                     @Override
                     public void onGranted() {

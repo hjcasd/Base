@@ -25,6 +25,11 @@ import com.hjc.base.utils.SchemeUtils;
 
 import butterknife.BindView;
 
+/**
+ * @Author: HJC
+ * @Date: 2019/7/29 14:23
+ * @Description: 登录页
+ */
 @Route(path = RoutePath.URL_LOGIN)
 public class LoginActivity extends BaseMvpActivity<LoginContract.View, LoginPresenter> implements LoginContract.View {
 

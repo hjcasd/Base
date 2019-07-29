@@ -9,6 +9,7 @@
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
         app:leftImage="@mipmap/icon_back"
         app:titleColor="@color/white"
         app:titleText="QRCode" />
@@ -18,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="扫描二维码"
-        android:textAllCaps="false"/>
+        android:textAllCaps="false" />
 
 
     <Button
@@ -26,26 +27,33 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="生成二维码"
-        android:textAllCaps="false"/>
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/btn_generate_logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="生成二维码(logo)"
-        android:textAllCaps="false"/>
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/btn_recognition"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="识别图片二维码"
-        android:textAllCaps="false"/>
-    
+        android:textAllCaps="false" />
+
     <ImageView
         android:id="@+id/iv_code_pic"
         android:layout_width="160dp"
         android:layout_height="160dp"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center" />
 
 </LinearLayout>

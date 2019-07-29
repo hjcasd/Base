@@ -10,6 +10,11 @@ import com.hjc.base.ui.frame.quickadapter.bean.Level3Item;
 
 import java.util.List;
 
+/**
+ * @Author: HJC
+ * @Date: 2019/7/29 14:19
+ * @Description: 多级可伸缩列表adapter
+ */
 public class ExpandAdapter extends BaseMultiItemQuickAdapter<MultiItemEntity, BaseViewHolder> {
     public static final int TYPE_LEVEL_1 = 1;
     public static final int TYPE_LEVEL_2 = 2;
@@ -36,6 +41,9 @@ public class ExpandAdapter extends BaseMultiItemQuickAdapter<MultiItemEntity, Ba
 
             case TYPE_LEVEL_3:
                 initExpandItem3(holder, (Level3Item) item);
+                break;
+
+            default:
                 break;
         }
     }

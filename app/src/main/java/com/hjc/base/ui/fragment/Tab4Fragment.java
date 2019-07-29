@@ -12,9 +12,9 @@ import com.hjc.base.base.fragment.BaseImmersionFragment;
 import com.hjc.base.http.RetrofitClient2;
 import com.hjc.base.http.helper.RxHelper;
 import com.hjc.base.http.helper.RxSchedulers;
-import com.hjc.base.http.observer.CommonObserver;
-import com.hjc.base.model.request.UpdateRequest;
-import com.hjc.base.model.response.VersionBean;
+import com.hjc.base.http.observer.BaseCommonObserver;
+import com.hjc.base.model.request.UpdateReq;
+import com.hjc.base.model.response.VersionResp;
 import com.hjc.base.ui.other.DrawerCustomActivity;
 import com.hjc.base.ui.other.DrawerNavigationActivity;
 import com.hjc.base.ui.other.update.UpdateDialog;
@@ -92,18 +92,21 @@ public class Tab4Fragment extends BaseImmersionFragment {
             case R.id.btn_update:
                 checkVersion();
                 break;
+
+            default:
+                break;
         }
     }
 
     private void checkVersion() {
-        UpdateRequest request = new UpdateRequest();
+        UpdateReq request = new UpdateReq();
         request.setAppType("1");
         RetrofitClient2.getInstance().getAPI()
                 .checkVersion(request)
                 .compose(RxHelper.bind(this))
-                .subscribe(new CommonObserver<VersionBean>() {
+                .subscribe(new BaseCommonObserver<VersionResp>() {
                     @Override
-                    public void onSuccess(VersionBean result) {
+                    public void onSuccess(VersionResp result) {
                         String newVersion = result.getNewVersion();
                         String lowVersion = result.getLowVersion();
 
@@ -127,7 +130,7 @@ public class Tab4Fragment extends BaseImmersionFragment {
     /**
      * 显示更新dialog
      */
-    private void showUpdateDialog(VersionBean result, boolean isForceUpdate) {
+    private void showUpdateDialog(VersionResp result, boolean isForceUpdate) {
         Bundle bundle = new Bundle();
         bundle.putSerializable("version", result);
         bundle.putBoolean("isForceUpdate", isForceUpdate);

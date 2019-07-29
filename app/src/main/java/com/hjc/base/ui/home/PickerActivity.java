@@ -41,6 +41,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
+@SuppressWarnings("ALL")
 @Route(path = RoutePath.URL_PICK_VIEW)
 public class PickerActivity extends BaseActivity {
     @BindView(R.id.title_bar)
@@ -191,6 +192,9 @@ public class PickerActivity extends BaseActivity {
 
             case R.id.btn_custom:
                 showCustomPicker();
+                break;
+
+            default:
                 break;
         }
     }

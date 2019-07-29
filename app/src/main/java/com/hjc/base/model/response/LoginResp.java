@@ -4,6 +4,12 @@ import android.text.TextUtils;
 
 import java.io.Serializable;
 
+/**
+ * @Author: HJC
+ * @Date: 2019/7/29 14:24
+ * @Description: 登录响应bean
+ */
+@SuppressWarnings("ALL")
 public class LoginResp implements Serializable {
 
     private String id;
@@ -55,6 +61,7 @@ public class LoginResp implements Serializable {
         return icon_url;
     }
 
+    @SuppressWarnings("AlibabaLowerCamelCaseVariableNaming")
     public void setIcon_url(String icon_url) {
         this.icon_url = icon_url;
     }

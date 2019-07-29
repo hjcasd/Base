@@ -6,30 +6,42 @@ package com.hjc.base.constant;
  * @Description: 管理路由路径的类
  */
 public class RoutePath {
-    //登录页面
+    /**
+     * 登录页面
+     */
     public static final String URL_LOGIN = "/base/login";
 
-    //PickerView页面
+    /**
+     * PickerView页面
+     */
     public static final String URL_PICK_VIEW = "/base/picker";
 
-    //Toasty页面
+    /**
+     * Toasty页面
+     */
     public static final String URL_TOASTY = "/base/toasty";
 
-    //StateView页面
+    /**
+     * StateView页面
+     */
     public static final String URL_STATE_VIEW = "/base/state";
 
-
-    //EventBus页面
+    /**
+     * EventBus页面
+     */
     public static final String URL_EVENT_POST = "/base/event/post";
     public static final String URL_EVENT_RECEIVE = "/base/event/receive";
 
-
-    //EventBus页面
+    /**
+     * BaseQuickAdapterHelper页面
+     */
     public static final String URL_LIST_HELPER = "/base/adapter";
     public static final String URL_LIST_EMPTY = "/base/adapter/empty";
     public static final String URL_LIST_EXPAND = "/base/adapter/expand";
 
-    //Zxing页面
+    /**
+     * Zxing页面
+     */
     public static final String URL_QR_CODE = "/base/zxing";
     public static final String URL_SCAN_CODE = "/base/zxing/scan";
 }

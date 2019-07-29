@@ -4,6 +4,11 @@ import com.contrarywind.interfaces.IPickerViewData;
 
 import java.util.List;
 
+/**
+ * @Author: HJC
+ * @Date: 2019/7/29 14:23
+ * @Description: 选择器bean
+ */
 public class LocalBean implements IPickerViewData {
 
     /**

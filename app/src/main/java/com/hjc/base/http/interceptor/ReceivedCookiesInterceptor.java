@@ -1,4 +1,4 @@
-package com.hjc.base.http.Interceptor;
+package com.hjc.base.http.interceptor;
 
 import android.support.annotation.NonNull;
 import android.text.TextUtils;

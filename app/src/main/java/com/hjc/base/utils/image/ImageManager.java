@@ -53,7 +53,7 @@ public class ImageManager {
         RequestOptions requestOptions = new RequestOptions()
                 .placeholder(getDefaultPic(type))
                 .error(getDefaultPic(type))
-                .transforms(new CircleCrop())
+                .transform(new CircleCrop())
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE);
 
         Glide.with(imageView.getContext())
@@ -75,7 +75,7 @@ public class ImageManager {
         RequestOptions requestOptions = new RequestOptions()
                 .placeholder(getDefaultPic(type))
                 .error(getDefaultPic(type))
-                .transforms(new CenterCrop(), new RoundedCorners(radius))
+                .transform(new CenterCrop(), new RoundedCorners(radius))
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE);
 
         Glide.with(imageView.getContext())
@@ -120,7 +120,7 @@ public class ImageManager {
         RequestOptions requestOptions = new RequestOptions()
                 .placeholder(getDefaultPic(0))
                 .error(getDefaultPic(0))
-                .transforms(new BlurTransformation(radius, sampling))
+                .transform(new BlurTransformation(radius, sampling))
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE);
 
         Glide.with(imageView.getContext())
@@ -140,6 +140,13 @@ public class ImageManager {
         switch (type) {
             case 0:
                 return R.mipmap.ic_launcher;
+
+            case 1:
+                return R.mipmap.ic_launcher;
+
+            case 2:
+                return R.mipmap.ic_launcher;
+
             default:
                 return R.mipmap.ic_launcher;
         }

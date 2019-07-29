@@ -78,6 +78,9 @@ public class DrawerNavigationActivity extends BaseActivity {
                     case R.id.nav_item5:
                         ToastUtils.showShort("item5");
                         break;
+
+                    default:
+                        break;
                 }
                 return false;
             }
@@ -89,6 +92,9 @@ public class DrawerNavigationActivity extends BaseActivity {
         switch (v.getId()){
             case R.id.btn_show:
                 drawerLayout.openDrawer(Gravity.START);
+                break;
+
+            default:
                 break;
         }
     }

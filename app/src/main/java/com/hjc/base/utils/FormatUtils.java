@@ -2,8 +2,6 @@ package com.hjc.base.utils;
 
 import com.blankj.utilcode.util.LogUtils;
 
-import java.util.List;
-
 
 /**
  * @Author: HJC
@@ -65,11 +63,11 @@ public class FormatUtils {
     }
 
     private static String getLevelStr(int level) {
-        StringBuffer levelStr = new StringBuffer();
-        for (int levelI = 0; levelI < level; levelI++) {
-            levelStr.append("\t");
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < level; i++) {
+            sb.append("\t");
         }
-        return levelStr.toString();
+        return sb.toString();
     }
 
 }

@@ -6,11 +6,16 @@ import android.widget.TextView;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.R;
-import com.hjc.base.widget.marquee.MarqueeBaseAdapter;
+import com.hjc.base.widget.marquee.BaseMarqueeAdapter;
 
 import java.util.List;
 
-public class MarqueeAdapter  extends MarqueeBaseAdapter<String> {
+/**
+ * @Author: HJC
+ * @Date: 2019/7/29 14:25
+ * @Description: 消息滚动条adapter
+ */
+public class MarqueeAdapter  extends BaseMarqueeAdapter<String> {
     public MarqueeAdapter(Context context, List<String> list) {
         super(context, list);
     }

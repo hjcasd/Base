@@ -8,6 +8,11 @@ import com.hjc.base.R;
 
 import java.util.List;
 
+/**
+ * @Author: HJC
+ * @Date: 2019/7/29 14:18
+ * @Description: 测试adapter
+ */
 public class EmptyAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
 
     public EmptyAdapter(@Nullable List<String> data) {

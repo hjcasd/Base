@@ -25,7 +25,7 @@
         android:drawableLeft="@mipmap/icon_username"
         android:drawablePadding="5dp"
         android:hint="请输入手机号"
-        android:inputType="number"
+        android:inputType="phone"
         android:maxLength="11"
         android:padding="5dp"
         android:textColor="@color/gray"

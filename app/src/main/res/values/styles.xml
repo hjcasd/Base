@@ -9,7 +9,7 @@
     </style>
 
     <style name="SplashTheme" parent="AppTheme">
-        <item name="android:windowBackground">@drawable/splash_bg</item>
+        <item name="android:windowBackground">@drawable/shape_bg_splash</item>
         <item name="android:windowFullscreen">true</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -96,7 +96,7 @@
     <style name="SearchEditText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@drawable/shape_et_bg_white</item>
+        <item name="android:background">@drawable/shape_bg_edit_white</item>
         <item name="android:drawablePadding">5dp</item>
         <item name="android:drawableLeft">@mipmap/icon_search</item>
         <item name="android:drawableRight">@mipmap/icon_clear</item>

@@ -12,39 +12,20 @@ import com.yanzhenjie.permission.AndPermission;
  * @Description: 权限管理封装类
  */
 public class PermissionManager {
-    private static PermissionManager mInstance;
-
     private Context mContext;
     private Activity mActivity;
     private Fragment mFragment;
 
-    private PermissionManager() {
-    }
-
-    public static PermissionManager getInstance() {
-        if (mInstance == null) {
-            synchronized (PermissionManager.class) {
-                if (mInstance == null) {
-                    mInstance = new PermissionManager();
-                }
-            }
-        }
-        return mInstance;
-    }
-
-    public PermissionManager with(Context context) {
+    public PermissionManager(Context context) {
         this.mContext = context;
-        return mInstance;
     }
 
-    public PermissionManager with(Activity activity) {
+    public PermissionManager(Activity activity) {
         this.mActivity = activity;
-        return mInstance;
     }
 
-    public PermissionManager with(Fragment fragment) {
+    public PermissionManager(Fragment fragment) {
         this.mFragment = fragment;
-        return mInstance;
     }
 
     /**

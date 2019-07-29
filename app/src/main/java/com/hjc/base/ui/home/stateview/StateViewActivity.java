@@ -17,6 +17,11 @@ import java.util.concurrent.TimeUnit;
 import butterknife.BindView;
 import io.reactivex.Observable;
 
+/**
+ * @Author: HJC
+ * @Date: 2019/7/29 14:29
+ * @Description: 状态布局的使用
+ */
 @SuppressLint("CheckResult")
 @Route(path = RoutePath.URL_STATE_VIEW)
 public class StateViewActivity extends BaseActivity {

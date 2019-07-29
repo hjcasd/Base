@@ -3,7 +3,11 @@ package com.hjc.base.ui.frame.quickadapter.bean;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.hjc.base.ui.frame.quickadapter.adapter.ExpandAdapter;
 
-
+/**
+ * @Author: HJC
+ * @Date: 2019/7/29 14:21
+ * @Description: 三级列表bean
+ */
 public class Level3Item implements MultiItemEntity {
     private String title;
     private int image;
