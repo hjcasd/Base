@@ -44,4 +44,9 @@ public class RoutePath {
      */
     public static final String URL_QR_CODE = "/base/zxing";
     public static final String URL_SCAN_CODE = "/base/zxing/scan";
+
+    /**
+     * Glide页面
+     */
+    public static final String URL_GLIDE = "/base/glide";
 }

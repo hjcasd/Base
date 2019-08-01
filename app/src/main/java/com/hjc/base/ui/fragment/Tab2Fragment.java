@@ -29,6 +29,8 @@ public class Tab2Fragment extends BaseImmersionFragment {
     Button btnQuick;
     @BindView(R.id.btn_code)
     Button btnCode;
+    @BindView(R.id.btn_glide)
+    Button btnGlide;
 
 
     public static Tab2Fragment newInstance() {
@@ -56,6 +58,7 @@ public class Tab2Fragment extends BaseImmersionFragment {
         btnBugly.setOnClickListener(this);
         btnQuick.setOnClickListener(this);
         btnCode.setOnClickListener(this);
+        btnGlide.setOnClickListener(this);
     }
 
     @Override
@@ -76,6 +79,10 @@ public class Tab2Fragment extends BaseImmersionFragment {
 
             case R.id.btn_code:
                 SchemeUtils.jump(RoutePath.URL_QR_CODE);
+                break;
+
+            case R.id.btn_glide:
+                SchemeUtils.jump(RoutePath.URL_GLIDE);
                 break;
 
             default:

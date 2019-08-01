@@ -128,6 +128,10 @@
             android:name=".ui.frame.zxing.ScanCodeActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".ui.frame.GlideActivity"
+            android:screenOrientation="portrait" />
+
 
         <!--===============================多媒体=================================-->
         <activity

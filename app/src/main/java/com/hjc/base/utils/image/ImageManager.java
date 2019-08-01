@@ -26,12 +26,11 @@ public class ImageManager {
      *
      * @param imageView 控件id
      * @param url       图片地址
-     * @param type      默认图片类型
      */
-    public static void loadImage(ImageView imageView, String url, int type) {
+    public static void loadImage(ImageView imageView, String url) {
         RequestOptions requestOptions = new RequestOptions()
-                .placeholder(getDefaultPic(type))
-                .error(getDefaultPic(type))
+                .placeholder(getDefaultPic(1))
+                .error(getDefaultPic(0))
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE);
 
         Glide.with(imageView.getContext())
@@ -47,12 +46,10 @@ public class ImageManager {
      *
      * @param imageView 控件id
      * @param url       图片地址
-     * @param type      默认图片类型
      */
-    public static void loadCircleImage(ImageView imageView, String url, int type) {
+    public static void loadCircleImage(ImageView imageView, String url) {
         RequestOptions requestOptions = new RequestOptions()
-                .placeholder(getDefaultPic(type))
-                .error(getDefaultPic(type))
+                .error(getDefaultPic(0))
                 .transform(new CircleCrop())
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE);
 
@@ -69,12 +66,11 @@ public class ImageManager {
      * @param imageView 控件id
      * @param url       图片地址
      * @param radius    圆角大小
-     * @param type      默认图片类型
      */
-    public static void loadRoundImage(ImageView imageView, String url, int radius, int type) {
+    public static void loadRoundImage(ImageView imageView, String url, int radius) {
         RequestOptions requestOptions = new RequestOptions()
-                .placeholder(getDefaultPic(type))
-                .error(getDefaultPic(type))
+                .placeholder(getDefaultPic(1))
+                .error(getDefaultPic(0))
                 .transform(new CenterCrop(), new RoundedCorners(radius))
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE);
 
@@ -92,12 +88,11 @@ public class ImageManager {
      * @param url       图片地址
      * @param width     控件宽度
      * @param height    控件高度
-     * @param type      默认图片类型
      */
-    public static void loadSizeImage(ImageView imageView, String url, int width, int height, int type) {
+    public static void loadSizeImage(ImageView imageView, String url, int width, int height) {
         RequestOptions requestOptions = new RequestOptions()
-                .placeholder(getDefaultPic(type))
-                .error(getDefaultPic(type))
+                .placeholder(getDefaultPic(1))
+                .error(getDefaultPic(0))
                 .override(width, height)
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE);
 
@@ -118,7 +113,7 @@ public class ImageManager {
      */
     public static void loadBlurImage(ImageView imageView, String url, int radius, int sampling) {
         RequestOptions requestOptions = new RequestOptions()
-                .placeholder(getDefaultPic(0))
+                .placeholder(getDefaultPic(1))
                 .error(getDefaultPic(0))
                 .transform(new BlurTransformation(radius, sampling))
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE);
@@ -142,10 +137,7 @@ public class ImageManager {
                 return R.mipmap.ic_launcher;
 
             case 1:
-                return R.mipmap.ic_launcher;
-
-            case 2:
-                return R.mipmap.ic_launcher;
+                return R.mipmap.icon_default_pic;
 
             default:
                 return R.mipmap.ic_launcher;

@@ -23,9 +23,7 @@
             android:background="@color/colorPrimary"
             app:leftImage="@mipmap/icon_back"
             app:titleColor="@color/white"
-            app:titleText="侧滑+自定义布局">
-
-        </com.hjc.base.widget.bar.TitleBar>
+            app:titleText="侧滑+自定义布局" />
 
 
         <Button
