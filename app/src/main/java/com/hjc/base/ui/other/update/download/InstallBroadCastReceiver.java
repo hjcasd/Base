@@ -13,20 +13,22 @@ import com.hjc.base.utils.ApkUtils;
  * @Description: 应用安装监听
  */
 public class InstallBroadCastReceiver extends BroadcastReceiver {
+
     @Override
     public void onReceive(Context context, Intent intent) {
+        LogUtils.e("111111111");
         if (Intent.ACTION_PACKAGE_ADDED.equals(intent.getAction())) {
-            LogUtils.e("111111111");
-            ApkUtils.deleteApkFile();
-        }
-
-        if (Intent.ACTION_PACKAGE_REMOVED.equals(intent.getAction())) {
             LogUtils.e("222222222");
             ApkUtils.deleteApkFile();
         }
 
-        if (Intent.ACTION_PACKAGE_REPLACED.equals(intent.getAction())) {
+        if (Intent.ACTION_PACKAGE_REMOVED.equals(intent.getAction())) {
             LogUtils.e("333333333");
+            ApkUtils.deleteApkFile();
+        }
+
+        if (Intent.ACTION_PACKAGE_REPLACED.equals(intent.getAction())) {
+            LogUtils.e("4444444444");
             ApkUtils.deleteApkFile();
         }
     }

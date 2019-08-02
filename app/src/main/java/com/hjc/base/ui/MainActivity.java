@@ -4,12 +4,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioGroup;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.R;
 import com.hjc.base.base.activity.BaseFragmentActivity;
 import com.hjc.base.ui.fragment.Tab1Fragment;
 import com.hjc.base.ui.fragment.Tab2Fragment;
 import com.hjc.base.ui.fragment.Tab3Fragment;
 import com.hjc.base.ui.fragment.Tab4Fragment;
+import com.hjc.base.utils.permission.PermissionCallBack;
+import com.hjc.base.utils.permission.PermissionManager;
+import com.yanzhenjie.permission.runtime.Permission;
 
 import butterknife.BindView;
 
@@ -40,12 +44,29 @@ public class MainActivity extends BaseFragmentActivity {
 
     @Override
     public void initData(Bundle savedInstanceState) {
+        requestPermission();
+
         mTab1Fragment = Tab1Fragment.newInstance();
         mTab2Fragment = Tab2Fragment.newInstance();
         mTab3Fragment = Tab3Fragment.newInstance();
         mTab4Fragment = Tab4Fragment.newInstance();
 
         showFragment(mTab1Fragment);
+    }
+
+    private void requestPermission(){
+        new PermissionManager(this)
+                .requestPermissionInActivity(new PermissionCallBack() {
+                    @Override
+                    public void onGranted() {
+                        ToastUtils.showShort("申请存储权限成功");
+                    }
+
+                    @Override
+                    public void onDenied() {
+                        ToastUtils.showShort("申请存储权限失败");
+                    }
+                }, Permission.Group.STORAGE);
     }
 
     @Override

@@ -12,7 +12,7 @@ import com.hjc.base.base.fragment.BaseImmersionFragment;
 import com.hjc.base.http.RetrofitClient2;
 import com.hjc.base.http.helper.RxHelper;
 import com.hjc.base.http.helper.RxSchedulers;
-import com.hjc.base.http.observer.BaseCommonObserver;
+import com.hjc.base.http.observer.BaseProgressObserver;
 import com.hjc.base.model.request.UpdateReq;
 import com.hjc.base.model.response.VersionResp;
 import com.hjc.base.ui.other.DrawerCustomActivity;
@@ -104,7 +104,7 @@ public class Tab4Fragment extends BaseImmersionFragment {
         RetrofitClient2.getInstance().getAPI()
                 .checkVersion(request)
                 .compose(RxHelper.bind(this))
-                .subscribe(new BaseCommonObserver<VersionResp>() {
+                .subscribe(new BaseProgressObserver<VersionResp>(getChildFragmentManager()) {
                     @Override
                     public void onSuccess(VersionResp result) {
                         String newVersion = result.getNewVersion();

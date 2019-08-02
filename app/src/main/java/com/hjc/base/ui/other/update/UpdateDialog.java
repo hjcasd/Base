@@ -65,7 +65,7 @@ public class UpdateDialog extends BaseDialog {
             isForceUpdate = bundle.getBoolean("isForceUpdate");
 
             if (versionBean != null){
-                apkDownloadUrl = versionBean.getFilePath();
+//                apkDownloadUrl = versionBean.getFilePath();
                 apkDownloadUrl = "data4/apk/201809/06/f2a4dbd1b6cc2dca6567f42ae7a91f11_45629100.apk";
 
                 String newVersion = versionBean.getNewVersion();
