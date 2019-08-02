@@ -149,21 +149,10 @@
             android:screenOrientation="portrait" />
 
 
-        <!--============================================更新相关=========================================-->
+        <!--============================================更新服务=========================================-->
         <service android:name=".ui.other.update.download.DownloadService" />
-        <receiver
-            android:name=".ui.other.update.download.InstallBroadCastReceiver"
-            android:enabled="true">
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_ADDED" />
-                <action android:name="android.intent.action.PACKAGE_REPLACED" />
-                <action android:name="android.intent.action.PACKAGE_REMOVED" />
 
-                <data android:scheme="package" />
-            </intent-filter>
-        </receiver>
-
-        <!--============================================7.0文件访问权限=========================================-->
+        <!--============================================文件访问权限=========================================-->
         <provider
             android:name=".utils.MyFileProvider"
             android:authorities="${applicationId}.fileProvider"

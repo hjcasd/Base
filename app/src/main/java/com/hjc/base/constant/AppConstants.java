@@ -11,7 +11,7 @@ import java.io.File;
  */
 public class AppConstants {
     public static final String DOWNLOAD_APK_DIR = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "Base";
-    public static final String DOWNLOAD_APK_NAME = "test.apk";
+    public static final String DOWNLOAD_APK_NAME = "base.apk";
     public static final String DOWNLOAD_APK_PATH = DOWNLOAD_APK_DIR + File.separator + DOWNLOAD_APK_NAME;
 
     /**
