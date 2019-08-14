@@ -102,7 +102,7 @@ public class ListEmptyActivity extends BaseActivity {
                                 list.add("i===" + i);
                             }
                             mAdapter.setNewData(list);
-                            loadingDialog.dismiss();
+                            loadingDialog.dismissDialog();
                         });
                 break;
 

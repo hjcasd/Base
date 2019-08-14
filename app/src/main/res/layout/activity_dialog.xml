@@ -6,38 +6,26 @@
     android:orientation="vertical">
 
     <com.hjc.base.widget.bar.TitleBar
+        android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
+        app:leftImage="@mipmap/icon_back"
         app:titleColor="@color/white"
-        app:titleText="其他部分" />
+        app:titleText="Dialog" />
 
     <Button
-        android:id="@+id/btn_dialog"
+        android:id="@+id/btn_loading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Dialog"
+        android:text="显示loading"
         android:textAllCaps="false" />
 
     <Button
-        android:id="@+id/btn_drawer_navigation"
+        android:id="@+id/btn_animation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="drawer + navigation"
-        android:textAllCaps="false" />
-
-    <Button
-        android:id="@+id/btn_drawer_custom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="drawer + custom"
-        android:textAllCaps="false" />
-
-    <Button
-        android:id="@+id/btn_update"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="update"
+        android:text="dialog动画"
         android:textAllCaps="false" />
 
 </LinearLayout>

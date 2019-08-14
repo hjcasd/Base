@@ -141,11 +141,15 @@
 
         <!--===============================其他=================================-->
         <activity
-            android:name=".ui.other.DrawerNavigationActivity"
+            android:name=".ui.other.drawer.DrawerNavigationActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.other.DrawerCustomActivity"
+            android:name=".ui.other.drawer.DrawerCustomActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.other.dialog.DialogActivity"
             android:screenOrientation="portrait" />
 
 

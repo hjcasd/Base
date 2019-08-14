@@ -93,7 +93,7 @@ public abstract class BaseProgressObserver<T> implements Observer<BaseResponse<T
 
     private void hideLoading() {
         if (mLoadingDialog != null) {
-            mLoadingDialog.dismiss();
+            mLoadingDialog.dismissDialog();
         }
     }
 

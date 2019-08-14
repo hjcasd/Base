@@ -9,22 +9,19 @@ import android.widget.Button;
 import com.blankj.utilcode.util.AppUtils;
 import com.hjc.base.R;
 import com.hjc.base.base.fragment.BaseImmersionFragment;
+import com.hjc.base.constant.RoutePath;
 import com.hjc.base.http.RetrofitClient2;
 import com.hjc.base.http.helper.RxHelper;
-import com.hjc.base.http.helper.RxSchedulers;
 import com.hjc.base.http.observer.BaseProgressObserver;
 import com.hjc.base.model.request.UpdateReq;
 import com.hjc.base.model.response.VersionResp;
-import com.hjc.base.ui.other.DrawerCustomActivity;
-import com.hjc.base.ui.other.DrawerNavigationActivity;
+import com.hjc.base.ui.other.drawer.DrawerCustomActivity;
+import com.hjc.base.ui.other.drawer.DrawerNavigationActivity;
 import com.hjc.base.ui.other.update.UpdateDialog;
 import com.hjc.base.utils.ApkUtils;
-import com.hjc.base.widget.dialog.LoadingDialog;
-
-import java.util.concurrent.TimeUnit;
+import com.hjc.base.utils.SchemeUtils;
 
 import butterknife.BindView;
-import io.reactivex.Observable;
 
 /**
  * @Author: HJC
@@ -41,8 +38,6 @@ public class Tab4Fragment extends BaseImmersionFragment {
     @BindView(R.id.btn_update)
     Button btnUpdate;
 
-    private LoadingDialog loadingDialog;
-
 
     public static Tab4Fragment newInstance() {
         return new Tab4Fragment();
@@ -55,7 +50,6 @@ public class Tab4Fragment extends BaseImmersionFragment {
 
     @Override
     public void initView() {
-        loadingDialog = LoadingDialog.newInstance();
     }
 
     @Override
@@ -75,10 +69,7 @@ public class Tab4Fragment extends BaseImmersionFragment {
     public void onSingleClick(View v) {
         switch (v.getId()) {
             case R.id.btn_dialog:
-                loadingDialog.showDialog(getFragmentManager());
-                Observable.timer(2, TimeUnit.SECONDS)
-                        .compose(RxSchedulers.ioToMain())
-                        .subscribe(aLong -> loadingDialog.dismiss());
+                SchemeUtils.jump(RoutePath.URL_DIALOG);
                 break;
 
             case R.id.btn_drawer_navigation:
@@ -138,5 +129,4 @@ public class Tab4Fragment extends BaseImmersionFragment {
                 .setAnimStyle(R.style.ActionSheetDialogAnimation)
                 .showDialog(getChildFragmentManager());
     }
-
 }

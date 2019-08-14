@@ -1,11 +1,17 @@
 package com.hjc.base.widget.dialog;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 
 import com.hjc.base.R;
 import com.hjc.base.base.dialog.BaseDialog;
+import com.hjc.base.http.helper.RxSchedulers;
+
+import java.util.concurrent.TimeUnit;
+
+import io.reactivex.Observable;
 
 /**
  * @Author: HJC
@@ -37,6 +43,14 @@ public class LoadingDialog extends BaseDialog {
         }
         setCancelable(false);
     }
+
+    @SuppressLint("CheckResult")
+    public void dismissDialog(){
+        Observable.timer(500, TimeUnit.MILLISECONDS)
+                .compose(RxSchedulers.ioToMain())
+                .subscribe(aLong -> dismiss());
+    }
+
 
     @Override
     public void addListeners() {

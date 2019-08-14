@@ -49,4 +49,10 @@ public class RoutePath {
      * Glide页面
      */
     public static final String URL_GLIDE = "/base/glide";
+
+
+    /**
+     * Dialog页面
+     */
+    public static final String URL_DIALOG = "/base/dialog";
 }
