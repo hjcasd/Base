@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.Utils;
-import com.hjc.base.constant.AppConstants;
+import com.hjc.base.BuildConfig;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.tencent.smtt.sdk.QbSdk;
 
@@ -41,18 +41,18 @@ public class App extends MultiDexApplication {
      */
     private void initUtils() {
         Utils.init(this);
-        if (AppConstants.isDebug) {
-            LogUtils.Config config = LogUtils.getConfig();
-            config.setLogSwitch(true);
-            config.setGlobalTag("tag");
-        }
+
+        LogUtils.Config config = LogUtils.getConfig();
+        config.setLogSwitch(BuildConfig.IS_DEBUG);
+        config.setGlobalTag("tag");
+
     }
 
     /**
      * 初始化路由
      */
     private void initARouter() {
-        if (AppConstants.isDebug) {   // 这两行必须写在init之前，否则这些配置在init过程中将无效
+        if (BuildConfig.IS_DEBUG){
             ARouter.openLog();     // 打印日志
             ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
         }
@@ -70,7 +70,7 @@ public class App extends MultiDexApplication {
         // 设置是否为上报进程
         CrashReport.UserStrategy strategy = new CrashReport.UserStrategy(this);
         strategy.setUploadProcess(processName == null || processName.equals(packageName));
-        CrashReport.initCrashReport(this, "04002332f3", true, strategy);
+        CrashReport.initCrashReport(this, "04002332f3", BuildConfig.IS_DEBUG, strategy);
     }
 
     /**
@@ -119,7 +119,7 @@ public class App extends MultiDexApplication {
             }
         };
         //x5内核初始化接口
-        QbSdk.initX5Environment(getApplicationContext(),  cb);
+        QbSdk.initX5Environment(getApplicationContext(), cb);
     }
 
     /**

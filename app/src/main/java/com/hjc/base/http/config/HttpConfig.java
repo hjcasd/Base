@@ -1,5 +1,7 @@
 package com.hjc.base.http.config;
 
+import com.hjc.base.BuildConfig;
+
 /**
  * @Author: HJC
  * @Date: 2019/1/7 11:40
@@ -14,5 +16,5 @@ public class HttpConfig {
     /**
      * 服务器地址
      */
-    public static String BASE_URL = "http://47.100.225.52:8888/";
+    public static String BASE_URL = BuildConfig.BASE_URL;
 }

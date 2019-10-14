@@ -2,14 +2,13 @@ package com.hjc.base.http;
 
 import android.annotation.SuppressLint;
 
-import com.hjc.base.constant.AppConstants;
+import com.hjc.base.BuildConfig;
+import com.hjc.base.http.config.HttpConfig;
 import com.hjc.base.http.interceptor.AddCookiesInterceptor;
 import com.hjc.base.http.interceptor.LogInterceptor;
 import com.hjc.base.http.interceptor.ReceivedCookiesInterceptor;
-import com.hjc.base.http.config.HttpConfig;
 
 import java.security.SecureRandom;
-import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.concurrent.TimeUnit;
 
@@ -42,7 +41,7 @@ public class HttpClient {
                 .addInterceptor(new ReceivedCookiesInterceptor())
                 .addInterceptor(new AddCookiesInterceptor());
 
-        if (AppConstants.isDebug){
+        if (BuildConfig.IS_DEBUG) {
             mBuilder.addInterceptor(new LogInterceptor());
         }
     }
@@ -58,7 +57,7 @@ public class HttpClient {
         return mHttpClient;
     }
 
-    public OkHttpClient.Builder getBuilder() {
+    OkHttpClient.Builder getBuilder() {
         return mBuilder;
     }
 
@@ -78,12 +77,14 @@ public class HttpClient {
     }
 
     private TrustManager[] trustAllCerts = new TrustManager[]{new X509TrustManager() {
+        @SuppressLint("TrustAllX509TrustManager")
         @Override
-        public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+        public void checkClientTrusted(X509Certificate[] chain, String authType) {
         }
 
+        @SuppressLint("TrustAllX509TrustManager")
         @Override
-        public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+        public void checkServerTrusted(X509Certificate[] chain, String authType) {
         }
 
         @Override

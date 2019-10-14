@@ -11,10 +11,10 @@ public class URLConfig {
     /**
      * 检查版本更新url
      */
-    public static final String URL_CHECK_VERSION = "ifs/services/bffq/v1/appVersion";
+    public static final String URL_CHECK_VERSION = "common/v1/appVersion";
 
     /**
      * 登录url
      */
-    public static final String URL_LOGIN = "ifs/services/bffq/v1/appLogin";
+    public static final String URL_LOGIN = "bffq/common/v1/appLogin";
 }

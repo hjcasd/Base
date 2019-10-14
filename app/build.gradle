@@ -55,6 +55,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
             signingConfig signingConfigs.release
+
+            buildConfigField 'String', 'BASE_URL', '"https://yinbao.enjoyqb.com:15050/ybapi/admin-web/services/"'
+            buildConfigField 'boolean', 'IS_DEBUG', "false"
         }
 
         debug {
@@ -63,6 +66,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
             signingConfig signingConfigs.debug
+
+            buildConfigField 'String', 'BASE_URL', '"http://test.enjoyqb.com:8888/admin-web/services/"'
+            buildConfigField 'boolean', 'IS_DEBUG', "true"
         }
     }
 
