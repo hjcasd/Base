@@ -55,4 +55,15 @@ public class RoutePath {
      * Dialog页面
      */
     public static final String URL_DIALOG = "/base/dialog";
+
+    /**
+     * Drawer页面
+     */
+    public static final String URL_DRAWER_CUSTOM = "/base/drawer/custom";
+    public static final String URL_DRAWER_NAVIGATION = "/base/drawer/navigation";
+
+    /**
+     * Touch页面
+     */
+    public static final String URL_TOUCH = "/base/touch";
 }

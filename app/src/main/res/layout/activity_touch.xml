@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.hjc.base.widget.bar.TitleBar
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:leftImage="@mipmap/icon_back"
+        app:titleColor="@color/white"
+        app:titleText="Touch" />
+
+    <com.hjc.base.ui.other.touch.MyViewGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark">
+
+        <com.hjc.base.ui.other.touch.MyView
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:background="@color/green">
+
+        </com.hjc.base.ui.other.touch.MyView>
+
+    </com.hjc.base.ui.other.touch.MyViewGroup>
+
+</LinearLayout>

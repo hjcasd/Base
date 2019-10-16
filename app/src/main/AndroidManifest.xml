@@ -152,6 +152,10 @@
             android:name=".ui.other.dialog.DialogActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".ui.other.touch.TouchActivity"
+            android:screenOrientation="portrait" />
+
 
         <!--============================================更新服务=========================================-->
         <service android:name=".ui.other.update.download.DownloadService" />

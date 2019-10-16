@@ -1,6 +1,5 @@
 package com.hjc.base.ui.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -15,8 +14,6 @@ import com.hjc.base.http.helper.RxHelper;
 import com.hjc.base.http.observer.BaseProgressObserver;
 import com.hjc.base.model.request.UpdateReq;
 import com.hjc.base.model.response.VersionResp;
-import com.hjc.base.ui.other.drawer.DrawerCustomActivity;
-import com.hjc.base.ui.other.drawer.DrawerNavigationActivity;
 import com.hjc.base.ui.other.update.UpdateDialog;
 import com.hjc.base.utils.ApkUtils;
 import com.hjc.base.utils.SchemeUtils;
@@ -37,6 +34,8 @@ public class Tab4Fragment extends BaseImmersionFragment {
     Button btnDrawerCustom;
     @BindView(R.id.btn_update)
     Button btnUpdate;
+    @BindView(R.id.btn_touch)
+    Button btnTouch;
 
 
     public static Tab4Fragment newInstance() {
@@ -63,6 +62,7 @@ public class Tab4Fragment extends BaseImmersionFragment {
         btnDrawerNavigation.setOnClickListener(this);
         btnDrawerCustom.setOnClickListener(this);
         btnUpdate.setOnClickListener(this);
+        btnTouch.setOnClickListener(this);
     }
 
     @Override
@@ -73,15 +73,19 @@ public class Tab4Fragment extends BaseImmersionFragment {
                 break;
 
             case R.id.btn_drawer_navigation:
-                startActivity(new Intent(mContext, DrawerNavigationActivity.class));
+                SchemeUtils.jump(RoutePath.URL_DRAWER_NAVIGATION);
                 break;
 
             case R.id.btn_drawer_custom:
-                startActivity(new Intent(mContext, DrawerCustomActivity.class));
+                SchemeUtils.jump(RoutePath.URL_DRAWER_CUSTOM);
                 break;
 
             case R.id.btn_update:
                 checkVersion();
+                break;
+
+            case R.id.btn_touch:
+                SchemeUtils.jump(RoutePath.URL_TOUCH);
                 break;
 
             default:

@@ -6,9 +6,11 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.gyf.barlibrary.ImmersionBar;
 import com.hjc.base.R;
 import com.hjc.base.base.activity.BaseActivity;
+import com.hjc.base.constant.RoutePath;
 import com.hjc.base.widget.bar.OnViewLeftClickListener;
 import com.hjc.base.widget.bar.TitleBar;
 
@@ -19,6 +21,7 @@ import butterknife.BindView;
  * @Date: 2019/1/8 15:48
  * @Description: 自定义侧边栏(推荐)
  */
+@Route(path = RoutePath.URL_DRAWER_CUSTOM)
 public class DrawerCustomActivity extends BaseActivity {
     @BindView(R.id.title_bar)
     TitleBar titleBar;
