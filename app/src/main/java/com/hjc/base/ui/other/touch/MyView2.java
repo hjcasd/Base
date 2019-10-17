@@ -8,28 +8,28 @@ import android.view.View;
 
 import com.blankj.utilcode.util.LogUtils;
 
-public class MyView extends View {
-    public MyView(Context context) {
+public class MyView2 extends View {
+    public MyView2(Context context) {
         super(context);
     }
 
-    public MyView(Context context, @Nullable AttributeSet attrs) {
+    public MyView2(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public MyView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public MyView2(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
-        LogUtils.e("MyView: dispatchTouchEvent");
+        LogUtils.e("MyView2: dispatchTouchEvent");
         return super.dispatchTouchEvent(event);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        LogUtils.e("MyView: onTouchEvent");
+        LogUtils.e("MyView2: onTouchEvent");
         return super.onTouchEvent(event);
     }
 }

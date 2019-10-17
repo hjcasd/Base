@@ -12,25 +12,21 @@
         android:background="@color/colorPrimary"
         app:leftImage="@mipmap/icon_back"
         app:titleColor="@color/white"
-        app:titleText="Touch" />
+        app:titleText="TouchDefault" />
 
-
-    <Button
-        android:id="@+id/btn_touch_default"
+    <com.hjc.base.ui.other.touch.MyViewGroup
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="默认事件传递流程" />
+        android:layout_height="match_parent"
+        android:background="@color/gray_deep">
 
-    <Button
-        android:id="@+id/btn_touch_cancel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="事件取消" />
+        <com.hjc.base.ui.other.touch.MyView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:background="@color/green">
 
-    <Button
-        android:id="@+id/btn_touch_intercept"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="事件拦截" />
+        </com.hjc.base.ui.other.touch.MyView>
+
+    </com.hjc.base.ui.other.touch.MyViewGroup>
 
 </LinearLayout>

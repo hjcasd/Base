@@ -66,4 +66,7 @@ public class RoutePath {
      * Touch页面
      */
     public static final String URL_TOUCH = "/base/touch";
+    public static final String URL_TOUCH_DEFAULT = "/base/touch/default";
+    public static final String URL_TOUCH_CANCEL = "/base/touch/cancel";
+    public static final String URL_TOUCH_INTERCEPT = "/base/touch/intercept";
 }

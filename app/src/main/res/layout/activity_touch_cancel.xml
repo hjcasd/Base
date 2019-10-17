@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.hjc.base.widget.bar.TitleBar
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:leftImage="@mipmap/icon_back"
+        app:titleColor="@color/white"
+        app:titleText="TouchCancel" />
+
+    <com.hjc.base.ui.other.touch.MyScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_deep">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.hjc.base.ui.other.touch.MyButton
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:text="测试取消事件"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/colorPrimaryDark">
+
+            </com.hjc.base.ui.other.touch.MyButton>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1000dp" />
+
+        </LinearLayout>
+
+    </com.hjc.base.ui.other.touch.MyScrollView>
+
+</LinearLayout>

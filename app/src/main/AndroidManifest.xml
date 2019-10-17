@@ -156,6 +156,18 @@
             android:name=".ui.other.touch.TouchActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".ui.other.touch.TouchDefaultActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.other.touch.TouchCancelActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.other.touch.TouchInterceptActivity"
+            android:screenOrientation="portrait" />
+
 
         <!--============================================更新服务=========================================-->
         <service android:name=".ui.other.update.download.DownloadService" />
