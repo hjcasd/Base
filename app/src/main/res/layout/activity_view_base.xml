@@ -26,8 +26,7 @@
             <com.hjc.base.ui.other.view.example.MyCustom1View
                 android:id="@+id/custom_view"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:background="@color/colorPrimaryDark" />
+                android:layout_height="200dp" />
 
 
             <Button
