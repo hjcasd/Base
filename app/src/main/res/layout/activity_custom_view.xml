@@ -6,47 +6,42 @@
     android:orientation="vertical">
 
     <com.hjc.base.widget.bar.TitleBar
+        android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
+        app:leftImage="@mipmap/icon_back"
         app:titleColor="@color/white"
-        app:titleText="其他部分" />
+        app:titleText="自定义View" />
+
 
     <Button
-        android:id="@+id/btn_dialog"
+        android:id="@+id/btn_base"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="dialog"
+        android:text="绘制基本图形"
         android:textAllCaps="false" />
 
     <Button
-        android:id="@+id/btn_drawer"
+        android:id="@+id/btn_canvas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="drawer"
+        android:text="画布操作"
         android:textAllCaps="false" />
 
     <Button
-        android:id="@+id/btn_update"
+        android:id="@+id/btn_picture"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="update"
-        android:textAllCaps="false" />
-
-
-    <Button
-        android:id="@+id/btn_touch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="touch"
+        android:text="绘制图片和文字"
         android:textAllCaps="false" />
 
 
     <Button
-        android:id="@+id/btn_view"
+        android:id="@+id/btn_path"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="view"
+        android:text="path基本操作"
         android:textAllCaps="false" />
 
 </LinearLayout>

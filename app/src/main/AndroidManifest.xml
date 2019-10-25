@@ -141,6 +141,10 @@
 
         <!--===============================其他=================================-->
         <activity
+            android:name=".ui.other.drawer.DrawerActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name=".ui.other.drawer.DrawerNavigationActivity"
             android:screenOrientation="portrait" />
 
@@ -166,6 +170,26 @@
 
         <activity
             android:name=".ui.other.touch.TouchInterceptActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.other.view.CustomViewActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.other.view.ViewBaseActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.other.view.ViewCanvasActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.other.view.ViewPictureActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.other.view.ViewPathActivity"
             android:screenOrientation="portrait" />
 
 

@@ -50,7 +50,6 @@ public class RoutePath {
      */
     public static final String URL_GLIDE = "/base/glide";
 
-
     /**
      * Dialog页面
      */
@@ -59,6 +58,7 @@ public class RoutePath {
     /**
      * Drawer页面
      */
+    public static final String URL_DRAWER = "/base/drawer";
     public static final String URL_DRAWER_CUSTOM = "/base/drawer/custom";
     public static final String URL_DRAWER_NAVIGATION = "/base/drawer/navigation";
 
@@ -69,4 +69,13 @@ public class RoutePath {
     public static final String URL_TOUCH_DEFAULT = "/base/touch/default";
     public static final String URL_TOUCH_CANCEL = "/base/touch/cancel";
     public static final String URL_TOUCH_INTERCEPT = "/base/touch/intercept";
+
+    /**
+     * View页面
+     */
+    public static final String URL_VIEW = "/base/view";
+    public static final String URL_VIEW_BASE = "/base/view/base";
+    public static final String URL_VIEW_CANVAS = "/base/view/canvas";
+    public static final String URL_VIEW_PICTURE = "/base/view/picture";
+    public static final String URL_VIEW_PATH = "/base/view/path";
 }

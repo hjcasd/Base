@@ -28,14 +28,14 @@ import butterknife.BindView;
 public class Tab4Fragment extends BaseImmersionFragment {
     @BindView(R.id.btn_dialog)
     Button btnDialog;
-    @BindView(R.id.btn_drawer_navigation)
-    Button btnDrawerNavigation;
-    @BindView(R.id.btn_drawer_custom)
-    Button btnDrawerCustom;
+    @BindView(R.id.btn_drawer)
+    Button btnDrawer;
     @BindView(R.id.btn_update)
     Button btnUpdate;
     @BindView(R.id.btn_touch)
     Button btnTouch;
+    @BindView(R.id.btn_view)
+    Button btnView;
 
 
     public static Tab4Fragment newInstance() {
@@ -59,10 +59,10 @@ public class Tab4Fragment extends BaseImmersionFragment {
     @Override
     public void addListeners() {
         btnDialog.setOnClickListener(this);
-        btnDrawerNavigation.setOnClickListener(this);
-        btnDrawerCustom.setOnClickListener(this);
+        btnDrawer.setOnClickListener(this);
         btnUpdate.setOnClickListener(this);
         btnTouch.setOnClickListener(this);
+        btnView.setOnClickListener(this);
     }
 
     @Override
@@ -72,12 +72,8 @@ public class Tab4Fragment extends BaseImmersionFragment {
                 SchemeUtils.jump(RoutePath.URL_DIALOG);
                 break;
 
-            case R.id.btn_drawer_navigation:
-                SchemeUtils.jump(RoutePath.URL_DRAWER_NAVIGATION);
-                break;
-
-            case R.id.btn_drawer_custom:
-                SchemeUtils.jump(RoutePath.URL_DRAWER_CUSTOM);
+            case R.id.btn_drawer:
+                SchemeUtils.jump(RoutePath.URL_DRAWER);
                 break;
 
             case R.id.btn_update:
@@ -86,6 +82,10 @@ public class Tab4Fragment extends BaseImmersionFragment {
 
             case R.id.btn_touch:
                 SchemeUtils.jump(RoutePath.URL_TOUCH);
+                break;
+
+            case R.id.btn_view:
+                SchemeUtils.jump(RoutePath.URL_VIEW);
                 break;
 
             default:
@@ -133,4 +133,5 @@ public class Tab4Fragment extends BaseImmersionFragment {
                 .setAnimStyle(R.style.ActionSheetDialogAnimation)
                 .showDialog(getChildFragmentManager());
     }
+
 }
