@@ -8,6 +8,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.hjc.base.R;
 import com.hjc.base.base.activity.BaseActivity;
 import com.hjc.base.constant.RoutePath;
+import com.hjc.base.ui.other.view.example.MyCustom3View;
 import com.hjc.base.widget.bar.TitleBar;
 
 import butterknife.BindView;
@@ -17,23 +18,23 @@ import butterknife.BindView;
  * @Date: 2019/10/24 14:56
  * @Description: 自定义View
  */
-@Route(path = RoutePath.URL_VIEW)
+@Route(path = RoutePath.URL_VIEW_PICTURE)
 public class ViewPictureActivity extends BaseActivity {
 
     @BindView(R.id.title_bar)
     TitleBar titleBar;
-    @BindView(R.id.btn_base)
-    Button btnBase;
-    @BindView(R.id.btn_canvas)
-    Button btnCanvas;
-    @BindView(R.id.btn_picture)
-    Button btnPicture;
-    @BindView(R.id.btn_path)
-    Button btnPath;
+    @BindView(R.id.custom_view)
+    MyCustom3View customView;
+    @BindView(R.id.btn1)
+    Button btn1;
+    @BindView(R.id.btn2)
+    Button btn2;
+    @BindView(R.id.btn3)
+    Button btn3;
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_custom_view;
+        return R.layout.activity_view_picture;
     }
 
     @Override
@@ -48,8 +49,9 @@ public class ViewPictureActivity extends BaseActivity {
 
     @Override
     public void addListeners() {
-        btnBase.setOnClickListener(this);
-        btnCanvas.setOnClickListener(this);
+        btn1.setOnClickListener(this);
+        btn2.setOnClickListener(this);
+        btn3.setOnClickListener(this);
 
         titleBar.setOnViewLeftClickListener(view -> finish());
     }
@@ -57,20 +59,21 @@ public class ViewPictureActivity extends BaseActivity {
     @Override
     public void onSingleClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_base:
+            case R.id.btn1:
+                customView.draw(1);
                 break;
 
-            case R.id.btn_canvas:
+            case R.id.btn2:
+                customView.draw(2);
                 break;
 
-            case R.id.btn_picture:
-                break;
-
-            case R.id.btn_path:
+            case R.id.btn3:
+                customView.draw(3);
                 break;
 
             default:
                 break;
         }
     }
+
 }

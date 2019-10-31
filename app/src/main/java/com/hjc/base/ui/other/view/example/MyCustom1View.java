@@ -12,6 +12,11 @@ import android.view.View;
 
 import com.hjc.base.R;
 
+/**
+ * @Author: HJC
+ * @Date: 2019/10/31 11:48
+ * @Description: 基本图形
+ */
 public class MyCustom1View extends View {
     private Paint mPaint;
     private Paint mAlisPaint;

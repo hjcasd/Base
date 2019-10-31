@@ -8,11 +8,15 @@ import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import com.hjc.base.R;
 
+/**
+ * @Author: HJC
+ * @Date: 2019/10/31 11:48
+ * @Description: 画布操作
+ */
 public class MyCustom2View extends View {
     private Paint mPaint;
 
@@ -49,9 +53,6 @@ public class MyCustom2View extends View {
 
         mWidth = width;
         mHeight = height;
-
-        Log.i("tag", "width---" + width);
-        Log.i("tag", "height---" + height);
     }
 
     @Override

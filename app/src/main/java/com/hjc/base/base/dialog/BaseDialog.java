@@ -19,6 +19,7 @@ import android.view.WindowManager;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.utils.ClickUtils;
+import com.trello.rxlifecycle2.components.support.RxDialogFragment;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -28,7 +29,7 @@ import butterknife.Unbinder;
  * @Date: 2019/1/4 14:55
  * @Description: DialogFragment基类
  */
-public abstract class BaseDialog extends DialogFragment implements View.OnClickListener {
+public abstract class BaseDialog extends RxDialogFragment implements View.OnClickListener {
 
     protected Context mContext;
     private Unbinder mBinder;
