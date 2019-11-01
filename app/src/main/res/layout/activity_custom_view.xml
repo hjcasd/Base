@@ -44,4 +44,12 @@
         android:text="path基本操作"
         android:textAllCaps="false" />
 
+
+    <Button
+        android:id="@+id/btn_radar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="雷达图"
+        android:textAllCaps="false" />
+
 </LinearLayout>

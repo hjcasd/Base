@@ -78,4 +78,5 @@ public class RoutePath {
     public static final String URL_VIEW_CANVAS = "/base/view/canvas";
     public static final String URL_VIEW_PICTURE = "/base/view/picture";
     public static final String URL_VIEW_PATH = "/base/view/path";
+    public static final String URL_VIEW_RADAR = "/base/view/radar";
 }

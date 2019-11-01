@@ -31,6 +31,8 @@ public class CustomViewActivity extends BaseActivity {
     Button btnPicture;
     @BindView(R.id.btn_path)
     Button btnPath;
+    @BindView(R.id.btn_radar)
+    Button btnRadar;
 
     @Override
     public int getLayoutId() {
@@ -53,6 +55,7 @@ public class CustomViewActivity extends BaseActivity {
         btnCanvas.setOnClickListener(this);
         btnPicture.setOnClickListener(this);
         btnPath.setOnClickListener(this);
+        btnRadar.setOnClickListener(this);
 
         titleBar.setOnViewLeftClickListener(view -> finish());
     }
@@ -76,8 +79,13 @@ public class CustomViewActivity extends BaseActivity {
                 SchemeUtils.jump(RoutePath.URL_VIEW_PATH);
                 break;
 
+            case R.id.btn_radar:
+                SchemeUtils.jump(RoutePath.URL_VIEW_RADAR);
+                break;
+
             default:
                 break;
         }
     }
+
 }
