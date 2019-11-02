@@ -6,9 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
-
-import com.blankj.utilcode.util.TimeUtils;
-
 import java.lang.reflect.Field;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -114,29 +111,5 @@ public class CommonUtils {
         return result;
     }
 
-
-    /**
-     * 把参数按照参数名称排序
-     *
-     * @param fields 参数
-     */
-    public static void sortField(Field[] fields) {
-        Arrays.sort(fields, (o1, o2) -> {
-            String key1 = o1.getName();
-            String key2 = o2.getName();
-            return key1.compareTo(key2);
-        });
-    }
-
-    /**
-     * 将date日期装换为yyyy-MM-dd格式的字符串
-     *
-     * @param date 日期
-     * @return 指定格式字符串
-     */
-    public static String getTime(Date date) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-        return TimeUtils.date2String(date, sdf);
-    }
 }
 
