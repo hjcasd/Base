@@ -6,11 +6,11 @@ import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.hjc.base.R;
-import com.hjc.base.base.activity.BaseActivity;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.http.helper.RxSchedulers;
-import com.hjc.base.widget.StatusView;
-import com.hjc.base.widget.bar.TitleBar;
+import com.hjc.baselib.activity.BaseActivity;
+import com.hjc.baselib.widget.StatusView;
+import com.hjc.baselib.widget.bar.TitleBar;
 
 import java.util.concurrent.TimeUnit;
 

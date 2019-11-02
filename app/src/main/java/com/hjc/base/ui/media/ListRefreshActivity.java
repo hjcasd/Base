@@ -8,10 +8,10 @@ import android.view.View;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.hjc.base.R;
-import com.hjc.base.base.activity.BaseActivity;
-import com.hjc.base.widget.bar.OnViewLeftClickListener;
-import com.hjc.base.widget.bar.TitleBar;
-import com.hjc.base.widget.tools.LinearItemDecoration;
+import com.hjc.baselib.activity.BaseActivity;
+import com.hjc.baselib.widget.bar.OnViewLeftClickListener;
+import com.hjc.baselib.widget.bar.TitleBar;
+import com.hjc.baselib.widget.tools.LinearItemDecoration;
 import com.scwang.smartrefresh.header.MaterialHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;

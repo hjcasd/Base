@@ -3,7 +3,7 @@ package com.hjc.base.http.interceptor;
 import android.support.annotation.NonNull;
 
 import com.blankj.utilcode.util.LogUtils;
-import com.hjc.base.utils.FormatUtils;
+import com.hjc.baselib.utils.FormatUtils;
 
 import java.io.IOException;
 import java.nio.charset.Charset;

@@ -45,7 +45,6 @@ public class App extends MultiDexApplication {
         LogUtils.Config config = LogUtils.getConfig();
         config.setLogSwitch(BuildConfig.IS_DEBUG);
         config.setGlobalTag("tag");
-
     }
 
     /**

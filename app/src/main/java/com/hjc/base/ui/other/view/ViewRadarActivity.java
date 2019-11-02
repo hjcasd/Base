@@ -5,10 +5,10 @@ import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.hjc.base.R;
-import com.hjc.base.base.activity.BaseActivity;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.ui.other.view.example.RadarView;
-import com.hjc.base.widget.bar.TitleBar;
+import com.hjc.baselib.activity.BaseActivity;
+import com.hjc.baselib.widget.bar.TitleBar;
 
 import butterknife.BindView;
 

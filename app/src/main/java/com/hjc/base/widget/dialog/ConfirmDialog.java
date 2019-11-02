@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.hjc.base.R;
-import com.hjc.base.base.dialog.BaseDialog;
+import com.hjc.baselib.dialog.BaseDialog;
 
 import butterknife.BindView;
 

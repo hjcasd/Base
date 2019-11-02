@@ -12,12 +12,12 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.blankj.utilcode.util.ToastUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.hjc.base.R;
-import com.hjc.base.base.activity.BaseActivity;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.http.helper.RxSchedulers;
 import com.hjc.base.ui.frame.quickadapter.adapter.EmptyAdapter;
-import com.hjc.base.widget.bar.TitleBar;
 import com.hjc.base.widget.dialog.LoadingDialog;
+import com.hjc.baselib.activity.BaseActivity;
+import com.hjc.baselib.widget.bar.TitleBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -102,7 +102,7 @@ public class ListEmptyActivity extends BaseActivity {
                                 list.add("i===" + i);
                             }
                             mAdapter.setNewData(list);
-                            loadingDialog.dismissDialog();
+                            loadingDialog.dismiss();
                         });
                 break;
 

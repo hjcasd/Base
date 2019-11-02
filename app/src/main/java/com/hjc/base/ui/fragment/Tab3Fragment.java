@@ -7,10 +7,10 @@ import android.widget.Button;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.R;
-import com.hjc.base.base.fragment.BaseImmersionFragment;
 import com.hjc.base.utils.PhotoUtils;
-import com.hjc.base.utils.permission.PermissionCallBack;
-import com.hjc.base.utils.permission.PermissionManager;
+import com.hjc.baselib.fragment.BaseImmersionFragment;
+import com.hjc.baselib.utils.permission.PermissionCallBack;
+import com.hjc.baselib.utils.permission.PermissionManager;
 import com.yanzhenjie.permission.runtime.Permission;
 
 import butterknife.BindView;

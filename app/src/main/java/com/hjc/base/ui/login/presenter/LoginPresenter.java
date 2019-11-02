@@ -1,6 +1,5 @@
 package com.hjc.base.ui.login.presenter;
 
-import com.hjc.base.base.mvp.BasePresenter;
 import com.hjc.base.http.RetrofitClient1;
 import com.hjc.base.http.helper.RxHelper;
 import com.hjc.base.http.observer.BaseProgressObserver;
@@ -8,6 +7,7 @@ import com.hjc.base.model.request.LoginReq;
 import com.hjc.base.model.response.LoginResp;
 import com.hjc.base.ui.login.LoginActivity;
 import com.hjc.base.ui.login.contract.LoginContract;
+import com.hjc.baselib.mvp.BasePresenter;
 
 /**
  * @Author: HJC

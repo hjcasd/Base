@@ -8,9 +8,9 @@ import android.widget.Button;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.R;
-import com.hjc.base.base.fragment.BaseImmersionFragment;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.utils.SchemeUtils;
+import com.hjc.baselib.fragment.BaseImmersionFragment;
 import com.tencent.bugly.crashreport.CrashReport;
 
 import butterknife.BindView;

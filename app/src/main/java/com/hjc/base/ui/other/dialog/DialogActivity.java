@@ -6,12 +6,12 @@ import android.widget.Button;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.hjc.base.R;
-import com.hjc.base.base.activity.BaseActivity;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.http.helper.RxSchedulers;
-import com.hjc.base.widget.bar.TitleBar;
 import com.hjc.base.widget.dialog.ConfirmDialog;
 import com.hjc.base.widget.dialog.LoadingDialog;
+import com.hjc.baselib.activity.BaseActivity;
+import com.hjc.baselib.widget.bar.TitleBar;
 
 import java.util.concurrent.TimeUnit;
 
@@ -59,7 +59,7 @@ public class DialogActivity extends BaseActivity {
                 loadingDialog.showDialog(getSupportFragmentManager());
                 Observable.timer(2, TimeUnit.SECONDS)
                         .compose(RxSchedulers.ioToMain())
-                        .subscribe(aLong -> loadingDialog.dismissDialog());
+                        .subscribe(aLong -> loadingDialog.dismiss());
                 break;
 
 

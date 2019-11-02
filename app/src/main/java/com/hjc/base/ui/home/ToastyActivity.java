@@ -7,9 +7,9 @@ import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.hjc.base.R;
-import com.hjc.base.base.activity.BaseActivity;
 import com.hjc.base.constant.RoutePath;
-import com.hjc.base.widget.bar.TitleBar;
+import com.hjc.baselib.activity.BaseActivity;
+import com.hjc.baselib.widget.bar.TitleBar;
 
 import butterknife.BindView;
 import es.dmoral.toasty.Toasty;

@@ -7,12 +7,12 @@ import android.widget.Button;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.R;
-import com.hjc.base.base.fragment.BaseImmersionFragment;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.ui.home.adapter.MarqueeAdapter;
 import com.hjc.base.utils.SchemeUtils;
 import com.hjc.base.utils.image.GlideImageLoader;
 import com.hjc.base.widget.marquee.MarqueeLayout;
+import com.hjc.baselib.fragment.BaseImmersionFragment;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;

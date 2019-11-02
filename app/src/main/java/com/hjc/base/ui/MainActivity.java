@@ -6,13 +6,13 @@ import android.widget.RadioGroup;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.R;
-import com.hjc.base.base.activity.BaseFragmentActivity;
 import com.hjc.base.ui.fragment.Tab1Fragment;
 import com.hjc.base.ui.fragment.Tab2Fragment;
 import com.hjc.base.ui.fragment.Tab3Fragment;
 import com.hjc.base.ui.fragment.Tab4Fragment;
-import com.hjc.base.utils.permission.PermissionCallBack;
-import com.hjc.base.utils.permission.PermissionManager;
+import com.hjc.baselib.activity.BaseFragmentActivity;
+import com.hjc.baselib.utils.permission.PermissionCallBack;
+import com.hjc.baselib.utils.permission.PermissionManager;
 import com.yanzhenjie.permission.runtime.Permission;
 
 import butterknife.BindView;

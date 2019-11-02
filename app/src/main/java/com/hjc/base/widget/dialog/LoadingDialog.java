@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 
-import com.hjc.base.R;
-import com.hjc.base.base.dialog.BaseDialog;
 import com.hjc.base.http.helper.RxSchedulers;
+import com.hjc.baselib.R;
+import com.hjc.baselib.dialog.BaseDialog;
 
 import java.util.concurrent.TimeUnit;
 

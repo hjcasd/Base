@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonWriter;
-import com.hjc.base.utils.CommonUtils;
+import com.hjc.baselib.utils.CommonUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;

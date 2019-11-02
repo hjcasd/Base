@@ -14,7 +14,6 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.R;
-import com.hjc.base.base.mvp.BaseMvpActivity;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.model.request.LoginReq;
 import com.hjc.base.model.response.LoginResp;
@@ -22,6 +21,7 @@ import com.hjc.base.ui.MainActivity;
 import com.hjc.base.ui.login.contract.LoginContract;
 import com.hjc.base.ui.login.presenter.LoginPresenter;
 import com.hjc.base.utils.SchemeUtils;
+import com.hjc.baselib.mvp.BaseMvpActivity;
 
 import butterknife.BindView;
 

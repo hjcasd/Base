@@ -7,7 +7,6 @@ import android.widget.Button;
 
 import com.blankj.utilcode.util.AppUtils;
 import com.hjc.base.R;
-import com.hjc.base.base.fragment.BaseImmersionFragment;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.http.RetrofitClient2;
 import com.hjc.base.http.helper.RxHelper;
@@ -17,6 +16,7 @@ import com.hjc.base.model.response.VersionResp;
 import com.hjc.base.ui.other.update.UpdateDialog;
 import com.hjc.base.utils.ApkUtils;
 import com.hjc.base.utils.SchemeUtils;
+import com.hjc.baselib.fragment.BaseImmersionFragment;
 
 import butterknife.BindView;
 

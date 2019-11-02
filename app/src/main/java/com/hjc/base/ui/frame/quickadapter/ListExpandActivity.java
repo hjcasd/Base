@@ -8,13 +8,13 @@ import android.view.View;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.hjc.base.R;
-import com.hjc.base.base.activity.BaseActivity;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.ui.frame.quickadapter.adapter.ExpandAdapter;
 import com.hjc.base.ui.frame.quickadapter.bean.Level1Item;
 import com.hjc.base.ui.frame.quickadapter.bean.Level2Item;
 import com.hjc.base.ui.frame.quickadapter.bean.Level3Item;
-import com.hjc.base.widget.bar.TitleBar;
+import com.hjc.baselib.activity.BaseActivity;
+import com.hjc.baselib.widget.bar.TitleBar;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -24,10 +24,10 @@ import com.contrarywind.adapter.WheelAdapter;
 import com.contrarywind.view.WheelView;
 import com.google.gson.Gson;
 import com.hjc.base.R;
-import com.hjc.base.base.activity.BaseActivity;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.model.LocalBean;
-import com.hjc.base.widget.bar.TitleBar;
+import com.hjc.baselib.activity.BaseActivity;
+import com.hjc.baselib.widget.bar.TitleBar;
 
 import org.json.JSONArray;
 
@@ -41,6 +41,11 @@ import java.util.List;
 
 import butterknife.BindView;
 
+/**
+ * @Author: HJC
+ * @Date: 2019/11/1 17:54
+ * @Description: AndroidPickerView的使用
+ */
 @SuppressWarnings("ALL")
 @Route(path = RoutePath.URL_PICK_VIEW)
 public class PickerActivity extends BaseActivity {

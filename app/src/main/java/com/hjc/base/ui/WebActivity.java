@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.hjc.base.R;
-import com.hjc.base.base.activity.BaseActivity;
-import com.hjc.base.widget.bar.TitleBar;
 import com.hjc.base.widget.web.X5WebView;
+import com.hjc.baselib.activity.BaseActivity;
+import com.hjc.baselib.widget.bar.TitleBar;
 
 import butterknife.BindView;
 

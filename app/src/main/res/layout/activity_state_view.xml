@@ -7,7 +7,7 @@
     android:focusableInTouchMode="true"
     android:orientation="vertical">
 
-    <com.hjc.base.widget.bar.TitleBar
+    <com.hjc.baselib.widget.bar.TitleBar
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,7 +16,7 @@
         app:titleColor="@color/white"
         app:titleText="页面多状态视图" />
 
-    <com.hjc.base.widget.StatusView
+    <com.hjc.baselib.widget.StatusView
         android:id="@+id/state_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -27,7 +27,7 @@
             android:layout_centerInParent="true"
             android:text="我是内容" />
 
-    </com.hjc.base.widget.StatusView>
+    </com.hjc.baselib.widget.StatusView>
 
 
 </LinearLayout>

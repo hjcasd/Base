@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.hjc.base.widget.bar.TitleBar
+    <com.hjc.baselib.widget.bar.TitleBar
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,9 +13,7 @@
         app:isShowLine="true"
         app:leftImage="@mipmap/icon_back"
         app:titleColor="@color/black"
-        app:titleText="标题">
-
-    </com.hjc.base.widget.bar.TitleBar>
+        app:titleText="标题" />
 
 
     <com.hjc.base.widget.web.X5WebView

@@ -7,12 +7,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.hjc.base.R;
-import com.hjc.base.base.dialog.BaseDialog;
 import com.hjc.base.constant.AppConstants;
 import com.hjc.base.model.response.VersionResp;
 import com.hjc.base.ui.other.update.download.DownloadService;
 import com.hjc.base.utils.ApkUtils;
-import com.hjc.base.utils.helper.ActivityManager;
+import com.hjc.baselib.dialog.BaseDialog;
+import com.hjc.baselib.utils.helper.ActivityManager;
 
 import java.io.File;
 
