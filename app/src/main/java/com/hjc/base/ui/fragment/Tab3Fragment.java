@@ -7,13 +7,16 @@ import android.widget.Button;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.R;
+import com.hjc.base.constant.RoutePath;
 import com.hjc.base.utils.PhotoUtils;
+import com.hjc.base.utils.SchemeUtils;
 import com.hjc.baselib.fragment.BaseImmersionFragment;
 import com.hjc.baselib.utils.permission.PermissionCallBack;
 import com.hjc.baselib.utils.permission.PermissionManager;
 import com.yanzhenjie.permission.runtime.Permission;
 
 import butterknife.BindView;
+import butterknife.Unbinder;
 
 /**
  * @Author: HJC
@@ -23,6 +26,9 @@ import butterknife.BindView;
 public class Tab3Fragment extends BaseImmersionFragment {
     @BindView(R.id.btn_camera)
     Button btnCamera;
+    @BindView(R.id.btn_web)
+    Button btnWeb;
+    Unbinder unbinder;
 
 
     public static Tab3Fragment newInstance() {
@@ -47,6 +53,7 @@ public class Tab3Fragment extends BaseImmersionFragment {
     @Override
     public void addListeners() {
         btnCamera.setOnClickListener(this);
+        btnWeb.setOnClickListener(this);
     }
 
     @Override
@@ -54,6 +61,10 @@ public class Tab3Fragment extends BaseImmersionFragment {
         switch (v.getId()) {
             case R.id.btn_camera:
                 openCamera();
+                break;
+
+            case R.id.btn_web:
+                SchemeUtils.jump(RoutePath.URL_WEB_VIEW);
                 break;
 
             default:
@@ -78,5 +89,4 @@ public class Tab3Fragment extends BaseImmersionFragment {
                     }
                 }, Permission.Group.CAMERA);
     }
-
 }

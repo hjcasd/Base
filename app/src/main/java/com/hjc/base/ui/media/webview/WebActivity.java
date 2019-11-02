@@ -1,13 +1,13 @@
-package com.hjc.base.ui;
+package com.hjc.base.ui.media.webview;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import com.hjc.base.R;
-import com.hjc.base.widget.web.X5WebView;
 import com.hjc.baselib.activity.BaseActivity;
 import com.hjc.baselib.widget.bar.TitleBar;
+import com.hjc.webviewlib.X5WebView;
 
 import butterknife.BindView;
 

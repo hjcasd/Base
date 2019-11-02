@@ -1,4 +1,4 @@
-package com.hjc.base.widget.web;
+package com.hjc.webviewlib;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -9,8 +9,6 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
-import com.blankj.utilcode.util.ConvertUtils;
-import com.hjc.base.R;
 import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebSettings.LayoutAlgorithm;
@@ -29,7 +27,7 @@ public class X5WebView extends WebView {
     public X5WebView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mProgressBar = new ProgressBar(context, null, android.R.attr.progressBarStyleHorizontal);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, ConvertUtils.dp2px(1));
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, dp2px(context, 1));
         mProgressBar.setLayoutParams(layoutParams);
 
         Drawable drawable = ContextCompat.getDrawable(context, R.drawable.shape_web_progress_bar);
@@ -117,5 +115,13 @@ public class X5WebView extends WebView {
                 super.onProgressChanged(webView, newProgress);
             }
         });
+    }
+
+    /*
+     * 将dp转换为与之相等的px
+     */
+    private int dp2px(Context context, float dipValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dipValue * scale + 0.5f);
     }
 }

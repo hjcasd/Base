@@ -26,6 +26,10 @@ public class RoutePath {
      */
     public static final String URL_STATE_VIEW = "/base/state";
 
+
+
+
+
     /**
      * EventBus页面
      */
@@ -49,6 +53,19 @@ public class RoutePath {
      * Glide页面
      */
     public static final String URL_GLIDE = "/base/glide";
+
+
+
+
+    /**
+     * Dialog页面
+     */
+    public static final String URL_WEB_VIEW = "/base/web";
+
+
+
+
+
 
     /**
      * Dialog页面

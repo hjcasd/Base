@@ -8,7 +8,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.R;
-import com.hjc.base.ui.WebActivity;
+import com.hjc.base.ui.media.webview.WebActivity;
 import com.hjc.baselib.utils.ClickUtils;
 
 /**
