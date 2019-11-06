@@ -61,6 +61,7 @@ public class RoutePath {
      * Dialog页面
      */
     public static final String URL_WEB_VIEW = "/base/web";
+    public static final String URL_WEB_FILE_READER = "/base/web/file";
 
 
 

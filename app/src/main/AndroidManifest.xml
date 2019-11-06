@@ -135,6 +135,10 @@
             android:screenOrientation="portrait" />
 
         <activity
+            android:name=".ui.media.webview.WebFileReaderActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name=".ui.media.ListRefreshActivity"
             android:screenOrientation="portrait" />
 

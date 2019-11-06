@@ -13,6 +13,11 @@ import com.hjc.baselib.widget.bar.TitleBar;
 
 import butterknife.BindView;
 
+/**
+ * @Author: HJC
+ * @Date: 2019/11/6 14:17
+ * @Description: X5WebView打开web页面
+ */
 @Route(path = RoutePath.URL_WEB_VIEW)
 public class WebViewActivity extends BaseActivity {
 
@@ -20,6 +25,8 @@ public class WebViewActivity extends BaseActivity {
     TitleBar titleBar;
     @BindView(R.id.btn1)
     Button btn1;
+    @BindView(R.id.btn2)
+    Button btn2;
 
     @Override
     public int getLayoutId() {
@@ -39,15 +46,20 @@ public class WebViewActivity extends BaseActivity {
     @Override
     public void addListeners() {
         btn1.setOnClickListener(this);
+        btn2.setOnClickListener(this);
 
         titleBar.setOnViewLeftClickListener(view -> finish());
     }
 
     @Override
     public void onSingleClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btn1:
                 SchemeUtils.jumpToWeb(this, "https://www.baidu.com", "百度一下");
+                break;
+
+            case R.id.btn2:
+                SchemeUtils.jump(RoutePath.URL_WEB_FILE_READER);
                 break;
         }
     }

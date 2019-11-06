@@ -27,7 +27,7 @@ public class X5WebView extends WebView {
     public X5WebView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mProgressBar = new ProgressBar(context, null, android.R.attr.progressBarStyleHorizontal);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, dp2px(context, 1));
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, dp2px(context, 2));
         mProgressBar.setLayoutParams(layoutParams);
 
         Drawable drawable = ContextCompat.getDrawable(context, R.drawable.shape_web_progress_bar);

@@ -22,5 +22,12 @@
         android:text="打开web页面"
         android:textAllCaps="false" />
 
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="文件加载"
+        android:textAllCaps="false" />
+
 
 </LinearLayout>
