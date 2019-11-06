@@ -8,7 +8,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.hjc.base.R;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.http.helper.RxSchedulers;
-import com.hjc.base.widget.dialog.ConfirmDialog;
+import com.hjc.base.widget.dialog.SimpleDialog;
 import com.hjc.base.widget.dialog.LoadingDialog;
 import com.hjc.baselib.activity.BaseActivity;
 import com.hjc.baselib.widget.bar.TitleBar;
@@ -24,8 +24,8 @@ public class DialogActivity extends BaseActivity {
     TitleBar titleBar;
     @BindView(R.id.btn_loading)
     Button btnLoading;
-    @BindView(R.id.btn_animation)
-    Button btnAnimation;
+    @BindView(R.id.btn_simple)
+    Button btnSimple;
 
     private LoadingDialog loadingDialog;
 
@@ -47,7 +47,7 @@ public class DialogActivity extends BaseActivity {
     @Override
     public void addListeners() {
         btnLoading.setOnClickListener(this);
-        btnAnimation.setOnClickListener(this);
+        btnSimple.setOnClickListener(this);
 
         titleBar.setOnViewLeftClickListener(view -> finish());
     }
@@ -57,14 +57,15 @@ public class DialogActivity extends BaseActivity {
         switch (v.getId()) {
             case R.id.btn_loading:
                 loadingDialog.showDialog(getSupportFragmentManager());
+                //noinspection ResultOfMethodCallIgnored
                 Observable.timer(2, TimeUnit.SECONDS)
                         .compose(RxSchedulers.ioToMain())
                         .subscribe(aLong -> loadingDialog.dismiss());
                 break;
 
 
-            case R.id.btn_animation:
-                ConfirmDialog.newInstance()
+            case R.id.btn_simple:
+                SimpleDialog.newInstance("提示", "是否清空历史记录？")
                         .setAnimStyle(R.style.dialog_anim_bottom)
                         .showDialog(getSupportFragmentManager());
                 break;

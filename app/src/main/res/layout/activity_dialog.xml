@@ -22,10 +22,10 @@
         android:textAllCaps="false" />
 
     <Button
-        android:id="@+id/btn_animation"
+        android:id="@+id/btn_simple"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="dialog动画"
+        android:text="简单dialog"
         android:textAllCaps="false" />
 
 </LinearLayout>
