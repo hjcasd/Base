@@ -200,6 +200,10 @@
             android:name=".ui.other.view.ViewRadarActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".ui.other.viewPager.ViewPagerActivity"
+            android:screenOrientation="portrait" />
+
 
         <!--============================================更新服务=========================================-->
         <service android:name=".ui.other.update.download.DownloadService" />

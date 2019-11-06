@@ -36,6 +36,8 @@ public class Tab4Fragment extends BaseImmersionFragment {
     Button btnTouch;
     @BindView(R.id.btn_view)
     Button btnView;
+    @BindView(R.id.btn_view_pager)
+    Button btnViewPager;
 
 
     public static Tab4Fragment newInstance() {
@@ -63,6 +65,7 @@ public class Tab4Fragment extends BaseImmersionFragment {
         btnUpdate.setOnClickListener(this);
         btnTouch.setOnClickListener(this);
         btnView.setOnClickListener(this);
+        btnViewPager.setOnClickListener(this);
     }
 
     @Override
@@ -86,6 +89,10 @@ public class Tab4Fragment extends BaseImmersionFragment {
 
             case R.id.btn_view:
                 SchemeUtils.jump(RoutePath.URL_VIEW);
+                break;
+
+            case R.id.btn_view_pager:
+                SchemeUtils.jump(RoutePath.URL_VIEW_PAGER);
                 break;
 
             default:
@@ -133,5 +140,4 @@ public class Tab4Fragment extends BaseImmersionFragment {
                 .setAnimStyle(R.style.ActionSheetDialogAnimation)
                 .showDialog(getChildFragmentManager());
     }
-
 }

@@ -49,4 +49,11 @@
         android:text="view"
         android:textAllCaps="false" />
 
+    <Button
+        android:id="@+id/btn_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="viewPager"
+        android:textAllCaps="false" />
+
 </LinearLayout>
