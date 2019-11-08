@@ -168,4 +168,5 @@ dependencies {
 
     implementation project(path: ':BaseLib')
     implementation project(path: ':WebViewLib')
+    implementation project(path: ':CameraLib')
 }

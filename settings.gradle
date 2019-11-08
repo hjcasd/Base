@@ -1,1 +1,1 @@
-include ':app', ':BaseLib', ':WebViewLib'
+include ':app', ':BaseLib', ':WebViewLib', ':CameraLib'
