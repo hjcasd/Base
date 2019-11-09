@@ -157,8 +157,8 @@ dependencies {
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46'
 
     //刷新
-    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-18'
-    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-18'
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0'
 
     //条件选择器
     implementation 'com.contrarywind:Android-PickerView:4.1.8'

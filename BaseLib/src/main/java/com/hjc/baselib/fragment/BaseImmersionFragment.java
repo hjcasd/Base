@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
-import com.gyf.barlibrary.ImmersionBar;
+import com.gyf.immersionbar.ImmersionBar;
 import com.hjc.baselib.R;
 
 /**
@@ -39,13 +39,5 @@ public abstract class BaseImmersionFragment extends BaseFragment implements View
                 .statusBarColor(R.color.colorPrimary)
                 .fitsSystemWindows(true)
                 .init();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (mImmersionBar != null) {
-            mImmersionBar.destroy();
-        }
     }
 }

@@ -1,21 +1,18 @@
 package com.hjc.base.ui.other.drawer;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.blankj.utilcode.util.ToastUtils;
-import com.gyf.barlibrary.ImmersionBar;
+import com.gyf.immersionbar.ImmersionBar;
 import com.hjc.base.R;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.baselib.activity.BaseActivity;
-import com.hjc.baselib.widget.bar.OnViewLeftClickListener;
 import com.hjc.baselib.widget.bar.TitleBar;
 
 import butterknife.BindView;
@@ -43,7 +40,9 @@ public class DrawerNavigationActivity extends BaseActivity {
 
     @Override
     protected void initImmersionBar() {
-        ImmersionBar.with(this).statusBarView(R.id.status_view).init();
+        ImmersionBar.with(this)
+                .statusBarView(R.id.status_view)
+                .init();
     }
 
     @Override
@@ -59,34 +58,26 @@ public class DrawerNavigationActivity extends BaseActivity {
     @Override
     public void addListeners() {
         btnShow.setOnClickListener(this);
-        titleBar.setOnViewLeftClickListener(new OnViewLeftClickListener() {
-            @Override
-            public void leftClick(View view) {
-                finish();
+        titleBar.setOnViewLeftClickListener(view -> finish());
+
+        navigationView.setNavigationItemSelectedListener(menuItem -> {
+            switch (menuItem.getItemId()){
+                case R.id.nav_item1:
+                    ToastUtils.showShort("item1");
+                    break;
+
+                case R.id.nav_item3:
+                    ToastUtils.showShort("item3");
+                    break;
+
+                case R.id.nav_item5:
+                    ToastUtils.showShort("item5");
+                    break;
+
+                default:
+                    break;
             }
-        });
-
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()){
-                    case R.id.nav_item1:
-                        ToastUtils.showShort("item1");
-                        break;
-
-                    case R.id.nav_item3:
-                        ToastUtils.showShort("item3");
-                        break;
-
-                    case R.id.nav_item5:
-                        ToastUtils.showShort("item5");
-                        break;
-
-                    default:
-                        break;
-                }
-                return false;
-            }
+            return false;
         });
     }
 

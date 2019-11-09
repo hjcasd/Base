@@ -6,7 +6,7 @@ import android.view.View;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.ToastUtils;
-import com.gyf.barlibrary.ImmersionBar;
+import com.gyf.immersionbar.ImmersionBar;
 import com.hjc.baselib.R;
 import com.hjc.baselib.utils.ClickUtils;
 import com.hjc.baselib.utils.helper.ActivityManager;
@@ -97,9 +97,6 @@ public abstract class BaseActivity extends RxAppCompatActivity implements View.O
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (isImmersionBarEnabled()) {
-            ImmersionBar.with(this).destroy();
-        }
         if (mBinder != null) {
             mBinder.unbind();
         }

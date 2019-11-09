@@ -7,11 +7,10 @@ import android.view.View;
 import android.widget.Button;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.gyf.barlibrary.ImmersionBar;
+import com.gyf.immersionbar.ImmersionBar;
 import com.hjc.base.R;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.baselib.activity.BaseActivity;
-import com.hjc.baselib.widget.bar.OnViewLeftClickListener;
 import com.hjc.baselib.widget.bar.TitleBar;
 
 import butterknife.BindView;
@@ -39,7 +38,8 @@ public class DrawerCustomActivity extends BaseActivity {
     protected void initImmersionBar() {
         ImmersionBar.with(this)
                 .statusBarDarkFont(true)
-                .statusBarView(R.id.status_view).init();
+                .statusBarView(R.id.status_view)
+                .init();
     }
 
     @Override
@@ -55,12 +55,7 @@ public class DrawerCustomActivity extends BaseActivity {
     @Override
     public void addListeners() {
         btnShow.setOnClickListener(this);
-        titleBar.setOnViewLeftClickListener(new OnViewLeftClickListener() {
-            @Override
-            public void leftClick(View view) {
-                finish();
-            }
-        });
+        titleBar.setOnViewLeftClickListener(view -> finish());
     }
 
     @Override

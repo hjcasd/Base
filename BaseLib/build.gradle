@@ -77,7 +77,7 @@ dependencies {
     api 'com.blankj:utilcode:1.25.0'
 
     //沉浸式
-    api 'com.gyf.immersionbar:immersionbar:2.3.3'
+    api 'com.gyf.immersionbar:immersionbar:3.0.0'
 
     //Loading动画
     api 'com.github.ybq:Android-SpinKit:1.2.0'
