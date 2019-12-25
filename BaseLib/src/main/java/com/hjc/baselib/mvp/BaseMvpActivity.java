@@ -11,14 +11,12 @@ import com.hjc.baselib.activity.BaseActivity;
  * @Date: 2019/1/4 15:00
  * @Description: Activity基类(mvp)
  */
-public abstract class BaseMvpActivity<V extends BaseView, P extends BasePresenter<V>> extends BaseActivity {
+public abstract class BaseMvpActivity<V extends IBaseView, P extends BasePresenter<V>> extends BaseActivity {
     private P mPresenter;
     private V mView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
         if (mPresenter == null) {
             mPresenter = createPresenter();
         }
@@ -28,13 +26,14 @@ public abstract class BaseMvpActivity<V extends BaseView, P extends BasePresente
         if (mPresenter != null && mView != null) {
             mPresenter.attachView(mView);
         }
+        super.onCreate(savedInstanceState);
     }
 
     protected abstract P createPresenter();
 
     protected abstract V createView();
 
-    public P getPresenter(){
+    protected P getPresenter(){
         return mPresenter;
     }
 

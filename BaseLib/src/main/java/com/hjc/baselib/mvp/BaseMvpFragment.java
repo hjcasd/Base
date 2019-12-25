@@ -13,7 +13,7 @@ import com.hjc.baselib.fragment.BaseFragment;
  * @Date: 2019/1/4 15:02
  * @Description: Fragment基类(mvp)
  */
-public abstract class BaseMvpFragment<V extends BaseView, P extends BasePresenter<V>> extends BaseFragment implements View.OnClickListener {
+public abstract class BaseMvpFragment<V extends IBaseView, P extends BasePresenter<V>> extends BaseFragment implements View.OnClickListener {
     private P mPresenter;
     private V mView;
 
@@ -34,6 +34,10 @@ public abstract class BaseMvpFragment<V extends BaseView, P extends BasePresente
     protected abstract P createPresenter();
 
     protected abstract V createView();
+
+    protected P getPresenter(){
+        return mPresenter;
+    }
 
     @Override
     public void onDestroyView() {
