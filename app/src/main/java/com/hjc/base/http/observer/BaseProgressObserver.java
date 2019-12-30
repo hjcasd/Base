@@ -1,6 +1,6 @@
 package com.hjc.base.http.observer;
 
-import android.support.v4.app.FragmentManager;
+import androidx.fragment.app.FragmentManager;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.http.bean.BaseResponse;

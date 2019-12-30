@@ -1,6 +1,6 @@
 package com.hjc.base.http.converter;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.google.gson.Gson;

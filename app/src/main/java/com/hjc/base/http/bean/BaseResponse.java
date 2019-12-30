@@ -1,6 +1,6 @@
 package com.hjc.base.http.bean;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * @Author: HJC

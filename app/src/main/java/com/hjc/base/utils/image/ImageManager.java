@@ -134,7 +134,7 @@ public class ImageManager {
     private static int getDefaultPic(int type) {
         switch (type) {
             case 0:
-                return R.mipmap.ic_launcher;
+                return R.mipmap.ic_logo;
 
             case 1:
                 return R.mipmap.icon_default_pic;

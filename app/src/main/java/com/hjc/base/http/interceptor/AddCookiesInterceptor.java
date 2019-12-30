@@ -2,7 +2,7 @@ package com.hjc.base.http.interceptor;
 
 
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.blankj.utilcode.util.StringUtils;
 import com.hjc.base.utils.helper.AccountManager;
