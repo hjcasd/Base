@@ -2,10 +2,12 @@ package com.hjc.baselib.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.ToastUtils;
@@ -21,10 +23,10 @@ import butterknife.Unbinder;
  * @Description: Fragment基类(用于懒加载)
  */
 public abstract class BaseLazyFragment extends RxFragment implements View.OnClickListener {
-	/**
-	 * Fragment对应的Activity(避免使用getActivity()导致空指针异常)
-	 */
-	protected Context mContext;
+    /**
+     * Fragment对应的Activity(避免使用getActivity()导致空指针异常)
+     */
+    protected Context mContext;
 
     private Unbinder mBinder;
 
@@ -44,28 +46,25 @@ public abstract class BaseLazyFragment extends RxFragment implements View.OnClic
     private boolean isFirstLoad = true;
 
     @Override
-	public void onAttach(Context context) {
-		super.onAttach(context);
-		mContext = context;
-	}
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        mContext = context;
+    }
 
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        if (getUserVisibleHint()) {
-            isFragmentVisible = true;
-            lazyLoad();
-        } else {
-            isFragmentVisible = false;
-        }
+        isFragmentVisible = isVisibleToUser;
+        lazyLoad();
     }
 
+
     @Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View view = inflater.inflate(getLayoutId(), container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(getLayoutId(), container, false);
         mBinder = ButterKnife.bind(this, view);
-		return view;
-	}
+        return view;
+    }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -88,46 +87,46 @@ public abstract class BaseLazyFragment extends RxFragment implements View.OnClic
     }
 
     /**
-	 * 获取布局的ID
-	 */
-	public abstract int getLayoutId();
+     * 获取布局的ID
+     */
+    public abstract int getLayoutId();
 
     /**
      * 初始化View
      */
     public abstract void initView();
 
-	/**
-	 * 初始化数据
-	 */
-	public abstract void initData();
+    /**
+     * 初始化数据
+     */
+    public abstract void initData();
 
-	/**
-	 * 设置监听器
-	 */
-	public abstract void addListeners();
+    /**
+     * 设置监听器
+     */
+    public abstract void addListeners();
 
-	/**
-	 * 设置点击事件
-	 */
-	public abstract void onSingleClick(View v);
+    /**
+     * 设置点击事件
+     */
+    public abstract void onSingleClick(View v);
 
-	@Override
-	public void onClick(View view) {
+    @Override
+    public void onClick(View view) {
         //避免快速点击
-        if (ClickUtils.isFastClick()){
+        if (ClickUtils.isFastClick()) {
             ToastUtils.showShort("点的太快了,歇会呗!");
             return;
         }
-		onSingleClick(view);
-	}
+        onSingleClick(view);
+    }
 
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         isPrepared = false;
-        if (mBinder != null){
+        if (mBinder != null) {
             mBinder.unbind();
         }
     }
