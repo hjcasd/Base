@@ -1,20 +1,14 @@
 package com.hjc.base.ui.fragment;
 
 import android.os.Bundle;
-import androidx.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 
-import com.blankj.utilcode.util.AppUtils;
+import androidx.annotation.Nullable;
+
 import com.hjc.base.R;
 import com.hjc.base.constant.RoutePath;
-import com.hjc.base.http.RetrofitClient2;
-import com.hjc.base.http.helper.RxHelper;
-import com.hjc.base.http.observer.BaseProgressObserver;
-import com.hjc.base.model.request.UpdateReq;
-import com.hjc.base.model.response.VersionResp;
 import com.hjc.base.ui.other.update.UpdateDialog;
-import com.hjc.base.utils.ApkUtils;
 import com.hjc.base.utils.SchemeUtils;
 import com.hjc.baselib.fragment.BaseImmersionFragment;
 
@@ -80,7 +74,7 @@ public class Tab4Fragment extends BaseImmersionFragment {
                 break;
 
             case R.id.btn_update:
-                checkVersion();
+                showUpdateDialog();
                 break;
 
             case R.id.btn_touch:
@@ -100,43 +94,11 @@ public class Tab4Fragment extends BaseImmersionFragment {
         }
     }
 
-    private void checkVersion() {
-        UpdateReq request = new UpdateReq();
-        request.setAppType("1");
-        RetrofitClient2.getInstance().getAPI()
-                .checkVersion(request)
-                .compose(RxHelper.bind(this))
-                .subscribe(new BaseProgressObserver<VersionResp>(getChildFragmentManager()) {
-                    @Override
-                    public void onSuccess(VersionResp result) {
-                        String newVersion = result.getNewVersion();
-                        String lowVersion = result.getLowVersion();
-
-                        String currentVersionName = AppUtils.getAppVersionName();
-                        int flag1 = ApkUtils.compareVersion(currentVersionName, lowVersion);
-                        //强制更新
-                        if (flag1 == -1) {
-                            showUpdateDialog(result, true);
-                            return;
-                        }
-
-                        int flag2 = ApkUtils.compareVersion(currentVersionName, newVersion);
-                        //需要更新
-                        if (flag2 == -1) {
-                            showUpdateDialog(result, false);
-                        }
-                    }
-                });
-    }
-
     /**
      * 显示更新dialog
      */
-    private void showUpdateDialog(VersionResp result, boolean isForceUpdate) {
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("version", result);
-        bundle.putBoolean("isForceUpdate", isForceUpdate);
-        UpdateDialog.newInstance(bundle)
+    private void showUpdateDialog() {
+        UpdateDialog.newInstance()
                 .setAnimStyle(R.style.ActionSheetDialogAnimation)
                 .showDialog(getChildFragmentManager());
     }

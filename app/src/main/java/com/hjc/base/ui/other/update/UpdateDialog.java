@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import com.hjc.base.R;
 import com.hjc.base.constant.AppConstants;
-import com.hjc.base.model.response.VersionResp;
 import com.hjc.base.ui.other.update.download.DownloadService;
 import com.hjc.base.utils.ApkUtils;
 import com.hjc.baselib.dialog.BaseDialog;
@@ -38,10 +37,8 @@ public class UpdateDialog extends BaseDialog {
     private boolean isCompleted = false;
     private boolean isForceUpdate = false;
 
-    public static UpdateDialog newInstance(Bundle bundle) {
-        UpdateDialog fragment = new UpdateDialog();
-        fragment.setArguments(bundle);
-        return fragment;
+    public static UpdateDialog newInstance() {
+        return new UpdateDialog();
     }
 
 
@@ -59,31 +56,23 @@ public class UpdateDialog extends BaseDialog {
     public void initData(Bundle savedInstanceState) {
         setCancelable(false);
 
-        Bundle bundle = getArguments();
-        if (bundle != null) {
-            VersionResp versionBean = (VersionResp) getArguments().getSerializable("version");
-            isForceUpdate = bundle.getBoolean("isForceUpdate");
+        apkDownloadUrl = "data4/apk/201809/06/f2a4dbd1b6cc2dca6567f42ae7a91f11_45629100.apk";
+        isForceUpdate = false;
 
-            if (versionBean != null){
-//                apkDownloadUrl = versionBean.getFilePath();
-                apkDownloadUrl = "data4/apk/201809/06/f2a4dbd1b6cc2dca6567f42ae7a91f11_45629100.apk";
+        String newVersion = "1.1.0";
+        String updateLog = "1.部分bug修复\r\n2.部分逻辑修改";
 
-                String newVersion = versionBean.getNewVersion();
-                String updateLog = versionBean.getUpdateLog();
+        String content = "当前有新版本,是否升级到" + newVersion + "版本？";
+        tvTitle.setText(content);
+        tvUpdateInfo.setText(updateLog);
 
-                String content = "当前有新版本,是否升级到" + newVersion + "版本？";
-                tvTitle.setText(content);
-                tvUpdateInfo.setText(updateLog);
-            }
-
-            //检测是否已下载过APK
-            if (ApkUtils.appIsDownloaded()) {
-                isCompleted = true;
-                btnUpdate.setText("安装");
-            } else {
-                isCompleted = false;
-                btnUpdate.setText("升级");
-            }
+        //检测是否已下载过APK
+        if (ApkUtils.appIsDownloaded()) {
+            isCompleted = true;
+            btnUpdate.setText("安装");
+        } else {
+            isCompleted = false;
+            btnUpdate.setText("升级");
         }
     }
 
