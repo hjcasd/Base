@@ -1,9 +1,10 @@
 package com.hjc.base.ui.fragment;
 
 import android.os.Bundle;
-import androidx.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.annotation.Nullable;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.R;
@@ -16,7 +17,6 @@ import com.hjc.baselib.utils.permission.PermissionManager;
 import com.yanzhenjie.permission.runtime.Permission;
 
 import butterknife.BindView;
-import butterknife.Unbinder;
 
 /**
  * @Author: HJC
@@ -28,7 +28,8 @@ public class Tab3Fragment extends BaseImmersionFragment {
     Button btnCamera;
     @BindView(R.id.btn_web)
     Button btnWeb;
-    Unbinder unbinder;
+    @BindView(R.id.btn_test)
+    Button btnTest;
 
 
     public static Tab3Fragment newInstance() {
@@ -54,6 +55,7 @@ public class Tab3Fragment extends BaseImmersionFragment {
     public void addListeners() {
         btnCamera.setOnClickListener(this);
         btnWeb.setOnClickListener(this);
+        btnTest.setOnClickListener(this);
     }
 
     @Override
@@ -65,6 +67,10 @@ public class Tab3Fragment extends BaseImmersionFragment {
 
             case R.id.btn_web:
                 SchemeUtils.jump(RoutePath.URL_WEB_VIEW);
+                break;
+
+            case R.id.btn_test:
+                SchemeUtils.jump(RoutePath.URL_TEST);
                 break;
 
             default:

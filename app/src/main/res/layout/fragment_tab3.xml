@@ -26,4 +26,11 @@
         android:text="X5WebView"
         android:textAllCaps="false" />
 
+    <Button
+        android:id="@+id/btn_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试"
+        android:textAllCaps="false" />
+
 </LinearLayout>

@@ -8,29 +8,16 @@ import com.blankj.utilcode.util.ToastUtils;
  * @Description: View层基类
  */
 public interface IBaseView {
-    default void showLoading() {
 
-    }
+    void showLoading();
 
-    default void hideLoading() {
+    void showContent();
 
-    }
+    void showError();
 
-    default void showContent() {
+    void showEmpty();
 
-    }
-
-    default void showError() {
-
-    }
-
-    default void showEmpty() {
-
-    }
-
-    default void showNoNetwork() {
-
-    }
+    void showNoNetwork();
 
     default void showToast(String message) {
         ToastUtils.showShort(message);

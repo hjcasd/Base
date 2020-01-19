@@ -142,6 +142,10 @@
             android:name=".ui.media.ListRefreshActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".ui.media.TestActivity"
+            android:screenOrientation="portrait" />
+
 
         <!--===============================其他=================================-->
         <activity
@@ -203,6 +207,8 @@
         <activity
             android:name=".ui.other.viewPager.ViewPagerActivity"
             android:screenOrientation="portrait" />
+
+
 
 
         <!--============================================更新服务=========================================-->
