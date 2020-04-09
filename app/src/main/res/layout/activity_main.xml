@@ -12,13 +12,12 @@
 
     </FrameLayout>
 
-    <View style="@style/divide_line_grey" />
-
     <RadioGroup
         android:id="@+id/rg_tab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="@color/gray_deep"
         android:padding="5dp">
 
         <RadioButton
