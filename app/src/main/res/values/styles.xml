@@ -26,22 +26,6 @@
     </style>
 
 
-    <style name="SearchEditText">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@drawable/shape_bg_edit_white</item>
-        <item name="android:drawablePadding">5dp</item>
-        <item name="android:drawableLeft">@mipmap/icon_search</item>
-        <item name="android:drawableRight">@mipmap/icon_clear</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:imeOptions">actionSearch</item>
-        <item name="android:padding">10dp</item>
-        <item name="android:inputType">text</item>
-        <item name="android:lines">1</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:hint">请输入搜索关键词</item>
-    </style>
-
     <style name="MyEditText" parent="Theme.AppCompat.Light">
         <item name="colorControlNormal">@color/gray</item>
         <item name="colorControlActivated">@color/colorPrimary</item>

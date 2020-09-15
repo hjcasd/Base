@@ -2,8 +2,8 @@
     <string name="app_name">Base</string>
 
     <string name="tab1">首页</string>
-    <string name="tab2">框架</string>
-    <string name="tab3">多媒体</string>
+    <string name="tab2">架构</string>
+    <string name="tab3">高级</string>
     <string name="tab4">其他</string>
 
 </resources>

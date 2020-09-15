@@ -1,0 +1,84 @@
+Room:
+    Room是google为了简化旧式的SQLite操作专门提供的一个覆盖SQLite抽象层框架库
+
+
+在使用Room，有4个模块：
+    Bean：实体类，表示数据库表的数据
+    Dao：数据操作类，包含用于访问数据库的方法
+    Database：数据库持有者 & 数据库版本管理者
+    Room：数据库的创建者 & 负责数据库版本更新的具体实现者
+
+
+Room与GreenDao的区别:
+    Room支持RxJava和LiveData(可以配合解决异步问题),同时具有编译时验证查询语句正常性
+
+
+Room Bean中使用的注解:
+    @Entity ： 数据表的实体类。
+    @PrimaryKey ： 每一个实体类都需要一个唯一的标识。
+    @ColumnInfo ： 数据表中字段名称。
+    @Ignore ： 标注不需要添加到数据表中的属性。
+    @Embedded ： 实体类中引用其他实体类。
+    @ForeignKey ： 外键约束。
+
+
+Room 操作:
+    @Dao ： 标注数据库操作的类。
+    @Query ： 包含所有Sqlite语句操作。
+    @Insert ： 标注数据库的插入操作。
+    @Delete ： 标注数据库的删除操作。
+    @Update ： 标注数据库的更新操作。
+
+
+Room冲突解决策略:
+    OnConflictStrategy.REPLACE：冲突策略是取代旧数据同时继续事务
+    OnConflictStrategy.ROLLBACK：冲突策略是回滚事务
+    OnConflictStrategy.ABORT：冲突策略是终止事务
+    OnConflictStrategy.FAIL：冲突策略是事务失败
+    OnConflictStrategy.IGNORE：冲突策略是忽略冲突
+
+
+
+
+    /**
+     * 外键约束: 即person表的uid字段作为clothes表中的father_id字段
+     *  NO_ACTION：当person中的uid有变化的时候clothes的father_id不做任何动作
+     *  RESTRICT：当person中的uid在clothes里有依赖的时候禁止对person做动作，做动作就会报错。
+     *  SET_NULL：当person中的uid有变化的时候clothes的father_id会设置为NULL。
+     *  SET_DEFAULT：当person中的uid有变化的时候clothes的father_id会设置为默认值，我这里是int型，那么会设置为0
+     *  CASCADE：当person中的uid有变化的时候clothes的father_id跟着变化，假如我把uid = 1的数据删除，那么clothes表里，father_id = 1的都会被删除。
+     */
+    @Entity(indices = {@Index(value = "id")}, foreignKeys = @ForeignKey(onDelete = CASCADE,onUpdate = CASCADE, entity = Person.class, parentColumns = "uid", childColumns = "father_id"))
+    public class Clothes {
+        @PrimaryKey(autoGenerate = true)
+        private int id;
+
+        private String color;
+
+        private int father_id;
+
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public String getColor() {
+            return color;
+        }
+
+        public void setColor(String color) {
+            this.color = color;
+        }
+
+        public int getFather_id() {
+            return father_id;
+        }
+
+        public void setFather_id(int father_id) {
+            this.father_id = father_id;
+        }
+    }

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="adapterViewModel"
+            type="com.hjc.base.viewmodel.AdapterViewModel" />
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.hjc.baselib.widget.bar.TitleBar
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:leftImage="@mipmap/icon_back"
+            app:titleColor="@color/white"
+            app:titleText="BindingAdapter" />
+
+        <Button
+            android:id="@+id/btnPic1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{onClickListener}"
+            android:text="显示图片" />
+
+        <Button
+            android:id="@+id/btnPic2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{onClickListener}"
+            android:text="显示圆角图片" />
+
+        <Button
+            android:id="@+id/btnPic3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{onClickListener}"
+            android:text="显示圆形图片" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:visibility='@{adapterViewModel.imageData != null ? View.VISIBLE : View.GONE}'
+            app:imageUrl='@{adapterViewModel.imageData}'
+            app:placeholder="@{@drawable/img_default}" />
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:visibility='@{adapterViewModel.imageRoundData != null ? View.VISIBLE : View.GONE}'
+            app:imageRoundUrl='@{adapterViewModel.imageRoundData}'
+            app:placeholder="@{@drawable/img_default}"
+            app:roundingRadius='@{20}' />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:visibility='@{adapterViewModel.imageCircleData != null ? View.VISIBLE : View.GONE}'
+            app:imageCircleUrl='@{adapterViewModel.imageCircleData}'
+            app:placeholder="@{@drawable/img_default}" />
+
+
+    </LinearLayout>
+
+</layout>

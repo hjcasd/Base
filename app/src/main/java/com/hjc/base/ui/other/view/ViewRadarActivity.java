@@ -6,11 +6,9 @@ import android.view.View;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.hjc.base.R;
 import com.hjc.base.constant.RoutePath;
-import com.hjc.base.ui.other.view.example.RadarView;
-import com.hjc.baselib.activity.BaseActivity;
-import com.hjc.baselib.widget.bar.TitleBar;
-
-import butterknife.BindView;
+import com.hjc.base.databinding.ActivityViewRadarBinding;
+import com.hjc.baselib.activity.BaseMvmActivity;
+import com.hjc.baselib.viewmodel.CommonViewModel;
 
 /**
  * @Author: HJC
@@ -18,13 +16,7 @@ import butterknife.BindView;
  * @Description: 自定义雷达图
  */
 @Route(path = RoutePath.URL_VIEW_RADAR)
-public class ViewRadarActivity extends BaseActivity {
-
-    @BindView(R.id.title_bar)
-    TitleBar titleBar;
-    @BindView(R.id.radar_view)
-    RadarView radarView;
-
+public class ViewRadarActivity extends BaseMvmActivity<ActivityViewRadarBinding, CommonViewModel> {
 
     @Override
     public int getLayoutId() {
@@ -32,8 +24,13 @@ public class ViewRadarActivity extends BaseActivity {
     }
 
     @Override
-    public void initView() {
+    protected CommonViewModel getViewModel() {
+        return null;
+    }
 
+    @Override
+    protected int getBindingVariable() {
+        return 0;
     }
 
     @Override
@@ -43,7 +40,7 @@ public class ViewRadarActivity extends BaseActivity {
 
     @Override
     public void addListeners() {
-        titleBar.setOnViewLeftClickListener(view -> finish());
+        mBindingView.titleBar.setOnViewLeftClickListener(view -> finish());
     }
 
     @Override

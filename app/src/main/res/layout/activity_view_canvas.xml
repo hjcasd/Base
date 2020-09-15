@@ -1,58 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.hjc.baselib.widget.bar.TitleBar
-        android:id="@+id/title_bar"
+    <data>
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        app:leftImage="@mipmap/icon_back"
-        app:titleColor="@color/white"
-        app:titleText="画布操作" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
+        <com.hjc.baselib.widget.bar.TitleBar
+            android:id="@+id/title_bar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:leftImage="@mipmap/icon_back"
+            app:titleColor="@color/white"
+            app:titleText="画布操作" />
 
-            <com.hjc.base.ui.other.view.example.MyCustom2View
-                android:id="@+id/custom_view"
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="300dp" />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.hjc.base.widget.MyCustom2View
+                    android:id="@+id/custom_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp" />
 
 
-            <Button
-                android:id="@+id/btn1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="平移"
-                android:textAllCaps="false" />
+                <Button
+                    android:id="@+id/btn1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{onClickListener}"
+                    android:text="平移"
+                    android:textAllCaps="false" />
 
-            <Button
-                android:id="@+id/btn2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="缩放"
-                android:textAllCaps="false" />
+                <Button
+                    android:id="@+id/btn2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{onClickListener}"
+                    android:text="缩放"
+                    android:textAllCaps="false" />
 
 
-            <Button
-                android:id="@+id/btn3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="旋转"
-                android:textAllCaps="false" />
+                <Button
+                    android:id="@+id/btn3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{onClickListener}"
+                    android:text="旋转"
+                    android:textAllCaps="false" />
 
-        </LinearLayout>
+            </LinearLayout>
 
-    </androidx.core.widget.NestedScrollView>
+        </androidx.core.widget.NestedScrollView>
 
-</LinearLayout>
+    </LinearLayout>
+
+</layout>

@@ -4,7 +4,6 @@ package com.hjc.baselib.widget.text;
 import android.content.Context;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import androidx.appcompat.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
@@ -12,6 +11,8 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+
+import androidx.appcompat.widget.AppCompatEditText;
 
 import com.blankj.utilcode.util.ToastUtils;
 
@@ -46,6 +47,7 @@ public class DeleteEditText extends AppCompatEditText implements TextWatcher, Vi
         mClearDrawable = getCompoundDrawables()[2];
         setClearIconVisible(false);
 
+        setOnKeyListener(this);
         setOnFocusChangeListener(this);
         addTextChangedListener(this);
     }
@@ -91,6 +93,9 @@ public class DeleteEditText extends AppCompatEditText implements TextWatcher, Vi
                 boolean isInnerHeight = y > distance && y < (distance + height);
                 if (isInnerWidth && isInnerHeight) {
                     this.setText("");
+                    if (listener != null) {
+                        listener.onSearchClear();
+                    }
                 }
             }
         }
@@ -125,7 +130,7 @@ public class DeleteEditText extends AppCompatEditText implements TextWatcher, Vi
     /**
      * 设置是否显示隐藏图标
      *
-     * @param visible
+     * @param visible 是否显示图标
      */
     private void setClearIconVisible(boolean visible) {
         Drawable right = visible ? mClearDrawable : null;
@@ -134,6 +139,8 @@ public class DeleteEditText extends AppCompatEditText implements TextWatcher, Vi
 
     public interface OnSearchClickListener {
         void onSearchClick(View view);
+
+        void onSearchClear();
     }
 
     public void setOnSearchClickListener(OnSearchClickListener listener) {

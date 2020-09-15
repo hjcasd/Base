@@ -2,23 +2,20 @@ package com.hjc.base.ui.frame.eventbus;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.R;
 import com.hjc.base.constant.EventCode;
 import com.hjc.base.constant.RoutePath;
-import com.hjc.baselib.activity.BaseActivity;
+import com.hjc.base.databinding.ActivityEventReceiveBinding;
+import com.hjc.baselib.activity.BaseMvmActivity;
 import com.hjc.baselib.event.EventManager;
 import com.hjc.baselib.event.MessageEvent;
-import com.hjc.baselib.widget.bar.TitleBar;
+import com.hjc.baselib.viewmodel.CommonViewModel;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-
-import butterknife.BindView;
 
 /**
  * @Author: HJC
@@ -26,13 +23,7 @@ import butterknife.BindView;
  * @Description: EventBus发送非粘性事件
  */
 @Route(path = RoutePath.URL_EVENT_RECEIVE)
-public class EventReceiveActivity extends BaseActivity {
-    @BindView(R.id.title_bar)
-    TitleBar titleBar;
-    @BindView(R.id.btn_post)
-    Button btnPost;
-    @BindView(R.id.tv_content)
-    TextView tvContent;
+public class EventReceiveActivity extends BaseMvmActivity<ActivityEventReceiveBinding, CommonViewModel> {
 
     @Override
     public int getLayoutId() {
@@ -40,8 +31,13 @@ public class EventReceiveActivity extends BaseActivity {
     }
 
     @Override
-    public void initView() {
+    protected CommonViewModel getViewModel() {
+        return null;
+    }
 
+    @Override
+    protected int getBindingVariable() {
+        return 0;
     }
 
     @Override
@@ -53,15 +49,15 @@ public class EventReceiveActivity extends BaseActivity {
     public void handleEvent(MessageEvent<String> event) {
         if (event.getCode() == EventCode.A) {
             String data = event.getData();
-            tvContent.setText(data);
+            mBindingView.tvContent.setText(data);
         }
     }
 
     @Override
     public void addListeners() {
-        btnPost.setOnClickListener(this);
+        mBindingView.setOnClickListener(this);
 
-        titleBar.setOnViewLeftClickListener(view -> finish());
+        mBindingView.titleBar.setOnViewLeftClickListener(view -> finish());
     }
 
     @Override

@@ -8,10 +8,10 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.blankj.utilcode.util.LogUtils;
 import com.hjc.base.R;
 import com.hjc.base.constant.RoutePath;
-import com.hjc.baselib.activity.BaseActivity;
-import com.hjc.baselib.widget.bar.TitleBar;
+import com.hjc.base.databinding.ActivityTouchDefaultBinding;
+import com.hjc.baselib.activity.BaseMvmActivity;
+import com.hjc.baselib.viewmodel.CommonViewModel;
 
-import butterknife.BindView;
 
 /**
  * @Author: HJC
@@ -19,7 +19,7 @@ import butterknife.BindView;
  * @Description: 验证事件默认的传递流程
  */
 @Route(path = RoutePath.URL_TOUCH_DEFAULT)
-public class TouchDefaultActivity extends BaseActivity {
+public class TouchDefaultActivity extends BaseMvmActivity<ActivityTouchDefaultBinding, CommonViewModel> {
 
     /*
      * 事件默认传递流程:
@@ -36,19 +36,21 @@ public class TouchDefaultActivity extends BaseActivity {
      * 注意: 同一事件序列(例如手指按下后的ACTION_DOWN和ACTION_MOVE即为一个事件序列),如果子View(包括ViewGroup)没有消费该事件,那么后续的事件不会再传递到子View中
      */
 
-    @BindView(R.id.title_bar)
-    TitleBar titleBar;
-
-
     @Override
     public int getLayoutId() {
         return R.layout.activity_touch_default;
     }
 
     @Override
-    public void initView() {
-
+    protected CommonViewModel getViewModel() {
+        return null;
     }
+
+    @Override
+    protected int getBindingVariable() {
+        return 0;
+    }
+
 
     @Override
     public void initData(Bundle savedInstanceState) {
@@ -57,7 +59,7 @@ public class TouchDefaultActivity extends BaseActivity {
 
     @Override
     public void addListeners() {
-        titleBar.setOnViewLeftClickListener(view -> finish());
+        mBindingView.titleBar.setOnViewLeftClickListener(view -> finish());
     }
 
     @Override

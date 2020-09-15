@@ -2,16 +2,14 @@ package com.hjc.base.ui.other.touch;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.hjc.base.R;
 import com.hjc.base.constant.RoutePath;
-import com.hjc.base.utils.SchemeUtils;
-import com.hjc.baselib.activity.BaseActivity;
-import com.hjc.baselib.widget.bar.TitleBar;
-
-import butterknife.BindView;
+import com.hjc.base.databinding.ActivityTouchBinding;
+import com.hjc.base.utils.helper.RouteManager;
+import com.hjc.baselib.activity.BaseMvmActivity;
+import com.hjc.baselib.viewmodel.CommonViewModel;
 
 /**
  * @Author: HJC
@@ -19,7 +17,7 @@ import butterknife.BindView;
  * @Description: 事件分发
  */
 @Route(path = RoutePath.URL_TOUCH)
-public class TouchActivity extends BaseActivity {
+public class TouchActivity extends BaseMvmActivity<ActivityTouchBinding, CommonViewModel> {
 
     /*
      * 触摸事件 ->Activity ->Window - DecorView -> ViewGroup -> View
@@ -59,24 +57,19 @@ public class TouchActivity extends BaseActivity {
      */
 
 
-    @BindView(R.id.title_bar)
-    TitleBar titleBar;
-    @BindView(R.id.btn_touch_default)
-    Button btnTouchDefault;
-    @BindView(R.id.btn_touch_cancel)
-    Button btnTouchCancel;
-    @BindView(R.id.btn_touch_intercept)
-    Button btnTouchIntercept;
-
-
     @Override
     public int getLayoutId() {
         return R.layout.activity_touch;
     }
 
     @Override
-    public void initView() {
+    protected CommonViewModel getViewModel() {
+        return null;
+    }
 
+    @Override
+    protected int getBindingVariable() {
+        return 0;
     }
 
     @Override
@@ -86,26 +79,24 @@ public class TouchActivity extends BaseActivity {
 
     @Override
     public void addListeners() {
-        titleBar.setOnViewLeftClickListener(view -> finish());
+        mBindingView.setOnClickListener(this);
 
-        btnTouchDefault.setOnClickListener(this);
-        btnTouchCancel.setOnClickListener(this);
-        btnTouchIntercept.setOnClickListener(this);
+        mBindingView.titleBar.setOnViewLeftClickListener(view -> finish());
     }
 
     @Override
     public void onSingleClick(View v) {
         switch (v.getId()) {
             case R.id.btn_touch_default:
-                SchemeUtils.jump(RoutePath.URL_TOUCH_DEFAULT);
+                RouteManager.jump(RoutePath.URL_TOUCH_DEFAULT);
                 break;
 
             case R.id.btn_touch_cancel:
-                SchemeUtils.jump(RoutePath.URL_TOUCH_CANCEL);
+                RouteManager.jump(RoutePath.URL_TOUCH_CANCEL);
                 break;
 
             case R.id.btn_touch_intercept:
-                SchemeUtils.jump(RoutePath.URL_TOUCH_INTERCEPT);
+                RouteManager.jump(RoutePath.URL_TOUCH_INTERCEPT);
                 break;
 
             default:

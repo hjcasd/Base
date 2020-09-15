@@ -7,4 +7,7 @@
     <string name="resume">申请</string>
     <string name="cancel">取消</string>
     <string name="tip">Tips</string>
+
+    <string name="base_click_me_to_retry">click me to retry!</string>
+
 </resources>

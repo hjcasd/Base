@@ -8,10 +8,9 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.blankj.utilcode.util.LogUtils;
 import com.hjc.base.R;
 import com.hjc.base.constant.RoutePath;
-import com.hjc.baselib.activity.BaseActivity;
-import com.hjc.baselib.widget.bar.TitleBar;
-
-import butterknife.BindView;
+import com.hjc.base.databinding.ActivityTouchCancelBinding;
+import com.hjc.baselib.activity.BaseMvmActivity;
+import com.hjc.baselib.viewmodel.CommonViewModel;
 
 /**
  * @Author: HJC
@@ -19,7 +18,7 @@ import butterknife.BindView;
  * @Description: 验证ACTION_CANCEL事件产生的时机
  */
 @Route(path = RoutePath.URL_TOUCH_CANCEL)
-public class TouchCancelActivity extends BaseActivity {
+public class TouchCancelActivity extends BaseMvmActivity<ActivityTouchCancelBinding, CommonViewModel> {
 
     /*
      * 当在ScrollView中嵌套一个Button时,如果按下Button不放,并上下滑动后,
@@ -33,17 +32,19 @@ public class TouchCancelActivity extends BaseActivity {
      *
      */
 
-    @BindView(R.id.title_bar)
-    TitleBar titleBar;
-
     @Override
     public int getLayoutId() {
         return R.layout.activity_touch_cancel;
     }
 
     @Override
-    public void initView() {
+    protected CommonViewModel getViewModel() {
+        return null;
+    }
 
+    @Override
+    protected int getBindingVariable() {
+        return 0;
     }
 
     @Override
@@ -52,7 +53,7 @@ public class TouchCancelActivity extends BaseActivity {
 
     @Override
     public void addListeners() {
-        titleBar.setOnViewLeftClickListener(view -> finish());
+        mBindingView.titleBar.setOnViewLeftClickListener(view -> finish());
     }
 
     @Override

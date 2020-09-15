@@ -1,37 +1,24 @@
 package com.hjc.base.ui.fragment;
 
-
 import android.os.Bundle;
-import androidx.annotation.Nullable;
 import android.view.View;
-import android.widget.Button;
 
-import com.blankj.utilcode.util.ToastUtils;
+import androidx.annotation.Nullable;
+
 import com.hjc.base.R;
 import com.hjc.base.constant.RoutePath;
-import com.hjc.base.utils.SchemeUtils;
-import com.hjc.baselib.fragment.BaseImmersionFragment;
-import com.tencent.bugly.crashreport.CrashReport;
+import com.hjc.base.databinding.FragmentTab2Binding;
+import com.hjc.base.utils.helper.RouteManager;
+import com.hjc.baselib.fragment.BaseMvmFragment;
+import com.hjc.baselib.viewmodel.CommonViewModel;
 
-import butterknife.BindView;
 
 /**
  * @Author: HJC
- * @Date: 2019/7/26 10:43
- * @Description: 常用框架使用
+ * @Date: 2019/7/26 10:42
+ * @Description: Room
  */
-public class Tab2Fragment extends BaseImmersionFragment {
-    @BindView(R.id.btn_event_bus)
-    Button btnEventBus;
-    @BindView(R.id.btn_bugly)
-    Button btnBugly;
-    @BindView(R.id.btn_quick)
-    Button btnQuick;
-    @BindView(R.id.btn_code)
-    Button btnCode;
-    @BindView(R.id.btn_glide)
-    Button btnGlide;
-
+public class Tab2Fragment extends BaseMvmFragment<FragmentTab2Binding, CommonViewModel> {
 
     public static Tab2Fragment newInstance() {
         return new Tab2Fragment();
@@ -43,50 +30,56 @@ public class Tab2Fragment extends BaseImmersionFragment {
     }
 
     @Override
-    public void initView() {
+    protected boolean isImmersionBarEnabled() {
+        return true;
+    }
 
+    @Override
+    protected CommonViewModel getViewModel() {
+        return null;
+    }
+
+    @Override
+    protected int getBindingVariable() {
+        return 0;
     }
 
     @Override
     public void initData(@Nullable Bundle savedInstanceState) {
-        CrashReport.setUserSceneTag(mContext, 98839); // 上报后的Crash会显示该标签
+
     }
 
     @Override
     public void addListeners() {
-        btnEventBus.setOnClickListener(this);
-        btnBugly.setOnClickListener(this);
-        btnQuick.setOnClickListener(this);
-        btnCode.setOnClickListener(this);
-        btnGlide.setOnClickListener(this);
+        mBindingView.setOnClickListener(this);
     }
 
     @Override
     public void onSingleClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_event_bus:
-                SchemeUtils.jump(RoutePath.URL_EVENT_POST);
+            case R.id.btn1:
+                RouteManager.jump(RoutePath.URL_ROOM);
                 break;
 
-            case R.id.btn_bugly:
-                ToastUtils.showShort("测试bugly结果" + 2 / 0);
-                CrashReport.testJavaCrash();
+            case R.id.btn2:
+                RouteManager.jump(RoutePath.URL_PAGING);
                 break;
 
-            case R.id.btn_quick:
-                SchemeUtils.jump(RoutePath.URL_LIST_HELPER);
+            case R.id.btn3:
+                RouteManager.jump(RoutePath.URL_STATUS);
                 break;
 
-            case R.id.btn_code:
-                SchemeUtils.jump(RoutePath.URL_QR_CODE);
+            case R.id.btn4:
+                RouteManager.jump(RoutePath.URL_EVENT_POST);
                 break;
 
-            case R.id.btn_glide:
-                SchemeUtils.jump(RoutePath.URL_GLIDE);
+            case R.id.btn5:
+                RouteManager.jump(RoutePath.URL_QR_CODE);
                 break;
 
             default:
                 break;
         }
     }
+
 }

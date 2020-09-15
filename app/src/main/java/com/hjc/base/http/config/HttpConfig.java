@@ -1,5 +1,6 @@
 package com.hjc.base.http.config;
 
+
 import com.hjc.base.BuildConfig;
 
 /**
@@ -17,4 +18,9 @@ public class HttpConfig {
      * 服务器地址
      */
     public static String BASE_URL = BuildConfig.BASE_URL;
+
+    /**
+     * 服务器地址2
+     */
+    public static String BASE_URL2 = "https://www.wanandroid.com";
 }

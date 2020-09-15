@@ -1,51 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.hjc.baselib.widget.bar.TitleBar
+    <data>
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        app:titleColor="@color/white"
-        app:titleText="框架部分" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_event_bus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="EventBus"
-        android:textAllCaps="false" />
+        <com.hjc.baselib.widget.bar.TitleBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:titleColor="@color/white"
+            app:titleText="Tab2" />
 
-    <Button
-        android:id="@+id/btn_bugly"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Bugly"
-        android:textAllCaps="false" />
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{onClickListener}"
+            android:text="Room"
+            android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/btn_quick"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="BaseQuickAdapterHelper"
-        android:textAllCaps="false" />
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{onClickListener}"
+            android:text="Paging"
+            android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/btn_code"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Zxing"
-        android:textAllCaps="false" />
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{onClickListener}"
+            android:text="LoadSir"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{onClickListener}"
+            android:text="EventBus"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{onClickListener}"
+            android:text="Zxing"
+            android:textAllCaps="false" />
 
 
-    <Button
-        android:id="@+id/btn_glide"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Glide"
-        android:textAllCaps="false" />
 
-</LinearLayout>
+    </LinearLayout>
+
+</layout>

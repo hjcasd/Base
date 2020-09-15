@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.hjc.baselib.widget.bar.TitleBar
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:leftImage="@mipmap/icon_back"
+            app:titleColor="@color/white"
+            app:titleText="自定义View" />
+
+
+        <Button
+            android:id="@+id/btn_base"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="绘制基本图形"
+            android:onClick="@{onClickListener}"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_canvas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="画布操作"
+            android:onClick="@{onClickListener}"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_picture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="绘制图片和文字"
+            android:onClick="@{onClickListener}"
+            android:textAllCaps="false" />
+
+
+        <Button
+            android:id="@+id/btn_path"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="path基本操作"
+            android:onClick="@{onClickListener}"
+            android:textAllCaps="false" />
+
+
+        <Button
+            android:id="@+id/btn_radar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="雷达图"
+            android:onClick="@{onClickListener}"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+
+</layout>

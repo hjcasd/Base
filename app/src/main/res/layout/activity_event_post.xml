@@ -1,36 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.hjc.baselib.widget.bar.TitleBar
-        android:id="@+id/title_bar"
+    <data>
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        app:leftImage="@mipmap/icon_back"
-        app:titleColor="@color/white"
-        app:titleText="EventBus(发送者)" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_post"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="发送粘性消息" />
+        <com.hjc.baselib.widget.bar.TitleBar
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:leftImage="@mipmap/icon_back"
+            app:titleColor="@color/white"
+            app:titleText="EventBus(发送者)" />
 
-    <Button
-        android:id="@+id/btn_receive"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="跳转到消息接收页面" />
+        <Button
+            android:id="@+id/btn_post"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{onClickListener}"
+            android:text="发送粘性消息" />
 
-    <TextView
-        android:id="@+id/tv_content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="哈哈哈" />
+        <Button
+            android:id="@+id/btn_receive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{onClickListener}"
+            android:text="跳转到消息接收页面" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="哈哈哈" />
+
+    </LinearLayout>
+
+</layout>

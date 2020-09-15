@@ -1,36 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.hjc.baselib.widget.bar.TitleBar
-        android:id="@+id/title_bar"
+    <data>
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        app:leftImage="@mipmap/icon_back"
-        app:titleColor="@color/white"
-        app:titleText="Touch" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.hjc.baselib.widget.bar.TitleBar
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:leftImage="@mipmap/icon_back"
+            app:titleColor="@color/white"
+            app:titleText="Touch" />
 
 
-    <Button
-        android:id="@+id/btn_touch_default"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="默认事件传递流程" />
+        <Button
+            android:id="@+id/btn_touch_default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{onClickListener}"
+            android:text="默认事件传递流程" />
 
-    <Button
-        android:id="@+id/btn_touch_cancel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="事件取消" />
+        <Button
+            android:id="@+id/btn_touch_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{onClickListener}"
+            android:text="事件取消" />
 
-    <Button
-        android:id="@+id/btn_touch_intercept"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="事件拦截" />
+        <Button
+            android:id="@+id/btn_touch_intercept"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{onClickListener}"
+            android:text="事件拦截" />
 
-</LinearLayout>
+    </LinearLayout>
+
+</layout>

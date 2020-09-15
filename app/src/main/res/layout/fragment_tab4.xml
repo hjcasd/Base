@@ -1,59 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.hjc.baselib.widget.bar.TitleBar
+    <data>
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        app:titleColor="@color/white"
-        app:titleText="其他部分" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_dialog"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="dialog"
-        android:textAllCaps="false" />
+        <com.hjc.baselib.widget.bar.TitleBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:titleColor="@color/white"
+            app:titleText="Tab4" />
 
-    <Button
-        android:id="@+id/btn_drawer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="drawer"
-        android:textAllCaps="false" />
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{onClickListener}"
+            android:text="Update"
+            android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/btn_update"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="update"
-        android:textAllCaps="false" />
+    </LinearLayout>
 
-
-    <Button
-        android:id="@+id/btn_touch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="touch"
-        android:textAllCaps="false" />
-
-
-    <Button
-        android:id="@+id/btn_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="view"
-        android:textAllCaps="false" />
-
-    <Button
-        android:id="@+id/btn_view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="viewPager"
-        android:textAllCaps="false" />
-
-</LinearLayout>
+</layout>

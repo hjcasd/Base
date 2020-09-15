@@ -3,35 +3,24 @@ package com.hjc.base.ui.other.update;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.hjc.base.R;
 import com.hjc.base.constant.AppConstants;
+import com.hjc.base.databinding.DialogUpdateBinding;
 import com.hjc.base.ui.other.update.download.DownloadService;
 import com.hjc.base.utils.ApkUtils;
-import com.hjc.baselib.dialog.BaseDialog;
+import com.hjc.baselib.dialog.BaseFragmentDialog;
 import com.hjc.baselib.utils.helper.ActivityManager;
+import com.hjc.baselib.viewmodel.CommonViewModel;
 
 import java.io.File;
-
-import butterknife.BindView;
 
 /**
  * @Author: HJC
  * @Date: 2019/7/29 14:30
  * @Description: 更新dialog
  */
-public class UpdateDialog extends BaseDialog {
-    @BindView(R.id.tv_title)
-    TextView tvTitle;
-    @BindView(R.id.tv_update_info)
-    TextView tvUpdateInfo;
-    @BindView(R.id.btn_update)
-    Button btnUpdate;
-    @BindView(R.id.btn_cancel)
-    Button btnCancel;
-
+public class UpdateDialog extends BaseFragmentDialog<DialogUpdateBinding, CommonViewModel> {
     private String apkDownloadUrl;
 
     private boolean isCompleted = false;
@@ -53,6 +42,16 @@ public class UpdateDialog extends BaseDialog {
     }
 
     @Override
+    protected CommonViewModel getViewModel() {
+        return null;
+    }
+
+    @Override
+    protected int getBindingVariable() {
+        return 0;
+    }
+
+    @Override
     public void initData(Bundle savedInstanceState) {
         setCancelable(false);
 
@@ -63,23 +62,22 @@ public class UpdateDialog extends BaseDialog {
         String updateLog = "1.部分bug修复\r\n2.部分逻辑修改";
 
         String content = "当前有新版本,是否升级到" + newVersion + "版本？";
-        tvTitle.setText(content);
-        tvUpdateInfo.setText(updateLog);
+        mBindingView.tvTitle.setText(content);
+        mBindingView.tvUpdateInfo.setText(updateLog);
 
         //检测是否已下载过APK
         if (ApkUtils.appIsDownloaded()) {
             isCompleted = true;
-            btnUpdate.setText("安装");
+            mBindingView.btnUpdate.setText("安装");
         } else {
             isCompleted = false;
-            btnUpdate.setText("升级");
+            mBindingView.btnUpdate.setText("升级");
         }
     }
 
     @Override
     public void addListeners() {
-        btnUpdate.setOnClickListener(this);
-        btnCancel.setOnClickListener(this);
+        mBindingView.setOnClickListener(this);
     }
 
     @Override

@@ -1,32 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.hjc.baselib.widget.bar.TitleBar
-        android:id="@+id/title_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        app:leftImage="@mipmap/icon_back"
-        app:titleColor="@color/white"
-        app:titleText="TouchIntercept" />
+    <data>
 
-    <com.hjc.base.ui.other.touch.MyViewGroup2
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/gray_deep">
+        android:orientation="vertical">
 
-        <com.hjc.base.ui.other.touch.MyView2
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:background="@color/colorPrimary">
+        <com.hjc.baselib.widget.bar.TitleBar
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:leftImage="@mipmap/icon_back"
+            app:titleColor="@color/white"
+            app:titleText="TouchIntercept" />
 
-        </com.hjc.base.ui.other.touch.MyView2>
+        <com.hjc.base.widget.MyViewGroup2
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gray_deep">
 
-    </com.hjc.base.ui.other.touch.MyViewGroup2>
+            <com.hjc.base.widget.MyView2
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:background="@color/colorPrimary">
 
-</LinearLayout>
+            </com.hjc.base.widget.MyView2>
+
+        </com.hjc.base.widget.MyViewGroup2>
+
+    </LinearLayout>
+
+</layout>

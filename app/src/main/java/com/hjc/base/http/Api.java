@@ -1,18 +1,19 @@
 package com.hjc.base.http;
 
 
-import com.hjc.base.http.bean.BaseResponse;
+import com.hjc.base.bean.ArticleBean;
+import com.hjc.base.bean.LoginReq;
+import com.hjc.base.bean.LoginResp;
 import com.hjc.base.http.config.URLConfig;
-import com.hjc.base.model.request.LoginReq;
-import com.hjc.base.model.request.UpdateReq;
-import com.hjc.base.model.response.LoginResp;
-import com.hjc.base.model.response.VersionResp;
+import com.hjc.baselib.http.bean.BaseResponse;
 
 import io.reactivex.Observable;
 import okhttp3.ResponseBody;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
 import retrofit2.http.Streaming;
 import retrofit2.http.Url;
 
@@ -22,14 +23,15 @@ import retrofit2.http.Url;
  * @Description: Retrofit接口请求
  */
 public interface Api {
-    /**
-     * 检查版本更新
-     *
-     * @param req 更新请求bean
-     * @return 更新响应bean
-     */
-    @POST(URLConfig.URL_CHECK_VERSION)
-    Observable<BaseResponse<VersionResp>> checkVersion(@Body UpdateReq req);
+
+    //登录
+    @POST(URLConfig.URL_LOGIN)
+    Observable<BaseResponse<LoginResp>> login(@Body LoginReq req);
+
+
+    //列表文章
+    @GET("article/list/{page}/json")
+    Observable<ArticleBean> getArticleList(@Path("page") int page, @Query("cid") Integer cid);
 
     /**
      * 下载App
@@ -41,12 +43,4 @@ public interface Api {
     @GET
     Observable<ResponseBody> downloadApk(@Url String url);
 
-    /**
-     * 登录
-     *
-     * @param req 登录请求bean
-     * @return 登录响应bean
-     */
-    @POST(URLConfig.URL_LOGIN)
-    Observable<BaseResponse<LoginResp>> login(@Body LoginReq req);
 }

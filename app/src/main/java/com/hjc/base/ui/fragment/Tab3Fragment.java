@@ -2,35 +2,22 @@ package com.hjc.base.ui.fragment;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import androidx.annotation.Nullable;
 
-import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.R;
 import com.hjc.base.constant.RoutePath;
-import com.hjc.base.utils.PhotoUtils;
-import com.hjc.base.utils.SchemeUtils;
-import com.hjc.baselib.fragment.BaseImmersionFragment;
-import com.hjc.baselib.utils.permission.PermissionCallBack;
-import com.hjc.baselib.utils.permission.PermissionManager;
-import com.yanzhenjie.permission.runtime.Permission;
-
-import butterknife.BindView;
+import com.hjc.base.databinding.FragmentTab3Binding;
+import com.hjc.base.utils.helper.RouteManager;
+import com.hjc.baselib.fragment.BaseMvmFragment;
+import com.hjc.baselib.viewmodel.CommonViewModel;
 
 /**
  * @Author: HJC
- * @Date: 2019/7/26 10:44
- * @Description: 多媒体框架使用及常用功能实现
+ * @Date: 2019/7/26 10:42
+ * @Description: Tab1
  */
-public class Tab3Fragment extends BaseImmersionFragment {
-    @BindView(R.id.btn_camera)
-    Button btnCamera;
-    @BindView(R.id.btn_web)
-    Button btnWeb;
-    @BindView(R.id.btn_test)
-    Button btnTest;
-
+public class Tab3Fragment extends BaseMvmFragment<FragmentTab3Binding, CommonViewModel> {
 
     public static Tab3Fragment newInstance() {
         return new Tab3Fragment();
@@ -42,8 +29,18 @@ public class Tab3Fragment extends BaseImmersionFragment {
     }
 
     @Override
-    public void initView() {
+    protected boolean isImmersionBarEnabled() {
+        return true;
+    }
 
+    @Override
+    protected CommonViewModel getViewModel() {
+        return null;
+    }
+
+    @Override
+    protected int getBindingVariable() {
+        return 0;
     }
 
     @Override
@@ -53,24 +50,18 @@ public class Tab3Fragment extends BaseImmersionFragment {
 
     @Override
     public void addListeners() {
-        btnCamera.setOnClickListener(this);
-        btnWeb.setOnClickListener(this);
-        btnTest.setOnClickListener(this);
+        mBindingView.setOnClickListener(this);
     }
 
     @Override
     public void onSingleClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_camera:
-                openCamera();
+            case R.id.btn1:
+                RouteManager.jump(RoutePath.URL_TOUCH);
                 break;
 
-            case R.id.btn_web:
-                SchemeUtils.jump(RoutePath.URL_WEB_VIEW);
-                break;
-
-            case R.id.btn_test:
-                SchemeUtils.jump(RoutePath.URL_TEST);
+            case R.id.btn2:
+                RouteManager.jump(RoutePath.URL_VIEW);
                 break;
 
             default:
@@ -78,21 +69,4 @@ public class Tab3Fragment extends BaseImmersionFragment {
         }
     }
 
-    /**
-     * 打开相机
-     */
-    private void openCamera() {
-        new PermissionManager(this)
-                .requestPermissionInFragment(new PermissionCallBack() {
-                    @Override
-                    public void onGranted() {
-                        PhotoUtils.openCamera(getActivity());
-                    }
-
-                    @Override
-                    public void onDenied() {
-                        ToastUtils.showShort("申请相机权限失败");
-                    }
-                }, Permission.Group.CAMERA);
-    }
 }

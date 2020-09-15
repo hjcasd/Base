@@ -4,9 +4,7 @@ import android.annotation.SuppressLint;
 
 import com.hjc.base.BuildConfig;
 import com.hjc.base.http.config.HttpConfig;
-import com.hjc.base.http.interceptor.AddCookiesInterceptor;
-import com.hjc.base.http.interceptor.LogInterceptor;
-import com.hjc.base.http.interceptor.ReceivedCookiesInterceptor;
+import com.hjc.baselib.http.interceptor.LogInterceptor;
 
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
@@ -37,9 +35,7 @@ public class HttpClient {
                 .writeTimeout(HttpConfig.HTTP_TIME_OUT, TimeUnit.SECONDS)
                 .retryOnConnectionFailure(true)
                 .sslSocketFactory(createSSLSocketFactory(), (X509TrustManager) trustAllCerts[0])
-                .hostnameVerifier(new TrustAllHostnameVerifier())
-                .addInterceptor(new ReceivedCookiesInterceptor())
-                .addInterceptor(new AddCookiesInterceptor());
+                .hostnameVerifier(new TrustAllHostnameVerifier());
 
         if (BuildConfig.IS_DEBUG) {
             mBuilder.addInterceptor(new LogInterceptor());

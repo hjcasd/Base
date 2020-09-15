@@ -2,24 +2,22 @@ package com.hjc.base.ui.frame.eventbus;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.R;
 import com.hjc.base.constant.EventCode;
 import com.hjc.base.constant.RoutePath;
-import com.hjc.base.utils.SchemeUtils;
-import com.hjc.baselib.activity.BaseActivity;
+import com.hjc.base.databinding.ActivityEventPostBinding;
+import com.hjc.base.utils.helper.RouteManager;
+import com.hjc.baselib.activity.BaseMvmActivity;
 import com.hjc.baselib.event.EventManager;
 import com.hjc.baselib.event.MessageEvent;
-import com.hjc.baselib.widget.bar.TitleBar;
+import com.hjc.baselib.viewmodel.CommonViewModel;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import butterknife.BindView;
 
 /**
  * @Author: HJC
@@ -27,7 +25,7 @@ import butterknife.BindView;
  * @Description: EventBus发送粘性事件
  */
 @Route(path = RoutePath.URL_EVENT_POST)
-public class EventPostActivity extends BaseActivity {
+public class EventPostActivity extends BaseMvmActivity<ActivityEventPostBinding, CommonViewModel> {
     /*
      * 使用详解:
      *
@@ -59,23 +57,19 @@ public class EventPostActivity extends BaseActivity {
      * 在接收的地方使用@Subscribe(threadMode = ThreadMode.MAIN, sticky = true)进行订阅
      */
 
-    @BindView(R.id.title_bar)
-    TitleBar titleBar;
-    @BindView(R.id.btn_post)
-    Button btnPost;
-    @BindView(R.id.btn_receive)
-    Button btnReceive;
-    @BindView(R.id.tv_content)
-    TextView tvContent;
-
     @Override
     public int getLayoutId() {
         return R.layout.activity_event_post;
     }
 
     @Override
-    public void initView() {
+    protected CommonViewModel getViewModel() {
+        return null;
+    }
 
+    @Override
+    protected int getBindingVariable() {
+        return 0;
     }
 
     @Override
@@ -87,16 +81,15 @@ public class EventPostActivity extends BaseActivity {
     public void handleEvent(MessageEvent<String> event) {
         if (event.getCode() == EventCode.B) {
             String data = event.getData();
-            tvContent.setText(data);
+            mBindingView.tvContent.setText(data);
         }
     }
 
     @Override
     public void addListeners() {
-        btnPost.setOnClickListener(this);
-        btnReceive.setOnClickListener(this);
+        mBindingView.setOnClickListener(this);
 
-        titleBar.setOnViewLeftClickListener(view -> finish());
+        mBindingView.titleBar.setOnViewLeftClickListener(view -> finish());
     }
 
     @Override
@@ -108,7 +101,7 @@ public class EventPostActivity extends BaseActivity {
                 break;
 
             case R.id.btn_receive:
-                SchemeUtils.jump(RoutePath.URL_EVENT_RECEIVE);
+                RouteManager.jump(RoutePath.URL_EVENT_RECEIVE);
                 break;
 
             default:

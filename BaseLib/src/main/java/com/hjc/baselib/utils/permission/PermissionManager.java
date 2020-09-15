@@ -1,5 +1,6 @@
 package com.hjc.baselib.utils.permission;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import androidx.fragment.app.Fragment;
@@ -34,6 +35,7 @@ public class PermissionManager {
      * @param callBack    回调
      * @param permissions 要申请的权限
      */
+    @SuppressLint("WrongConstant")
     public void requestPermission(PermissionCallBack callBack, String... permissions) {
         if (mContext == null) {
             return;
@@ -53,6 +55,7 @@ public class PermissionManager {
      * @param callBack    回调
      * @param permissions 要申请的权限
      */
+    @SuppressLint("WrongConstant")
     public void requestPermissionInActivity(PermissionCallBack callBack, String... permissions) {
         if (mActivity == null) {
             return;
@@ -72,6 +75,7 @@ public class PermissionManager {
      * @param callBack    回调
      * @param permissions 要申请的权限
      */
+    @SuppressLint("WrongConstant")
     public void requestPermissionInFragment(PermissionCallBack callBack, String... permissions) {
         if (mFragment == null) {
             return;

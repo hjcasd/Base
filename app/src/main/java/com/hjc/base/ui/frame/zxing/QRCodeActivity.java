@@ -6,9 +6,6 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.blankj.utilcode.util.ImageUtils;
@@ -16,15 +13,15 @@ import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.R;
 import com.hjc.base.constant.RoutePath;
-import com.hjc.base.http.helper.RxSchedulers;
-import com.hjc.base.utils.SchemeUtils;
-import com.hjc.baselib.activity.BaseActivity;
+import com.hjc.base.databinding.ActivityQrCodeBinding;
+import com.hjc.base.utils.helper.RouteManager;
+import com.hjc.baselib.activity.BaseMvmActivity;
+import com.hjc.baselib.http.RxSchedulers;
 import com.hjc.baselib.utils.permission.PermissionCallBack;
 import com.hjc.baselib.utils.permission.PermissionManager;
-import com.hjc.baselib.widget.bar.TitleBar;
+import com.hjc.baselib.viewmodel.CommonViewModel;
 import com.yanzhenjie.permission.runtime.Permission;
 
-import butterknife.BindView;
 import cn.bingoogolapple.qrcode.core.BGAQRCodeUtil;
 import cn.bingoogolapple.qrcode.zxing.QRCodeDecoder;
 import cn.bingoogolapple.qrcode.zxing.QRCodeEncoder;
@@ -37,21 +34,7 @@ import io.reactivex.observers.DefaultObserver;
  * @Description: Zxing的使用
  */
 @Route(path = RoutePath.URL_QR_CODE)
-public class QRCodeActivity extends BaseActivity {
-    @BindView(R.id.title_bar)
-    TitleBar titleBar;
-    @BindView(R.id.btn_scan)
-    Button btnScan;
-    @BindView(R.id.btn_generate)
-    Button btnGenerate;
-    @BindView(R.id.btn_recognition)
-    Button btnRecognition;
-    @BindView(R.id.iv_code_pic)
-    ImageView ivCodePic;
-    @BindView(R.id.btn_generate_logo)
-    Button btnGenerateLogo;
-    @BindView(R.id.tv_desc)
-    TextView tvDesc;
+public class QRCodeActivity extends BaseMvmActivity<ActivityQrCodeBinding, CommonViewModel> {
 
     @Override
     public int getLayoutId() {
@@ -59,22 +42,25 @@ public class QRCodeActivity extends BaseActivity {
     }
 
     @Override
-    public void initView() {
+    protected CommonViewModel getViewModel() {
+        return null;
+    }
 
+    @Override
+    protected int getBindingVariable() {
+        return 0;
     }
 
     @Override
     public void initData(Bundle savedInstanceState) {
+
     }
 
     @Override
     public void addListeners() {
-        btnScan.setOnClickListener(this);
-        btnGenerate.setOnClickListener(this);
-        btnGenerateLogo.setOnClickListener(this);
-        btnRecognition.setOnClickListener(this);
+        mBindingView.setOnClickListener(this);
 
-        titleBar.setOnViewLeftClickListener(view -> finish());
+        mBindingView.titleBar.setOnViewLeftClickListener(view -> finish());
     }
 
     @Override
@@ -109,7 +95,7 @@ public class QRCodeActivity extends BaseActivity {
                 .requestPermissionInActivity(new PermissionCallBack() {
                     @Override
                     public void onGranted() {
-                        SchemeUtils.jump(RoutePath.URL_SCAN_CODE);
+                        RouteManager.jump(RoutePath.URL_SCAN_CODE);
                     }
 
                     @Override
@@ -131,7 +117,7 @@ public class QRCodeActivity extends BaseActivity {
                     @Override
                     public void onNext(Bitmap bitmap) {
                         if (bitmap != null) {
-                            ivCodePic.setImageBitmap(bitmap);
+                            mBindingView.ivCodePic.setImageBitmap(bitmap);
                         } else {
                             ToastUtils.showShort("生成二维码失败");
                         }
@@ -165,7 +151,7 @@ public class QRCodeActivity extends BaseActivity {
                     @Override
                     public void onNext(Bitmap bitmap) {
                         if (bitmap != null) {
-                            ivCodePic.setImageBitmap(bitmap);
+                            mBindingView.ivCodePic.setImageBitmap(bitmap);
                         } else {
                             ToastUtils.showShort("生成带logo的二维码失败");
                         }
@@ -187,7 +173,7 @@ public class QRCodeActivity extends BaseActivity {
      * 识别二维码
      */
     private void recognition() {
-        Drawable drawable = ivCodePic.getDrawable();
+        Drawable drawable =  mBindingView.ivCodePic.getDrawable();
         if (drawable == null) {
             ToastUtils.showShort("请生成二维码");
             return;
@@ -205,7 +191,7 @@ public class QRCodeActivity extends BaseActivity {
                         if (StringUtils.isEmpty(s)) {
                             ToastUtils.showShort("解析二维码失败");
                         } else {
-                            tvDesc.setText(s);
+                            mBindingView.tvDesc.setText(s);
                         }
                     }
 

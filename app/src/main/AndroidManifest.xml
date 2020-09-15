@@ -77,43 +77,47 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.media.webview.WebActivity"
+            android:name=".ui.web.WebActivity"
             android:screenOrientation="portrait" />
 
 
-        <!--===============================首页=================================-->
+        <!--=====================================================首页===========================================-->
         <activity
-            android:name=".ui.home.ToastyActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.home.PickerActivity"
+            android:name=".ui.home.AdapterActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.home.stateview.StateViewActivity"
+            android:name=".ui.home.DataActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.home.LiveActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.home.LoginActivity"
             android:screenOrientation="portrait" />
 
 
-        <!--===============================框架=================================-->
+        <!--=====================================================框架===========================================-->
+        <activity
+            android:name=".ui.frame.RoomActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.frame.PageActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.frame.LoadSirActivity"
+            android:screenOrientation="portrait" />
+
         <activity
             android:name=".ui.frame.eventbus.EventPostActivity"
             android:screenOrientation="portrait" />
 
         <activity
             android:name=".ui.frame.eventbus.EventReceiveActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.frame.quickadapter.ListHelperActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.frame.quickadapter.ListEmptyActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.frame.quickadapter.ListExpandActivity"
             android:screenOrientation="portrait" />
 
         <activity
@@ -124,46 +128,8 @@
             android:name=".ui.frame.zxing.ScanCodeActivity"
             android:screenOrientation="portrait" />
 
-        <activity
-            android:name=".ui.frame.GlideActivity"
-            android:screenOrientation="portrait" />
 
-
-        <!--===============================多媒体=================================-->
-        <activity
-            android:name=".ui.media.webview.WebViewActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.media.webview.WebFileReaderActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.media.ListRefreshActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.media.TestActivity"
-            android:screenOrientation="portrait" />
-
-
-        <!--===============================其他=================================-->
-        <activity
-            android:name=".ui.other.drawer.DrawerActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.other.drawer.DrawerNavigationActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.other.drawer.DrawerCustomActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.other.dialog.DialogActivity"
-            android:screenOrientation="portrait" />
-
+        <!--=====================================================高级===========================================-->
         <activity
             android:name=".ui.other.touch.TouchActivity"
             android:screenOrientation="portrait" />
@@ -180,8 +146,9 @@
             android:name=".ui.other.touch.TouchInterceptActivity"
             android:screenOrientation="portrait" />
 
+
         <activity
-            android:name=".ui.other.view.CustomViewActivity"
+            android:name=".ui.other.view.ViewActivity"
             android:screenOrientation="portrait" />
 
         <activity
@@ -204,11 +171,8 @@
             android:name=".ui.other.view.ViewRadarActivity"
             android:screenOrientation="portrait" />
 
-        <activity
-            android:name=".ui.other.viewPager.ViewPagerActivity"
-            android:screenOrientation="portrait" />
 
-
+        <!--=====================================================其他===========================================-->
 
 
         <!--============================================更新服务=========================================-->

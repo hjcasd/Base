@@ -7,9 +7,13 @@ import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.Utils;
 import com.hjc.base.BuildConfig;
 import com.hjc.base.utils.BuglyUtils;
+import com.hjc.baselib.loadsir.EmptyCallback;
+import com.hjc.baselib.loadsir.ErrorCallback;
+import com.hjc.baselib.loadsir.LoadingCallback;
+import com.hjc.baselib.loadsir.ShimmerCallback;
+import com.hjc.baselib.loadsir.TimeoutCallback;
 import com.hjc.webviewlib.X5WebUtils;
-
-import es.dmoral.toasty.Toasty;
+import com.kingja.loadsir.core.LoadSir;
 
 
 /**
@@ -24,8 +28,8 @@ public class App extends MultiDexApplication {
         super.onCreate();
 
         initUtils();
+        initLoadSir();
         initARouter();
-        initToasty();
         BuglyUtils.init(this);
         X5WebUtils.init(this);
     }
@@ -53,12 +57,14 @@ public class App extends MultiDexApplication {
         ARouter.init(this); // 尽可能早，推荐在Application中初始化
     }
 
-    /**
-     * 初始化Toasty
-     */
-    private void initToasty() {
-        Toasty.Config.getInstance()
-                .setTextSize(14)
-                .apply();
+    private void initLoadSir() {
+        LoadSir.beginBuilder()
+                .addCallback(new LoadingCallback())
+                .addCallback(new ErrorCallback())
+                .addCallback(new EmptyCallback())
+                .addCallback(new TimeoutCallback())
+                .addCallback(new ShimmerCallback())
+                .setDefaultCallback(LoadingCallback.class)
+                .commit();
     }
 }

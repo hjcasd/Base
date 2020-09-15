@@ -2,37 +2,21 @@ package com.hjc.base.ui.fragment;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import androidx.annotation.Nullable;
 
 import com.hjc.base.R;
-import com.hjc.base.constant.RoutePath;
+import com.hjc.base.databinding.FragmentTab4Binding;
 import com.hjc.base.ui.other.update.UpdateDialog;
-import com.hjc.base.utils.SchemeUtils;
-import com.hjc.baselib.fragment.BaseImmersionFragment;
-
-import butterknife.BindView;
+import com.hjc.baselib.fragment.BaseMvmFragment;
+import com.hjc.baselib.viewmodel.CommonViewModel;
 
 /**
  * @Author: HJC
- * @Date: 2019/7/26 10:45
- * @Description: 其他框架使用及常用效果实现
+ * @Date: 2019/7/26 10:42
+ * @Description: Tab1
  */
-public class Tab4Fragment extends BaseImmersionFragment {
-    @BindView(R.id.btn_dialog)
-    Button btnDialog;
-    @BindView(R.id.btn_drawer)
-    Button btnDrawer;
-    @BindView(R.id.btn_update)
-    Button btnUpdate;
-    @BindView(R.id.btn_touch)
-    Button btnTouch;
-    @BindView(R.id.btn_view)
-    Button btnView;
-    @BindView(R.id.btn_view_pager)
-    Button btnViewPager;
-
+public class Tab4Fragment extends BaseMvmFragment<FragmentTab4Binding, CommonViewModel> {
 
     public static Tab4Fragment newInstance() {
         return new Tab4Fragment();
@@ -44,7 +28,18 @@ public class Tab4Fragment extends BaseImmersionFragment {
     }
 
     @Override
-    public void initView() {
+    protected boolean isImmersionBarEnabled() {
+        return true;
+    }
+
+    @Override
+    protected CommonViewModel getViewModel() {
+        return null;
+    }
+
+    @Override
+    protected int getBindingVariable() {
+        return 0;
     }
 
     @Override
@@ -54,39 +49,14 @@ public class Tab4Fragment extends BaseImmersionFragment {
 
     @Override
     public void addListeners() {
-        btnDialog.setOnClickListener(this);
-        btnDrawer.setOnClickListener(this);
-        btnUpdate.setOnClickListener(this);
-        btnTouch.setOnClickListener(this);
-        btnView.setOnClickListener(this);
-        btnViewPager.setOnClickListener(this);
+        mBindingView.setOnClickListener(this);
     }
 
     @Override
     public void onSingleClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_dialog:
-                SchemeUtils.jump(RoutePath.URL_DIALOG);
-                break;
-
-            case R.id.btn_drawer:
-                SchemeUtils.jump(RoutePath.URL_DRAWER);
-                break;
-
-            case R.id.btn_update:
-                showUpdateDialog();
-                break;
-
-            case R.id.btn_touch:
-                SchemeUtils.jump(RoutePath.URL_TOUCH);
-                break;
-
-            case R.id.btn_view:
-                SchemeUtils.jump(RoutePath.URL_VIEW);
-                break;
-
-            case R.id.btn_view_pager:
-                SchemeUtils.jump(RoutePath.URL_VIEW_PAGER);
+            case R.id.btn1:
+                UpdateDialog.newInstance().showDialog(getChildFragmentManager());
                 break;
 
             default:
@@ -94,12 +64,4 @@ public class Tab4Fragment extends BaseImmersionFragment {
         }
     }
 
-    /**
-     * 显示更新dialog
-     */
-    private void showUpdateDialog() {
-        UpdateDialog.newInstance()
-                .setAnimStyle(R.style.ActionSheetDialogAnimation)
-                .showDialog(getChildFragmentManager());
-    }
 }
