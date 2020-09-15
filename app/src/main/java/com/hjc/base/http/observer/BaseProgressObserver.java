@@ -50,14 +50,8 @@ public abstract class BaseProgressObserver<T> implements Observer<BaseResponse<T
 
         if (ServerCode.CODE_SUCCESS.equals(response.getCode())) {  //请求成功
             if (response.getData() == null) {
-                if (isShowLoading) {
-                    hideLoading();
-                }
                 onSuccess((T) "");
             } else {
-                if (isShowLoading) {
-                    hideLoading();
-                }
                 onSuccess(response.getData());
             }
         } else {
