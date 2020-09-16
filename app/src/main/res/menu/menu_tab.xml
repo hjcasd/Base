@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/item_tab1"
+        android:icon="@mipmap/icon_tab1"
+        android:title="@string/tab1" />
+
+    <item
+        android:id="@+id/item_tab2"
+        android:icon="@mipmap/icon_tab2"
+        android:title="@string/tab2" />
+
+    <item
+        android:id="@+id/item_tab3"
+        android:icon="@mipmap/icon_tab3"
+        android:title="@string/tab3" />
+
+    <item
+        android:id="@+id/item_tab4"
+        android:icon="@mipmap/icon_tab4"
+        android:title="@string/tab4" />
+
+</menu>

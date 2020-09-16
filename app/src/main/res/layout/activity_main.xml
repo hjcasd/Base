@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -19,41 +20,16 @@
 
         </FrameLayout>
 
-        <RadioGroup
-            android:id="@+id/rgTab"
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/gray_deep"
-            android:orientation="horizontal"
-            android:padding="5dp">
+            app:itemBackground="@color/gray_deep"
+            app:labelVisibilityMode="labeled"
+            app:itemTextColor="@color/selector_tab_text"
+            app:menu="@menu/menu_tab" />
 
-            <RadioButton
-                android:id="@+id/rbTab1"
-                style="@style/MenuTabStyle"
-                android:checked="true"
-                android:drawableTop="@drawable/selector_rb_tab1"
-                android:text="@string/tab1" />
-
-            <RadioButton
-                android:id="@+id/rbTab2"
-                style="@style/MenuTabStyle"
-                android:drawableTop="@drawable/selector_rb_tab2"
-                android:text="@string/tab2" />
-
-
-            <RadioButton
-                android:id="@+id/rbTab3"
-                style="@style/MenuTabStyle"
-                android:drawableTop="@drawable/selector_rb_tab3"
-                android:text="@string/tab3" />
-
-            <RadioButton
-                android:id="@+id/rbTab4"
-                style="@style/MenuTabStyle"
-                android:drawableTop="@drawable/selector_rb_tab4"
-                android:text="@string/tab4" />
-
-        </RadioGroup>
 
     </LinearLayout>
 

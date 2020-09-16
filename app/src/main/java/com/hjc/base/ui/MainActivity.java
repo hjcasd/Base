@@ -51,27 +51,25 @@ public class MainActivity extends BaseMvmFragmentActivity<ActivityMainBinding, C
 
     @Override
     protected void addListeners() {
-        mBindingView.rgTab.setOnCheckedChangeListener((group, checkedId) -> {
-            switch (checkedId) {
-                case R.id.rbTab1:
+        mBindingView.bottomView.setOnNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.item_tab1:
                     showFragment(mTab1Fragment);
                     break;
 
-                case R.id.rbTab2:
+                case R.id.item_tab2:
                     showFragment(mTab2Fragment);
                     break;
 
-                case R.id.rbTab3:
+                case R.id.item_tab3:
                     showFragment(mTab3Fragment);
                     break;
 
-                case R.id.rbTab4:
+                case R.id.item_tab4:
                     showFragment(mTab4Fragment);
                     break;
-
-                default:
-                    break;
             }
+            return true;
         });
     }
 

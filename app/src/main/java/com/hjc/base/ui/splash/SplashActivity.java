@@ -1,4 +1,4 @@
-package com.hjc.base.ui;
+package com.hjc.base.ui.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import com.gyf.immersionbar.ImmersionBar;
 import com.hjc.base.R;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.databinding.ActivitySplashBinding;
+import com.hjc.base.ui.MainActivity;
 import com.hjc.base.utils.helper.RouteManager;
 import com.hjc.baselib.activity.BaseMvmActivity;
 import com.hjc.baselib.http.RxSchedulers;
