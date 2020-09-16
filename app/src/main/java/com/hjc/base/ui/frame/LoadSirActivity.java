@@ -15,7 +15,7 @@ import com.hjc.base.R;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.databinding.ActivityLoadSirBinding;
 import com.hjc.base.ui.frame.adapter.ArticleAdapter;
-import com.hjc.base.viewmodel.StatusViewModel;
+import com.hjc.base.viewmodel.LoadSirViewModel;
 import com.hjc.baselib.activity.BaseMvmActivity;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
@@ -27,7 +27,7 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
  * @Description: LoadSir + List
  */
 @Route(path = RoutePath.URL_STATUS)
-public class LoadSirActivity extends BaseMvmActivity<ActivityLoadSirBinding, StatusViewModel> {
+public class LoadSirActivity extends BaseMvmActivity<ActivityLoadSirBinding, LoadSirViewModel> {
 
     private ArticleAdapter mAdapter;
 
@@ -40,8 +40,8 @@ public class LoadSirActivity extends BaseMvmActivity<ActivityLoadSirBinding, Sta
     }
 
     @Override
-    protected StatusViewModel getViewModel() {
-        return new ViewModelProvider(this).get(StatusViewModel.class);
+    protected LoadSirViewModel getViewModel() {
+        return new ViewModelProvider(this).get(LoadSirViewModel.class);
     }
 
     @Override
@@ -59,7 +59,7 @@ public class LoadSirActivity extends BaseMvmActivity<ActivityLoadSirBinding, Sta
         mAdapter = new ArticleAdapter();
         mBindingView.rvList.setAdapter(mAdapter);
 
-        mAdapter.setAnimationWithDefault(BaseQuickAdapter.AnimationType.AlphaIn);
+        mAdapter.setAnimationWithDefault(BaseQuickAdapter.AnimationType.SlideInLeft);
     }
 
     @Override

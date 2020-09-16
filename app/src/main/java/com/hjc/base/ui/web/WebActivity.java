@@ -8,7 +8,6 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.core.content.ContextCompat;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -19,8 +18,8 @@ import com.hjc.base.R;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.databinding.ActivityWebBinding;
 import com.hjc.base.utils.AppUtils;
-import com.hjc.base.viewmodel.WebViewModel;
 import com.hjc.baselib.activity.BaseMvmActivity;
+import com.hjc.baselib.viewmodel.CommonViewModel;
 
 /**
  * @Author: HJC
@@ -28,7 +27,7 @@ import com.hjc.baselib.activity.BaseMvmActivity;
  * @Description: web页面
  */
 @Route(path = RoutePath.URL_WEB)
-public class WebActivity extends BaseMvmActivity<ActivityWebBinding, WebViewModel> {
+public class WebActivity extends BaseMvmActivity<ActivityWebBinding, CommonViewModel> {
     @Autowired(name = "title")
     String mTitle = "";
 
@@ -41,8 +40,8 @@ public class WebActivity extends BaseMvmActivity<ActivityWebBinding, WebViewMode
     }
 
     @Override
-    protected WebViewModel getViewModel() {
-        return new ViewModelProvider(this).get(WebViewModel.class);
+    protected CommonViewModel getViewModel() {
+        return null;
     }
 
     @Override

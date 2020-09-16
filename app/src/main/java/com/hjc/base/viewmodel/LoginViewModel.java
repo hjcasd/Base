@@ -10,10 +10,8 @@ import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.bean.LoginReq;
 import com.hjc.base.bean.LoginResp;
-import com.hjc.base.http.RetrofitClient;
 import com.hjc.base.model.LoginModel;
-import com.hjc.baselib.http.RxSchedulers;
-import com.hjc.baselib.http.observer.BaseProgressObserver;
+import com.hjc.baselib.model.IModelListener;
 import com.hjc.baselib.viewmodel.BaseViewModel;
 
 public class LoginViewModel extends BaseViewModel<LoginModel> {
@@ -29,7 +27,7 @@ public class LoginViewModel extends BaseViewModel<LoginModel> {
 
     @Override
     protected LoginModel createModel() {
-        return new LoginModel();
+        return new LoginModel(this);
     }
 
     public void login() {
@@ -47,19 +45,11 @@ public class LoginViewModel extends BaseViewModel<LoginModel> {
         loginReq.setVerifyCode(codeData.getValue());
         loginReq.setProductCode("BFFQ");
 
-        RetrofitClient.getInstance().getAPI()
-                .login(loginReq)
-                .compose(RxSchedulers.ioToMain())
-                .subscribe(new BaseProgressObserver<LoginResp>(this) {
-
-                    @Override
-                    public void onSuccess(LoginResp result) {
-                        loginData.setValue(result);
-
-                        phoneData.setValue("");
-                        codeData.setValue("");
-                    }
-                });
+        mModel.login(loginReq, (IModelListener<LoginResp>) loginResp -> {
+            loginData.setValue(loginResp);
+            phoneData.setValue("");
+            codeData.setValue("");
+        });
     }
 
     // getter
