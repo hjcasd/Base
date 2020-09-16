@@ -24,57 +24,66 @@
             app:titleColor="@color/white"
             app:titleText="Path操作" />
 
-        <androidx.core.widget.NestedScrollView
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <com.hjc.base.widget.MyCustom4View
+                android:id="@+id/custom_view"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="300dp" />
 
-                <com.hjc.base.widget.MyCustom4View
-                    android:id="@+id/custom_view"
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="300dp" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/btn1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:onClick="@{onClickListener}"
-                    android:text="基本操作1"
-                    android:textAllCaps="false" />
+                    <Button
+                        android:id="@+id/btn1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{onClickListener}"
+                        android:text="基本操作1"
+                        android:textAllCaps="false" />
 
-                <Button
-                    android:id="@+id/btn2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:onClick="@{onClickListener}"
-                    android:text="基本操作2"
-                    android:textAllCaps="false" />
-
-
-                <Button
-                    android:id="@+id/btn3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:onClick="@{onClickListener}"
-                    android:text="基本操作3"
-                    android:textAllCaps="false" />
-
-                <Button
-                    android:id="@+id/btn4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:onClick="@{onClickListener}"
-                    android:text="基本操作4"
-                    android:textAllCaps="false" />
+                    <Button
+                        android:id="@+id/btn2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{onClickListener}"
+                        android:text="基本操作2"
+                        android:textAllCaps="false" />
 
 
-            </LinearLayout>
+                    <Button
+                        android:id="@+id/btn3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{onClickListener}"
+                        android:text="基本操作3"
+                        android:textAllCaps="false" />
 
-        </androidx.core.widget.NestedScrollView>
+                    <Button
+                        android:id="@+id/btn4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{onClickListener}"
+                        android:text="基本操作4"
+                        android:textAllCaps="false" />
+
+                </LinearLayout>
+
+
+            </androidx.core.widget.NestedScrollView>
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
