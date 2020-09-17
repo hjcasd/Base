@@ -21,7 +21,7 @@
             app:titleText="雷达图" />
 
 
-        <com.hjc.base.widget.RadarView
+        <com.hjc.base.widget.view.RadarView
             android:id="@+id/radar_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

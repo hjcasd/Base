@@ -20,20 +20,20 @@
             app:titleColor="@color/white"
             app:titleText="TouchIntercept" />
 
-        <com.hjc.base.widget.MyViewGroup2
+        <com.hjc.base.widget.event.MyViewGroup2
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/gray_deep">
 
-            <com.hjc.base.widget.MyView2
+            <com.hjc.base.widget.event.MyView2
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:background="@color/colorPrimary">
 
-            </com.hjc.base.widget.MyView2>
+            </com.hjc.base.widget.event.MyView2>
 
-        </com.hjc.base.widget.MyViewGroup2>
+        </com.hjc.base.widget.event.MyViewGroup2>
 
     </LinearLayout>
 

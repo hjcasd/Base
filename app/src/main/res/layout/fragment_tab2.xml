@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
-            android:text="Room"
+            android:text="LoadSir"
             android:textAllCaps="false" />
 
         <Button
@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
-            android:text="Paging"
+            android:text="EventBus"
             android:textAllCaps="false" />
 
         <Button
@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
-            android:text="LoadSir"
+            android:text="Zxing"
             android:textAllCaps="false" />
 
         <Button
@@ -51,17 +51,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
-            android:text="EventBus"
+            android:text="X5WebView"
             android:textAllCaps="false" />
-
-        <Button
-            android:id="@+id/btn5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="@{onClickListener}"
-            android:text="Zxing"
-            android:textAllCaps="false" />
-
 
 
     </LinearLayout>

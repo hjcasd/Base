@@ -30,6 +30,14 @@
             android:text="Update"
             android:textAllCaps="false" />
 
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{onClickListener}"
+            android:text="登录实例"
+            android:textAllCaps="false" />
+
     </LinearLayout>
 
 </layout>

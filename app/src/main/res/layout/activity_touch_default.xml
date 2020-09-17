@@ -20,20 +20,20 @@
             app:titleColor="@color/white"
             app:titleText="TouchDefault" />
 
-        <com.hjc.base.widget.MyViewGroup
+        <com.hjc.base.widget.event.MyViewGroup
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/gray_deep">
 
-            <com.hjc.base.widget.MyView
+            <com.hjc.base.widget.event.MyView
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:background="@color/green">
 
-            </com.hjc.base.widget.MyView>
+            </com.hjc.base.widget.event.MyView>
 
-        </com.hjc.base.widget.MyViewGroup>
+        </com.hjc.base.widget.event.MyViewGroup>
 
     </LinearLayout>
 

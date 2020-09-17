@@ -83,92 +83,92 @@
 
         <!--=====================================================首页===========================================-->
         <activity
-            android:name=".ui.home.AdapterActivity"
+            android:name=".ui.home.activity.AdapterActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.home.DataActivity"
+            android:name=".ui.home.activity.DataActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.home.LiveActivity"
+            android:name=".ui.home.activity.LiveActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.home.LoginActivity"
+            android:name=".ui.other.activity.LoginActivity"
             android:screenOrientation="portrait" />
 
 
         <!--=====================================================框架===========================================-->
         <activity
-            android:name=".ui.frame.RoomActivity"
+            android:name=".ui.home.activity.RoomActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.frame.PageActivity"
+            android:name=".ui.home.activity.PageActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.frame.LoadSirActivity"
+            android:name=".ui.frame.activity.LoadSirActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.frame.eventbus.EventPostActivity"
+            android:name=".ui.frame.activity.eventbus.EventPostActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.frame.eventbus.EventReceiveActivity"
+            android:name=".ui.frame.activity.eventbus.EventReceiveActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.frame.zxing.QRCodeActivity"
+            android:name=".ui.frame.activity.zxing.QRCodeActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.frame.zxing.ScanCodeActivity"
+            android:name=".ui.frame.activity.zxing.ScanCodeActivity"
             android:screenOrientation="portrait" />
 
 
         <!--=====================================================高级===========================================-->
         <activity
-            android:name=".ui.other.touch.TouchActivity"
+            android:name=".ui.senior.activity.touch.TouchActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.other.touch.TouchDefaultActivity"
+            android:name=".ui.senior.activity.touch.TouchDefaultActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.other.touch.TouchCancelActivity"
+            android:name=".ui.senior.activity.touch.TouchCancelActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.other.touch.TouchInterceptActivity"
+            android:name=".ui.senior.activity.touch.TouchInterceptActivity"
             android:screenOrientation="portrait" />
 
 
         <activity
-            android:name=".ui.other.view.ViewActivity"
+            android:name=".ui.senior.activity.view.ViewActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.other.view.ViewBaseActivity"
+            android:name=".ui.senior.activity.view.ViewBaseActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.other.view.ViewCanvasActivity"
+            android:name=".ui.senior.activity.view.ViewCanvasActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.other.view.ViewPictureActivity"
+            android:name=".ui.senior.activity.view.ViewPictureActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.other.view.ViewPathActivity"
+            android:name=".ui.senior.activity.view.ViewPathActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.other.view.ViewRadarActivity"
+            android:name=".ui.senior.activity.view.ViewRadarActivity"
             android:screenOrientation="portrait" />
 
 
@@ -176,7 +176,7 @@
 
 
         <!--============================================更新服务=========================================-->
-        <service android:name=".ui.other.update.download.DownloadService" />
+        <service android:name=".utils.download.DownloadService" />
 
         <!--============================================文件访问权限=========================================-->
         <provider

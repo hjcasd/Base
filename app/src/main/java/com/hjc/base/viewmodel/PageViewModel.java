@@ -10,7 +10,7 @@ import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
 
 import com.hjc.base.bean.ConcertBean;
-import com.hjc.base.ui.frame.page.ConcertFactory;
+import com.hjc.base.ui.home.page.ConcertFactory;
 import com.hjc.baselib.viewmodel.CommonViewModel;
 
 public class PageViewModel extends CommonViewModel {

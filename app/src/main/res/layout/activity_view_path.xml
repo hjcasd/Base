@@ -30,7 +30,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <com.hjc.base.widget.MyCustom4View
+            <com.hjc.base.widget.view.MyCustom4View
                 android:id="@+id/custom_view"
                 android:layout_width="match_parent"
                 android:layout_height="300dp" />

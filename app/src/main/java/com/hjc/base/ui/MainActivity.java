@@ -9,10 +9,10 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.hjc.base.R;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.databinding.ActivityMainBinding;
-import com.hjc.base.ui.fragment.Tab1Fragment;
-import com.hjc.base.ui.fragment.Tab2Fragment;
-import com.hjc.base.ui.fragment.Tab3Fragment;
-import com.hjc.base.ui.fragment.Tab4Fragment;
+import com.hjc.base.ui.home.Tab1Fragment;
+import com.hjc.base.ui.frame.Tab2Fragment;
+import com.hjc.base.ui.senior.Tab3Fragment;
+import com.hjc.base.ui.other.Tab4Fragment;
 import com.hjc.baselib.activity.BaseMvmFragmentActivity;
 import com.hjc.baselib.viewmodel.CommonViewModel;
 

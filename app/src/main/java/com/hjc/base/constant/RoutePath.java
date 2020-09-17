@@ -33,7 +33,11 @@ public class RoutePath {
     public static final String URL_DATA_BINDING = "/base/dataBinding";
     public static final String URL_PAGING = "/base/paging";
     public static final String URL_ROOM = "/base/room";
-    public static final String URL_STATUS = "/base/status";
+
+
+
+
+    public static final String URL_LOAD_SIR = "/base/status";
 
 
     /**
