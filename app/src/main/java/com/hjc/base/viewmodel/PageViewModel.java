@@ -15,7 +15,6 @@ import com.hjc.baselib.viewmodel.CommonViewModel;
 
 public class PageViewModel extends CommonViewModel {
 
-    // 一个 LiveData对象通常存储在ViewModel对象中，并通过getter方法访问
     private final LiveData<PagedList<ConcertBean>> convertList;
     private DataSource<Integer, ConcertBean> concertDataSource;
 
@@ -34,5 +33,4 @@ public class PageViewModel extends CommonViewModel {
     public LiveData<PagedList<ConcertBean>> getConvertList() {
         return convertList;
     }
-
 }

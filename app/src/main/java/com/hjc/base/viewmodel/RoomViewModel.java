@@ -14,7 +14,6 @@ import java.util.List;
 
 public class RoomViewModel extends CommonViewModel {
 
-    // 一个 LiveData对象通常存储在ViewModel对象中，并通过getter方法访问
     private MutableLiveData<List<Person>> personData = new MutableLiveData<>();
 
     public RoomViewModel(@NonNull Application application) {
@@ -41,7 +40,6 @@ public class RoomViewModel extends CommonViewModel {
         DBInstance.getInstance(getApplication()).getPersonDao().deleteAll();
     }
 
-    // getter
     public MutableLiveData<List<Person>> getPersonData() {
         return personData;
     }

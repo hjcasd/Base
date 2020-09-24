@@ -8,7 +8,6 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.hjc.baselib.base.BaseActionEvent;
 import com.hjc.baselib.base.IViewModelAction;
-import com.hjc.baselib.model.BaseModel;
 
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
@@ -18,18 +17,14 @@ import io.reactivex.disposables.Disposable;
  * @Date: 2020/5/15 11:15
  * @Description: ViewModel 基类
  */
-public abstract class BaseViewModel<T extends BaseModel> extends AndroidViewModel implements IViewModelAction {
+public class BaseViewModel extends AndroidViewModel implements IViewModelAction {
 
     private CompositeDisposable mCompositeDisposable;
-
     private MutableLiveData<BaseActionEvent> actionLiveData;
-
-    protected T mModel;
 
     public BaseViewModel(@NonNull Application application) {
         super(application);
         actionLiveData = new MutableLiveData<>();
-        mModel = createModel();
     }
 
     public void addDisposable(Disposable disposable) {
@@ -87,8 +82,6 @@ public abstract class BaseViewModel<T extends BaseModel> extends AndroidViewMode
     public MutableLiveData<BaseActionEvent> getActionLiveData() {
         return actionLiveData;
     }
-
-    protected abstract T createModel();
 
 }
 

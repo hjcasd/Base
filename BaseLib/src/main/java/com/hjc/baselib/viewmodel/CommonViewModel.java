@@ -11,14 +11,12 @@ import com.hjc.baselib.model.CommonModel;
  * @Date: 2020/6/5 16:45
  * @Description: 通用ViewModel
  */
-public class CommonViewModel extends BaseViewModel<CommonModel> {
+public class CommonViewModel extends BaseViewModel {
+
+    protected CommonModel mModel;
 
     public CommonViewModel(@NonNull Application application) {
         super(application);
-    }
-
-    @Override
-    protected CommonModel createModel() {
-        return null;
+        mModel = new CommonModel();
     }
 }

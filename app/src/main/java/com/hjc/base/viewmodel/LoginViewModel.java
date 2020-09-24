@@ -14,20 +14,18 @@ import com.hjc.base.model.LoginModel;
 import com.hjc.baselib.base.IModelListener;
 import com.hjc.baselib.viewmodel.BaseViewModel;
 
-public class LoginViewModel extends BaseViewModel<LoginModel> {
+public class LoginViewModel extends BaseViewModel {
 
-    // 一个 LiveData对象通常存储在ViewModel对象中，并通过getter方法访问
+    private LoginModel loginModel;
+
     private MutableLiveData<LoginResp> loginData = new MutableLiveData<>();
     private MutableLiveData<String> phoneData = new MutableLiveData<>();
     private MutableLiveData<String> codeData = new MutableLiveData<>();
 
+
     public LoginViewModel(@NonNull Application application) {
         super(application);
-    }
-
-    @Override
-    protected LoginModel createModel() {
-        return new LoginModel(this);
+        loginModel = new LoginModel(this);
     }
 
     public void login() {
@@ -45,26 +43,22 @@ public class LoginViewModel extends BaseViewModel<LoginModel> {
         loginReq.setVerifyCode(codeData.getValue());
         loginReq.setProductCode("BFFQ");
 
-        mModel.login(loginReq, (IModelListener<LoginResp>) loginResp -> {
+        loginModel.login(loginReq, (IModelListener<LoginResp>) loginResp -> {
             loginData.setValue(loginResp);
             phoneData.setValue("");
             codeData.setValue("");
         });
     }
 
-    // getter
     public MutableLiveData<LoginResp> getLoginData() {
         return loginData;
     }
 
-    // getter
     public MutableLiveData<String> getPhoneData() {
         return phoneData;
     }
 
-    // getter
     public MutableLiveData<String> getCodeData() {
         return codeData;
     }
-
 }
