@@ -11,7 +11,7 @@ import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.bean.LoginReq;
 import com.hjc.base.bean.LoginResp;
 import com.hjc.base.model.LoginModel;
-import com.hjc.baselib.base.IModelListener;
+import com.hjc.baselib.http.observer.BaseProgressObserver;
 import com.hjc.baselib.viewmodel.BaseViewModel;
 
 public class LoginViewModel extends BaseViewModel {
@@ -25,15 +25,15 @@ public class LoginViewModel extends BaseViewModel {
 
     public LoginViewModel(@NonNull Application application) {
         super(application);
-        loginModel = new LoginModel(this);
+        loginModel = new LoginModel();
     }
 
     public void login() {
-        if (StringUtils.isEmpty(phoneData.getValue())){
+        if (StringUtils.isEmpty(phoneData.getValue())) {
             ToastUtils.showShort("请输入手机号");
             return;
         }
-        if (StringUtils.isEmpty(codeData.getValue())){
+        if (StringUtils.isEmpty(codeData.getValue())) {
             ToastUtils.showShort("请输入验证码");
             return;
         }
@@ -43,10 +43,14 @@ public class LoginViewModel extends BaseViewModel {
         loginReq.setVerifyCode(codeData.getValue());
         loginReq.setProductCode("BFFQ");
 
-        loginModel.login(loginReq, (IModelListener<LoginResp>) loginResp -> {
-            loginData.setValue(loginResp);
-            phoneData.setValue("");
-            codeData.setValue("");
+        loginModel.login(loginReq).subscribe(new BaseProgressObserver<LoginResp>(this) {
+
+            @Override
+            public void onSuccess(LoginResp result) {
+                loginData.setValue(result);
+                phoneData.setValue("");
+                codeData.setValue("");
+            }
         });
     }
 
