@@ -34,11 +34,6 @@ public class LiveActivity extends BaseMvmActivity<ActivityLiveBinding, LiveViewM
     }
 
     @Override
-    protected int getBindingVariable() {
-        return 0;
-    }
-
-    @Override
     protected void initData(@Nullable Bundle savedInstanceState) {
         mBindingView.setLiveViewModel(mViewModel);
     }

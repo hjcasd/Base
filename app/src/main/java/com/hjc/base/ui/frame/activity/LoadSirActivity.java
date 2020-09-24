@@ -45,11 +45,6 @@ public class LoadSirActivity extends BaseMvmActivity<ActivityLoadSirBinding, Loa
     }
 
     @Override
-    protected int getBindingVariable() {
-        return 0;
-    }
-
-    @Override
     protected void initView() {
         setLoadSir(mBindingView.smartRefreshLayout);
 

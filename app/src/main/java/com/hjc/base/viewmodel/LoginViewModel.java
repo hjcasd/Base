@@ -11,7 +11,7 @@ import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.bean.LoginReq;
 import com.hjc.base.bean.LoginResp;
 import com.hjc.base.model.LoginModel;
-import com.hjc.baselib.model.IModelListener;
+import com.hjc.baselib.base.IModelListener;
 import com.hjc.baselib.viewmodel.BaseViewModel;
 
 public class LoginViewModel extends BaseViewModel<LoginModel> {

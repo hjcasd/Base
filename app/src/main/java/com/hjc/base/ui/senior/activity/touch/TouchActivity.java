@@ -68,11 +68,6 @@ public class TouchActivity extends BaseMvmActivity<ActivityTouchBinding, CommonV
     }
 
     @Override
-    protected int getBindingVariable() {
-        return 0;
-    }
-
-    @Override
     public void initData(Bundle savedInstanceState) {
 
     }

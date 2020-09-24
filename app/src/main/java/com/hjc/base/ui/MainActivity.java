@@ -35,11 +35,6 @@ public class MainActivity extends BaseMvmFragmentActivity<ActivityMainBinding, C
     }
 
     @Override
-    protected int getBindingVariable() {
-        return 0;
-    }
-
-    @Override
     protected void initData(@Nullable Bundle savedInstanceState) {
         mTab1Fragment = Tab1Fragment.newInstance();
         mTab2Fragment = Tab2Fragment.newInstance();

@@ -68,11 +68,6 @@ public class EventPostActivity extends BaseMvmActivity<ActivityEventPostBinding,
     }
 
     @Override
-    protected int getBindingVariable() {
-        return 0;
-    }
-
-    @Override
     public void initData(Bundle savedInstanceState) {
         EventManager.register(this);
     }

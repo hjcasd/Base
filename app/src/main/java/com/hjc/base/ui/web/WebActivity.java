@@ -45,11 +45,6 @@ public class WebActivity extends BaseMvmActivity<ActivityWebBinding, CommonViewM
     }
 
     @Override
-    protected int getBindingVariable() {
-        return 0;
-    }
-
-    @Override
     protected void initView() {
         setSupportActionBar(mBindingView.toolbar);
         ActionBar actionBar = getSupportActionBar();

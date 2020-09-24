@@ -1,4 +1,4 @@
-package com.hjc.baselib.model;
+package com.hjc.baselib.base;
 
 
 /**

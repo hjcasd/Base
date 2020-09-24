@@ -60,6 +60,7 @@ public abstract class BaseFragmentDialog<VDB extends ViewDataBinding, VM extends
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mBindingView = DataBindingUtil.inflate(inflater, getLayoutId(), container, false);
+        mBindingView.setLifecycleOwner(this);
         return mBindingView.getRoot();
     }
 
@@ -77,12 +78,6 @@ public abstract class BaseFragmentDialog<VDB extends ViewDataBinding, VM extends
         if (mViewModel == null) {
             mViewModel = getViewModel();
         }
-
-        mBindingView.setLifecycleOwner(this);
-        if (getBindingVariable() > 0) {
-            mBindingView.setVariable(getBindingVariable(), mViewModel);
-        }
-        mBindingView.executePendingBindings();
     }
 
     @Override
@@ -165,11 +160,6 @@ public abstract class BaseFragmentDialog<VDB extends ViewDataBinding, VM extends
      * 获取viewModel
      */
     protected abstract VM getViewModel();
-
-    /**
-     * 获取参数Variable
-     */
-    protected abstract int getBindingVariable();
 
     /**
      * 初始化View

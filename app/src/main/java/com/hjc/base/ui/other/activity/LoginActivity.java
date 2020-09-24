@@ -35,11 +35,6 @@ public class LoginActivity extends BaseMvmActivity<ActivityLoginBinding, LoginVi
     }
 
     @Override
-    protected int getBindingVariable() {
-        return 0;
-    }
-
-    @Override
     protected void initData(@Nullable Bundle savedInstanceState) {
         mBindingView.setLoginViewModel(mViewModel);
     }

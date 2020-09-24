@@ -7,7 +7,7 @@ import com.hjc.base.viewmodel.LoginViewModel;
 import com.hjc.baselib.http.RxSchedulers;
 import com.hjc.baselib.http.observer.BaseProgressObserver;
 import com.hjc.baselib.model.BaseModel;
-import com.hjc.baselib.model.IModelListener;
+import com.hjc.baselib.base.IModelListener;
 
 public class LoginModel extends BaseModel {
     private LoginViewModel mViewModel;

@@ -34,11 +34,6 @@ public class AdapterActivity extends BaseMvmActivity<ActivityAdapterBinding, Ada
     }
 
     @Override
-    protected int getBindingVariable() {
-        return 0;
-    }
-
-    @Override
     protected void initData(@Nullable Bundle savedInstanceState) {
         mBindingView.setAdapterViewModel(mViewModel);
     }

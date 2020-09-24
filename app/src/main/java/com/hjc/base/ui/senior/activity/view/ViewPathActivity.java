@@ -30,11 +30,6 @@ public class ViewPathActivity extends BaseMvmActivity<ActivityViewPathBinding, C
     }
 
     @Override
-    protected int getBindingVariable() {
-        return 0;
-    }
-
-    @Override
     public void initData(Bundle savedInstanceState) {
 
     }

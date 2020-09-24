@@ -38,14 +38,7 @@ public class PageActivity extends BaseMvmActivity<ActivityPageBinding, PageViewM
     }
 
     @Override
-    protected int getBindingVariable() {
-        return 0;
-    }
-
-    @Override
     protected void initData(@Nullable Bundle savedInstanceState) {
-        mBindingView.setPageViewModel(mViewModel);
-
         mAdapter = new ConcertAdapter();
         mBindingView.rvConcert.setAdapter(mAdapter);
 

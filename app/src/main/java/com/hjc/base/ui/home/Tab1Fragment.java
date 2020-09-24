@@ -39,11 +39,6 @@ public class Tab1Fragment extends BaseMvmFragment<FragmentTab1Binding, CommonVie
     }
 
     @Override
-    protected int getBindingVariable() {
-        return 0;
-    }
-
-    @Override
     public void initData(@Nullable Bundle savedInstanceState) {
 
     }

@@ -36,11 +36,6 @@ public class LoadingDialog extends BaseFragmentDialog<DialogLoadingBinding, Base
     }
 
     @Override
-    protected int getBindingVariable() {
-        return 0;
-    }
-
-    @Override
     public void initData(@Nullable Bundle savedInstanceState) {
         //去掉遮盖层
 //        Window window = getDialog().getWindow();
@@ -49,14 +44,6 @@ public class LoadingDialog extends BaseFragmentDialog<DialogLoadingBinding, Base
 //        }
         setCancelable(true);
     }
-
-//    @SuppressLint("CheckResult")
-//    public void dismissDialog(){
-//        Observable.timer(500, TimeUnit.MILLISECONDS)
-//                .compose(RxSchedulers.ioToMain())
-//                .subscribe(aLong -> dismissAllowingStateLoss());
-//    }
-
 
     @Override
     public void addListeners() {

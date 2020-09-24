@@ -6,7 +6,7 @@ import com.hjc.base.http.observer.BasePageObserver;
 import com.hjc.base.viewmodel.LoadSirViewModel;
 import com.hjc.baselib.http.RxSchedulers;
 import com.hjc.baselib.model.BaseModel;
-import com.hjc.baselib.model.IModelListener;
+import com.hjc.baselib.base.IModelListener;
 
 public class LoadSirModel extends BaseModel {
     private LoadSirViewModel mViewModel;

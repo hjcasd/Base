@@ -36,11 +36,6 @@ public class DataActivity extends BaseMvmActivity<ActivityDataBinding, CommonVie
     }
 
     @Override
-    protected int getBindingVariable() {
-        return 0;
-    }
-
-    @Override
     protected void initData(@Nullable Bundle savedInstanceState) {
         mBindingView.setPerson(loginBean);
     }

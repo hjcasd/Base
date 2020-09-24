@@ -35,9 +35,10 @@ public class RoutePath {
     public static final String URL_ROOM = "/base/room";
 
 
-
-
-    public static final String URL_LOAD_SIR = "/base/status";
+    /**
+     * LoadSir页面
+     */
+    public static final String URL_LOAD_SIR = "/base/loadSir";
 
 
     /**

@@ -27,11 +27,6 @@ public class RoomActivity extends BaseMvmActivity<ActivityRoomBinding, RoomViewM
     }
 
     @Override
-    protected int getBindingVariable() {
-        return 0;
-    }
-
-    @Override
     protected void initData(@Nullable Bundle savedInstanceState) {
         mBindingView.setRoomViewModel(mViewModel);
     }

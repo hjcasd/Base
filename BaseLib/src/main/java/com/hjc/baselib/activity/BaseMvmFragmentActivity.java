@@ -54,6 +54,8 @@ public abstract class BaseMvmFragmentActivity<VDB extends ViewDataBinding, VM ex
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mBindingView = DataBindingUtil.setContentView(this, getLayoutId());
+        mBindingView.setLifecycleOwner(this);
 
         initViewModel();
         ActivityManager.addActivity(this);
@@ -71,13 +73,6 @@ public abstract class BaseMvmFragmentActivity<VDB extends ViewDataBinding, VM ex
         if (mViewModel == null) {
             mViewModel = getViewModel();
         }
-
-        mBindingView = DataBindingUtil.setContentView(this, getLayoutId());
-        mBindingView.setLifecycleOwner(this);
-        if (getBindingVariable() > 0) {
-            mBindingView.setVariable(getBindingVariable(), mViewModel);
-        }
-        mBindingView.executePendingBindings();
 
         if (mViewModel != null) {
             IViewModelAction viewModelAction = mViewModel;
@@ -160,11 +155,6 @@ public abstract class BaseMvmFragmentActivity<VDB extends ViewDataBinding, VM ex
      * 获取viewModel
      */
     protected abstract VM getViewModel();
-
-    /**
-     * 获取参数Variable
-     */
-    protected abstract int getBindingVariable();
 
     /**
      * 初始化View

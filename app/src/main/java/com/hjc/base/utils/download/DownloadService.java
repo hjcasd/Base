@@ -25,7 +25,7 @@ import java.io.File;
 public class DownloadService extends IntentService {
     private static final int NOTIFY_ID = 0;
     private static final String CHANNEL_ID = "app_update_id";
-    private static final CharSequence CHANNEL_NAME = "app_update_channel";
+    private static final String CHANNEL_NAME = "app_update_channel";
 
     private NotificationManager mNotificationManager;
     private NotificationCompat.Builder mBuilder;
@@ -50,7 +50,9 @@ public class DownloadService extends IntentService {
 
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
-        apkUrl = intent.getStringExtra("apkUrl");
+        if(intent != null){
+            apkUrl = intent.getStringExtra("apkUrl");
+        }
         setUpNotification();
         download();
     }
@@ -101,8 +103,7 @@ public class DownloadService extends IntentService {
 
             @Override
             public void onProgress(int progress, long total) {
-                int rate = progress;
-                if (oldRate != rate) {
+                if (oldRate != progress) {
                     if (mBuilder != null) {
                         mBuilder.setContentTitle("正在下载：" + AppUtils.getAppName())
                                 .setContentText(progress + "%")
@@ -113,7 +114,7 @@ public class DownloadService extends IntentService {
                         mNotificationManager.notify(NOTIFY_ID, notification);
                     }
                     //重新赋值
-                    oldRate = rate;
+                    oldRate = progress;
                 }
             }
         });

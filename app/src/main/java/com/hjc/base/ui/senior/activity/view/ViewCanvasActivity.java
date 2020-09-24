@@ -30,11 +30,6 @@ public class ViewCanvasActivity extends BaseMvmActivity<ActivityViewCanvasBindin
     }
 
     @Override
-    protected int getBindingVariable() {
-        return 0;
-    }
-
-    @Override
     public void initData(Bundle savedInstanceState) {
 
     }

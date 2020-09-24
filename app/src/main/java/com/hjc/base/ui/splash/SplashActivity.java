@@ -42,16 +42,10 @@ public class SplashActivity extends BaseMvmActivity<ActivitySplashBinding, Commo
     }
 
     @Override
-    protected int getBindingVariable() {
-        return 0;
-    }
-
-    @Override
     protected void initImmersionBar() {
         ImmersionBar.with(this)
                 .init();
     }
-
 
     @Override
     public void initData(Bundle savedInstanceState) {
