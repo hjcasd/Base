@@ -2,13 +2,20 @@ package com.hjc.webviewlib;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import androidx.core.content.ContextCompat;
 import android.util.AttributeSet;
-import android.widget.LinearLayout;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
+import androidx.core.content.ContextCompat;
+
+import com.github.ybq.android.spinkit.SpinKitView;
+import com.github.ybq.android.spinkit.sprite.Sprite;
+import com.github.ybq.android.spinkit.style.Wave;
 import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebSettings.LayoutAlgorithm;
@@ -23,20 +30,39 @@ import com.tencent.smtt.sdk.WebViewClient;
 public class X5WebView extends WebView {
 
     private ProgressBar mProgressBar;
+    private SpinKitView spinKitView;
+
+    private static final int color = 0XFF1AAF5D;
+
 
     public X5WebView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        initLayout(context);
+    }
+
+    private void initLayout(Context context){
         mProgressBar = new ProgressBar(context, null, android.R.attr.progressBarStyleHorizontal);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, dp2px(context, 2));
+        int dp = 2;
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, dp2px(context, dp));
         mProgressBar.setLayoutParams(layoutParams);
 
         Drawable drawable = ContextCompat.getDrawable(context, R.drawable.shape_web_progress_bar);
         mProgressBar.setProgressDrawable(drawable);
         addView(mProgressBar);
 
+        spinKitView = new SpinKitView(context);
+        Sprite wave = new Wave();
+        wave.setColor(color);
+        spinKitView.setIndeterminateDrawable(wave);
+
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
+        params.gravity = Gravity.CENTER;
+        addView(spinKitView, params);
+
         initWebViewSettings();
         initClient();
     }
+
 
     @SuppressLint("SetJavaScriptEnabled")
     private void initWebViewSettings() {
@@ -100,19 +126,28 @@ public class X5WebView extends WebView {
                 view.loadUrl(url);
                 return true;
             }
+
+            @Override
+            public void onPageStarted(WebView webView, String s, Bitmap bitmap) {
+                super.onPageStarted(webView, s, bitmap);
+                mProgressBar.setVisibility(View.VISIBLE);
+                spinKitView.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onPageFinished(WebView webView, String s) {
+                super.onPageFinished(webView, s);
+                mProgressBar.setVisibility(View.GONE);
+                spinKitView.setVisibility(View.GONE);
+            }
         });
 
         setWebChromeClient(new WebChromeClient() {
 
             @Override
             public void onProgressChanged(WebView webView, int newProgress) {
-                mProgressBar.setProgress(newProgress);
-                if (newProgress == 100) {
-                    mProgressBar.setVisibility(GONE);
-                } else {
-                    mProgressBar.setVisibility(VISIBLE);
-                }
                 super.onProgressChanged(webView, newProgress);
+                mProgressBar.setProgress(newProgress);
             }
         });
     }

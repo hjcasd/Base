@@ -62,7 +62,8 @@ public class WebActivity extends BaseMvmActivity<ActivityWebBinding, CommonViewM
 
         if (!StringUtils.isEmpty(mTitle) && !StringUtils.isEmpty(mUrl)) {
             mBindingView.tvTitle.setText(mTitle);
-            mBindingView.webView.loadUrl(mUrl);
+            mBindingView.webLayout.loadUrl(mUrl);
+//            mBindingView.webView.loadUrl(mUrl);
         }
     }
 
@@ -81,7 +82,8 @@ public class WebActivity extends BaseMvmActivity<ActivityWebBinding, CommonViewM
 
             // 刷新页面
             case R.id.item_refresh:
-                mBindingView.webView.reload();
+                mBindingView.webLayout.reload();
+//                mBindingView.webView.reload();
                 break;
 
             // 分享
@@ -118,10 +120,15 @@ public class WebActivity extends BaseMvmActivity<ActivityWebBinding, CommonViewM
 
     @Override
     public void onBackPressed() {
-        if (mBindingView.webView.canGoBack()) {
-            mBindingView.webView.goBack();
+        if (mBindingView.webLayout.canGoBack()) {
+            mBindingView.webLayout.goBack();
         } else {
             finish();
         }
+//        if (mBindingView.webView.canGoBack()) {
+//            mBindingView.webView.goBack();
+//        } else {
+//            finish();
+//        }
     }
 }
