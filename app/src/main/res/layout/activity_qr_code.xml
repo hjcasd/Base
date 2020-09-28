@@ -21,15 +21,15 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             app:leftImage="@mipmap/icon_back"
-            app:titleColor="@color/white"
-            app:titleText="Zxing" />
+            app:titleColor="@color/app_white"
+            app:titleText="@string/app_zxing_title" />
 
         <Button
             android:id="@+id/btn_scan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
-            android:text="扫描二维码"
+            android:text="@string/app_zxing_btn1"
             android:textAllCaps="false" />
 
 
@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
-            android:text="生成二维码"
+            android:text="@string/app_zxing_btn2"
             android:textAllCaps="false" />
 
         <Button
@@ -46,7 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
-            android:text="生成二维码(logo)"
+            android:text="@string/app_zxing_btn3"
             android:textAllCaps="false" />
 
         <Button
@@ -54,7 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
-            android:text="识别图片二维码"
+            android:text="@string/app_zxing_btn4"
             android:textAllCaps="false" />
 
         <ImageView

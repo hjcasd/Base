@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:text='@{articleBean.chapterName}'
-                android:textColor="@color/gray"
+                android:textColor="@color/app_gray"
                 android:textSize="12sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text='@{articleBean.niceDate}'
-                android:textColor="@color/gray"
+                android:textColor="@color/app_gray"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@id/tv_chapter"
                 app:layout_constraintRight_toRightOf="parent"
@@ -59,7 +59,7 @@
                 android:ellipsize="end"
                 android:maxLines="2"
                 android:text='@{Html.fromHtml(articleBean.title)}'
-                android:textColor="@color/black"
+                android:textColor="@color/base_black"
                 android:textSize="16sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"

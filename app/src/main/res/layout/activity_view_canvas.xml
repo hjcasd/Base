@@ -21,8 +21,8 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             app:leftImage="@mipmap/icon_back"
-            app:titleColor="@color/white"
-            app:titleText="画布操作" />
+            app:titleColor="@color/app_white"
+            app:titleText="@string/app_view_canvas_title" />
 
 
         <LinearLayout
@@ -49,7 +49,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="@{onClickListener}"
-                        android:text="平移"
+                        android:text="@string/app_view_canvas_btn1"
                         android:textAllCaps="false" />
 
                     <Button
@@ -57,7 +57,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="@{onClickListener}"
-                        android:text="缩放"
+                        android:text="@string/app_view_canvas_btn2"
                         android:textAllCaps="false" />
 
 
@@ -66,7 +66,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="@{onClickListener}"
-                        android:text="旋转"
+                        android:text="@string/app_view_canvas_btn3"
                         android:textAllCaps="false" />
 
                 </LinearLayout>

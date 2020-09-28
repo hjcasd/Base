@@ -28,36 +28,36 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             app:leftImage="@mipmap/icon_back"
-            app:titleColor="@color/white"
-            app:titleText="DataBinding" />
+            app:titleColor="@color/app_white"
+            app:titleText="@string/app_data_title" />
 
         <Button
             android:id="@+id/btnShow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
-            android:text="显示数据" />
+            android:text="@string/app_data_btn1" />
 
         <Button
             android:id="@+id/btnChange"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
-            android:text="改变数据" />
+            android:text="@string/app_data_btn2" />
 
         <Button
             android:id="@+id/btnHide"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
-            android:text="隐藏数据" />
+            android:text="@string/app_data_btn3" />
 
         <TextView
             android:id="@+id/tvTest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text='@{"测试: " + person.name}'
+            android:text='@{person.name}'
             android:visibility='@{person.isShow ? View.VISIBLE : View.GONE }' />
 
     </LinearLayout>

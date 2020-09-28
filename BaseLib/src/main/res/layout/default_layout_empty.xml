@@ -15,8 +15,8 @@
         android:id="@+id/tv_empty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="暂无数据，点击重试"
-        android:textColor="#333333"
+        android:text="@string/base_status_empty"
+        android:textColor="@color/base_black_33"
         android:textSize="14sp" />
 
 </LinearLayout>

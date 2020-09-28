@@ -25,8 +25,8 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             app:leftImage="@mipmap/icon_back"
-            app:titleColor="@color/white"
-            app:titleText="Room" />
+            app:titleColor="@color/app_white"
+            app:titleText="@string/app_room_title" />
 
 
         <Button
@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
-            android:text="Insert"
+            android:text="@string/app_room_btn1"
             android:textAllCaps="false" />
 
         <Button
@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
-            android:text="Query"
+            android:text="@string/app_room_btn2"
             android:textAllCaps="false" />
 
         <Button
@@ -50,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
-            android:text="Update"
+            android:text="@string/app_room_btn3"
             android:textAllCaps="false" />
 
         <Button
@@ -58,14 +58,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
-            android:text="Delete"
+            android:text="@string/app_room_btn4"
             android:textAllCaps="false" />
 
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text='@{"Person: " +  roomViewModel.personData.toString()}' />
+            android:text='@{@string/app_room_info +  roomViewModel.personData.toString()}' />
 
     </LinearLayout>
 

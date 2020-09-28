@@ -32,7 +32,7 @@
                 android:id="@+id/tv_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="是否升级到1.0版本？"
+                android:text="@string/app_dialog_update_title"
                 android:textColor="@android:color/black"
                 android:textSize="15sp" />
 
@@ -41,8 +41,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="1，111111111111111\n2，222222222222\n3，33333333333333"
-                android:textColor="#666"
+                android:text="@string/app_dialog_update_info"
+                android:textColor="@color/app_black_66"
                 android:textSize="14sp" />
 
 
@@ -60,7 +60,7 @@
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/selector_btn_update"
                     android:gravity="center"
-                    android:text="取消"
+                    android:text="@string/app_dialog_update_cancel"
                     android:onClick="@{onClickListener}"
                     android:textColor="@android:color/white"
                     android:textSize="15sp" />
@@ -74,7 +74,7 @@
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/selector_btn_update"
                     android:gravity="center"
-                    android:text="升级"
+                    android:text="@string/app_dialog_update_update"
                     android:onClick="@{onClickListener}"
                     android:textColor="@android:color/white"
                     android:textSize="15sp" />

@@ -21,29 +21,29 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             app:leftImage="@mipmap/icon_back"
-            app:titleColor="@color/white"
-            app:titleText="EventBus(发送者)" />
+            app:titleColor="@color/app_white"
+            app:titleText="@string/app_event_post_title" />
 
         <Button
             android:id="@+id/btn_post"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
-            android:text="发送粘性消息" />
+            android:text="@string/app_event_post_btn1" />
 
         <Button
             android:id="@+id/btn_receive"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
-            android:text="跳转到消息接收页面" />
+            android:text="@string/app_event_post_btn2" />
 
         <TextView
             android:id="@+id/tv_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="哈哈哈" />
+            android:text="@string/app_event_post_btn3" />
 
     </LinearLayout>
 

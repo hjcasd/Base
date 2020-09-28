@@ -30,11 +30,11 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             app:leftImage="@mipmap/icon_back"
-            app:titleColor="@color/white"
-            app:titleText="Paging" />
+            app:titleColor="@color/app_white"
+            app:titleText="@string/app_paging_title" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvConcert"
+            android:id="@+id/rv_concert"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

@@ -21,8 +21,8 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             app:leftImage="@mipmap/icon_back"
-            app:titleColor="@color/white"
-            app:titleText="Touch" />
+            app:titleColor="@color/app_white"
+            app:titleText="@string/app_touch_title" />
 
 
         <Button
@@ -30,21 +30,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
-            android:text="默认事件传递流程" />
+            android:text="@string/app_touch_btn1" />
 
         <Button
             android:id="@+id/btn_touch_cancel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
-            android:text="事件取消" />
+            android:text="@string/app_touch_btn2" />
 
         <Button
             android:id="@+id/btn_touch_intercept"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
-            android:text="事件拦截" />
+            android:text="@string/app_touch_btn3" />
 
     </LinearLayout>
 

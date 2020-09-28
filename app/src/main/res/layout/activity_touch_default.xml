@@ -17,19 +17,19 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             app:leftImage="@mipmap/icon_back"
-            app:titleColor="@color/white"
-            app:titleText="TouchDefault" />
+            app:titleColor="@color/app_white"
+            app:titleText="@string/app_touch_default_title" />
 
         <com.hjc.base.widget.event.MyViewGroup
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/gray_deep">
+            android:background="@color/base_gray">
 
             <com.hjc.base.widget.event.MyView
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
-                android:background="@color/green">
+                android:background="@color/app_green">
 
             </com.hjc.base.widget.event.MyView>
 

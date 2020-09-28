@@ -17,20 +17,20 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             app:leftImage="@mipmap/icon_back"
-            app:titleColor="@color/white"
-            app:titleText="QRCode" />
+            app:titleColor="@color/app_white"
+            app:titleText="@string/app_code_title" />
 
         <cn.bingoogolapple.qrcode.zxing.ZXingView
             android:id="@+id/zxing_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:qrcv_animTime="1000"
-            app:qrcv_borderColor="@color/white"
+            app:qrcv_borderColor="@color/app_white"
             app:qrcv_borderSize="1dp"
             app:qrcv_cornerColor="@color/colorPrimaryDark"
             app:qrcv_cornerLength="20dp"
             app:qrcv_cornerSize="3dp"
-            app:qrcv_maskColor="#33FFFFFF"
+            app:qrcv_maskColor="@color/app_mask"
             app:qrcv_rectWidth="200dp"
             app:qrcv_scanLineColor="@color/colorPrimaryDark"
             app:qrcv_scanLineSize="1dp"

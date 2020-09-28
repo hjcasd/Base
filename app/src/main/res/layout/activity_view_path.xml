@@ -21,8 +21,8 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             app:leftImage="@mipmap/icon_back"
-            app:titleColor="@color/white"
-            app:titleText="Path操作" />
+            app:titleColor="@color/app_white"
+            app:titleText="@string/app_view_path_title" />
 
 
         <LinearLayout
@@ -49,7 +49,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="@{onClickListener}"
-                        android:text="基本操作1"
+                        android:text="@string/app_view_path_btn1"
                         android:textAllCaps="false" />
 
                     <Button
@@ -57,7 +57,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="@{onClickListener}"
-                        android:text="基本操作2"
+                        android:text="@string/app_view_path_btn2"
                         android:textAllCaps="false" />
 
 
@@ -66,7 +66,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="@{onClickListener}"
-                        android:text="基本操作3"
+                        android:text="@string/app_view_path_btn3"
                         android:textAllCaps="false" />
 
                     <Button
@@ -74,7 +74,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="@{onClickListener}"
-                        android:text="基本操作4"
+                        android:text="@string/app_view_path_btn4"
                         android:textAllCaps="false" />
 
                 </LinearLayout>

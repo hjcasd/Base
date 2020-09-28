@@ -19,7 +19,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:navigationContentDescription="返回"
+            app:navigationContentDescription="@string/app_web_back"
             app:navigationIcon="@mipmap/icon_back"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="marquee"
                 android:singleLine="true"
-                android:textColor="@color/white"
+                android:textColor="@color/app_white"
                 android:textSize="18sp" />
 
         </androidx.appcompat.widget.Toolbar>

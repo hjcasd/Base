@@ -1,2 +1,2 @@
 include ':BaseLib'
-include ':app', ':WebViewLib', ':CameraLib'
+include ':app', ':WebViewLib'

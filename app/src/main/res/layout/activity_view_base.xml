@@ -21,8 +21,8 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             app:leftImage="@mipmap/icon_back"
-            app:titleColor="@color/white"
-            app:titleText="绘制基本图形" />
+            app:titleColor="@color/app_white"
+            app:titleText="@string/app_view_base_title" />
 
 
         <LinearLayout
@@ -51,7 +51,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="@{onClickListener}"
-                        android:text="画一个点"
+                        android:text="@string/app_view_base_btn1"
                         android:textAllCaps="false" />
 
                     <Button
@@ -59,7 +59,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="@{onClickListener}"
-                        android:text="画多个点"
+                        android:text="@string/app_view_base_btn2"
                         android:textAllCaps="false" />
 
 
@@ -68,7 +68,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="@{onClickListener}"
-                        android:text="画一条直线"
+                        android:text="@string/app_view_base_btn3"
                         android:textAllCaps="false" />
 
                     <Button
@@ -76,7 +76,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="@{onClickListener}"
-                        android:text="画多条直线"
+                        android:text="@string/app_view_base_btn4"
                         android:textAllCaps="false" />
 
                     <Button
@@ -84,7 +84,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="@{onClickListener}"
-                        android:text="画矩形"
+                        android:text="@string/app_view_base_btn5"
                         android:textAllCaps="false" />
 
                     <Button
@@ -92,7 +92,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="@{onClickListener}"
-                        android:text="画圆角矩形"
+                        android:text="@string/app_view_base_btn6"
                         android:textAllCaps="false" />
 
                     <Button
@@ -100,7 +100,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="@{onClickListener}"
-                        android:text="画椭圆"
+                        android:text="@string/app_view_base_btn7"
                         android:textAllCaps="false" />
 
                     <Button
@@ -108,7 +108,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="@{onClickListener}"
-                        android:text="画圆"
+                        android:text="@string/app_view_base_btn8"
                         android:textAllCaps="false" />
 
                     <Button
@@ -116,7 +116,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="@{onClickListener}"
-                        android:text="画圆弧"
+                        android:text="@string/app_view_base_btn9"
                         android:textAllCaps="false" />
 
                 </LinearLayout>

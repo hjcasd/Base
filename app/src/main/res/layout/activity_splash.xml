@@ -30,9 +30,9 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:text="倒计时3S"
+            android:text="@string/app_splash_text"
             android:onClick="@{onClickListener}"
-            android:textColor="@color/white"
+            android:textColor="@color/app_white"
             android:background="@drawable/shape_bg_count_time"
             android:layout_margin="20dp" />
 

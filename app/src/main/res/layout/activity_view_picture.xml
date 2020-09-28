@@ -21,8 +21,8 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             app:leftImage="@mipmap/icon_back"
-            app:titleColor="@color/white"
-            app:titleText="图片文字" />
+            app:titleColor="@color/app_white"
+            app:titleText="@string/app_view_picture_title" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,7 +48,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="@{onClickListener}"
-                        android:text="矢量图"
+                        android:text="@string/app_view_picture_btn1"
                         android:textAllCaps="false" />
 
                     <Button
@@ -56,7 +56,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="@{onClickListener}"
-                        android:text="位图"
+                        android:text="@string/app_view_picture_btn2"
                         android:textAllCaps="false" />
 
 
@@ -65,7 +65,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="@{onClickListener}"
-                        android:text="文字"
+                        android:text="@string/app_view_picture_btn3"
                         android:textAllCaps="false" />
 
                 </LinearLayout>

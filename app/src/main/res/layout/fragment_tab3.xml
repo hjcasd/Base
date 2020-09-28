@@ -19,15 +19,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            app:titleColor="@color/white"
-            app:titleText="Tab3" />
+            app:titleColor="@color/app_white"
+            app:titleText="@string/app_tab3_title" />
 
         <Button
             android:id="@+id/btn1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
-            android:text="Touch"
+            android:text="@string/app_tab3_btn1"
             android:textAllCaps="false" />
 
         <Button
@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
-            android:text="View"
+            android:text="@string/app_tab3_btn2"
             android:textAllCaps="false" />
 
     </LinearLayout>

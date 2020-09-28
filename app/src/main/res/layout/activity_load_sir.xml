@@ -28,8 +28,8 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             app:leftImage="@mipmap/icon_back"
-            app:titleColor="@color/white"
-            app:titleText="LoadSir" />
+            app:titleColor="@color/app_white"
+            app:titleText="@string/app_load_sir_title" />
 
         <com.scwang.smartrefresh.layout.SmartRefreshLayout
             android:id="@+id/smart_refresh_layout"

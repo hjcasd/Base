@@ -14,8 +14,6 @@ import android.view.inputmethod.InputMethodManager;
 
 import androidx.appcompat.widget.AppCompatEditText;
 
-import com.blankj.utilcode.util.ToastUtils;
-
 /**
  * @Author: HJC
  * @Date: 2019/1/7 11:31
@@ -121,7 +119,6 @@ public class DeleteEditText extends AppCompatEditText implements TextWatcher, Vi
     public boolean onKeyPreIme(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_UP) {
             super.onKeyPreIme(keyCode, event);
-            ToastUtils.showShort("键盘关闭了");
             return false;
         }
         return super.onKeyPreIme(keyCode, event);

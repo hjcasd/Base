@@ -21,15 +21,15 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             app:leftImage="@mipmap/icon_back"
-            app:titleColor="@color/white"
-            app:titleText="自定义View" />
+            app:titleColor="@color/app_white"
+            app:titleText="@string/app_view_title" />
 
 
         <Button
             android:id="@+id/btn_base"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="绘制基本图形"
+            android:text="@string/app_view_btn1"
             android:onClick="@{onClickListener}"
             android:textAllCaps="false" />
 
@@ -37,7 +37,7 @@
             android:id="@+id/btn_canvas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="画布操作"
+            android:text="@string/app_view_btn2"
             android:onClick="@{onClickListener}"
             android:textAllCaps="false" />
 
@@ -45,7 +45,7 @@
             android:id="@+id/btn_picture"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="绘制图片和文字"
+            android:text="@string/app_view_btn3"
             android:onClick="@{onClickListener}"
             android:textAllCaps="false" />
 
@@ -54,7 +54,7 @@
             android:id="@+id/btn_path"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="path基本操作"
+            android:text="@string/app_view_btn4"
             android:onClick="@{onClickListener}"
             android:textAllCaps="false" />
 
@@ -63,7 +63,7 @@
             android:id="@+id/btn_radar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="雷达图"
+            android:text="@string/app_view_btn5"
             android:onClick="@{onClickListener}"
             android:textAllCaps="false" />
 
