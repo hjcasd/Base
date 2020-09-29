@@ -50,17 +50,17 @@ public class DataActivity extends BaseMvmActivity<ActivityDataBinding, CommonVie
     @Override
     protected void onSingleClick(View v) {
         switch (v.getId()) {
-            case R.id.btnShow:
+            case R.id.btn_show:
                 loginBean.name.set("哈哈哈");
                 loginBean.isShow.set(true);
                 break;
 
-            case R.id.btnChange:
+            case R.id.btn_change:
                 loginBean.name.set("呵呵呵");
                 loginBean.isShow.set(true);
                 break;
 
-            case R.id.btnHide:
+            case R.id.btn_hide:
                 loginBean.isShow.set(false);
                 break;
         }

@@ -171,6 +171,10 @@
             android:name=".ui.senior.activity.view.ViewRadarActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".ui.senior.activity.ThemeActivity"
+            android:screenOrientation="portrait" />
+
 
         <!--=====================================================其他===========================================-->
 

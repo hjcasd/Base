@@ -45,6 +45,21 @@ public class RouteManager {
     }
 
     /**
+     * 页面跳转(bundle)
+     *
+     * @param path      要跳转页面对应的路由url
+     * @param enterAnim 进入动画
+     * @param exitAnim  退出动画
+     * @param context   对应页面
+     */
+    public static void jumpWithTransition(String path, int enterAnim, int exitAnim, Context context) {
+        ARouter.getInstance()
+                .build(path)
+                .withTransition(enterAnim, exitAnim)
+                .navigation(context);
+    }
+
+    /**
      * 页面跳转(scene)
      *
      * @param context 当前页面
@@ -52,7 +67,7 @@ public class RouteManager {
      * @param bundle  传递的参数
      * @param compat  转场动画
      */
-    public static void jumpWithScene(Context context, String path, Bundle bundle,  ActivityOptionsCompat compat) {
+    public static void jumpWithScene(Context context, String path, Bundle bundle, ActivityOptionsCompat compat) {
         ARouter.getInstance()
                 .build(path)
                 .withBundle("params", bundle)

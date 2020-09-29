@@ -5,30 +5,19 @@ import android.view.View;
 
 import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.gyf.immersionbar.ImmersionBar;
 import com.hjc.baselib.R;
-import com.hjc.baselib.base.BaseActionEvent;
-import com.hjc.baselib.base.IBaseView;
-import com.hjc.baselib.base.IViewModelAction;
-import com.hjc.baselib.dialog.LoadingDialog;
-import com.hjc.baselib.fragment.BaseMvmFragment;
-import com.hjc.baselib.loadsir.EmptyCallback;
-import com.hjc.baselib.loadsir.ErrorCallback;
-import com.hjc.baselib.loadsir.LoadingCallback;
 import com.hjc.baselib.utils.ClickUtils;
 import com.hjc.baselib.utils.helper.ActivityManager;
 import com.hjc.baselib.viewmodel.BaseViewModel;
-import com.kingja.loadsir.callback.Callback;
-import com.kingja.loadsir.core.LoadService;
-import com.kingja.loadsir.core.LoadSir;
 
 
 /**
@@ -36,17 +25,13 @@ import com.kingja.loadsir.core.LoadSir;
  * @Date: 2020/5/15 11:09
  * @Description: (含有Fragment)Activity 基类
  */
-public abstract class BaseMvmFragmentActivity<VDB extends ViewDataBinding, VM extends BaseViewModel> extends FragmentActivity implements IBaseView, View.OnClickListener {
+public abstract class BaseMvmFragmentActivity<VDB extends ViewDataBinding, VM extends BaseViewModel> extends AppCompatActivity implements  View.OnClickListener {
 
     // ViewDataBinding
     protected VDB mBindingView;
 
     // ViewModel
     protected VM mViewModel;
-
-    protected LoadService mLoadService;
-
-    private LoadingDialog mLoadingDialog;
 
     private Fragment mCurrentFragment = new Fragment();
 
@@ -72,58 +57,6 @@ public abstract class BaseMvmFragmentActivity<VDB extends ViewDataBinding, VM ex
     private void initViewModel() {
         if (mViewModel == null) {
             mViewModel = getViewModel();
-        }
-
-        if (mViewModel != null) {
-            IViewModelAction viewModelAction = mViewModel;
-            viewModelAction.getActionLiveData().observe(this, baseActionEvent -> {
-                if (baseActionEvent != null) {
-                    switch (baseActionEvent.getAction()) {
-                        case BaseActionEvent.START_LOADING_DIALOG: {
-                            startLoading();
-                            break;
-                        }
-
-                        case BaseActionEvent.DISMISS_LOADING_DIALOG: {
-                            dismissLoading();
-                            break;
-                        }
-
-                        case BaseActionEvent.SHOW_LOADING: {
-                            showLoading();
-                            break;
-                        }
-
-                        case BaseActionEvent.SHOW_CONTENT: {
-                            showContent();
-                            break;
-                        }
-
-                        case BaseActionEvent.SHOW_EMPTY: {
-                            showEmpty();
-                            break;
-                        }
-
-                        case BaseActionEvent.SHOW_ERROR: {
-                            showError();
-                            break;
-                        }
-                    }
-                }
-            });
-        }
-    }
-
-    private void startLoading() {
-        if (mLoadingDialog == null) {
-            mLoadingDialog = LoadingDialog.newInstance();
-        }
-        mLoadingDialog.showDialog(getSupportFragmentManager());
-    }
-
-    private void dismissLoading() {
-        if (mLoadingDialog != null && mLoadingDialog.getDialog() != null && mLoadingDialog.getDialog().isShowing()) {
-            mLoadingDialog.dismiss();
         }
     }
 
@@ -200,58 +133,10 @@ public abstract class BaseMvmFragmentActivity<VDB extends ViewDataBinding, VM ex
         onSingleClick(v);
     }
 
-
-    /**
-     * 注册LoadSir
-     *
-     * @param view 状态视图
-     */
-    protected void setLoadSir(View view) {
-        if (mLoadService == null) {
-            mLoadService = LoadSir.getDefault().register(view, (Callback.OnReloadListener) this::onRetryBtnClick);
-        }
-    }
-
-    /**
-     * 失败重试,重新加载事件
-     */
-    protected void onRetryBtnClick(View v) {
-
-    }
-
-
-    @Override
-    public void showContent() {
-        if (mLoadService != null) {
-            mLoadService.showSuccess();
-        }
-    }
-
-    @Override
-    public void showLoading() {
-        if (mLoadService != null) {
-            mLoadService.showCallback(LoadingCallback.class);
-        }
-    }
-
-    @Override
-    public void showEmpty() {
-        if (mLoadService != null) {
-            mLoadService.showCallback(EmptyCallback.class);
-        }
-    }
-
-    @Override
-    public void showError() {
-        if (mLoadService != null) {
-            mLoadService.showCallback(ErrorCallback.class);
-        }
-    }
-
     /**
      * 显示fragment
      */
-    protected void showFragment(BaseMvmFragment fragment) {
+    protected void showFragment(Fragment fragment) {
         if (mCurrentFragment != fragment) {
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();

@@ -32,28 +32,28 @@
             app:titleText="@string/app_live_title" />
 
         <Button
-            android:id="@+id/btnShow"
+            android:id="@+id/btn_show"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
             android:text="@string/app_data_btn1" />
 
         <Button
-            android:id="@+id/btnChange"
+            android:id="@+id/btn_change"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
             android:text="@string/app_data_btn2" />
 
         <Button
-            android:id="@+id/btnHide"
+            android:id="@+id/btn_hide"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
             android:text="@string/app_data_btn3" />
 
         <TextView
-            android:id="@+id/tvTest"
+            android:id="@+id/tv_test"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"

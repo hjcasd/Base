@@ -42,7 +42,7 @@
             android:layout_marginRight="40dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etPhone"
+                android:id="@+id/et_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/app_login_phone_hint"
@@ -62,7 +62,7 @@
             android:layout_marginRight="40dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etCode"
+                android:id="@+id/et_code"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/app_login_code_hint"
@@ -75,7 +75,7 @@
 
 
         <Button
-            android:id="@+id/btnLogin"
+            android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -85,7 +85,7 @@
             android:text="@string/app_login_btn" />
 
         <TextView
-            android:id="@+id/tvInfo"
+            android:id="@+id/tv_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"

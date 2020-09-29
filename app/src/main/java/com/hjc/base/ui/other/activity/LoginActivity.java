@@ -57,7 +57,7 @@ public class LoginActivity extends BaseMvmActivity<ActivityLoginBinding, LoginVi
 
     @Override
     protected void onSingleClick(View v) {
-        if (v.getId() == R.id.btnLogin) {
+        if (v.getId() == R.id.btn_login) {
             mViewModel.login();
         }
     }

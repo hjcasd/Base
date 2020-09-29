@@ -32,21 +32,21 @@
             app:titleText="@string/app_adapter_title" />
 
         <Button
-            android:id="@+id/btnPic1"
+            android:id="@+id/btn_pic1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
             android:text="@string/app_adapter_btn1" />
 
         <Button
-            android:id="@+id/btnPic2"
+            android:id="@+id/btn_pic2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
             android:text="@string/app_adapter_btn2" />
 
         <Button
-            android:id="@+id/btnPic3"
+            android:id="@+id/btn_pic3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"

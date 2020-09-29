@@ -7,10 +7,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-
 /**
  * @Author: HJC
  * @Date: 2019/1/28 15:33
@@ -60,49 +56,5 @@ public class AppUtils {
         intent.putExtra(Intent.EXTRA_TEXT, extraText);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(Intent.createChooser(intent, "分享"));
-    }
-
-
-    public static String getTranslateTime(String time) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.CHINA);
-        // 在主页面中设置当天时间
-        Date nowTime = new Date();
-        String currDate = sdf.format(nowTime);
-        long currentMilliseconds = nowTime.getTime();// 当前日期的毫秒值
-        long timeMilliseconds;
-        Date date;
-        try {
-            // 将给定的字符串中的日期提取出来
-            date = sdf.parse(time);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return time;
-        }
-        if (date != null) {
-            timeMilliseconds = date.getTime();
-            long timeDifferent = currentMilliseconds - timeMilliseconds;
-
-            if (timeDifferent < 60000) {// 一分钟之内
-                return "刚刚";
-            }
-            if (timeDifferent < 3600000) {// 一小时之内
-                long longMinute = timeDifferent / 60000;
-                int minute = (int) (longMinute % 100);
-                return minute + "分钟之前";
-            }
-            long l = 24 * 60 * 60 * 1000; // 每天的毫秒数
-            if (timeDifferent < l) {// 小于一天
-                long longHour = timeDifferent / 3600000;
-                int hour = (int) (longHour % 100);
-                return hour + "小时之前";
-            }
-            String currYear = currDate.substring(0, 4);
-            String year = time.substring(0, 4);
-            if (!year.equals(currYear)) {
-                return time.substring(0, 10);
-            }
-            return time.substring(5, 10);
-        }
-        return time;
     }
 }

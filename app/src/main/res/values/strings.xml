@@ -20,8 +20,9 @@
     <string name="app_tab2_btn4">X5WebView</string>
 
     <string name="app_tab3_title">Tab3</string>
-    <string name="app_tab3_btn1">Touch</string>
-    <string name="app_tab3_btn2">View</string>
+    <string name="app_tab3_btn1">事假传递解析</string>
+    <string name="app_tab3_btn2">自定义View详解</string>
+    <string name="app_tab3_btn3">夜间模式切换</string>
 
     <string name="app_tab4_title">Tab4</string>
     <string name="app_tab4_btn1">Update</string>
@@ -84,7 +85,7 @@
     <string name="app_touch_default_title">TouchDefault</string>
     <string name="app_touch_intercept_title">TouchIntercept</string>
 
-    <string name="app_view_title">自定义View</string>
+    <string name="app_view_title">View</string>
     <string name="app_view_btn1">绘制基本图形</string>
     <string name="app_view_btn2">画布操作</string>
     <string name="app_view_btn3">绘制图片和文字</string>
@@ -125,4 +126,12 @@
     <string name="app_dialog_update_info">1: 测试111\n2: 测试222\n3: 测试333</string>
     <string name="app_dialog_update_cancel">取消</string>
     <string name="app_dialog_update_update">升级</string>
+
+    <string name="app_menu_web1">刷新</string>
+    <string name="app_menu_web2">分享</string>
+    <string name="app_menu_web3">复制链接</string>
+    <string name="app_menu_web4">浏览器打开</string>
+
+    <string name="app_theme_title">夜间模式</string>
+    <string name="app_theme_btn">切换夜间模式</string>
 </resources>

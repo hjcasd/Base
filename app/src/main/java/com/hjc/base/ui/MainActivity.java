@@ -70,7 +70,7 @@ public class MainActivity extends BaseMvmFragmentActivity<ActivityMainBinding, C
 
     @Override
     protected int getFragmentContentId() {
-        return R.id.flContent;
+        return R.id.fl_content;
     }
 
     @Override

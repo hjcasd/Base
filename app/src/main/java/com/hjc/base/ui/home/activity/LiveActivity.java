@@ -48,15 +48,15 @@ public class LiveActivity extends BaseMvmActivity<ActivityLiveBinding, LiveViewM
     @Override
     protected void onSingleClick(View v) {
         switch (v.getId()) {
-            case R.id.btnShow:
+            case R.id.btn_show:
                 mViewModel.showData();
                 break;
 
-            case R.id.btnChange:
+            case R.id.btn_change:
                 mViewModel.changeData();
                 break;
 
-            case R.id.btnHide:
+            case R.id.btn_hide:
                 mViewModel.hideData();
                 break;
         }

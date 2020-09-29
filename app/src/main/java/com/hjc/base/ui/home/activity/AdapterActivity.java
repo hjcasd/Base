@@ -48,15 +48,15 @@ public class AdapterActivity extends BaseMvmActivity<ActivityAdapterBinding, Ada
     @Override
     protected void onSingleClick(View v) {
         switch (v.getId()) {
-            case R.id.btnPic1:
+            case R.id.btn_pic1:
                 mViewModel.loadImage();
                 break;
 
-            case R.id.btnPic2:
+            case R.id.btn_pic2:
                 mViewModel.loadRoundImage();
                 break;
 
-            case R.id.btnPic3:
+            case R.id.btn_pic3:
                 mViewModel.loadCircleImage();
                 break;
         }

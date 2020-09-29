@@ -5,25 +5,25 @@
     <item
         android:id="@+id/item_refresh"
         android:orderInCategory="100"
-        android:title="刷新"
+        android:title="@string/app_menu_web1"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/item_share"
         android:orderInCategory="100"
-        android:title="分享"
+        android:title="@string/app_menu_web2"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/item_copy"
         android:orderInCategory="100"
-        android:title="复制链接"
+        android:title="@string/app_menu_web3"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/item_open"
         android:orderInCategory="100"
-        android:title="浏览器打开"
+        android:title="@string/app_menu_web4"
         app:showAsAction="never" />
 
 </menu>
