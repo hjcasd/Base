@@ -20,12 +20,12 @@
     <string name="app_tab2_btn4">X5WebView</string>
 
     <string name="app_tab3_title">Tab3</string>
-    <string name="app_tab3_btn1">事假传递解析</string>
+    <string name="app_tab3_btn1">事件传递解析</string>
     <string name="app_tab3_btn2">自定义View详解</string>
     <string name="app_tab3_btn3">夜间模式切换</string>
 
     <string name="app_tab4_title">Tab4</string>
-    <string name="app_tab4_btn1">Update</string>
+    <string name="app_tab4_btn1">更新</string>
     <string name="app_tab4_btn2">登录</string>
 
 

@@ -25,7 +25,7 @@
             android:id="@+id/bottom_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:itemBackground="@color/base_gray"
+            app:itemBackground="@color/app_bg"
             app:labelVisibilityMode="labeled"
             app:itemTextColor="@color/selector_tab_text"
             app:menu="@menu/menu_tab" />
