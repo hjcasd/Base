@@ -23,6 +23,7 @@
     <string name="app_tab3_btn1">事件传递解析</string>
     <string name="app_tab3_btn2">自定义View详解</string>
     <string name="app_tab3_btn3">夜间模式切换</string>
+    <string name="app_tab3_btn4">MotionLayout</string>
 
     <string name="app_tab4_title">Tab4</string>
     <string name="app_tab4_btn1">更新</string>
@@ -134,4 +135,9 @@
 
     <string name="app_theme_title">夜间模式</string>
     <string name="app_theme_btn">切换夜间模式</string>
+
+    <string name="app_motion_title">MotionLayout的使用</string>
+    <string name="app_motion_btn1">案例1</string>
+    <string name="app_motion_btn2">案例2</string>
+    <string name="app_motion_btn3">案例3</string>
 </resources>

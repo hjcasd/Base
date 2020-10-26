@@ -31,7 +31,7 @@ public class BuglyUtils {
             // 设置是否为上报进程
             CrashReport.UserStrategy strategy = new CrashReport.UserStrategy(context);
             strategy.setUploadProcess(processName == null || processName.equals(packageName));
-            CrashReport.initCrashReport(context, "04002332f3", BuildConfig.IS_DEBUG, strategy);
+            CrashReport.initCrashReport(context, "04002332f3", BuildConfig.DEBUG, strategy);
         } else {
             throw new UnsupportedOperationException("context must be application...");
         }

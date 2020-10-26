@@ -1,14 +1,17 @@
 apply plugin: 'com.android.library'
 
+def config = rootProject.ext.android
+def lib = rootProject.ext.dependencies
+
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdkVersion config.compileSdkVersion
 
 
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 2
-        versionName "2.0"
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
+        versionCode config.versionCode
+        versionName config.versionName
 
         ndk {
             // 设置支持的SO库架构(必须设置如下几种,否则X5会初始化失败)
@@ -34,11 +37,9 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
-
-    implementation 'com.github.ybq:Android-SpinKit:1.2.0'
+    implementation lib["appcompat"]
+    implementation lib["constraintlayout"]
+    implementation lib["Android-SpinKit"]
 
     api files('libs/tbs_sdk_thirdapp_v3.6.0.jar')
 }

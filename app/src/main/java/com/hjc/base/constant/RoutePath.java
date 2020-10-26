@@ -83,4 +83,5 @@ public class RoutePath {
 
 
     public static final String URL_THEME = "/base/theme";
+    public static final String URL_MOTION = "/base/motion";
 }

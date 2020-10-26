@@ -63,6 +63,10 @@ public class Tab3Fragment extends BaseMvmFragment<FragmentTab3Binding, CommonVie
                RouteManager.jump(RoutePath.URL_THEME);
                 break;
 
+            case R.id.btn4:
+                RouteManager.jump(RoutePath.URL_MOTION);
+                break;
+
             default:
                 break;
         }

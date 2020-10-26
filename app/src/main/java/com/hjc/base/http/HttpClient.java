@@ -37,7 +37,7 @@ public class HttpClient {
                 .sslSocketFactory(createSSLSocketFactory(), (X509TrustManager) trustAllCerts[0])
                 .hostnameVerifier(new TrustAllHostnameVerifier());
 
-        if (BuildConfig.IS_DEBUG) {
+        if (BuildConfig.DEBUG) {
             mBuilder.addInterceptor(new LogInterceptor());
         }
     }

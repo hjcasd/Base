@@ -44,6 +44,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:requestLegacyExternalStorage="true"
         tools:ignore="AllowBackup,UnusedAttribute">
 
         <!--适配通用刘海屏-->
@@ -92,10 +93,6 @@
 
         <activity
             android:name=".ui.home.activity.LiveActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.other.activity.LoginActivity"
             android:screenOrientation="portrait" />
 
 
@@ -175,12 +172,20 @@
             android:name=".ui.senior.activity.ThemeActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".ui.senior.activity.MotionActivity"
+            android:screenOrientation="portrait" />
+
 
         <!--=====================================================其他===========================================-->
+        <activity
+            android:name=".ui.other.activity.LoginActivity"
+            android:screenOrientation="portrait" />
 
 
         <!--============================================更新服务=========================================-->
         <service android:name=".utils.download.DownloadService" />
+
 
         <!--============================================文件访问权限=========================================-->
         <provider

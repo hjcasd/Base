@@ -46,6 +46,14 @@
             android:text="@string/app_tab3_btn3"
             android:textAllCaps="false" />
 
+        <Button
+            android:id="@+id/btn4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{onClickListener}"
+            android:text="@string/app_tab3_btn4"
+            android:textAllCaps="false" />
+
     </LinearLayout>
 
 </layout>
