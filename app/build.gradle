@@ -5,8 +5,13 @@ def lib = rootProject.ext.dependencies
 
 //获取当前日期
 def static releaseTime() {
-    return new Date().format("yyyyMMdd")
+    return new Date().format("yyyy-MM-dd")
 }
+
+//获取签名信息(存放到local.properties文件中)
+def keystoreFile = rootProject.file("signing.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystoreFile))
 
 android {
     compileSdkVersion config.compileSdkVersion
@@ -16,7 +21,7 @@ android {
         minSdkVersion config.minSdkVersion
         targetSdkVersion config.targetSdkVersion
         versionCode config.versionCode
-        versionName config.Name
+        versionName config.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         multiDexEnabled true
@@ -34,19 +39,20 @@ android {
     }
 
     //签名信息
+    //签名信息
     signingConfigs {
         release {
-            storeFile file('base.jks')
-            storePassword '123456'
-            keyAlias 'base'
-            keyPassword '123456'
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
         }
 
         debug {
-            storeFile file("base.jks")
-            storePassword '123456'
-            keyAlias 'base'
-            keyPassword '123456'
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
         }
     }
 
@@ -59,9 +65,11 @@ android {
             //前一部分代表系统默认的android程序的混淆文件，该文件已经包含了基本的混淆声明,后者为自定义混淆文件
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
-            signingConfig signingConfigs.release
-
             buildConfigField 'String', 'BASE_URL', '"https://yinbao.enjoyqb.com:15050/ybapi/admin-web/services/"'
+
+            if (keystoreFile.exists()){
+                signingConfig signingConfigs.release
+            }
         }
 
         debug {
@@ -69,9 +77,11 @@ android {
             zipAlignEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
-            signingConfig signingConfigs.debug
-
             buildConfigField 'String', 'BASE_URL', '"http://test.enjoyqb.com:8888/admin-web/services/"'
+
+            if (keystoreFile.exists()){
+                signingConfig signingConfigs.debug
+            }
         }
     }
 
