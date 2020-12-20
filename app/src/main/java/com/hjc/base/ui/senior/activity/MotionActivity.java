@@ -1,5 +1,6 @@
 package com.hjc.base.ui.senior.activity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -37,6 +38,7 @@ public class MotionActivity extends BaseMvmActivity<ActivityMotionBinding, Commo
         mBindingView.titleBar.setOnViewLeftClickListener(view -> finish());
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onSingleClick(View v) {
         switch (v.getId()) {

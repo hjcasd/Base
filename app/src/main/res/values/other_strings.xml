@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_tab4_title">Tab4</string>
+    <string name="app_tab4_btn1">更新</string>
+    <string name="app_tab4_btn2">登录</string>
+
+    <string name="app_dialog_update_title">是否升级到1.0版本？</string>
+    <string name="app_dialog_update_info">1: 测试111\n2: 测试222\n3: 测试333</string>
+    <string name="app_dialog_update_cancel">取消</string>
+    <string name="app_dialog_update_update">升级</string>
+
+    <string name="app_login_title">登录案例</string>
+    <string name="app_login_phone_hint">请输入手机号</string>
+    <string name="app_login_code_hint">请输入验证码</string>
+    <string name="app_login_btn">登录</string>
+    <string name="app_login_info">登录信息: </string>
+</resources>

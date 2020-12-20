@@ -16,7 +16,6 @@ import com.blankj.utilcode.util.ToastUtils;
 import com.gyf.immersionbar.ImmersionBar;
 import com.hjc.baselib.R;
 import com.hjc.baselib.utils.ClickUtils;
-import com.hjc.baselib.utils.helper.ActivityManager;
 import com.hjc.baselib.viewmodel.BaseViewModel;
 
 
@@ -43,8 +42,6 @@ public abstract class BaseMvmFragmentActivity<VDB extends ViewDataBinding, VM ex
         mBindingView.setLifecycleOwner(this);
 
         initViewModel();
-        ActivityManager.addActivity(this);
-
         if (isImmersionBarEnabled()) {
             initImmersionBar();
         }

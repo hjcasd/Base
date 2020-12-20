@@ -1,5 +1,10 @@
 package com.hjc.base.application;
 
+import android.app.Activity;
+import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.multidex.MultiDexApplication;
 
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -12,6 +17,7 @@ import com.hjc.baselib.loadsir.ErrorCallback;
 import com.hjc.baselib.loadsir.LoadingCallback;
 import com.hjc.baselib.loadsir.ShimmerCallback;
 import com.hjc.baselib.loadsir.TimeoutCallback;
+import com.hjc.baselib.utils.helper.ActivityHelper;
 import com.hjc.webviewlib.X5WebUtils;
 import com.kingja.loadsir.core.LoadSir;
 
@@ -32,6 +38,50 @@ public class App extends MultiDexApplication {
         initARouter();
         BuglyUtils.init(this);
         X5WebUtils.init(this);
+
+        registerActivity();
+    }
+
+    /**
+     * 全局管理Activity
+     */
+    private void registerActivity() {
+        registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
+            @Override
+            public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+                ActivityHelper.addActivity(activity);
+            }
+
+            @Override
+            public void onActivityStarted(@NonNull Activity activity) {
+
+            }
+
+            @Override
+            public void onActivityResumed(@NonNull Activity activity) {
+
+            }
+
+            @Override
+            public void onActivityPaused(@NonNull Activity activity) {
+
+            }
+
+            @Override
+            public void onActivityStopped(@NonNull Activity activity) {
+
+            }
+
+            @Override
+            public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
+
+            }
+
+            @Override
+            public void onActivityDestroyed(@NonNull Activity activity) {
+                ActivityHelper.removeActivity(activity.getClass());
+            }
+        });
     }
 
 

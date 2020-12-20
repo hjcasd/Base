@@ -35,9 +35,8 @@ import com.kingja.loadsir.core.LoadSir;
  * @Description: Fragment基类
  */
 public abstract class BaseMvmFragment<VDB extends ViewDataBinding, VM extends BaseViewModel> extends Fragment implements IBaseView, View.OnClickListener {
-    /**
-     * Fragment对应的Activity(避免使用getActivity()导致空指针异常)
-     */
+
+    // Fragment对应的Activity(避免使用getActivity()导致空指针异常)
     protected Context mContext;
 
     // ViewDataBinding
@@ -46,7 +45,7 @@ public abstract class BaseMvmFragment<VDB extends ViewDataBinding, VM extends Ba
     // ViewModel
     protected VM mViewModel;
 
-    protected LoadService mLoadService;
+    protected LoadService<?> mLoadService;
 
     private LoadingDialog mLoadingDialog;
 
@@ -189,7 +188,7 @@ public abstract class BaseMvmFragment<VDB extends ViewDataBinding, VM extends Ba
     /**
      * 监听LiveData
      */
-    protected void observeLiveData(){
+    protected void observeLiveData() {
 
     }
 

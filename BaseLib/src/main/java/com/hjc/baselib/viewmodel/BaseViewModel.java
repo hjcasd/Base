@@ -20,7 +20,7 @@ import io.reactivex.disposables.Disposable;
 public class BaseViewModel extends AndroidViewModel implements IViewModelAction {
 
     private CompositeDisposable mCompositeDisposable;
-    private MutableLiveData<BaseActionEvent> actionLiveData;
+    private final MutableLiveData<BaseActionEvent> actionLiveData;
 
     public BaseViewModel(@NonNull Application application) {
         super(application);

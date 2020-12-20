@@ -26,7 +26,7 @@ import okhttp3.OkHttpClient;
  */
 public class HttpClient {
     private static HttpClient mHttpClient;
-    private OkHttpClient.Builder mBuilder;
+    private final OkHttpClient.Builder mBuilder;
 
     private HttpClient() {
         mBuilder = new OkHttpClient.Builder();
@@ -72,7 +72,7 @@ public class HttpClient {
         return sSLSocketFactory;
     }
 
-    private TrustManager[] trustAllCerts = new TrustManager[]{new X509TrustManager() {
+    private final TrustManager[] trustAllCerts = new TrustManager[]{new X509TrustManager() {
         @SuppressLint("TrustAllX509TrustManager")
         @Override
         public void checkClientTrusted(X509Certificate[] chain, String authType) {
@@ -89,7 +89,7 @@ public class HttpClient {
         }
     }};
 
-    private class TrustAllHostnameVerifier implements HostnameVerifier {
+    private static class TrustAllHostnameVerifier implements HostnameVerifier {
         @SuppressLint("BadHostnameVerifier")
         @Override
         public boolean verify(String hostname, SSLSession session) {

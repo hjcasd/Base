@@ -1,5 +1,6 @@
 package com.hjc.base.widget.dialog;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -7,10 +8,10 @@ import android.view.View;
 import com.hjc.base.R;
 import com.hjc.base.constant.AppConstants;
 import com.hjc.base.databinding.DialogUpdateBinding;
-import com.hjc.base.utils.download.DownloadService;
+import com.hjc.base.service.DownloadService;
 import com.hjc.base.utils.ApkUtils;
 import com.hjc.baselib.dialog.BaseFragmentDialog;
-import com.hjc.baselib.utils.helper.ActivityManager;
+import com.hjc.baselib.utils.helper.ActivityHelper;
 import com.hjc.baselib.viewmodel.CommonViewModel;
 
 import java.io.File;
@@ -75,6 +76,7 @@ public class UpdateDialog extends BaseFragmentDialog<DialogUpdateBinding, Common
         mBindingView.setOnClickListener(this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onSingleClick(View v) {
         switch (v.getId()) {
@@ -91,7 +93,7 @@ public class UpdateDialog extends BaseFragmentDialog<DialogUpdateBinding, Common
             //取消升级
             case R.id.btn_cancel:
                 if (isForceUpdate) {
-                    ActivityManager.finishAllActivities();
+                    ActivityHelper.finishAllActivities();
                 } else {
                     dismiss();
                 }

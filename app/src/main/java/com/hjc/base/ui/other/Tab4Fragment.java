@@ -1,5 +1,6 @@
 package com.hjc.base.ui.other;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -49,6 +50,7 @@ public class Tab4Fragment extends BaseMvmFragment<FragmentTab4Binding, CommonVie
         mBindingView.setOnClickListener(this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onSingleClick(View v) {
         switch (v.getId()) {

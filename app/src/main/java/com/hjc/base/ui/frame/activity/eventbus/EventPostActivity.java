@@ -1,5 +1,6 @@
 package com.hjc.base.ui.frame.activity.eventbus;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -87,11 +88,12 @@ public class EventPostActivity extends BaseMvmActivity<ActivityEventPostBinding,
         mBindingView.titleBar.setOnViewLeftClickListener(view -> finish());
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onSingleClick(View v) {
         switch (v.getId()) {
             case R.id.btn_post:
-                EventManager.sendStickyEvent(new MessageEvent(EventCode.A, "这是发送的粘性消息"));
+                EventManager.sendStickyEvent(new MessageEvent<>(EventCode.A, "这是发送的粘性消息"));
                 ToastUtils.showShort("发送粘性消息成功");
                 break;
 

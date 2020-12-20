@@ -10,8 +10,8 @@ import java.util.List;
  * @Date: 2019/1/7 11:37
  * @Description: Activity管理类
  */
-public class ActivityManager {
-    private static List<Activity> activityList = new LinkedList<>();
+public class ActivityHelper {
+    private static final List<Activity> activityList = new LinkedList<>();
 
     /**
      * 添加指定的Activity
@@ -41,7 +41,6 @@ public class ActivityManager {
                 tempActivity = activity;
             }
         }
-
         finishSingleActivity(tempActivity);
     }
 
@@ -50,9 +49,7 @@ public class ActivityManager {
      */
     private static void finishSingleActivity(Activity activity) {
         if (activity != null) {
-            if (activityList.contains(activity)) {
-                activityList.remove(activity);
-            }
+            activityList.remove(activity);
             activity.finish();
         }
     }

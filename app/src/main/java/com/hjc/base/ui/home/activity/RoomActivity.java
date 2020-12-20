@@ -1,5 +1,6 @@
 package com.hjc.base.ui.home.activity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -38,6 +39,7 @@ public class RoomActivity extends BaseMvmActivity<ActivityRoomBinding, RoomViewM
         mBindingView.titleBar.setOnViewLeftClickListener(view -> finish());
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onSingleClick(View v) {
         switch (v.getId()) {

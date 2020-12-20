@@ -1,5 +1,7 @@
 package com.hjc.base.ui.frame.activity.zxing;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -7,9 +9,10 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.blankj.utilcode.util.ImageUtils;
-import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.R;
 import com.hjc.base.constant.RoutePath;
@@ -17,10 +20,8 @@ import com.hjc.base.databinding.ActivityQrCodeBinding;
 import com.hjc.base.utils.helper.RouteManager;
 import com.hjc.baselib.activity.BaseMvmActivity;
 import com.hjc.baselib.http.RxSchedulers;
-import com.hjc.baselib.utils.permission.PermissionCallBack;
-import com.hjc.baselib.utils.permission.PermissionManager;
 import com.hjc.baselib.viewmodel.CommonViewModel;
-import com.yanzhenjie.permission.runtime.Permission;
+import com.permissionx.guolindev.PermissionX;
 
 import cn.bingoogolapple.qrcode.core.BGAQRCodeUtil;
 import cn.bingoogolapple.qrcode.zxing.QRCodeDecoder;
@@ -58,6 +59,7 @@ public class QRCodeActivity extends BaseMvmActivity<ActivityQrCodeBinding, Commo
         mBindingView.titleBar.setOnViewLeftClickListener(view -> finish());
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onSingleClick(View v) {
         switch (v.getId()) {
@@ -86,18 +88,16 @@ public class QRCodeActivity extends BaseMvmActivity<ActivityQrCodeBinding, Commo
      * 扫描二维码
      */
     private void scanCode() {
-        new PermissionManager(this)
-                .requestPermissionInActivity(new PermissionCallBack() {
-                    @Override
-                    public void onGranted() {
+        PermissionX.init(this)
+                .permissions(Manifest.permission.CAMERA)
+                .onExplainRequestReason((scope, deniedList) -> scope.showRequestReasonDialog(deniedList, "请授予以下权限，以便程序继续运行", "确定", "取消"))
+                .request((allGranted, grantedList, deniedList) -> {
+                    if (allGranted) {
                         RouteManager.jump(RoutePath.URL_SCAN_CODE);
-                    }
-
-                    @Override
-                    public void onDenied() {
+                    } else {
                         ToastUtils.showShort("申请相机权限失败");
                     }
-                }, Permission.CAMERA);
+                });
     }
 
     /**
@@ -110,17 +110,13 @@ public class QRCodeActivity extends BaseMvmActivity<ActivityQrCodeBinding, Commo
                 .compose(RxSchedulers.ioToMain())
                 .subscribe(new DefaultObserver<Bitmap>() {
                     @Override
-                    public void onNext(Bitmap bitmap) {
-                        if (bitmap != null) {
-                            mBindingView.ivCodePic.setImageBitmap(bitmap);
-                        } else {
-                            ToastUtils.showShort("生成二维码失败");
-                        }
+                    public void onNext(@NonNull Bitmap bitmap) {
+                        mBindingView.ivCodePic.setImageBitmap(bitmap);
                     }
 
                     @Override
-                    public void onError(Throwable e) {
-
+                    public void onError(@NonNull Throwable e) {
+                        ToastUtils.showShort("生成二维码失败");
                     }
 
                     @Override
@@ -144,17 +140,13 @@ public class QRCodeActivity extends BaseMvmActivity<ActivityQrCodeBinding, Commo
                 .compose(RxSchedulers.ioToMain())
                 .subscribe(new DefaultObserver<Bitmap>() {
                     @Override
-                    public void onNext(Bitmap bitmap) {
-                        if (bitmap != null) {
-                            mBindingView.ivCodePic.setImageBitmap(bitmap);
-                        } else {
-                            ToastUtils.showShort("生成带logo的二维码失败");
-                        }
+                    public void onNext(@NonNull Bitmap bitmap) {
+                        mBindingView.ivCodePic.setImageBitmap(bitmap);
                     }
 
                     @Override
-                    public void onError(Throwable e) {
-
+                    public void onError(@NonNull Throwable e) {
+                        ToastUtils.showShort("生成带logo的二维码失败");
                     }
 
                     @Override
@@ -168,7 +160,7 @@ public class QRCodeActivity extends BaseMvmActivity<ActivityQrCodeBinding, Commo
      * 识别二维码
      */
     private void recognition() {
-        Drawable drawable =  mBindingView.ivCodePic.getDrawable();
+        Drawable drawable = mBindingView.ivCodePic.getDrawable();
         if (drawable == null) {
             ToastUtils.showShort("请生成二维码");
             return;
@@ -182,17 +174,13 @@ public class QRCodeActivity extends BaseMvmActivity<ActivityQrCodeBinding, Commo
                 .compose(RxSchedulers.ioToMain())
                 .subscribe(new DefaultObserver<String>() {
                     @Override
-                    public void onNext(String s) {
-                        if (StringUtils.isEmpty(s)) {
-                            ToastUtils.showShort("解析二维码失败");
-                        } else {
-                            mBindingView.tvDesc.setText(s);
-                        }
+                    public void onNext(@NonNull String s) {
+                        mBindingView.tvDesc.setText(s);
                     }
 
                     @Override
-                    public void onError(Throwable e) {
-
+                    public void onError(@NonNull Throwable e) {
+                        ToastUtils.showShort("解析二维码失败");
                     }
 
                     @Override

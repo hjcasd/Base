@@ -4,10 +4,12 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.view.View;
+
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.view.View;
 
 
 /**
@@ -17,7 +19,7 @@ import android.view.View;
  */
 public class GridItemDecoration extends RecyclerView.ItemDecoration {
 
-    private Drawable mDrawable;
+    private final Drawable mDrawable;
 
     public GridItemDecoration(Context context, int resId) {
         //获取 Drawable 对象
@@ -25,7 +27,7 @@ public class GridItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     @Override
-    public void onDraw(Canvas canvas, RecyclerView parent, RecyclerView.State state) {
+    public void onDraw(@NonNull Canvas canvas, RecyclerView parent, @NonNull RecyclerView.State state) {
         //绘制水平方向
         int mChildCount = parent.getChildCount();
         for (int i = 0; i < mChildCount; i++) {
@@ -53,7 +55,7 @@ public class GridItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     @Override
-    public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+    public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
         int bottom = mDrawable.getIntrinsicHeight();
         int right = mDrawable.getIntrinsicWidth();
         //如果是最后一列，留出位置
@@ -71,8 +73,6 @@ public class GridItemDecoration extends RecyclerView.ItemDecoration {
     /**
      * 是否是最后一列
      * （当前位置+1）% 列数 ==0，判断是否为最后一列
-     *
-     * @return
      */
     private boolean isLastCol(View view, RecyclerView parent) {
         int currentPosition = ((RecyclerView.LayoutParams) view.getLayoutParams()).getViewLayoutPosition();
@@ -83,8 +83,6 @@ public class GridItemDecoration extends RecyclerView.ItemDecoration {
     /**
      * 是否是最后一行
      * 当前位置+1 > (行数-1)*列数
-     *
-     * @return
      */
     private boolean isLastRow(View view, RecyclerView parent) {
         int currentPosition = ((RecyclerView.LayoutParams) view.getLayoutParams()).getViewLayoutPosition();
@@ -96,9 +94,6 @@ public class GridItemDecoration extends RecyclerView.ItemDecoration {
     /**
      * 获取列数
      * 如果是GridView，就获取列数，如果是ListView，列数就是1
-     *
-     * @param parent
-     * @return
      */
     private int getSpanCount(RecyclerView parent) {
         RecyclerView.LayoutManager mLayoutManager = parent.getLayoutManager();

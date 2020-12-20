@@ -1,5 +1,6 @@
 package com.hjc.base.ui.web;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -73,6 +74,7 @@ public class WebActivity extends BaseMvmActivity<ActivityWebBinding, CommonViewM
         return true;
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

@@ -20,7 +20,6 @@ import com.hjc.baselib.loadsir.EmptyCallback;
 import com.hjc.baselib.loadsir.ErrorCallback;
 import com.hjc.baselib.loadsir.LoadingCallback;
 import com.hjc.baselib.utils.ClickUtils;
-import com.hjc.baselib.utils.helper.ActivityManager;
 import com.hjc.baselib.viewmodel.BaseViewModel;
 import com.kingja.loadsir.callback.Callback;
 import com.kingja.loadsir.core.LoadService;
@@ -40,7 +39,7 @@ public abstract class BaseMvmActivity<VDB extends ViewDataBinding, VM extends Ba
     // ViewModel
     protected VM mViewModel;
 
-    protected LoadService mLoadService;
+    protected LoadService<?> mLoadService;
 
     private LoadingDialog mLoadingDialog;
 
@@ -52,8 +51,6 @@ public abstract class BaseMvmActivity<VDB extends ViewDataBinding, VM extends Ba
         mBindingView.setLifecycleOwner(this);
 
         initViewModel();
-        ActivityManager.addActivity(this);
-
         if (isImmersionBarEnabled()) {
             initImmersionBar();
         }

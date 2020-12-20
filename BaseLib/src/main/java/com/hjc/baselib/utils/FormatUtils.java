@@ -16,7 +16,7 @@ public class FormatUtils {
      */
     public static void formatJsonAndLog(String jsonStr) {
         int level = 0;
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < jsonStr.length(); i++) {
             char c = jsonStr.charAt(i);
             if (level > 0 && '\n' == sb.charAt(sb.length() - 1)) {
@@ -25,11 +25,11 @@ public class FormatUtils {
             switch (c) {
                 case '{':
                 case '[':
-                    sb.append(c + "\n");
+                    sb.append(c).append("\n");
                     level++;
                     break;
                 case ',':
-                    sb.append(c + "\n");
+                    sb.append(c).append("\n");
                     break;
                 case '}':
                 case ']':

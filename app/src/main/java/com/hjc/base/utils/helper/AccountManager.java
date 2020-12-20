@@ -36,11 +36,10 @@ public class AccountManager {
     /**
      * 获取用户名
      *
-     * @return
+     * @return 用户名
      */
     public String getUsername() {
-        String username = SPUtils.getInstance().getString(KEY_USERNAME);
-        return username;
+        return SPUtils.getInstance().getString(KEY_USERNAME);
     }
 
     public void setUsername(String username) {
@@ -51,8 +50,7 @@ public class AccountManager {
      * 获取cookie
      */
     public String getCookie() {
-        String cookie = SPUtils.getInstance().getString(KEY_COOKIE);
-        return cookie;
+        return SPUtils.getInstance().getString(KEY_COOKIE);
     }
 
     public void setCookie(String cookie) {
@@ -62,11 +60,10 @@ public class AccountManager {
     /**
      * 用户是否登录
      *
-     * @return
+     * @return 是否登录
      */
     public boolean isLogin() {
-        boolean isLogin = SPUtils.getInstance().getBoolean(KEY_IS_LOGIN);
-        return isLogin;
+        return SPUtils.getInstance().getBoolean(KEY_IS_LOGIN);
     }
 
     public void setLogin(boolean isLogin) {

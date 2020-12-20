@@ -1,4 +1,4 @@
-package com.hjc.base.ui.frame.activity.view;
+package com.hjc.base.widget.view;
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
@@ -29,8 +29,6 @@ import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
 public class MyHeader extends LinearLayout implements RefreshHeader {
 
     private TextView tvTitle;
-    private ImageView ivRefresh;
-    private ImageView ivLogo;
     private ObjectAnimator animator;
 
     public MyHeader(Context context) {
@@ -50,8 +48,7 @@ public class MyHeader extends LinearLayout implements RefreshHeader {
 
     private void initView(Context context) {
         View view = LayoutInflater.from(context).inflate(R.layout.layout_my_header, this);
-        ivLogo = view.findViewById(R.id.iv_logo);
-        ivRefresh = view.findViewById(R.id.iv_refresh);
+        ImageView ivRefresh = view.findViewById(R.id.iv_refresh);
         tvTitle = view.findViewById(R.id.tv_title);
 
         animator = ObjectAnimator.ofFloat(ivRefresh, "rotation", 0f, 3600f);
@@ -111,7 +108,6 @@ public class MyHeader extends LinearLayout implements RefreshHeader {
 
     @Override
     public void onInitialized(@NonNull RefreshKernel kernel, int height, int maxDragHeight) {
-
     }
 
     @Override

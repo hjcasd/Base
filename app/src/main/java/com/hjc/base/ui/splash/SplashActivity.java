@@ -1,6 +1,5 @@
 package com.hjc.base.ui.splash;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -9,7 +8,6 @@ import com.gyf.immersionbar.ImmersionBar;
 import com.hjc.base.R;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.databinding.ActivitySplashBinding;
-import com.hjc.base.ui.MainActivity;
 import com.hjc.base.utils.helper.RouteManager;
 import com.hjc.baselib.activity.BaseMvmActivity;
 import com.hjc.baselib.http.RxSchedulers;
@@ -51,10 +49,7 @@ public class SplashActivity extends BaseMvmActivity<ActivitySplashBinding, Commo
     public void initData(Bundle savedInstanceState) {
         disposable1 = Observable.timer(3, TimeUnit.SECONDS)
                 .compose(RxSchedulers.ioToMain())
-                .subscribe(aLong -> {
-                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
-                    finish();
-                });
+                .subscribe(aLong -> toMain());
 
         //倒计时3s
         disposable2 = Observable.intervalRange(0, 3, 0, 1, TimeUnit.SECONDS)
@@ -73,13 +68,26 @@ public class SplashActivity extends BaseMvmActivity<ActivitySplashBinding, Commo
     @Override
     public void onSingleClick(View v) {
         if (v.getId() == R.id.tv_time) {
-            if (disposable1 != null && disposable2 != null) {
-                disposable1.dispose();
-                disposable2.dispose();
-                RouteManager.jump(RoutePath.URL_MAIN);
-                finish();
-            }
+            dispose();
+            toMain();
         }
     }
 
+    private void toMain() {
+        RouteManager.jump(RoutePath.URL_MAIN);
+        finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        dispose();
+    }
+
+    private void dispose() {
+        if (disposable1 != null && disposable2 != null) {
+            disposable1.dispose();
+            disposable2.dispose();
+        }
+    }
 }

@@ -13,7 +13,7 @@ import com.hjc.base.constant.RoutePath;
 import com.hjc.base.databinding.ActivityThemeBinding;
 import com.hjc.base.utils.helper.RouteManager;
 import com.hjc.baselib.activity.BaseMvmActivity;
-import com.hjc.baselib.utils.helper.ActivityManager;
+import com.hjc.baselib.utils.helper.ActivityHelper;
 import com.hjc.baselib.viewmodel.CommonViewModel;
 
 @Route(path = RoutePath.URL_THEME)
@@ -51,7 +51,7 @@ public class ThemeActivity extends BaseMvmActivity<ActivityThemeBinding, CommonV
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             }
 
-            ActivityManager.finishAllActivities();
+            ActivityHelper.finishAllActivities();
             RouteManager.jumpWithTransition(RoutePath.URL_SPLASH, R.anim.fade_in, R.anim.fade_out, this);
             finish();
         }

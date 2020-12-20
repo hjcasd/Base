@@ -31,11 +31,11 @@ public class RadarView extends View {
     private int centerY;
 
     // 各维度标题
-    private String[] titles = {"a", "b", "c", "d", "e", "f"};
+    private final String[] titles = {"a", "b", "c", "d", "e", "f"};
     // 各维度数值
-    private double[] data = {100, 80, 60, 80, 100, 60};
+    private final double[] data = {100, 80, 60, 80, 100, 60};
     // 数据最大值
-    private float maxValue = 100;
+    private final float maxValue = 100;
 
     // 雷达区画笔
     private Paint mainPaint;

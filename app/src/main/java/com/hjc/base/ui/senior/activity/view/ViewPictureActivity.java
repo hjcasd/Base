@@ -1,5 +1,6 @@
 package com.hjc.base.ui.senior.activity.view;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -40,6 +41,7 @@ public class ViewPictureActivity extends BaseMvmActivity<ActivityViewPictureBind
         mBindingView.titleBar.setOnViewLeftClickListener(view -> finish());
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onSingleClick(View v) {
         switch (v.getId()) {

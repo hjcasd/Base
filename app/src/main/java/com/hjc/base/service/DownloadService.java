@@ -1,4 +1,4 @@
-package com.hjc.base.utils.download;
+package com.hjc.base.service;
 
 import android.app.IntentService;
 import android.app.Notification;
@@ -14,6 +14,8 @@ import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.R;
 import com.hjc.base.utils.ApkUtils;
+import com.hjc.base.utils.download.BaseDownloadObserver;
+import com.hjc.base.utils.download.DownloadManager;
 
 import java.io.File;
 

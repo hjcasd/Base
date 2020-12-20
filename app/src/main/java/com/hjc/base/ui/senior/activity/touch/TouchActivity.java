@@ -1,5 +1,6 @@
 package com.hjc.base.ui.senior.activity.touch;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -79,6 +80,7 @@ public class TouchActivity extends BaseMvmActivity<ActivityTouchBinding, CommonV
         mBindingView.titleBar.setOnViewLeftClickListener(view -> finish());
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onSingleClick(View v) {
         switch (v.getId()) {

@@ -24,8 +24,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:background="@drawable/shape_bg_update"
+            android:orientation="vertical"
             android:padding="16dp">
 
             <TextView
@@ -54,28 +54,30 @@
 
                 <Button
                     android:id="@+id/btn_cancel"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="40dp"
                     android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
                     android:background="@drawable/selector_btn_update"
                     android:gravity="center"
-                    android:text="@string/app_dialog_update_cancel"
                     android:onClick="@{onClickListener}"
+                    android:text="@string/app_dialog_update_cancel"
                     android:textColor="@android:color/white"
                     android:textSize="15sp" />
 
                 <Button
                     android:id="@+id/btn_update"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="40dp"
-                    android:layout_marginLeft="20dp"
                     android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
                     android:background="@drawable/selector_btn_update"
                     android:gravity="center"
-                    android:text="@string/app_dialog_update_update"
                     android:onClick="@{onClickListener}"
+                    android:text="@string/app_dialog_update_update"
                     android:textColor="@android:color/white"
                     android:textSize="15sp" />
 

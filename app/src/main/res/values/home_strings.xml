@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_tab1_title">Tab1</string>
+    <string name="app_tab1_btn1">DataBinding</string>
+    <string name="app_tab1_btn2">LiveData</string>
+    <string name="app_tab1_btn3">BindingAdapter</string>
+    <string name="app_tab1_btn4">Room</string>
+    <string name="app_tab1_btn5">Paging</string>
+
+    <string name="app_adapter_title">BindingAdapter</string>
+    <string name="app_adapter_btn1">显示图片</string>
+    <string name="app_adapter_btn2">显示圆角图片</string>
+    <string name="app_adapter_btn3">显示圆形图片</string>
+
+    <string name="app_data_title">DataBinding</string>
+    <string name="app_live_title">LiveData</string>
+    <string name="app_data_btn1">显示数据</string>
+    <string name="app_data_btn2">改变数据</string>
+    <string name="app_data_btn3">隐藏数据</string>
+
+    <string name="app_paging_title">Paging</string>
+
+    <string name="app_room_title">Room</string>
+    <string name="app_room_btn1">Insert</string>
+    <string name="app_room_btn2">Query</string>
+    <string name="app_room_btn3">Update</string>
+    <string name="app_room_btn4">Delete</string>
+    <string name="app_room_info">Person: </string>
+</resources>

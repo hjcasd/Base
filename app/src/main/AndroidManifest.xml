@@ -183,8 +183,10 @@
             android:screenOrientation="portrait" />
 
 
-        <!--============================================更新服务=========================================-->
-        <service android:name=".utils.download.DownloadService" />
+        <!--============================================服务=========================================-->
+        <service android:name=".service.MyService"/>
+
+        <service android:name=".service.DownloadService" />
 
 
         <!--============================================文件访问权限=========================================-->
@@ -195,7 +197,7 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
+                android:resource="@xml/file_provider_paths" />
         </provider>
 
     </application>

@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 
 def config = rootProject.ext.android
+def app = rootProject.ext.app
 def lib = rootProject.ext.dependencies
 
 //获取当前日期
@@ -57,6 +58,19 @@ android {
     }
 
     buildTypes {
+
+        debug {
+            minifyEnabled false
+            zipAlignEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            buildConfigField ('String', 'BASE_URL', app.DEV_BASE_URL)
+
+            if (keystoreFile.exists()){
+                signingConfig signingConfigs.debug
+            }
+        }
+
         release {
             //是否混淆
             minifyEnabled false
@@ -65,37 +79,25 @@ android {
             //前一部分代表系统默认的android程序的混淆文件，该文件已经包含了基本的混淆声明,后者为自定义混淆文件
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
-            buildConfigField 'String', 'BASE_URL', '"https://yinbao.enjoyqb.com:15050/ybapi/admin-web/services/"'
+            buildConfigField ('String', 'BASE_URL', app.PROD_BASE_URL)
 
             if (keystoreFile.exists()){
                 signingConfig signingConfigs.release
             }
         }
 
-        debug {
-            minifyEnabled false
-            zipAlignEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-
-            buildConfigField 'String', 'BASE_URL', '"http://test.enjoyqb.com:8888/admin-web/services/"'
-
-            if (keystoreFile.exists()){
-                signingConfig signingConfigs.debug
+        //指定打包路径和apk名称
+        applicationVariants.all { variant ->
+            variant.outputs.all { output ->
+                def fileName = "Base_V${variant.versionName}"
+                fileName = fileName + "_${releaseTime()}"
+                if ('debug' == variant.buildType.name) {
+                    fileName = fileName + "_debug.apk"
+                } else {
+                    fileName = fileName + "_release.apk"
+                }
+                outputFileName = fileName
             }
-        }
-    }
-
-    //指定打包路径和apk名称
-    applicationVariants.all { variant ->
-        variant.outputs.all { output ->
-            def fileName = "Base_V${variant.versionName}"
-            fileName = fileName + "_${releaseTime()}"
-            if ('debug' == variant.buildType.name) {
-                fileName = fileName + "_debug.apk"
-            } else {
-                fileName = fileName + "_release.apk"
-            }
-            outputFileName = fileName
         }
     }
 

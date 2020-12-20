@@ -36,11 +36,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.hjc.base.ui.frame.activity.view.MyHeader
+            <com.scwang.smartrefresh.layout.header.ClassicsHeader
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-            </com.hjc.base.ui.frame.activity.view.MyHeader>
+            </com.scwang.smartrefresh.layout.header.ClassicsHeader>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_list"
@@ -49,13 +49,11 @@
 
             </androidx.recyclerview.widget.RecyclerView>
 
-
             <com.scwang.smartrefresh.layout.footer.ClassicsFooter
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
             </com.scwang.smartrefresh.layout.footer.ClassicsFooter>
-
 
         </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
