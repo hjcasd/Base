@@ -1,8 +1,7 @@
 package com.hjc.base.http;
 
-
 import com.hjc.base.http.config.HttpConfig;
-import com.hjc.baselib.http.converter.JsonConverterFactory;
+import com.hjc.base.http.converter.JsonConverterFactory;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;

@@ -10,8 +10,8 @@ import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.bean.LoginReq;
 import com.hjc.base.bean.LoginResp;
+import com.hjc.base.http.observer.BaseProgressObserver;
 import com.hjc.base.model.LoginModel;
-import com.hjc.baselib.http.observer.BaseProgressObserver;
 import com.hjc.baselib.viewmodel.BaseViewModel;
 
 public class LoginViewModel extends BaseViewModel {

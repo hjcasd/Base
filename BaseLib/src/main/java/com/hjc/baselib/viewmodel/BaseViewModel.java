@@ -43,8 +43,8 @@ public class BaseViewModel extends AndroidViewModel implements IViewModelAction 
     }
 
     @Override
-    public void startLoading() {
-        BaseActionEvent baseActionEvent = new BaseActionEvent(BaseActionEvent.START_LOADING_DIALOG);
+    public void showLoading() {
+        BaseActionEvent baseActionEvent = new BaseActionEvent(BaseActionEvent.SHOW_LOADING_DIALOG);
         actionLiveData.setValue(baseActionEvent);
     }
 
@@ -55,8 +55,8 @@ public class BaseViewModel extends AndroidViewModel implements IViewModelAction 
     }
 
     @Override
-    public void showLoading() {
-        BaseActionEvent baseActionEvent = new BaseActionEvent(BaseActionEvent.SHOW_LOADING);
+    public void showProgress() {
+        BaseActionEvent baseActionEvent = new BaseActionEvent(BaseActionEvent.SHOW_PROGRESS);
         actionLiveData.setValue(baseActionEvent);
     }
 
@@ -76,6 +76,11 @@ public class BaseViewModel extends AndroidViewModel implements IViewModelAction 
     public void showError() {
         BaseActionEvent baseActionEvent = new BaseActionEvent(BaseActionEvent.SHOW_ERROR);
         actionLiveData.setValue(baseActionEvent);
+    }
+
+    @Override
+    public void showTimeout() {
+
     }
 
     @Override

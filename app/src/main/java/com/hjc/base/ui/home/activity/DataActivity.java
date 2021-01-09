@@ -12,7 +12,7 @@ import com.hjc.base.R;
 import com.hjc.base.bean.PersonBean;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.databinding.ActivityDataBinding;
-import com.hjc.baselib.activity.BaseMvmActivity;
+import com.hjc.baselib.activity.BaseActivity;
 import com.hjc.baselib.viewmodel.CommonViewModel;
 
 /**
@@ -21,7 +21,7 @@ import com.hjc.baselib.viewmodel.CommonViewModel;
  * @Description: DataBinding
  */
 @Route(path = RoutePath.URL_DATA_BINDING)
-public class DataActivity extends BaseMvmActivity<ActivityDataBinding, CommonViewModel> {
+public class DataActivity extends BaseActivity<ActivityDataBinding, CommonViewModel> {
 
     private PersonBean loginBean = new PersonBean();
 

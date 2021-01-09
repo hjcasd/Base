@@ -12,12 +12,12 @@ import com.hjc.base.R;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.databinding.ActivityThemeBinding;
 import com.hjc.base.utils.helper.RouteManager;
-import com.hjc.baselib.activity.BaseMvmActivity;
-import com.hjc.baselib.utils.helper.ActivityHelper;
+import com.hjc.baselib.activity.BaseActivity;
+import com.hjc.baselib.utils.ActivityHelper;
 import com.hjc.baselib.viewmodel.CommonViewModel;
 
 @Route(path = RoutePath.URL_THEME)
-public class ThemeActivity extends BaseMvmActivity<ActivityThemeBinding, CommonViewModel> {
+public class ThemeActivity extends BaseActivity<ActivityThemeBinding, CommonViewModel> {
 
     @Override
     protected int getLayoutId() {
@@ -52,7 +52,7 @@ public class ThemeActivity extends BaseMvmActivity<ActivityThemeBinding, CommonV
             }
 
             ActivityHelper.finishAllActivities();
-            RouteManager.jumpWithTransition(RoutePath.URL_SPLASH, R.anim.fade_in, R.anim.fade_out, this);
+            RouteManager.jumpWithTransition(this, RoutePath.URL_SPLASH, R.anim.fade_in, R.anim.fade_out);
             finish();
         }
     }

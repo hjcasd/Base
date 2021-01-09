@@ -17,7 +17,7 @@ import com.hjc.baselib.loadsir.ErrorCallback;
 import com.hjc.baselib.loadsir.LoadingCallback;
 import com.hjc.baselib.loadsir.ShimmerCallback;
 import com.hjc.baselib.loadsir.TimeoutCallback;
-import com.hjc.baselib.utils.helper.ActivityHelper;
+import com.hjc.baselib.utils.ActivityHelper;
 import com.hjc.webviewlib.X5WebUtils;
 import com.kingja.loadsir.core.LoadSir;
 

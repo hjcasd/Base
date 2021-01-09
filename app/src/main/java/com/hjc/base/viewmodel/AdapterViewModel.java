@@ -11,9 +11,9 @@ import com.hjc.baselib.viewmodel.CommonViewModel;
 public class AdapterViewModel extends CommonViewModel {
 
     // 一个 LiveData对象通常存储在ViewModel对象中，并通过getter方法访问
-    private MutableLiveData<String> imageData = new MutableLiveData<>();
-    private MutableLiveData<String> imageRoundData = new MutableLiveData<>();
-    private MutableLiveData<String> imageCircleData = new MutableLiveData<>();
+    private final MutableLiveData<String> imageData = new MutableLiveData<>();
+    private final MutableLiveData<String> imageRoundData = new MutableLiveData<>();
+    private final MutableLiveData<String> imageCircleData = new MutableLiveData<>();
 
     public AdapterViewModel(@NonNull Application application) {
         super(application);

@@ -11,11 +11,11 @@ import com.hjc.base.R;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.databinding.ActivityMotionBinding;
 import com.hjc.base.utils.helper.RouteManager;
-import com.hjc.baselib.activity.BaseMvmActivity;
+import com.hjc.baselib.activity.BaseActivity;
 import com.hjc.baselib.viewmodel.CommonViewModel;
 
 @Route(path = RoutePath.URL_MOTION)
-public class MotionActivity extends BaseMvmActivity<ActivityMotionBinding, CommonViewModel> {
+public class MotionActivity extends BaseActivity<ActivityMotionBinding, CommonViewModel> {
 
     @Override
     protected int getLayoutId() {

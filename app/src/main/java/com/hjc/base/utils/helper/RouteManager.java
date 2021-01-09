@@ -9,7 +9,6 @@ import androidx.core.app.ActivityOptionsCompat;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
-import com.hjc.base.R;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.baselib.utils.ClickUtils;
 
@@ -47,12 +46,12 @@ public class RouteManager {
     /**
      * 页面跳转(bundle)
      *
+     * @param context   对应页面
      * @param path      要跳转页面对应的路由url
      * @param enterAnim 进入动画
      * @param exitAnim  退出动画
-     * @param context   对应页面
      */
-    public static void jumpWithTransition(String path, int enterAnim, int exitAnim, Context context) {
+    public static void jumpWithTransition(Context context, String path, int enterAnim, int exitAnim) {
         ARouter.getInstance()
                 .build(path)
                 .withTransition(enterAnim, exitAnim)
@@ -111,7 +110,6 @@ public class RouteManager {
                 .build(RoutePath.URL_WEB)
                 .withString("title", title)
                 .withString("url", url)
-                .withTransition(R.anim.slide_enter_bottom, R.anim.slide_exit_bottom)
                 .navigation();
     }
 }

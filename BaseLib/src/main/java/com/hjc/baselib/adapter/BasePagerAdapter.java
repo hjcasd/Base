@@ -1,11 +1,12 @@
 package com.hjc.baselib.adapter;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.viewpager.widget.PagerAdapter;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.viewpager.widget.PagerAdapter;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ import java.util.List;
  */
 public abstract class BasePagerAdapter<T> extends PagerAdapter {
     protected Context mContext;
-    private SparseArray<View> mViews;
+    private final SparseArray<View> mViews;
     protected List<T> mDataList;
 
     private onItemClickListener onItemClickListener;

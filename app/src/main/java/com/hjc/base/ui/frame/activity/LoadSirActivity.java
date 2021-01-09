@@ -16,7 +16,7 @@ import com.hjc.base.constant.RoutePath;
 import com.hjc.base.databinding.ActivityLoadSirBinding;
 import com.hjc.base.ui.home.adapter.ArticleAdapter;
 import com.hjc.base.viewmodel.LoadSirViewModel;
-import com.hjc.baselib.activity.BaseMvmActivity;
+import com.hjc.baselib.activity.BaseActivity;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 
@@ -27,7 +27,7 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
  * @Description: LoadSir + List
  */
 @Route(path = RoutePath.URL_LOAD_SIR)
-public class LoadSirActivity extends BaseMvmActivity<ActivityLoadSirBinding, LoadSirViewModel> {
+public class LoadSirActivity extends BaseActivity<ActivityLoadSirBinding, LoadSirViewModel> {
 
     private ArticleAdapter mAdapter;
 
@@ -46,6 +46,8 @@ public class LoadSirActivity extends BaseMvmActivity<ActivityLoadSirBinding, Loa
 
     @Override
     protected void initView() {
+        super.initView();
+
         setLoadSir(mBindingView.smartRefreshLayout);
 
         LinearLayoutManager manager = new LinearLayoutManager(this);
@@ -59,20 +61,23 @@ public class LoadSirActivity extends BaseMvmActivity<ActivityLoadSirBinding, Loa
 
     @Override
     protected void initData(@Nullable Bundle savedInstanceState) {
-        mBindingView.setStatusViewModel(mViewModel);
         mViewModel.loadList(0, true);
     }
 
     @Override
     protected void observeLiveData() {
         mViewModel.getListLiveData().observe(this, data -> {
-            mBindingView.smartRefreshLayout.finishRefresh();
-            mBindingView.smartRefreshLayout.finishLoadMore();
-
             if (mPage == 0) {
                 mAdapter.setNewInstance(data);
             } else {
                 mAdapter.addData(data);
+            }
+        });
+
+        mViewModel.getRefreshData().observe(this, result -> {
+            if (result) {
+                mBindingView.smartRefreshLayout.finishRefresh();
+                mBindingView.smartRefreshLayout.finishLoadMore();
             }
         });
     }

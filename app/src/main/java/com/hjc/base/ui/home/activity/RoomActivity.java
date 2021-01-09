@@ -12,10 +12,10 @@ import com.hjc.base.R;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.databinding.ActivityRoomBinding;
 import com.hjc.base.viewmodel.RoomViewModel;
-import com.hjc.baselib.activity.BaseMvmActivity;
+import com.hjc.baselib.activity.BaseActivity;
 
 @Route(path = RoutePath.URL_ROOM)
-public class RoomActivity extends BaseMvmActivity<ActivityRoomBinding, RoomViewModel> {
+public class RoomActivity extends BaseActivity<ActivityRoomBinding, RoomViewModel> {
 
     @Override
     protected int getLayoutId() {

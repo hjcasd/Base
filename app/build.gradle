@@ -140,6 +140,12 @@ dependencies {
     annotationProcessor lib["room-compiler"]
     implementation lib["paging-runtime"]
 
+    implementation lib["retrofit"]
+    implementation lib["converter-gson"]
+    implementation lib["adapter-rxjava2"]
+//    implementation lib["rxandroid"]
+//    implementation lib["rxjava"]
+
     implementation lib["multidex"]
 
     implementation lib["glide"]

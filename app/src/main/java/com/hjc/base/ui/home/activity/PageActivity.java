@@ -14,7 +14,7 @@ import com.hjc.base.constant.RoutePath;
 import com.hjc.base.databinding.ActivityPageBinding;
 import com.hjc.base.ui.home.adapter.ConcertAdapter;
 import com.hjc.base.viewmodel.PageViewModel;
-import com.hjc.baselib.activity.BaseMvmActivity;
+import com.hjc.baselib.activity.BaseActivity;
 
 
 /**
@@ -23,7 +23,7 @@ import com.hjc.baselib.activity.BaseMvmActivity;
  * @Description: Paging
  */
 @Route(path = RoutePath.URL_PAGING)
-public class PageActivity extends BaseMvmActivity<ActivityPageBinding, PageViewModel> {
+public class PageActivity extends BaseActivity<ActivityPageBinding, PageViewModel> {
 
     private ConcertAdapter mAdapter;
 

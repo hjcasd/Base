@@ -7,15 +7,26 @@ package com.hjc.baselib.base;
  * @Description: 界面UI显示切换
  */
 public interface IBaseView {
+
+    /**
+     * 显示Loading
+     */
+    void showLoading();
+
+    /**
+     * 隐藏Loading
+     */
+    void dismissLoading();
+
     /**
      * 显示内容
      */
     void showContent();
 
     /**
-     * 显示loading
+     * 显示进度
      */
-    void showLoading();
+    void showProgress();
 
     /**
      * 显示空页面
@@ -26,5 +37,10 @@ public interface IBaseView {
      * 加载失败
      */
     void showError();
+
+    /**
+     * 网络超时
+     */
+    void showTimeout();
 
 }

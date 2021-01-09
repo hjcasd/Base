@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 
 import com.hjc.base.BuildConfig;
 import com.hjc.base.http.config.HttpConfig;
-import com.hjc.baselib.http.interceptor.LogInterceptor;
+import com.hjc.base.http.interceptor.LogInterceptor;
 
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;

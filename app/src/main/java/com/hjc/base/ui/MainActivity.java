@@ -14,16 +14,16 @@ import com.hjc.base.R;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.databinding.ActivityMainBinding;
 import com.hjc.base.receiver.NetworkChangeReceiver;
-import com.hjc.base.ui.frame.Tab2Fragment;
-import com.hjc.base.ui.home.Tab1Fragment;
-import com.hjc.base.ui.other.Tab4Fragment;
-import com.hjc.base.ui.senior.Tab3Fragment;
-import com.hjc.baselib.activity.BaseMvmFragmentActivity;
+import com.hjc.base.ui.fragment.Tab2Fragment;
+import com.hjc.base.ui.fragment.Tab1Fragment;
+import com.hjc.base.ui.fragment.Tab4Fragment;
+import com.hjc.base.ui.fragment.Tab3Fragment;
+import com.hjc.baselib.activity.BaseFragmentActivity;
 import com.hjc.baselib.viewmodel.CommonViewModel;
 import com.permissionx.guolindev.PermissionX;
 
 @Route(path = RoutePath.URL_MAIN)
-public class MainActivity extends BaseMvmFragmentActivity<ActivityMainBinding, CommonViewModel> {
+public class MainActivity extends BaseFragmentActivity<ActivityMainBinding, CommonViewModel> {
 
     private Tab1Fragment mTab1Fragment;
     private Tab2Fragment mTab2Fragment;

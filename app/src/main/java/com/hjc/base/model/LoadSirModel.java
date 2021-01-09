@@ -2,7 +2,7 @@ package com.hjc.base.model;
 
 import com.hjc.base.bean.ArticleBean;
 import com.hjc.base.http.RetrofitHelper;
-import com.hjc.baselib.http.RxSchedulers;
+import com.hjc.base.http.RxSchedulers;
 import com.hjc.baselib.model.BaseModel;
 
 import io.reactivex.Observable;

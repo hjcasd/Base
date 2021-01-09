@@ -19,7 +19,7 @@ import com.hjc.base.R;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.databinding.ActivityWebBinding;
 import com.hjc.base.utils.AppUtils;
-import com.hjc.baselib.activity.BaseMvmActivity;
+import com.hjc.baselib.activity.BaseActivity;
 import com.hjc.baselib.viewmodel.CommonViewModel;
 
 /**
@@ -28,7 +28,7 @@ import com.hjc.baselib.viewmodel.CommonViewModel;
  * @Description: web页面
  */
 @Route(path = RoutePath.URL_WEB)
-public class WebActivity extends BaseMvmActivity<ActivityWebBinding, CommonViewModel> {
+public class WebActivity extends BaseActivity<ActivityWebBinding, CommonViewModel> {
     @Autowired(name = "title")
     String mTitle = "";
 
@@ -47,6 +47,8 @@ public class WebActivity extends BaseMvmActivity<ActivityWebBinding, CommonViewM
 
     @Override
     protected void initView() {
+        super.initView();
+
         setSupportActionBar(mBindingView.toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -79,6 +81,11 @@ public class WebActivity extends BaseMvmActivity<ActivityWebBinding, CommonViewM
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
+                onBackPressed();
+                break;
+
+            // 关闭页面
+            case R.id.item_close:
                 finish();
                 break;
 

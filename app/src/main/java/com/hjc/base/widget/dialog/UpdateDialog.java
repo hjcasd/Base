@@ -11,7 +11,7 @@ import com.hjc.base.databinding.DialogUpdateBinding;
 import com.hjc.base.service.DownloadService;
 import com.hjc.base.utils.ApkUtils;
 import com.hjc.baselib.dialog.BaseFragmentDialog;
-import com.hjc.baselib.utils.helper.ActivityHelper;
+import com.hjc.baselib.utils.ActivityHelper;
 import com.hjc.baselib.viewmodel.CommonViewModel;
 
 import java.io.File;

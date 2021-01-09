@@ -15,9 +15,11 @@ import java.util.List;
 
 public class LoadSirViewModel extends BaseViewModel {
 
-    private LoadSirModel loadSirModel;
+    private final LoadSirModel loadSirModel;
 
-    private MutableLiveData<List<ArticleBean.DataBean.DatasBean>> listLiveData = new MutableLiveData<>();
+    private final MutableLiveData<List<ArticleBean.DataBean.DatasBean>> listLiveData = new MutableLiveData<>();
+
+    private final MutableLiveData<Boolean> refreshData = new MutableLiveData<>();
 
     public LoadSirViewModel(@NonNull Application application) {
         super(application);
@@ -28,6 +30,7 @@ public class LoadSirViewModel extends BaseViewModel {
         loadSirModel.load(page).subscribe(new BasePageObserver<ArticleBean>(this, isFirst) {
             @Override
             public void onSuccess(ArticleBean result) {
+                refreshData.setValue(true);
                 ArticleBean.DataBean dataBean = result.getData();
                 if (dataBean != null) {
                     List<ArticleBean.DataBean.DatasBean> dataList = dataBean.getDatas();
@@ -36,10 +39,21 @@ public class LoadSirViewModel extends BaseViewModel {
                     }
                 }
             }
+
+            @Override
+            protected void onFailure(@NonNull Throwable e) {
+                super.onFailure(e);
+                refreshData.setValue(true);
+                showError();
+            }
         });
     }
 
     public MutableLiveData<List<ArticleBean.DataBean.DatasBean>> getListLiveData() {
         return listLiveData;
+    }
+
+    public MutableLiveData<Boolean> getRefreshData() {
+        return refreshData;
     }
 }

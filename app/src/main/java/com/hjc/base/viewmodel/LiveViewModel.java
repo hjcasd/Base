@@ -13,9 +13,9 @@ import com.hjc.baselib.viewmodel.BaseViewModel;
 
 public class LiveViewModel extends BaseViewModel {
 
-    private LiveModel liveModel;
+    private final LiveModel liveModel;
 
-    private MutableLiveData<UserBean> userLiveData = new MutableLiveData<>();
+    private final MutableLiveData<UserBean> userLiveData = new MutableLiveData<>();
 
     public LiveViewModel(@NonNull Application application) {
         super(application);

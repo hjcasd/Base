@@ -124,7 +124,7 @@ public abstract class BaseFragmentDialog<VDB extends ViewDataBinding, VM extends
     /**
      * 设置Dialog位置
      */
-    public BaseFragmentDialog setGravity(int gravity) {
+    public BaseFragmentDialog<?,?> setGravity(int gravity) {
         this.mGravity = gravity;
         return this;
     }
@@ -132,7 +132,7 @@ public abstract class BaseFragmentDialog<VDB extends ViewDataBinding, VM extends
     /**
      * 设置动画类型
      */
-    public BaseFragmentDialog setAnimStyle(@StyleRes int animStyle) {
+    public BaseFragmentDialog<?,?> setAnimStyle(@StyleRes int animStyle) {
         this.mAnimStyle = animStyle;
         return this;
     }

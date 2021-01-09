@@ -31,10 +31,10 @@
             app:qrcv_cornerLength="20dp"
             app:qrcv_cornerSize="3dp"
             app:qrcv_maskColor="@color/app_mask"
-            app:qrcv_rectWidth="200dp"
+            app:qrcv_rectWidth="240dp"
             app:qrcv_scanLineColor="@color/colorPrimaryDark"
             app:qrcv_scanLineSize="1dp"
-            app:qrcv_topOffset="90dp" />
+            app:qrcv_topOffset="120dp" />
 
     </LinearLayout>
 

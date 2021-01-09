@@ -13,7 +13,7 @@ import com.hjc.base.R;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.databinding.ActivityLiveBinding;
 import com.hjc.base.viewmodel.LiveViewModel;
-import com.hjc.baselib.activity.BaseMvmActivity;
+import com.hjc.baselib.activity.BaseActivity;
 
 
 /**
@@ -22,7 +22,7 @@ import com.hjc.baselib.activity.BaseMvmActivity;
  * @Description: LiveData + ViewModel
  */
 @Route(path = RoutePath.URL_LIVE_DATA)
-public class LiveActivity extends BaseMvmActivity<ActivityLiveBinding, LiveViewModel> {
+public class LiveActivity extends BaseActivity<ActivityLiveBinding, LiveViewModel> {
 
     @Override
     protected int getLayoutId() {

@@ -5,10 +5,6 @@
     <data>
 
         <variable
-            name="statusViewModel"
-            type="com.hjc.base.viewmodel.LoadSirViewModel" />
-
-        <variable
             name="onClickListener"
             type="android.view.View.OnClickListener" />
 

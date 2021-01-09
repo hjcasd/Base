@@ -8,9 +8,9 @@ import com.gyf.immersionbar.ImmersionBar;
 import com.hjc.base.R;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.databinding.ActivitySplashBinding;
+import com.hjc.base.http.RxSchedulers;
 import com.hjc.base.utils.helper.RouteManager;
-import com.hjc.baselib.activity.BaseMvmActivity;
-import com.hjc.baselib.http.RxSchedulers;
+import com.hjc.baselib.activity.BaseActivity;
 import com.hjc.baselib.viewmodel.CommonViewModel;
 
 import java.util.concurrent.TimeUnit;
@@ -24,7 +24,7 @@ import io.reactivex.disposables.Disposable;
  * @Description: 启动页
  */
 @Route(path = RoutePath.URL_SPLASH)
-public class SplashActivity extends BaseMvmActivity<ActivitySplashBinding, CommonViewModel> {
+public class SplashActivity extends BaseActivity<ActivitySplashBinding, CommonViewModel> {
 
     private Disposable disposable1;
     private Disposable disposable2;
@@ -40,9 +40,8 @@ public class SplashActivity extends BaseMvmActivity<ActivitySplashBinding, Commo
     }
 
     @Override
-    protected void initImmersionBar() {
-        ImmersionBar.with(this)
-                .init();
+    protected ImmersionBar getImmersionBar() {
+        return ImmersionBar.with(this);
     }
 
     @Override

@@ -4,8 +4,8 @@ package com.hjc.base.http;
 import com.hjc.base.bean.ArticleBean;
 import com.hjc.base.bean.LoginReq;
 import com.hjc.base.bean.LoginResp;
+import com.hjc.base.http.bean.BaseResponse;
 import com.hjc.base.http.config.URLConfig;
-import com.hjc.baselib.http.bean.BaseResponse;
 
 import io.reactivex.Observable;
 import okhttp3.ResponseBody;

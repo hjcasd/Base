@@ -13,7 +13,7 @@ import com.hjc.base.R;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.databinding.ActivityAdapterBinding;
 import com.hjc.base.viewmodel.AdapterViewModel;
-import com.hjc.baselib.activity.BaseMvmActivity;
+import com.hjc.baselib.activity.BaseActivity;
 
 
 /**
@@ -22,7 +22,7 @@ import com.hjc.baselib.activity.BaseMvmActivity;
  * @Description: BindingAdapter
  */
 @Route(path = RoutePath.URL_BINDING_ADAPTER)
-public class AdapterActivity extends BaseMvmActivity<ActivityAdapterBinding, AdapterViewModel> {
+public class AdapterActivity extends BaseActivity<ActivityAdapterBinding, AdapterViewModel> {
 
     @Override
     protected int getLayoutId() {

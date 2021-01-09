@@ -1,6 +1,5 @@
 package com.hjc.baselib.model;
 
-
 /**
  * @Author: HJC
  * @Date: 2020/5/15 10:16
