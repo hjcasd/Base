@@ -143,8 +143,6 @@ dependencies {
     implementation lib["retrofit"]
     implementation lib["converter-gson"]
     implementation lib["adapter-rxjava2"]
-//    implementation lib["rxandroid"]
-//    implementation lib["rxjava"]
 
     implementation lib["multidex"]
 
@@ -164,6 +162,10 @@ dependencies {
 
     implementation lib["zxing"]
 
+    // 内存泄漏检测
+    debugImplementation lib.leakcanary_android
+
     implementation project(path: ':BaseLib')
     implementation project(path: ':WebViewLib')
+
 }

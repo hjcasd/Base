@@ -13,6 +13,20 @@ import com.hjc.base.utils.helper.RouteManager;
 import com.hjc.baselib.fragment.BaseFragment;
 import com.hjc.baselib.viewmodel.CommonViewModel;
 
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
+
+import io.reactivex.BackpressureStrategy;
+import io.reactivex.Flowable;
+import io.reactivex.FlowableEmitter;
+import io.reactivex.FlowableOnSubscribe;
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
+
 /**
  * @Author: HJC
  * @Date: 2019/7/26 10:42
@@ -36,7 +50,59 @@ public class Tab1Fragment extends BaseFragment<FragmentTab1Binding, CommonViewMo
 
     @Override
     public void initData(@Nullable Bundle savedInstanceState) {
+        Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter<String> emitter) throws Exception {
 
+            }
+        }).subscribe(new Observer<String>() {
+            @Override
+            public void onSubscribe(@NonNull Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(@NonNull String s) {
+
+            }
+
+            @Override
+            public void onError(@NonNull Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+
+        Flowable.create(new FlowableOnSubscribe<String>() {
+            @Override
+            public void subscribe(@NonNull FlowableEmitter<String> emitter) throws Exception {
+
+            }
+        }, BackpressureStrategy.BUFFER).subscribe(new Subscriber<String>() {
+            @Override
+            public void onSubscribe(Subscription s) {
+
+            }
+
+            @Override
+            public void onNext(String s) {
+
+            }
+
+            @Override
+            public void onError(Throwable t) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
     }
 
     @Override

@@ -17,6 +17,13 @@ import io.reactivex.disposables.Disposable;
  */
 public abstract class BaseObserver<T> implements Observer<BaseResponse<T>> {
 
+    private Disposable mDisposable;
+
+    @Override
+    public void onSubscribe(@NonNull Disposable d) {
+        mDisposable = d;
+    }
+
     @Override
     public void onNext(BaseResponse<T> response) {
         if (ServerCode.CODE_SUCCESS.equals(response.getCode())) {  //请求成功
@@ -28,17 +35,17 @@ public abstract class BaseObserver<T> implements Observer<BaseResponse<T>> {
 
     @Override
     public void onError(@NonNull Throwable e) {
+        if (mDisposable != null && !mDisposable.isDisposed()) {
+            mDisposable.dispose();
+        }
         onFailure(e);
     }
 
     @Override
     public void onComplete() {
-
-    }
-
-    @Override
-    public void onSubscribe(@NonNull Disposable d) {
-
+        if (mDisposable != null && !mDisposable.isDisposed()) {
+            mDisposable.dispose();
+        }
     }
 
     public abstract void onSuccess(T result);

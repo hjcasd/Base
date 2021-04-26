@@ -49,9 +49,6 @@ dependencies {
     api lib["lifecycle-viewmodel"]
     api lib["lifecycle-livedata"]
 
-//    api lib["retrofit"]
-//    api lib["converter-gson"]
-//    api lib["adapter-rxjava2"]
     api lib["rxandroid"]
     api lib["rxjava"]
 

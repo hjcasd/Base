@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -14,10 +15,10 @@ import com.hjc.base.R;
 import com.hjc.base.constant.RoutePath;
 import com.hjc.base.databinding.ActivityMainBinding;
 import com.hjc.base.receiver.NetworkChangeReceiver;
-import com.hjc.base.ui.fragment.Tab2Fragment;
 import com.hjc.base.ui.fragment.Tab1Fragment;
-import com.hjc.base.ui.fragment.Tab4Fragment;
+import com.hjc.base.ui.fragment.Tab2Fragment;
 import com.hjc.base.ui.fragment.Tab3Fragment;
+import com.hjc.base.ui.fragment.Tab4Fragment;
 import com.hjc.baselib.activity.BaseFragmentActivity;
 import com.hjc.baselib.viewmodel.CommonViewModel;
 import com.permissionx.guolindev.PermissionX;
@@ -53,6 +54,23 @@ public class MainActivity extends BaseFragmentActivity<ActivityMainBinding, Comm
 
         requestPermission();
         registerBroadcastReceiver();
+
+//        anonymousInnerClass();
+    }
+
+    /**
+     * LeakCanary测试代码
+     * 匿名内部类持有外部类实例引用
+     */
+
+    private void anonymousInnerClass(){
+        new Thread(){
+            @Override
+            public void run() {
+                //执行异步处理
+                SystemClock.sleep(240000);
+            }
+        }.start();
     }
 
     /**
