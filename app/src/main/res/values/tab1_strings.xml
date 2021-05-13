@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tab1_title">首页</string>
+
+    <string name="app_tab1_btn1">登录</string>
+    <string name="app_tab1_btn2">协程</string>
+
+    <string name="app_login_title">登录案例</string>
+    <string name="app_login_username_hint">请输入用户名</string>
+    <string name="app_login_pwd_hint">请输入密码</string>
+    <string name="app_login_btn">登录</string>
+    <string name="app_login_info">登录信息: </string>
+
+    <string name="app_coroutines_btn1">launch</string>
+    <string name="app_coroutines_btn2">async</string>
+    <string name="app_coroutines_btn3">runBlocking</string>
+
+</resources>

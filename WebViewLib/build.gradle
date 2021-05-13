@@ -1,4 +1,8 @@
-apply plugin: 'com.android.library'
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
 
 def config = rootProject.ext.android
 def lib = rootProject.ext.dependencies
@@ -21,9 +25,17 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            //是否混淆
+            minifyEnabled true
+            //压缩优化
+            zipAlignEnabled true
+
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    buildFeatures {
+        dataBinding = true
     }
 
     sourceSets {
@@ -39,7 +51,8 @@ dependencies {
 
     implementation lib["appcompat"]
     implementation lib["constraintlayout"]
-    implementation lib["Android-SpinKit"]
+
+    implementation lib["kotlin-stdlib"]
 
     api files('libs/tbs_sdk_thirdapp_v3.6.0.jar')
 }

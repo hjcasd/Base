@@ -26,11 +26,12 @@
 
         <TextView
             android:id="@+id/tv_time"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:text="@string/app_splash_text"
+            android:gravity="center"
             android:onClick="@{onClickListener}"
             android:textColor="@color/app_white"
             android:background="@drawable/shape_bg_count_time"

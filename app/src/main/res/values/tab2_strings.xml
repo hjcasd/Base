@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tab2_title">框架</string>
+
+    <string name="app_tab2_btn1">List</string>
+    <string name="app_tab2_btn2">X5WebView</string>
+
+    <string name="app_list_title">LoadSir</string>
+
+    <string name="app_web_back">返回</string>
+    <string name="app_menu_web1">关闭</string>
+    <string name="app_menu_web2">刷新</string>
+    <string name="app_menu_web3">分享</string>
+    <string name="app_menu_web4">复制链接</string>
+    <string name="app_menu_web5">浏览器打开</string>
+
+</resources>

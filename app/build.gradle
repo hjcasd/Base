@@ -1,4 +1,8 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
 
 def config = rootProject.ext.android
 def app = rootProject.ext.app
@@ -9,13 +13,9 @@ def static releaseTime() {
     return new Date().format("yyyy-MM-dd")
 }
 
-//获取签名信息(存放到local.properties文件中)
-def keystoreFile = rootProject.file("signing.properties")
-def keystoreProperties = new Properties()
-keystoreProperties.load(new FileInputStream(keystoreFile))
-
 android {
     compileSdkVersion config.compileSdkVersion
+    buildToolsVersion config.buildToolsVersion
 
     defaultConfig {
         applicationId "com.hjc.base"
@@ -23,73 +23,46 @@ android {
         targetSdkVersion config.targetSdkVersion
         versionCode config.versionCode
         versionName config.versionName
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         ndk {
             // 设置支持的SO库架构(必须设置如下几种,否则X5会初始化失败)
             abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
         }
 
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName()]
+        kapt {
+            arguments {
+                arg("AROUTER_MODULE_NAME", project.getName())
             }
-        }
-    }
-
-    //签名信息
-    //签名信息
-    signingConfigs {
-        release {
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-            storeFile file(keystoreProperties['storeFile'])
-            storePassword keystoreProperties['storePassword']
-        }
-
-        debug {
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-            storeFile file(keystoreProperties['storeFile'])
-            storePassword keystoreProperties['storePassword']
         }
     }
 
     buildTypes {
-
         debug {
-            minifyEnabled false
-            zipAlignEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-
             buildConfigField ('String', 'BASE_URL', app.DEV_BASE_URL)
-
-            if (keystoreFile.exists()){
-                signingConfig signingConfigs.debug
-            }
+            buildConfigField ('boolean', 'IS_DEBUG', "true")
         }
 
         release {
             //是否混淆
-            minifyEnabled false
+            minifyEnabled true
             //是否移除无用资源
-            zipAlignEnabled false
-            //前一部分代表系统默认的android程序的混淆文件，该文件已经包含了基本的混淆声明,后者为自定义混淆文件
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            shrinkResources true
+            //压缩优化
+            zipAlignEnabled true
+
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
             buildConfigField ('String', 'BASE_URL', app.PROD_BASE_URL)
-
-            if (keystoreFile.exists()){
-                signingConfig signingConfigs.release
-            }
+            buildConfigField ('boolean', 'IS_DEBUG', "false")
         }
 
         //指定打包路径和apk名称
         applicationVariants.all { variant ->
             variant.outputs.all { output ->
-                def fileName = "Base_V${variant.versionName}"
+                def fileName = "BaseKt_V${variant.versionName}"
                 fileName = fileName + "_${releaseTime()}"
                 if ('debug' == variant.buildType.name) {
                     fileName = fileName + "_debug.apk"
@@ -102,14 +75,12 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = '1.8'
-        targetCompatibility = '1.8'
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    lintOptions {
-        disable 'GoogleAppIndexingWarning'
-        checkReleaseBuilds false
-        abortOnError false
+    kotlinOptions {
+        jvmTarget = '1.8'
     }
 
     buildFeatures {
@@ -123,10 +94,7 @@ android {
     }
 }
 
-
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-
     testImplementation lib["junit"]
     androidTestImplementation lib["testJunit"]
     androidTestImplementation lib["espresso-core"]
@@ -136,13 +104,10 @@ dependencies {
     implementation lib["recyclerview"]
     implementation lib["material"]
 
-    implementation lib["room-runtime"]
-    annotationProcessor lib["room-compiler"]
-    implementation lib["paging-runtime"]
-
-    implementation lib["retrofit"]
-    implementation lib["converter-gson"]
-    implementation lib["adapter-rxjava2"]
+    implementation lib["lifecycle-viewmodel-ktx"]
+    implementation lib["core-ktx"]
+    implementation lib["kotlin-stdlib"]
+    implementation lib["kotlinx-coroutines-android"]
 
     implementation lib["multidex"]
 
@@ -150,7 +115,12 @@ dependencies {
     annotationProcessor lib["glide-compiler"]
     implementation lib["glide-transformations"]
 
-    annotationProcessor lib["arouter-compiler"]
+    implementation lib["rxjava"]
+    implementation lib["rxandroid"]
+
+    kapt lib["arouter-compiler"]
+
+    implementation lib["permission"]
 
     implementation lib["crashreport"]
     implementation lib["nativecrashreport"]
@@ -160,12 +130,6 @@ dependencies {
     implementation lib["SmartRefreshLayout"]
     implementation lib["SmartRefreshHeader"]
 
-    implementation lib["zxing"]
-
-    // 内存泄漏检测
-    debugImplementation lib.leakcanary_android
-
-    implementation project(path: ':BaseLib')
     implementation project(path: ':WebViewLib')
-
+    implementation project(path: ':BaseLib')
 }

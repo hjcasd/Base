@@ -6,7 +6,7 @@
 
         <variable
             name="loginViewModel"
-            type="com.hjc.base.viewmodel.LoginViewModel" />
+            type="com.hjc.base.viewmodel.login.LoginViewModel" />
 
         <variable
             name="onClickListener"
@@ -15,7 +15,6 @@
         <import type="android.view.View" />
 
     </data>
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,11 +27,10 @@
             android:id="@+id/title_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            android:background="@color/purple_500"
             app:leftImage="@mipmap/icon_back"
             app:titleColor="@color/app_white"
             app:titleText="@string/app_login_title" />
-
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -45,14 +43,12 @@
                 android:id="@+id/et_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/app_login_phone_hint"
-                android:inputType="number"
-                android:maxLength="11"
-                android:text="@={loginViewModel.phoneData}"
+                android:hint="@string/app_login_username_hint"
+                android:inputType="text"
+                android:text="@={loginViewModel.usernameData}"
                 android:textSize="14sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
-
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -65,14 +61,12 @@
                 android:id="@+id/et_code"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/app_login_code_hint"
-                android:inputType="number"
-                android:maxLength="4"
-                android:text="@={loginViewModel.codeData}"
+                android:hint="@string/app_login_pwd_hint"
+                android:inputType="textPassword"
+                android:text="@={loginViewModel.passwordData}"
                 android:textSize="14sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
-
 
         <Button
             android:id="@+id/btn_login"
@@ -91,7 +85,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
-            android:text='@{@string/app_login_info + loginViewModel.loginData.phoneNo }' />
+            android:text='@{@string/app_login_info + loginViewModel.loginData.username }' />
 
     </LinearLayout>
 

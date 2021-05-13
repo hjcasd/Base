@@ -1,4 +1,8 @@
-apply plugin: 'com.android.library'
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
 
 def config = rootProject.ext.android
 def lib = rootProject.ext.dependencies
@@ -12,9 +16,9 @@ android {
         versionCode config.versionCode
         versionName config.versionName
 
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName()]
+        kapt {
+            arguments {
+                arg("AROUTER_MODULE_NAME", project.getName())
             }
         }
     }
@@ -26,7 +30,11 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            //是否混淆
+            minifyEnabled true
+            //压缩优化
+            zipAlignEnabled true
+
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -42,23 +50,23 @@ dependencies {
 
     implementation lib["constraintlayout"]
     implementation lib["appcompat"]
-    implementation lib["recyclerview"]
+
+    implementation lib["core-ktx"]
+    implementation lib["kotlin-stdlib"]
 
     api lib["lifecycle-runtime"]
     api lib["lifecycle-extensions"]
     api lib["lifecycle-viewmodel"]
     api lib["lifecycle-livedata"]
 
-    api lib["rxandroid"]
-    api lib["rxjava"]
+    api lib["retrofit"]
+    api lib["converter-gson"]
 
     api lib["arouter-api"]
-    api lib["arouter-compiler"]
+    kapt lib["arouter-compiler"]
 
     api lib["eventbus"]
-    api lib["permission"]
     api lib["utilcodex"]
     api lib["immersionbar"]
-    api lib["Android-SpinKit"]
     api lib["loadsir"]
 }

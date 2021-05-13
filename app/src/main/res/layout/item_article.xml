@@ -6,7 +6,7 @@
 
         <variable
             name="articleBean"
-            type="com.hjc.base.bean.ArticleBean.DataBean.DatasBean" />
+            type="com.hjc.base.model.ArticleBean" />
 
         <import type="android.text.Html"/>
 
@@ -27,7 +27,6 @@
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:padding="10dp">
-
 
             <TextView
                 android:id="@+id/tv_chapter"
@@ -65,9 +64,7 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_chapter" />
 
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     </androidx.cardview.widget.CardView>
 
