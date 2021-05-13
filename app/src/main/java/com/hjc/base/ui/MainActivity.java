@@ -55,7 +55,7 @@ public class MainActivity extends BaseFragmentActivity<ActivityMainBinding, Comm
         requestPermission();
         registerBroadcastReceiver();
 
-//        anonymousInnerClass();
+        anonymousInnerClass();
     }
 
     /**
