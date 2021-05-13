@@ -5,10 +5,11 @@ buildscript {
     
     repositories {
         google()
+        //noinspection JcenterRepositoryObsolete
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.3'
+        classpath 'com.android.tools.build:gradle:4.2.0'
         
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -19,6 +20,7 @@ buildscript {
 allprojects {
     repositories {
         google()
+        //noinspection JcenterRepositoryObsolete
         jcenter()
         maven { url "https://jitpack.io" }
     }
@@ -26,13 +28,4 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
-}
-
-//统一版本号管理
-ext {
-
-    // SDK And Tools
-    minSdkVersion = 21
-    targetSdkVersion = 29
-    compileSdkVersion = 29
 }
