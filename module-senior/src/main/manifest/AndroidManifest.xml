@@ -1,0 +1,76 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hjc.module_senior">
+
+    <!--    单独module    -->
+
+    <application
+        android:name=".SeniorApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/senior_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/BaseAppTheme">
+
+        <activity android:name=".ui.SeniorActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name=".ui.motion.MotionActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.theme.ThemeActivity"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name=".ui.touch.TouchActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.touch.TouchCancelActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.touch.TouchDefaultActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.touch.TouchInterceptActivity"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name=".ui.view.ViewActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.view.ViewBaseActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.view.ViewCanvasActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.view.ViewPathActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.view.ViewPictureActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.view.ViewRadarActivity"
+            android:screenOrientation="portrait" />
+
+    </application>
+
+</manifest>

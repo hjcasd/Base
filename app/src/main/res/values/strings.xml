@@ -1,10 +1,4 @@
 <resources>
     <string name="app_name">Base</string>
 
-    <string name="app_tab1">首页</string>
-    <string name="app_tab2">框架</string>
-    <string name="app_tab3">高级</string>
-    <string name="app_tab4">其他</string>
-
-    <string name="app_splash_text">倒计时3S</string>
 </resources>

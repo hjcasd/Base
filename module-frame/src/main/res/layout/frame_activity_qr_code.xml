@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.hjc.library_widget.bar.TitleBar
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/frame_color"
+            app:leftImage="@mipmap/widget_icon_back"
+            app:titleColor="@color/base_white"
+            app:titleText="@string/frame_zxing_title" />
+
+        <Button
+            android:id="@+id/btn_scan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{onClickListener}"
+            android:text="@string/frame_zxing_btn1"
+            android:textAllCaps="false" />
+
+
+        <Button
+            android:id="@+id/btn_generate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{onClickListener}"
+            android:text="@string/frame_zxing_btn2"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_generate_logo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{onClickListener}"
+            android:text="@string/frame_zxing_btn3"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_recognition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{onClickListener}"
+            android:text="@string/frame_zxing_btn4"
+            android:textAllCaps="false" />
+
+        <ImageView
+            android:id="@+id/iv_code_pic"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:id="@+id/tv_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+</layout>

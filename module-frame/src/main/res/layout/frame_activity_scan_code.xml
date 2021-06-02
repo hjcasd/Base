@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.hjc.library_widget.bar.TitleBar
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/frame_color"
+            app:leftImage="@mipmap/widget_icon_back"
+            app:titleColor="@color/base_white"
+            app:titleText="@string/frame_code_title" />
+
+        <cn.bingoogolapple.qrcode.zxing.ZXingView
+            android:id="@+id/zxing_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:qrcv_animTime="1000"
+            app:qrcv_borderColor="@color/base_white"
+            app:qrcv_borderSize="1dp"
+            app:qrcv_cornerColor="@color/frame_color"
+            app:qrcv_cornerLength="20dp"
+            app:qrcv_cornerSize="3dp"
+            app:qrcv_maskColor="@color/frame_mask"
+            app:qrcv_rectWidth="240dp"
+            app:qrcv_scanLineColor="@color/frame_color"
+            app:qrcv_scanLineSize="1dp"
+            app:qrcv_topOffset="120dp" />
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,39 @@
+<resources>
+    <string name="home_name">首页模块</string>
+
+    <string name="home_title">首页</string>
+
+    <string name="home_btn1">DataBinding</string>
+    <string name="home_btn2">LiveData</string>
+    <string name="home_btn3">BindingAdapter</string>
+    <string name="home_btn4">Room</string>
+    <string name="home_btn5">Paging</string>
+    <string name="home_btn6">Coroutines</string>
+
+    <string name="home_adapter_title">BindingAdapter</string>
+    <string name="home_adapter_btn1">显示图片</string>
+    <string name="home_adapter_btn2">显示圆角图片</string>
+    <string name="home_adapter_btn3">显示圆形图片</string>
+
+    <string name="home_data_title">DataBinding</string>
+
+    <string name="home_live_title">LiveData</string>
+    <string name="home_data_btn1">显示数据</string>
+    <string name="home_data_btn2">改变数据</string>
+    <string name="home_data_btn3">隐藏数据</string>
+
+    <string name="home_paging_title">Paging</string>
+
+    <string name="home_room_title">Room</string>
+    <string name="home_room_btn1">Insert</string>
+    <string name="home_room_btn2">Query</string>
+    <string name="home_room_btn3">Update</string>
+    <string name="home_room_btn4">Delete</string>
+    <string name="home_room_info">Person: </string>
+
+    <string name="home_coroutines_title">Coroutines</string>
+    <string name="home_coroutines_btn1">launch</string>
+    <string name="home_coroutines_btn2">async</string>
+    <string name="home_coroutines_btn3">runBlocking</string>
+
+</resources>

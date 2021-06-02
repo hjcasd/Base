@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <com.hjc.library_widget.bar.TitleBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/other_color"
+            app:titleColor="@color/base_white"
+            app:titleText="@string/other_title" />
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/other_btn1"
+            android:onClick="@{onClickListener}"/>
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/other_btn2"
+            android:onClick="@{onClickListener}"/>
+
+    </LinearLayout>
+
+</layout>

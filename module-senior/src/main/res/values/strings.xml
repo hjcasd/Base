@@ -1,0 +1,64 @@
+<resources>
+    <string name="senior_name">高级模块</string>
+    <string name="senior_title">高级</string>
+
+    <string name="senior_tab3_btn1">事件传递解析</string>
+    <string name="senior_tab3_btn2">自定义View详解</string>
+    <string name="senior_tab3_btn3">夜间模式切换</string>
+    <string name="senior_tab3_btn4">MotionLayout</string>
+
+    <string name="senior_touch_title">Touch</string>
+    <string name="senior_touch_btn1">默认事件传递流程</string>
+    <string name="senior_touch_btn2">事件取消</string>
+    <string name="senior_touch_btn3">事件拦截</string>
+
+    <string name="senior_touch_cancel_title">TouchCancel</string>
+    <string name="senior_touch_cancel_btn">测试取消事件</string>
+
+    <string name="senior_touch_default_title">TouchDefault</string>
+    <string name="senior_touch_intercept_title">TouchIntercept</string>
+
+    <string name="senior_view_title">View</string>
+    <string name="senior_view_btn1">绘制基本图形</string>
+    <string name="senior_view_btn2">画布操作</string>
+    <string name="senior_view_btn3">绘制图片和文字</string>
+    <string name="senior_view_btn4">Path基本操作</string>
+    <string name="senior_view_btn5">自定义雷达图</string>
+
+    <string name="senior_view_base_title">绘制基本图形</string>
+    <string name="senior_view_base_btn1">画一个点</string>
+    <string name="senior_view_base_btn2">画多个点</string>
+    <string name="senior_view_base_btn3">画一条直线</string>
+    <string name="senior_view_base_btn4">画多条直线</string>
+    <string name="senior_view_base_btn5">画矩形</string>
+    <string name="senior_view_base_btn6">画圆角矩形</string>
+    <string name="senior_view_base_btn7">画椭圆</string>
+    <string name="senior_view_base_btn8">画圆</string>
+    <string name="senior_view_base_btn9">画圆弧</string>
+
+    <string name="senior_view_canvas_title">画布操作</string>
+    <string name="senior_view_canvas_btn1">平移</string>
+    <string name="senior_view_canvas_btn2">缩放</string>
+    <string name="senior_view_canvas_btn3">旋转</string>
+
+    <string name="senior_view_path_title">Path操作</string>
+    <string name="senior_view_path_btn1">基本操作1</string>
+    <string name="senior_view_path_btn2">基本操作2</string>
+    <string name="senior_view_path_btn3">基本操作3</string>
+    <string name="senior_view_path_btn4">基本操作4</string>
+
+    <string name="senior_view_picture_title">图片文字</string>
+    <string name="senior_view_picture_btn1">矢量图</string>
+    <string name="senior_view_picture_btn2">位图</string>
+    <string name="senior_view_picture_btn3">文字</string>
+    <string name="senior_view_radar_title">雷达图</string>
+
+    <string name="senior_theme_title">夜间模式</string>
+    <string name="senior_theme_btn">切换夜间模式</string>
+
+    <string name="senior_motion_title">MotionLayout的使用</string>
+    <string name="senior_motion_btn1">案例1</string>
+    <string name="senior_motion_btn2">案例2</string>
+    <string name="senior_motion_btn3">案例3</string>
+
+</resources>

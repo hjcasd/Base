@@ -12,13 +12,20 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/BaseLib" />
-            <option value="$PROJECT_DIR$/WebViewLib" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/library-base" />
+            <option value="$PROJECT_DIR$/library-common" />
+            <option value="$PROJECT_DIR$/library-net" />
+            <option value="$PROJECT_DIR$/library-web" />
+            <option value="$PROJECT_DIR$/library-widget" />
+            <option value="$PROJECT_DIR$/module-frame" />
+            <option value="$PROJECT_DIR$/module-home" />
+            <option value="$PROJECT_DIR$/module-main" />
+            <option value="$PROJECT_DIR$/module-other" />
+            <option value="$PROJECT_DIR$/module-senior" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
-        <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
     </option>
   </component>

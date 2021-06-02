@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.hjc.library_widget.bar.TitleBar
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/senior_color"
+            app:leftImage="@mipmap/widget_icon_back"
+            app:titleColor="@color/base_white"
+            app:titleText="@string/senior_touch_cancel_title" />
+
+        <com.hjc.module_senior.widget.event.MyScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/senior_color">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.hjc.module_senior.widget.event.MyButton
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/senior_green"
+                    android:text="@string/senior_touch_cancel_btn">
+
+                </com.hjc.module_senior.widget.event.MyButton>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1000dp" />
+
+            </LinearLayout>
+
+        </com.hjc.module_senior.widget.event.MyScrollView>
+
+    </LinearLayout>
+
+</layout>

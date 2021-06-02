@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.hjc.library_base">
+
+    <!--存储-->
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!--位置-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!--    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />-->
+
+    <!--相机-->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+
+    <application
+        android:allowBackup="true"
+        android:maxAspectRatio="2.4"
+        android:networkSecurityConfig="@xml/base_network_security_config"
+        android:preserveLegacyExternalStorage="true"
+        android:requestLegacyExternalStorage="true"
+        android:resizeableActivity="true"
+        android:supportsRtl="true"
+        android:theme="@style/BaseAppTheme"
+        tools:ignore="AllowBackup,UnusedAttribute">
+
+
+        <!--适配通用刘海屏-->
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.4" />
+
+        <!--适配华为刘海屏-->
+        <meta-data
+            android:name="android.notch_support"
+            android:value="true" />
+
+        <!--适配小米刘海屏-->
+        <meta-data
+            android:name="notch.config"
+            android:value="portrait|landscape" />
+
+
+        <!--============================================文件访问权限=========================================-->
+        <provider
+            android:name=".utils.MyFileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/base_file_provider_paths" />
+        </provider>
+
+    </application>
+
+</manifest>

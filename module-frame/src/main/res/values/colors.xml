@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="frame_color">#53AC49</color>
+    <color name="frame_mask">#33ffffff</color>
+
+</resources>

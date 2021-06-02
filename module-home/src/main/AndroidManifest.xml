@@ -1,0 +1,32 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hjc.module_home">
+
+    <application>
+
+        <activity
+            android:name=".ui.HomeActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.binding.DataActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.live.LiveActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.adapter.BindingAdapterActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.paging.PagingActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.coroutines.CoroutinesActivity"
+            android:screenOrientation="portrait" />
+
+    </application>
+
+</manifest>

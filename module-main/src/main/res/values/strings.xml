@@ -1,0 +1,20 @@
+<resources>
+    <string name="main_name">Main模块</string>
+
+    <string name="main_tab1">首页</string>
+    <string name="main_tab2">框架</string>
+    <string name="main_tab3">高级</string>
+    <string name="main_tab4">其他</string>
+
+    <string name="main_splash_text">倒计时3S</string>
+    <string name="main_close">关闭</string>
+    <string name="main_web_back">返回</string>
+
+    <string name="main_menu_web1">刷新</string>
+    <string name="main_menu_web2">分享</string>
+    <string name="main_menu_web3">复制链接</string>
+    <string name="main_menu_web4">浏览器打开</string>
+
+    <string name="main_test">测试</string>
+
+</resources>

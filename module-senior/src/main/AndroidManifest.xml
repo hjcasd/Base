@@ -1,0 +1,63 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hjc.module_senior">
+
+    <application>
+
+        <activity
+            android:name=".ui.SeniorActivity"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name=".ui.motion.MotionActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.theme.ThemeActivity"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name=".ui.touch.TouchActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.touch.TouchCancelActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.touch.TouchDefaultActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.touch.TouchInterceptActivity"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name=".ui.view.ViewActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.view.ViewBaseActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.view.ViewCanvasActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.view.ViewPathActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.view.ViewPictureActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.view.ViewRadarActivity"
+            android:screenOrientation="portrait" />
+
+    </application>
+
+</manifest>

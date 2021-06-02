@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.hjc.library_widget.bar.TitleBar
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/senior_color"
+            app:leftImage="@mipmap/widget_icon_back"
+            app:titleColor="@color/base_white"
+            app:titleText="@string/senior_touch_default_title" />
+
+        <com.hjc.module_senior.widget.event.MyViewGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/senior_color">
+
+            <com.hjc.module_senior.widget.event.MyView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:background="@color/senior_green">
+
+            </com.hjc.module_senior.widget.event.MyView>
+
+        </com.hjc.module_senior.widget.event.MyViewGroup>
+
+    </LinearLayout>
+
+</layout>

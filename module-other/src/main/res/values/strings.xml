@@ -1,0 +1,13 @@
+<resources>
+    <string name="other_name">其他模块</string>
+
+    <string name="other_title">其他</string>
+    <string name="other_btn1">登录</string>
+    <string name="other_btn2">退出</string>
+
+    <string name="other_login_title">登录案例</string>
+    <string name="other_login_username_hint">请输入用户名</string>
+    <string name="other_login_pwd_hint">请输入密码</string>
+    <string name="other_login_btn">登录</string>
+    <string name="other_login_info">登录信息: </string>
+</resources>

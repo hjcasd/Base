@@ -1,8 +1,10 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
 
 def config = rootProject.ext.android
-def app = rootProject.ext.app
-def lib = rootProject.ext.dependencies
 
 //获取当前日期
 def static releaseTime() {
@@ -35,6 +37,12 @@ android {
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+
+        kapt {
+            arguments {
+                arg("AROUTER_MODULE_NAME", project.getName())
             }
         }
     }
@@ -127,45 +135,18 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    testImplementation lib["junit"]
-    androidTestImplementation lib["testJunit"]
-    androidTestImplementation lib["espresso-core"]
+    // 路由
+    kapt 'com.alibaba:arouter-compiler:1.5.1'
 
-    implementation lib["constraintlayout"]
-    implementation lib["appcompat"]
-    implementation lib["recyclerview"]
-    implementation lib["material"]
+    implementation project(':library-common')
 
-    implementation lib["room-runtime"]
-    annotationProcessor lib["room-compiler"]
-    implementation lib["paging-runtime"]
-
-    implementation lib["retrofit"]
-    implementation lib["converter-gson"]
-    implementation lib["adapter-rxjava2"]
-
-    implementation lib["multidex"]
-
-    implementation lib["glide"]
-    annotationProcessor lib["glide-compiler"]
-    implementation lib["glide-transformations"]
-
-    annotationProcessor lib["arouter-compiler"]
-
-    implementation lib["crashreport"]
-    implementation lib["nativecrashreport"]
-
-    implementation lib["BaseRecyclerViewAdapterHelper"]
-
-    implementation lib["SmartRefreshLayout"]
-    implementation lib["SmartRefreshHeader"]
-
-    implementation lib["zxing"]
-
-    // 内存泄漏检测
-    debugImplementation lib.leakcanary_android
-
-    implementation project(path: ':BaseLib')
-    implementation project(path: ':WebViewLib')
+    // 是否独立运行
+    if (!isRunModule.toBoolean()) {
+        implementation project(':module-main')
+        implementation project(':module-home')
+        implementation project(':module-frame')
+        implementation project(':module-senior')
+        implementation project(':module-other')
+    }
 
 }
