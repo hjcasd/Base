@@ -5,6 +5,7 @@ plugins {
 }
 
 def config = rootProject.ext.android
+def app = rootProject.ext.app
 
 android {
     compileSdkVersion config.compileSdkVersion
@@ -29,14 +30,14 @@ android {
     buildTypes {
 
         debug {
-            buildConfigField ('boolean', 'IS_DEBUG', "true")
+            buildConfigField ('boolean', 'IS_DEBUG', app.IS_DEBUG)
         }
 
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
-            buildConfigField ('boolean', 'IS_DEBUG', "false")
+            buildConfigField ('boolean', 'IS_DEBUG', "true")
         }
     }
 

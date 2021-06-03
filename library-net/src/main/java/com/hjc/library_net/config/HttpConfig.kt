@@ -10,8 +10,6 @@ object HttpConfig {
     //超时时间(s)
     const val HTTP_TIME_OUT = 20
 
-    const val IS_DEBUG = true
-
     //服务器地址1
     const val DEFAULT_BASE_URL = "https://www.wanandroid.com"
 

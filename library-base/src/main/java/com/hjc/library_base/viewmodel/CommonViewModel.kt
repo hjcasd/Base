@@ -1,7 +1,6 @@
 package com.hjc.library_base.viewmodel
 
 import android.app.Application
-import com.hjc.library_base.model.CommonModel
 
 /**
  * @Author: HJC
@@ -10,10 +9,7 @@ import com.hjc.library_base.model.CommonModel
  */
 open class CommonViewModel(application: Application) : BaseViewModel(application) {
 
-    private var mModel: CommonModel = CommonModel()
-
     fun show() {
-        mModel.show()
-    }
 
+    }
 }

@@ -5,11 +5,12 @@ import androidx.lifecycle.viewModelScope
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.hjc.library_common.viewmodel.KotlinViewModel
-import com.hjc.library_net.RetrofitClient
-import com.hjc.library_net.exception.ServerCode
+import com.hjc.module_home.model.CoroutinesModel
 import kotlinx.coroutines.*
 
 class CoroutinesViewModel(application: Application) : KotlinViewModel(application) {
+
+    private val mModel = CoroutinesModel()
 
     fun loadData() {
         showLoading()
@@ -18,10 +19,10 @@ class CoroutinesViewModel(application: Application) : KotlinViewModel(applicatio
                 withContext(Dispatchers.IO) {
                     // 并发请求
                     val deferred1 = async {
-                        RetrofitClient.getApiService2().getGankIoData("GanHuo", "All", 1, 20)
+                        mModel.getGankIoData()
                     }
                     val deferred2 = async {
-                        RetrofitClient.getApiService2().getHotFilm()
+                        mModel.getHotFilm()
                     }
                     val result1 = deferred1.await()
                     val result2 = deferred2.await()
@@ -46,11 +47,11 @@ class CoroutinesViewModel(application: Application) : KotlinViewModel(applicatio
     fun launchTest() {
         GlobalScope.launch {
             // suspend关键字定义挂起函数
-            val response = RetrofitClient.getApiService1().login("hjcasd", "asd123456789")
-            if (response.errorCode == ServerCode.CODE_SUCCESS) {
+            val response =  mModel.getGankIoData()
+            if (response != null) {
                 ToastUtils.showShort("请求成功")
             } else {
-                ToastUtils.showShort(response.errorMsg)
+                ToastUtils.showShort("请求失败")
             }
         }
     }

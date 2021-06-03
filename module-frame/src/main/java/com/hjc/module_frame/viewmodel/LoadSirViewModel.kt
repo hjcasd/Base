@@ -4,19 +4,21 @@ import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import com.blankj.utilcode.util.ToastUtils
 import com.hjc.library_common.viewmodel.KotlinViewModel
-import com.hjc.library_net.RetrofitClient
-import com.hjc.library_net.model.ArticleBean
+import com.hjc.module_frame.entity.ArticleBean
+import com.hjc.module_frame.model.LoadSirModel
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 
-class ListViewModel(application: Application) : KotlinViewModel(application) {
+class LoadSirViewModel(application: Application) : KotlinViewModel(application) {
+
+    private val mModel = LoadSirModel()
 
     val listData = MutableLiveData<MutableList<ArticleBean>>()
     val refreshData = MutableLiveData<Boolean>()
 
     fun loadArticleList(page: Int, isShowProgress: Boolean) {
         launchWrapper({
-            RetrofitClient.getApiService1().getArticleList(page)
+            mModel.getArticleList(page)
         }, { result ->
             refreshData.value = true
 

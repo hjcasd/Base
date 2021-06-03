@@ -7,6 +7,7 @@ import com.hjc.library_base.BaseApplication
 import com.hjc.library_common.global.AppConstants
 import com.hjc.library_common.module.IModuleInit
 import com.hjc.library_common.utils.BuglyUtils
+import com.hjc.library_net.RetrofitClient
 import com.hjc.library_web.utils.X5WebUtils
 
 /**
@@ -21,6 +22,7 @@ class CommonModuleInit : IModuleInit {
         initARouter(application)
         BuglyUtils.init(application)
         X5WebUtils.init(application)
+        initRetrofit()
         return false
     }
 
@@ -47,6 +49,10 @@ class CommonModuleInit : IModuleInit {
         }
         // 尽可能早，推荐在Application中初始化
         ARouter.init(application)
+    }
+
+    private fun initRetrofit() {
+        RetrofitClient.init(AppConstants.APP_IS_DEBUG)
     }
 
     override fun onInitAfter(application: BaseApplication): Boolean {

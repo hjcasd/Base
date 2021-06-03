@@ -5,12 +5,12 @@ import androidx.lifecycle.MutableLiveData
 import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.hjc.library_common.viewmodel.KotlinViewModel
-import com.hjc.library_net.model.LoginBean
+import com.hjc.module_other.entity.LoginBean
 import com.hjc.module_other.model.LoginModel
 
 class LoginViewModel(application: Application) : KotlinViewModel(application) {
 
-    private val loginModel: LoginModel = LoginModel()
+    private val loginModel = LoginModel()
 
     val loginData = MutableLiveData<LoginBean>()
     val usernameData = MutableLiveData<String>()

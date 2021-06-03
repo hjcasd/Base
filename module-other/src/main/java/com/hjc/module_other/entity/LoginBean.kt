@@ -1,4 +1,4 @@
-package com.hjc.library_net.model
+package com.hjc.module_other.entity
 
 import java.io.Serializable
 

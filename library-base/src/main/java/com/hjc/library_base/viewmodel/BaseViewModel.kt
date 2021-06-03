@@ -5,6 +5,8 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.hjc.library_base.base.BaseActionEvent
 import com.hjc.library_base.base.IViewModelAction
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
 
 /**
  * @Author: HJC
@@ -14,7 +16,25 @@ import com.hjc.library_base.base.IViewModelAction
 open class BaseViewModel(application: Application) : AndroidViewModel(application),
     IViewModelAction {
 
+    private var mCompositeDisposable: CompositeDisposable? = null
+
     private val actionLiveData: MutableLiveData<BaseActionEvent> = MutableLiveData()
+
+    fun addDisposable(disposable: Disposable) {
+        if (mCompositeDisposable == null) {
+            mCompositeDisposable = CompositeDisposable()
+        }
+        mCompositeDisposable?.add(disposable)
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        mCompositeDisposable?.let {
+            if (!it.isDisposed) {
+                it.clear()
+            }
+        }
+    }
 
     override fun getActionLiveData(): MutableLiveData<BaseActionEvent> {
         return actionLiveData

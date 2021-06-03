@@ -57,4 +57,5 @@ object CommonUtils {
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
         context.startActivity(Intent.createChooser(intent, "分享"))
     }
+
 }

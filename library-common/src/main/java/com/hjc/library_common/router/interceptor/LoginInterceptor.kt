@@ -1,4 +1,4 @@
-package com.hjc.library_common.interceptor
+package com.hjc.library_common.router.interceptor
 
 import android.content.Context
 import com.alibaba.android.arouter.facade.Postcard

@@ -13,7 +13,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-abstract class KotlinViewModel(application: Application) : BaseViewModel(application) {
+open class KotlinViewModel(application: Application) : BaseViewModel(application) {
 
     /**
      * 请求处理(response封装)

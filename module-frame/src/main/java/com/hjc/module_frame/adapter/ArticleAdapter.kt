@@ -4,9 +4,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
-import com.hjc.library_net.model.ArticleBean
 import com.hjc.module_frame.R
 import com.hjc.module_frame.databinding.FrameItemArticleBinding
+import com.hjc.module_frame.entity.ArticleBean
 
 /**
  * @Author: HJC

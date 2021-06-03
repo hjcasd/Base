@@ -13,7 +13,7 @@ import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_frame.R
 import com.hjc.module_frame.adapter.ArticleAdapter
 import com.hjc.module_frame.databinding.FrameActivityLoadSirBinding
-import com.hjc.module_frame.viewmodel.ListViewModel
+import com.hjc.module_frame.viewmodel.LoadSirViewModel
 import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
 
@@ -23,7 +23,7 @@ import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
  * @Description: 列表
  */
 @Route(path = RoutePath.Frame.URL_LOAD_SIR)
-class LoadSirActivity : BaseActivity<FrameActivityLoadSirBinding, ListViewModel>() {
+class LoadSirActivity : BaseActivity<FrameActivityLoadSirBinding, LoadSirViewModel>() {
 
     private lateinit var mAdapter: ArticleAdapter
 
@@ -34,8 +34,8 @@ class LoadSirActivity : BaseActivity<FrameActivityLoadSirBinding, ListViewModel>
         return R.layout.frame_activity_load_sir
     }
 
-    override fun createViewModel(): ListViewModel {
-        return ViewModelProvider(this)[ListViewModel::class.java]
+    override fun createViewModel(): LoadSirViewModel {
+        return ViewModelProvider(this)[LoadSirViewModel::class.java]
     }
 
     override fun initView() {

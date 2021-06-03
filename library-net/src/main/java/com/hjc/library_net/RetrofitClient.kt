@@ -1,14 +1,16 @@
 package com.hjc.library_net
 
+import android.annotation.SuppressLint
 import com.hjc.library_net.config.HttpConfig
 import com.hjc.library_net.interceptor.BaseUrlInterceptor
 import com.hjc.library_net.interceptor.LogInterceptor
-import com.hjc.library_net.service.ApiService1
-import com.hjc.library_net.service.ApiService2
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.security.SecureRandom
+import java.security.cert.X509Certificate
 import java.util.concurrent.TimeUnit
+import javax.net.ssl.*
 
 /**
  * @Author: HJC
@@ -16,42 +18,63 @@ import java.util.concurrent.TimeUnit
  * @Description: Retrofit封装
  */
 object RetrofitClient {
-    private var mRetrofit: Retrofit
 
-    init {
-        mRetrofit = Retrofit.Builder()
-            .baseUrl(HttpConfig.DEFAULT_BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-//            .addCallAdapterFactory(CoroutineCallAdapterFactory())
-            .client(getBuilder().build())
+    private lateinit var mRetrofit: Retrofit
 
-            .build()
-    }
-
-    fun getApiService1(): ApiService1 {
-        return mRetrofit.create(ApiService1::class.java)
-    }
-
-    fun getApiService2(): ApiService2 {
-        return mRetrofit.create(ApiService2::class.java)
-    }
-
-    fun <T> getApiService(apiService: Class<T>): T{
-        return mRetrofit.create(apiService)
-    }
-
-    private fun getBuilder(): OkHttpClient.Builder {
+    fun init(isDebug: Boolean) {
         val builder: OkHttpClient.Builder = OkHttpClient.Builder()
         builder.connectTimeout(HttpConfig.HTTP_TIME_OUT.toLong(), TimeUnit.SECONDS)
             .readTimeout(HttpConfig.HTTP_TIME_OUT.toLong(), TimeUnit.SECONDS)
             .writeTimeout(HttpConfig.HTTP_TIME_OUT.toLong(), TimeUnit.SECONDS)
             .retryOnConnectionFailure(true)
+            .sslSocketFactory(createSSLSocketFactory(), trustAllCerts[0] as X509TrustManager)
+            .hostnameVerifier(TrustAllHostnameVerifier())
             .addInterceptor(BaseUrlInterceptor())
 
-        if (HttpConfig.IS_DEBUG) {
+        if (isDebug) {
             builder.addInterceptor(LogInterceptor())
         }
-        return builder
+
+        mRetrofit = Retrofit.Builder()
+            .baseUrl(HttpConfig.DEFAULT_BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+//            .addCallAdapterFactory(CoroutineCallAdapterFactory())
+            .client(builder.build())
+            .build()
+    }
+
+    fun getRetrofit(): Retrofit {
+        return mRetrofit
+    }
+
+    /**
+     * 设置https证书
+     */
+    private fun createSSLSocketFactory(): SSLSocketFactory {
+        val sc = SSLContext.getInstance("TLS")
+        sc.init(null, trustAllCerts, SecureRandom())
+        return sc.socketFactory
+    }
+
+    private val trustAllCerts = arrayOf<TrustManager>(object : X509TrustManager {
+        @SuppressLint("TrustAllX509TrustManager")
+        override fun checkClientTrusted(chain: Array<X509Certificate>, authType: String) {
+        }
+
+        @SuppressLint("TrustAllX509TrustManager")
+        override fun checkServerTrusted(chain: Array<X509Certificate>, authType: String) {
+        }
+
+        override fun getAcceptedIssuers(): Array<X509Certificate> {
+            return arrayOf()
+        }
+    })
+
+    private class TrustAllHostnameVerifier : HostnameVerifier {
+        @SuppressLint("BadHostnameVerifier")
+        override fun verify(hostname: String, session: SSLSession): Boolean {
+            return true
+        }
     }
 
 }
