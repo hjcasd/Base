@@ -3,6 +3,7 @@ package com.hjc.module_main.ui
 import android.Manifest
 import android.content.IntentFilter
 import android.os.Bundle
+import android.os.SystemClock
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.facade.annotation.Route
@@ -67,6 +68,7 @@ class MainActivity : BaseFragmentActivity<MainActivityBinding, CommonViewModel>(
 
         requestPermission()
         registerBroadcastReceiver()
+        anonymousInnerClass()
     }
 
     /**
@@ -113,6 +115,20 @@ class MainActivity : BaseFragmentActivity<MainActivityBinding, CommonViewModel>(
         mNetWorkChangeReceiver = NetworkChangeReceiver()
         //注册广播
         registerReceiver(mNetWorkChangeReceiver, intentFilter)
+    }
+
+    /**
+     * LeakCanary测试代码
+     * 匿名内部类持有外部类实例引用
+     */
+    private fun anonymousInnerClass() {
+        object : Thread() {
+            override fun run() {
+                //执行异步处理
+                LogUtils.e("1111111")
+                SystemClock.sleep(240000)
+            }
+        }.start()
     }
 
     override fun addListeners() {

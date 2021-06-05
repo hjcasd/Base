@@ -27,7 +27,7 @@ object RetrofitClient {
             .readTimeout(HttpConfig.HTTP_TIME_OUT.toLong(), TimeUnit.SECONDS)
             .writeTimeout(HttpConfig.HTTP_TIME_OUT.toLong(), TimeUnit.SECONDS)
             .retryOnConnectionFailure(true)
-            .sslSocketFactory(createSSLSocketFactory(), trustAllCerts[0] as X509TrustManager)
+            .sslSocketFactory(createSSLSocketFactory(), mTrustAllCerts[0] as X509TrustManager)
             .hostnameVerifier(TrustAllHostnameVerifier())
             .addInterceptor(BaseUrlInterceptor())
 
@@ -52,11 +52,11 @@ object RetrofitClient {
      */
     private fun createSSLSocketFactory(): SSLSocketFactory {
         val sc = SSLContext.getInstance("TLS")
-        sc.init(null, trustAllCerts, SecureRandom())
+        sc.init(null, mTrustAllCerts, SecureRandom())
         return sc.socketFactory
     }
 
-    private val trustAllCerts = arrayOf<TrustManager>(object : X509TrustManager {
+    private val mTrustAllCerts = arrayOf<TrustManager>(object : X509TrustManager {
         @SuppressLint("TrustAllX509TrustManager")
         override fun checkClientTrusted(chain: Array<X509Certificate>, authType: String) {
         }

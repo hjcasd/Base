@@ -14,12 +14,13 @@ import io.reactivex.disposables.Disposable
  * @Date: 2019/1/7 11:52
  * @Description: 带进度的Observer
  */
-abstract class BaseProgressObserver<T>(baseViewModel: BaseViewModel) : Observer<BaseResponse<T>> {
+abstract class BaseProgressObserver<T>(private val mBaseViewModel: BaseViewModel) : Observer<BaseResponse<T>> {
 
-    private val mBaseViewModel: BaseViewModel = baseViewModel
+    private lateinit var mDisposable: Disposable
 
     override fun onSubscribe(d: Disposable) {
         mBaseViewModel.addDisposable(d)
+        mDisposable = d
         mBaseViewModel.showLoading()
     }
 
@@ -33,6 +34,9 @@ abstract class BaseProgressObserver<T>(baseViewModel: BaseViewModel) : Observer<
     }
 
     override fun onError(e: Throwable) {
+        if (!mDisposable.isDisposed) {
+            mDisposable.dispose()
+        }
         onFailure(e)
     }
 
@@ -42,6 +46,9 @@ abstract class BaseProgressObserver<T>(baseViewModel: BaseViewModel) : Observer<
     }
 
     override fun onComplete() {
+        if (!mDisposable.isDisposed) {
+            mDisposable.dispose()
+        }
         mBaseViewModel.dismissLoading()
     }
 
