@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="other_color">#DCB247</color>
+    <color name="other_red">#ff0000</color>
+    <color name="other_red_dark">#d81e06</color>
 
 </resources>

@@ -11,4 +11,5 @@ import com.hjc.library_common.BuildConfig
 object AppConstants {
 
     const val APP_IS_DEBUG = BuildConfig.IS_DEBUG
+
 }

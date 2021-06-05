@@ -2,9 +2,9 @@ package com.hjc.module_other.http
 
 import com.hjc.library_net.bean.BaseResponse
 import com.hjc.module_other.entity.LoginBean
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import io.reactivex.Observable
+import okhttp3.ResponseBody
+import retrofit2.http.*
 
 /**
  * @Author: HJC
@@ -22,4 +22,14 @@ interface OtherService {
         @Field("username") username: String?,
         @Field("password") pwd: String?
     ): BaseResponse<LoginBean>
+
+    /**
+     * 下载App
+     *
+     * @param url 下载apk链接
+     * @return 下载响应数据
+     */
+    @Streaming
+    @GET
+    fun downloadApk(@Url url: String?): Observable<ResponseBody>
 }

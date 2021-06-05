@@ -4,16 +4,16 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.ViewModelProvider
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.fragment.BaseFragment
 import com.hjc.library_base.utils.ActivityHelper
+import com.hjc.library_base.viewmodel.CommonViewModel
 import com.hjc.library_common.router.RouteManager
 import com.hjc.library_common.router.RoutePath
 import com.hjc.module_other.R
 import com.hjc.module_other.databinding.OtherFragmentBinding
-import com.hjc.module_other.viewmodel.OtherViewModel
+import com.hjc.module_other.dialog.UpdateDialog
 
 /**
  * @Author: HJC
@@ -21,14 +21,14 @@ import com.hjc.module_other.viewmodel.OtherViewModel
  * @Description: OtherFragment
  */
 @Route(path = RoutePath.Other.URL_OTHER_FRAGMENT)
-class OtherFragment : BaseFragment<OtherFragmentBinding, OtherViewModel>() {
+class OtherFragment : BaseFragment<OtherFragmentBinding, CommonViewModel>() {
 
     override fun getLayoutId(): Int {
         return R.layout.other_fragment
     }
 
-    override fun createViewModel(): OtherViewModel {
-        return ViewModelProvider(this)[OtherViewModel::class.java]
+    override fun createViewModel(): CommonViewModel? {
+        return null
     }
 
     override fun getImmersionBar(): ImmersionBar? {
@@ -63,6 +63,12 @@ class OtherFragment : BaseFragment<OtherFragmentBinding, OtherViewModel>() {
                         ActivityHelper.finishAllActivities()
                     }
                     .show()
+            }
+
+            R.id.btn3 -> UpdateDialog.newInstance().showDialog(childFragmentManager)
+
+            else -> {
+
             }
         }
     }

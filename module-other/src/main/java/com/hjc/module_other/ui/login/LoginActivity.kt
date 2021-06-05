@@ -11,7 +11,7 @@ import com.hjc.library_common.router.RoutePath
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_other.R
 import com.hjc.module_other.databinding.OtherActivityLoginBinding
-import com.hjc.module_other.viewmodel.login.LoginViewModel
+import com.hjc.module_other.viewmodel.LoginViewModel
 
 /**
  * @Author: HJC

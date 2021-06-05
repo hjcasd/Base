@@ -37,6 +37,13 @@
             android:text="@string/other_btn2"
             android:onClick="@{onClickListener}"/>
 
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/other_btn3"
+            android:onClick="@{onClickListener}"/>
+
     </LinearLayout>
 
 </layout>

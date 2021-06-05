@@ -1,4 +1,4 @@
-package com.hjc.module_other.viewmodel.login
+package com.hjc.module_other.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData

@@ -1,6 +1,7 @@
 package com.hjc.library_base
 
 import android.app.Activity
+import android.app.Application
 import android.os.Bundle
 import androidx.multidex.MultiDexApplication
 import com.hjc.library_base.loadsir.*
@@ -14,8 +15,17 @@ import com.kingja.loadsir.core.LoadSir
  */
 abstract class BaseApplication : MultiDexApplication() {
 
+    companion object {
+        private lateinit var mInstance: Application
+
+        fun getApp(): Application {
+            return mInstance
+        }
+    }
+
     override fun onCreate() {
         super.onCreate()
+        mInstance = this
 
         initLoadSir()
         registerActivity()

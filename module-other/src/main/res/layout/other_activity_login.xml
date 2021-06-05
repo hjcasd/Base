@@ -6,7 +6,7 @@
 
         <variable
             name="loginViewModel"
-            type="com.hjc.module_other.viewmodel.login.LoginViewModel" />
+            type="com.hjc.module_other.viewmodel.LoginViewModel" />
 
         <variable
             name="onClickListener"
