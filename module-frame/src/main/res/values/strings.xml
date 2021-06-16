@@ -26,4 +26,6 @@
     <string name="frame_zxing_btn3">生成二维码(logo)</string>
     <string name="frame_zxing_btn4">识别图片二维码</string>
 
+    <string name="frame_please_input">请输入</string>
+
 </resources>
