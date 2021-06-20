@@ -9,6 +9,7 @@ import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.hjc.library_base.utils.ClickUtils
 import com.hjc.library_common.global.GlobalKey
+import com.hjc.library_common.router.path.RouteMainPath
 
 /**
  * @Author: HJC
@@ -108,7 +109,7 @@ object RouteManager {
             return
         }
         ARouter.getInstance()
-            .build(RoutePath.Main.URL_WEB)
+            .build(RouteMainPath.URL_WEB)
             .withString("title", title)
             .withString("url", url)
             .navigation()

@@ -1,4 +1,4 @@
-package com.hjc.library_common.adapter
+package com.hjc.library_base.adapter
 
 import android.content.Context
 import android.util.SparseArray

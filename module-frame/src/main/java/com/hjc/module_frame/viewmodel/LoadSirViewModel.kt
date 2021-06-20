@@ -40,9 +40,9 @@ class LoadSirViewModel(application: Application) : KotlinViewModel(application) 
             refreshData.value = true
 
             if (e is UnknownHostException || e is SocketTimeoutException) {
-                showError()
-            } else {
                 showTimeout()
+            } else {
+                showError()
             }
         }, isShowProgress = isShowProgress)
     }

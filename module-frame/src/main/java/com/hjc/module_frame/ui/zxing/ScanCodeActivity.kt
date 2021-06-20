@@ -8,8 +8,8 @@ import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
-import com.hjc.library_base.viewmodel.CommonViewModel
-import com.hjc.library_common.router.RoutePath
+import com.hjc.library_common.router.path.RouteFramePath
+import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_frame.R
 import com.hjc.module_frame.databinding.FrameActivityScanCodeBinding
@@ -19,7 +19,7 @@ import com.hjc.module_frame.databinding.FrameActivityScanCodeBinding
  * @Date: 2019/7/29 14:29
  * @Description: 扫描二维码
  */
-@Route(path = RoutePath.Frame.URL_SCAN_CODE)
+@Route(path = RouteFramePath.URL_SCAN_CODE)
 class ScanCodeActivity : BaseActivity<FrameActivityScanCodeBinding, CommonViewModel>(),
     QRCodeView.Delegate {
 

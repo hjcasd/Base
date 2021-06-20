@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.hjc.library_base.activity.BaseActivity
-import com.hjc.library_base.viewmodel.CommonViewModel
-import com.hjc.library_common.router.RoutePath
+import com.hjc.library_common.router.path.RouteFramePath
+import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.module_frame.R
 import com.hjc.module_frame.databinding.FrameActivityBinding
 
@@ -14,7 +14,7 @@ import com.hjc.module_frame.databinding.FrameActivityBinding
  * @Date: 2021/1/20 14:59
  * @Description: FrameActivity
  */
-@Route(path = RoutePath.Frame.URL_FRAME_ACTIVITY)
+@Route(path = RouteFramePath.URL_FRAME_ACTIVITY)
 class FrameActivity : BaseActivity<FrameActivityBinding, CommonViewModel>() {
 
     override fun getLayoutId(): Int {

@@ -5,7 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.fragment.BaseFragment
-import com.hjc.library_base.viewmodel.CommonViewModel
+import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.module_main.R
 import com.hjc.module_main.databinding.MainFragmentTestBinding
 

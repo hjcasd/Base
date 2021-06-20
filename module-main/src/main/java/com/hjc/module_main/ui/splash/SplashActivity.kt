@@ -5,9 +5,9 @@ import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
-import com.hjc.library_base.viewmodel.CommonViewModel
 import com.hjc.library_common.router.RouteManager
-import com.hjc.library_common.router.RoutePath
+import com.hjc.library_common.router.path.RouteMainPath
+import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.library_net.utils.RxSchedulers
 import com.hjc.module_main.R
 import com.hjc.module_main.databinding.MainActivitySplashBinding
@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit
  * @Date: 2021/1/8 9:44
  * @Description: 启动页
  */
-@Route(path = RoutePath.Main.URL_SPLASH)
+@Route(path = RouteMainPath.URL_SPLASH)
 class SplashActivity : BaseActivity<MainActivitySplashBinding, CommonViewModel>() {
 
     private var disposable1: Disposable? = null
@@ -67,7 +67,7 @@ class SplashActivity : BaseActivity<MainActivitySplashBinding, CommonViewModel>(
     }
 
     private fun toMain() {
-        RouteManager.jump(RoutePath.Main.URL_MAIN)
+        RouteManager.jump(RouteMainPath.URL_MAIN)
         finish()
     }
 

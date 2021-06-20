@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
-import com.hjc.library_common.router.RoutePath
+import com.hjc.library_common.router.path.RouteHomePath
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_home.R
 import com.hjc.module_home.databinding.HomeActivityCoroutinesBinding
@@ -17,7 +17,7 @@ import com.hjc.module_home.viewmodel.coroutines.CoroutinesViewModel
  * @Date: 2021/1/8 10:56
  * @Description: 协程
  */
-@Route(path = RoutePath.Home.URL_COROUTINES)
+@Route(path = RouteHomePath.URL_COROUTINES)
 class CoroutinesActivity : BaseActivity<HomeActivityCoroutinesBinding, CoroutinesViewModel>() {
 
     /**

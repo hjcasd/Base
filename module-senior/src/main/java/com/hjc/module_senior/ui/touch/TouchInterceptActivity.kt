@@ -7,8 +7,8 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.blankj.utilcode.util.LogUtils
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
-import com.hjc.library_base.viewmodel.CommonViewModel
-import com.hjc.library_common.router.RoutePath
+import com.hjc.library_common.router.path.RouteSeniorPath
+import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_senior.R
 import com.hjc.module_senior.databinding.SeniorActivityTouchInterceptBinding
@@ -18,7 +18,7 @@ import com.hjc.module_senior.databinding.SeniorActivityTouchInterceptBinding
  * @Date: 2019/10/15 16:58
  * @Description: 验证事件拦截逻辑
  */
-@Route(path = RoutePath.Senior.URL_TOUCH_INTERCEPT)
+@Route(path = RouteSeniorPath.URL_TOUCH_INTERCEPT)
 class TouchInterceptActivity : BaseActivity<SeniorActivityTouchInterceptBinding, CommonViewModel>() {
 
     /*

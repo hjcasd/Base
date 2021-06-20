@@ -3,9 +3,10 @@ package com.hjc.module_home.ui.binding
 import android.os.Bundle
 import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
-import com.hjc.library_base.viewmodel.CommonViewModel
-import com.hjc.library_common.router.RoutePath
+import com.hjc.library_common.router.path.RouteHomePath
+import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_home.R
 import com.hjc.module_home.databinding.HomeActivityDataBinding
@@ -16,7 +17,7 @@ import com.hjc.module_home.entity.PersonBean
  * @Date: 2020/5/14 15:27
  * @Description: DataBinding
  */
-@Route(path = RoutePath.Home.URL_DATA_BINDING)
+@Route(path = RouteHomePath.URL_DATA_BINDING)
 class DataActivity : BaseActivity<HomeActivityDataBinding, CommonViewModel>() {
 
     private val personBean: PersonBean = PersonBean()
@@ -27,6 +28,12 @@ class DataActivity : BaseActivity<HomeActivityDataBinding, CommonViewModel>() {
 
     override fun createViewModel(): CommonViewModel? {
         return null
+    }
+
+    override fun getImmersionBar(): ImmersionBar? {
+        return ImmersionBar.with(this)
+            .fitsSystemWindows(true)
+            .statusBarColor(R.color.home_color)
     }
 
     override fun initData(savedInstanceState: Bundle?) {

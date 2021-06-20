@@ -1,5 +1,6 @@
 package com.hjc.library_base.fragment
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -23,6 +24,10 @@ import com.hjc.library_base.utils.ClickUtils
 import com.hjc.library_base.viewmodel.BaseViewModel
 import com.kingja.loadsir.core.LoadService
 import com.kingja.loadsir.core.LoadSir
+import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
+import java.util.concurrent.TimeUnit
 
 /**
  * @Author: HJC
@@ -172,39 +177,52 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel> : Fragmen
     open fun onRetryBtnClick(v: View?) {}
 
     override fun showLoading() {
-        if (mLoadingDialog == null) {
-            mLoadingDialog = LoadingDialog.newInstance()
-        }
-        mLoadingDialog?.showDialog(childFragmentManager)
+        mLoadingDialog = LoadingDialog.Builder(mContext)
+            .setMessage("加载中...")
+            .setCancelable(true)
+            .setCancelOutside(false)
+            .create()
+        mLoadingDialog?.show()
     }
 
     override fun dismissLoading() {
-        mLoadingDialog?.let {
-            val dialog = it.dialog
-            if (dialog != null && dialog.isShowing) {
-                it.dismiss()
-            }
-        }
+        mLoadingDialog?.dismissDialog()
     }
 
+    @SuppressLint("CheckResult")
     override fun showContent() {
-        mLoadService?.showSuccess()
+        Observable.timer(500, TimeUnit.MILLISECONDS)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe { mLoadService?.showSuccess() }
     }
 
     override fun showProgress() {
         mLoadService?.showCallback(ProgressCallback::class.java)
     }
 
+    @SuppressLint("CheckResult")
     override fun showEmpty() {
-        mLoadService?.showCallback(EmptyCallback::class.java)
+        Observable.timer(500, TimeUnit.MILLISECONDS)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe { mLoadService?.showCallback(EmptyCallback::class.java) }
     }
 
+    @SuppressLint("CheckResult")
     override fun showError() {
-        mLoadService?.showCallback(ErrorCallback::class.java)
+        Observable.timer(500, TimeUnit.MILLISECONDS)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe { mLoadService?.showCallback(ErrorCallback::class.java) }
     }
 
+    @SuppressLint("CheckResult")
     override fun showTimeout() {
-        mLoadService?.showCallback(TimeoutCallback::class.java)
+        Observable.timer(500, TimeUnit.MILLISECONDS)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe { mLoadService?.showCallback(TimeoutCallback::class.java) }
     }
 
     override fun onHiddenChanged(hidden: Boolean) {

@@ -8,7 +8,7 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.chad.library.adapter.base.BaseQuickAdapter.AnimationType
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
-import com.hjc.library_common.router.RoutePath
+import com.hjc.library_common.router.path.RouteFramePath
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_frame.R
 import com.hjc.module_frame.adapter.ArticleAdapter
@@ -22,7 +22,7 @@ import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
  * @Date: 2021/1/8 14:00
  * @Description: 列表
  */
-@Route(path = RoutePath.Frame.URL_LOAD_SIR)
+@Route(path = RouteFramePath.URL_LOAD_SIR)
 class LoadSirActivity : BaseActivity<FrameActivityLoadSirBinding, LoadSirViewModel>() {
 
     private lateinit var mAdapter: ArticleAdapter

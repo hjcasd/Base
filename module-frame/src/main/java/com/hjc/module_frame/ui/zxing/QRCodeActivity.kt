@@ -15,9 +15,9 @@ import com.blankj.utilcode.util.ImageUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
-import com.hjc.library_base.viewmodel.CommonViewModel
 import com.hjc.library_common.router.RouteManager
-import com.hjc.library_common.router.RoutePath
+import com.hjc.library_common.router.path.RouteFramePath
+import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.library_net.utils.RxSchedulers
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_frame.R
@@ -32,7 +32,7 @@ import io.reactivex.observers.DefaultObserver
  * @Date: 2019/7/29 14:28
  * @Description: Zxing的使用
  */
-@Route(path = RoutePath.Frame.URL_QR_CODE)
+@Route(path = RouteFramePath.URL_QR_CODE)
 class QRCodeActivity : BaseActivity<FrameActivityQrCodeBinding, CommonViewModel>() {
 
 
@@ -91,7 +91,7 @@ class QRCodeActivity : BaseActivity<FrameActivityQrCodeBinding, CommonViewModel>
             }
             .request { allGranted: Boolean, grantedList: List<String?>?, deniedList: List<String?>? ->
                 if (allGranted) {
-                    RouteManager.jump(RoutePath.Frame.URL_SCAN_CODE)
+                    RouteManager.jump(RouteFramePath.URL_SCAN_CODE)
                 } else {
                     ToastUtils.showShort("申请相机权限失败")
                 }

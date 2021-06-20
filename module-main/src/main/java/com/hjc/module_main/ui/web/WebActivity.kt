@@ -11,9 +11,9 @@ import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
-import com.hjc.library_base.viewmodel.CommonViewModel
-import com.hjc.library_common.router.RoutePath
+import com.hjc.library_common.router.path.RouteMainPath
 import com.hjc.library_common.utils.CommonUtils
+import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.module_main.R
 import com.hjc.module_main.databinding.MainActivityWebBinding
 
@@ -22,7 +22,7 @@ import com.hjc.module_main.databinding.MainActivityWebBinding
  * @Date: 2021/1/8 14:22
  * @Description: Web页面
  */
-@Route(path = RoutePath.Main.URL_WEB)
+@Route(path = RouteMainPath.URL_WEB)
 class WebActivity : BaseActivity<MainActivityWebBinding, CommonViewModel>() {
 
     @JvmField

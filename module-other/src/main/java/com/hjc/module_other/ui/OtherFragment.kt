@@ -8,9 +8,9 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.fragment.BaseFragment
 import com.hjc.library_base.utils.ActivityHelper
-import com.hjc.library_base.viewmodel.CommonViewModel
 import com.hjc.library_common.router.RouteManager
-import com.hjc.library_common.router.RoutePath
+import com.hjc.library_common.router.path.RouteOtherPath
+import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.module_other.R
 import com.hjc.module_other.databinding.OtherFragmentBinding
 import com.hjc.module_other.dialog.UpdateDialog
@@ -20,7 +20,7 @@ import com.hjc.module_other.dialog.UpdateDialog
  * @Date: 2019/7/26 10:42
  * @Description: OtherFragment
  */
-@Route(path = RoutePath.Other.URL_OTHER_FRAGMENT)
+@Route(path = RouteOtherPath.URL_OTHER_FRAGMENT)
 class OtherFragment : BaseFragment<OtherFragmentBinding, CommonViewModel>() {
 
     override fun getLayoutId(): Int {
@@ -49,7 +49,7 @@ class OtherFragment : BaseFragment<OtherFragmentBinding, CommonViewModel>() {
         when (v?.id) {
             R.id.btn1 -> RouteManager.jumpWithTransition(
                 mContext,
-                RoutePath.Other.URL_LOGIN,
+                RouteOtherPath.URL_LOGIN,
                 R.anim.other_login_open_enter,
                 R.anim.other_login_open_exit
             )

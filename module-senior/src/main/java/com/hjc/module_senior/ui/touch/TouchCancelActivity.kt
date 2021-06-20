@@ -7,8 +7,8 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.blankj.utilcode.util.LogUtils
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
-import com.hjc.library_base.viewmodel.CommonViewModel
-import com.hjc.library_common.router.RoutePath
+import com.hjc.library_common.router.path.RouteSeniorPath
+import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_senior.R
 import com.hjc.module_senior.databinding.SeniorActivityTouchCancelBinding
@@ -18,7 +18,7 @@ import com.hjc.module_senior.databinding.SeniorActivityTouchCancelBinding
  * @Date: 2019/10/15 16:58
  * @Description: 验证ACTION_CANCEL事件产生的时机
  */
-@Route(path = RoutePath.Senior.URL_TOUCH_CANCEL)
+@Route(path = RouteSeniorPath.URL_TOUCH_CANCEL)
 class TouchCancelActivity : BaseActivity<SeniorActivityTouchCancelBinding, CommonViewModel>() {
 
     /*

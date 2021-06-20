@@ -8,14 +8,15 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
 import com.hjc.library_base.utils.ActivityHelper
-import com.hjc.library_base.viewmodel.CommonViewModel
 import com.hjc.library_common.router.RouteManager
-import com.hjc.library_common.router.RoutePath
+import com.hjc.library_common.router.path.RouteMainPath
+import com.hjc.library_common.router.path.RouteSeniorPath
+import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_senior.R
 import com.hjc.module_senior.databinding.SeniorActivityThemeBinding
 
-@Route(path = RoutePath.Senior.URL_THEME)
+@Route(path = RouteSeniorPath.URL_THEME)
 class ThemeActivity : BaseActivity<SeniorActivityThemeBinding, CommonViewModel>() {
 
     override fun getLayoutId(): Int {
@@ -57,7 +58,7 @@ class ThemeActivity : BaseActivity<SeniorActivityThemeBinding, CommonViewModel>(
             ActivityHelper.finishAllActivities()
             RouteManager.jumpWithTransition(
                 this,
-                RoutePath.Main.URL_SPLASH,
+                RouteMainPath.URL_SPLASH,
                 R.anim.base_fade_in,
                 R.anim.base_fade_out
             )

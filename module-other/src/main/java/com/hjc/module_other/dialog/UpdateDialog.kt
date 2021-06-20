@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import com.hjc.library_base.dialog.BaseFragmentDialog
 import com.hjc.library_base.utils.ActivityHelper.finishAllActivities
-import com.hjc.library_base.viewmodel.CommonViewModel
+import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.module_other.R
 import com.hjc.module_other.databinding.OtherDialogUpdateBinding
 import com.hjc.module_other.ui.update.DownloadService

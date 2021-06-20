@@ -12,8 +12,8 @@ import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseFragmentActivity
-import com.hjc.library_base.viewmodel.CommonViewModel
-import com.hjc.library_common.router.RoutePath
+import com.hjc.library_common.router.path.*
+import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.module_main.R
 import com.hjc.module_main.databinding.MainActivityBinding
 import com.hjc.module_main.receiver.NetworkChangeReceiver
@@ -25,7 +25,7 @@ import com.permissionx.guolindev.request.ExplainScope
  * @Date: 2021/1/9 15:26
  * @Description: 主界面
  */
-@Route(path = RoutePath.Main.URL_MAIN)
+@Route(path = RouteMainPath.URL_MAIN)
 class MainActivity : BaseFragmentActivity<MainActivityBinding, CommonViewModel>() {
 
     private lateinit var mTab1Fragment: Fragment
@@ -49,19 +49,19 @@ class MainActivity : BaseFragmentActivity<MainActivityBinding, CommonViewModel>(
 
     override fun initData(savedInstanceState: Bundle?) {
         mTab1Fragment =
-            ARouter.getInstance().build(RoutePath.Home.URL_HOME_FRAGMENT).navigation() as Fragment?
+            ARouter.getInstance().build(RouteHomePath.URL_HOME_FRAGMENT).navigation() as Fragment?
                 ?: TestFragment.getInstance()
 
         mTab2Fragment =
-            ARouter.getInstance().build(RoutePath.Frame.URL_FRAME_FRAGMENT).navigation() as Fragment?
+            ARouter.getInstance().build(RouteFramePath.URL_FRAME_FRAGMENT).navigation() as Fragment?
                 ?: TestFragment.getInstance()
 
         mTab3Fragment =
-            ARouter.getInstance().build(RoutePath.Senior.URL_SENIOR_FRAGMENT).navigation() as Fragment?
+            ARouter.getInstance().build(RouteSeniorPath.URL_SENIOR_FRAGMENT).navigation() as Fragment?
                 ?: TestFragment.getInstance()
 
         mTab4Fragment =
-            ARouter.getInstance().build(RoutePath.Other.URL_OTHER_FRAGMENT).navigation() as Fragment?
+            ARouter.getInstance().build(RouteOtherPath.URL_OTHER_FRAGMENT).navigation() as Fragment?
                 ?: TestFragment.getInstance()
 
         showFragment(mTab1Fragment)

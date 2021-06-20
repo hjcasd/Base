@@ -1,47 +1,85 @@
 package com.hjc.library_base.dialog
 
-import android.os.Bundle
+import android.annotation.SuppressLint
+import android.app.Dialog
+import android.content.Context
 import android.view.View
+import android.widget.TextView
 import com.hjc.library_base.R
-import com.hjc.library_base.databinding.BaseDialogLoadingBinding
-import com.hjc.library_base.viewmodel.CommonViewModel
+import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
+import java.util.concurrent.TimeUnit
 
 /**
  * @Author: HJC
- * @Date: 2019/1/7 11:28
+ * @Date: 2021/6/20 17:29
  * @Description: 加载框
  */
-class LoadingDialog : BaseFragmentDialog<BaseDialogLoadingBinding, CommonViewModel>() {
+class LoadingDialog(context: Context, themeResId: Int = R.style.Base_Dialog) : Dialog(context, themeResId) {
 
-    companion object {
-        fun newInstance(): LoadingDialog {
-            return LoadingDialog()
+    class Builder(private val mContext: Context) {
+        private var message: String? = ""
+        private var isShowMessage = true
+        private var isCancelable = false
+        private var isCancelOutside = false
+
+        /**
+         * 设置提示信息
+         */
+        fun setMessage(message: String?): Builder {
+            this.message = message
+            return this
+        }
+
+        /**
+         * 设置是否显示提示信息
+         */
+        fun setShowMessage(isShowMessage: Boolean): Builder {
+            this.isShowMessage = isShowMessage
+            return this
+        }
+
+        /**
+         * 设置是否可以按返回键取消
+         */
+        fun setCancelable(isCancelable: Boolean): Builder {
+            this.isCancelable = isCancelable
+            return this
+        }
+
+        /**
+         * 设置是否可以取消
+         */
+        fun setCancelOutside(isCancelOutside: Boolean): Builder {
+            this.isCancelOutside = isCancelOutside
+            return this
+        }
+
+        fun create(): LoadingDialog {
+            val view = View.inflate(mContext, R.layout.base_dialog_loading, null)
+            val dialog = LoadingDialog(mContext)
+            val tvTip = view.findViewById<TextView>(R.id.tv_tip)
+
+            if (isShowMessage) {
+                tvTip.text = message ?: ""
+                tvTip.visibility = View.VISIBLE
+            } else {
+                tvTip.visibility = View.GONE
+            }
+            dialog.setContentView(view)
+            dialog.setCancelable(isCancelable)
+            dialog.setCanceledOnTouchOutside(isCancelOutside)
+            return dialog
         }
     }
 
-    override fun getStyleRes(): Int {
-        return R.style.Base_Dialog
+    @SuppressLint("CheckResult")
+    fun dismissDialog() {
+        Observable.timer(500, TimeUnit.MILLISECONDS)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe { dismiss() }
     }
-
-    override fun getLayoutId(): Int {
-        return R.layout.base_dialog_loading
-    }
-
-    override fun createViewModel(): CommonViewModel? {
-        return null
-    }
-
-    override fun initData(savedInstanceState: Bundle?) {
-        //去掉遮盖层
-        dialog?.let {
-            val window = it.window
-            window?.setDimAmount(0f)
-        }
-        isCancelable = true
-    }
-
-    override fun addListeners() {}
-
-    override fun onSingleClick(v: View?) {}
 
 }

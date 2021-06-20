@@ -5,9 +5,9 @@ import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
-import com.hjc.library_base.viewmodel.CommonViewModel
 import com.hjc.library_common.router.RouteManager
-import com.hjc.library_common.router.RoutePath
+import com.hjc.library_common.router.path.RouteSeniorPath
+import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_senior.R
 import com.hjc.module_senior.databinding.SeniorActivityTouchBinding
@@ -17,7 +17,7 @@ import com.hjc.module_senior.databinding.SeniorActivityTouchBinding
  * @Date: 2019/10/15 16:58
  * @Description: 事件分发
  */
-@Route(path = RoutePath.Senior.URL_TOUCH)
+@Route(path = RouteSeniorPath.URL_TOUCH)
 class TouchActivity : BaseActivity<SeniorActivityTouchBinding, CommonViewModel>() {
 
     /*
@@ -87,11 +87,11 @@ class TouchActivity : BaseActivity<SeniorActivityTouchBinding, CommonViewModel>(
 
     override fun onSingleClick(v: View?) {
         when (v?.id) {
-            R.id.btn_touch_default -> RouteManager.jump(RoutePath.Senior.URL_TOUCH_DEFAULT)
+            R.id.btn_touch_default -> RouteManager.jump(RouteSeniorPath.URL_TOUCH_DEFAULT)
 
-            R.id.btn_touch_cancel -> RouteManager.jump(RoutePath.Senior.URL_TOUCH_CANCEL)
+            R.id.btn_touch_cancel -> RouteManager.jump(RouteSeniorPath.URL_TOUCH_CANCEL)
 
-            R.id.btn_touch_intercept -> RouteManager.jump(RoutePath.Senior.URL_TOUCH_INTERCEPT)
+            R.id.btn_touch_intercept -> RouteManager.jump(RouteSeniorPath.URL_TOUCH_INTERCEPT)
 
             else -> {
             }

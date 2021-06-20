@@ -13,7 +13,7 @@ import com.kingja.loadsir.core.LoadSir
  * @Date: 2021/2/1 9:48
  * @Description: Application基类
  */
-abstract class BaseApplication : MultiDexApplication() {
+open class BaseApplication : MultiDexApplication() {
 
     companion object {
         private lateinit var mInstance: Application

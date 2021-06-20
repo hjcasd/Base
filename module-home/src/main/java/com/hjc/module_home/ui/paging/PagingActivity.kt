@@ -5,8 +5,9 @@ import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
-import com.hjc.library_common.router.RoutePath
+import com.hjc.library_common.router.path.RouteHomePath
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_home.R
 import com.hjc.module_home.adapter.ConcertAdapter
@@ -18,7 +19,7 @@ import com.hjc.module_home.viewmodel.paging.PageViewModel
  * @Date: 2020/5/14 15:27
  * @Description: Paging
  */
-@Route(path = RoutePath.Home.URL_PAGING)
+@Route(path = RouteHomePath.URL_PAGING)
 class PagingActivity : BaseActivity<HomeActivityPageBinding, PageViewModel>() {
 
     private var mAdapter: ConcertAdapter? = null
@@ -29,6 +30,12 @@ class PagingActivity : BaseActivity<HomeActivityPageBinding, PageViewModel>() {
 
     override fun createViewModel(): PageViewModel {
       return  ViewModelProvider(this).get(PageViewModel::class.java)
+    }
+
+    override fun getImmersionBar(): ImmersionBar? {
+        return ImmersionBar.with(this)
+            .fitsSystemWindows(true)
+            .statusBarColor(R.color.home_color)
     }
 
     override fun initData(savedInstanceState: Bundle?) {

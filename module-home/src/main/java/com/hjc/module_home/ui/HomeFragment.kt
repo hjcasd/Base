@@ -5,9 +5,9 @@ import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.fragment.BaseFragment
-import com.hjc.library_base.viewmodel.CommonViewModel
 import com.hjc.library_common.router.RouteManager
-import com.hjc.library_common.router.RoutePath
+import com.hjc.library_common.router.path.RouteHomePath
+import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.module_home.R
 import com.hjc.module_home.databinding.HomeFragmentBinding
 
@@ -16,7 +16,7 @@ import com.hjc.module_home.databinding.HomeFragmentBinding
  * @Date: 2019/7/26 10:42
  * @Description: HomeFragment
  */
-@Route(path = RoutePath.Home.URL_HOME_FRAGMENT)
+@Route(path = RouteHomePath.URL_HOME_FRAGMENT)
 class HomeFragment : BaseFragment<HomeFragmentBinding, CommonViewModel>() {
 
     override fun getLayoutId(): Int {
@@ -41,12 +41,12 @@ class HomeFragment : BaseFragment<HomeFragmentBinding, CommonViewModel>() {
 
     override fun onSingleClick(v: View?) {
         when (v?.id) {
-            R.id.btn1 -> RouteManager.jump(RoutePath.Home.URL_DATA_BINDING)
-            R.id.btn2 -> RouteManager.jump(RoutePath.Home.URL_LIVE_DATA)
-            R.id.btn3 -> RouteManager.jump(RoutePath.Home.URL_BINDING_ADAPTER)
-            R.id.btn4 -> RouteManager.jump(RoutePath.Home.URL_ROOM)
-            R.id.btn5 -> RouteManager.jump(RoutePath.Home.URL_PAGING)
-            R.id.btn6 -> RouteManager.jump(RoutePath.Home.URL_COROUTINES)
+            R.id.btn1 -> RouteManager.jump(RouteHomePath.URL_DATA_BINDING)
+            R.id.btn2 -> RouteManager.jump(RouteHomePath.URL_LIVE_DATA)
+            R.id.btn3 -> RouteManager.jump(RouteHomePath.URL_BINDING_ADAPTER)
+            R.id.btn4 -> RouteManager.jump(RouteHomePath.URL_ROOM)
+            R.id.btn5 -> RouteManager.jump(RouteHomePath.URL_PAGING)
+            R.id.btn6 -> RouteManager.jump(RouteHomePath.URL_COROUTINES)
             else -> {
             }
         }

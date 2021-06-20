@@ -6,12 +6,12 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.blankj.utilcode.util.ToastUtils
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
-import com.hjc.library_base.viewmodel.CommonViewModel
 import com.hjc.library_common.event.EventManager
 import com.hjc.library_common.event.MessageEvent
 import com.hjc.library_common.global.EventCode
 import com.hjc.library_common.router.RouteManager
-import com.hjc.library_common.router.RoutePath
+import com.hjc.library_common.router.path.RouteFramePath
+import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_frame.R
 import com.hjc.module_frame.databinding.FrameActivityEventPostBinding
@@ -23,7 +23,7 @@ import org.greenrobot.eventbus.ThreadMode
  * @Date: 2019/7/26 11:23
  * @Description: EventBus发送粘性事件
  */
-@Route(path = RoutePath.Frame.URL_EVENT_POST)
+@Route(path = RouteFramePath.URL_EVENT_POST)
 class EventPostActivity : BaseActivity<FrameActivityEventPostBinding, CommonViewModel>() {
     /*
      * 使用详解:
@@ -95,7 +95,7 @@ class EventPostActivity : BaseActivity<FrameActivityEventPostBinding, CommonView
                 ToastUtils.showShort("发送粘性消息成功")
             }
 
-            R.id.btn_receive -> RouteManager.jump(RoutePath.Frame.URL_EVENT_RECEIVE)
+            R.id.btn_receive -> RouteManager.jump(RouteFramePath.URL_EVENT_RECEIVE)
 
             else -> {
             }

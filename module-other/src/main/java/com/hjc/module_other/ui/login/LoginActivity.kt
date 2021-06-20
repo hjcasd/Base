@@ -7,7 +7,7 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.blankj.utilcode.util.LogUtils
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
-import com.hjc.library_common.router.RoutePath
+import com.hjc.library_common.router.path.RouteOtherPath
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_other.R
 import com.hjc.module_other.databinding.OtherActivityLoginBinding
@@ -18,7 +18,7 @@ import com.hjc.module_other.viewmodel.LoginViewModel
  * @Date: 2021/1/8 11:29
  * @Description: 登录
  */
-@Route(path = RoutePath.Other.URL_LOGIN)
+@Route(path = RouteOtherPath.URL_LOGIN)
 class LoginActivity : BaseActivity<OtherActivityLoginBinding, LoginViewModel>() {
 
     override fun getLayoutId(): Int {

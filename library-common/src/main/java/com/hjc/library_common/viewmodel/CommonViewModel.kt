@@ -1,6 +1,7 @@
-package com.hjc.library_base.viewmodel
+package com.hjc.library_common.viewmodel
 
 import android.app.Application
+import com.hjc.library_base.viewmodel.BaseViewModel
 
 /**
  * @Author: HJC

@@ -9,9 +9,9 @@ import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.fragment.BaseFragment
-import com.hjc.library_base.viewmodel.CommonViewModel
 import com.hjc.library_common.router.RouteManager
-import com.hjc.library_common.router.RoutePath
+import com.hjc.library_common.router.path.RouteFramePath
+import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.module_frame.R
 import com.hjc.module_frame.databinding.FrameFragmentBinding
 import com.hjc.module_frame.utils.LocationUtils
@@ -21,7 +21,7 @@ import com.hjc.module_frame.utils.LocationUtils
  * @Date: 2019/7/26 10:42
  * @Description: Tab2
  */
-@Route(path = RoutePath.Frame.URL_FRAME_FRAGMENT)
+@Route(path = RouteFramePath.URL_FRAME_FRAGMENT)
 class FrameFragment : BaseFragment<FrameFragmentBinding, CommonViewModel>() {
 
     override fun getLayoutId(): Int {
@@ -48,9 +48,9 @@ class FrameFragment : BaseFragment<FrameFragmentBinding, CommonViewModel>() {
 
     override fun onSingleClick(v: View?) {
         when (v?.id) {
-            R.id.btn1 -> RouteManager.jump(RoutePath.Frame.URL_LOAD_SIR)
-            R.id.btn2 -> RouteManager.jump(RoutePath.Frame.URL_EVENT_POST)
-            R.id.btn3 -> RouteManager.jump(RoutePath.Frame.URL_QR_CODE)
+            R.id.btn1 -> RouteManager.jump(RouteFramePath.URL_LOAD_SIR)
+            R.id.btn2 -> RouteManager.jump(RouteFramePath.URL_EVENT_POST)
+            R.id.btn3 -> RouteManager.jump(RouteFramePath.URL_QR_CODE)
             R.id.btn4 -> {
                 if (!LocationUtils.isGpsEnabled()) {
                     showOpenGPSDialog()

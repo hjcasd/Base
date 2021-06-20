@@ -9,8 +9,8 @@ import com.hjc.library_base.activity.BaseActivity
 import com.hjc.library_common.event.EventManager
 import com.hjc.library_common.event.MessageEvent
 import com.hjc.library_common.global.EventCode
-import com.hjc.library_common.router.RoutePath
-import com.hjc.library_base.viewmodel.CommonViewModel
+import com.hjc.library_common.router.path.RouteFramePath
+import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_frame.R
 import com.hjc.module_frame.databinding.FrameActivityEventReceiveBinding
@@ -22,7 +22,7 @@ import org.greenrobot.eventbus.ThreadMode
  * @Date: 2019/7/26 11:23
  * @Description: EventBus发送非粘性事件
  */
-@Route(path = RoutePath.Frame.URL_EVENT_RECEIVE)
+@Route(path = RouteFramePath.URL_EVENT_RECEIVE)
 class EventReceiveActivity : BaseActivity<FrameActivityEventReceiveBinding, CommonViewModel>() {
 
     override fun getLayoutId(): Int {
