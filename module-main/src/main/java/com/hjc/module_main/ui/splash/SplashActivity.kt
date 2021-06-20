@@ -35,7 +35,9 @@ class SplashActivity : BaseActivity<MainActivitySplashBinding, CommonViewModel>(
     }
 
     override fun getImmersionBar(): ImmersionBar? {
-        return ImmersionBar.with(this).titleBar(mBindingView.llTime)
+        return ImmersionBar.with(this)
+            .transparentStatusBar()
+            .titleBar(mBindingView.llTime)
     }
 
     override fun initData(savedInstanceState: Bundle?) {
