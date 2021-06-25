@@ -60,7 +60,7 @@
                     android:gravity="center"
                     android:onClick="@{onClickListener}"
                     android:text="@string/other_dialog_update_cancel"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/base_white"
                     android:textSize="15sp" />
 
                 <Button
@@ -75,7 +75,7 @@
                     android:gravity="center"
                     android:onClick="@{onClickListener}"
                     android:text="@string/other_dialog_update_update"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/base_white"
                     android:textSize="15sp" />
 
             </LinearLayout>

@@ -8,7 +8,9 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.chad.library.adapter.base.BaseQuickAdapter.AnimationType
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
+import com.hjc.library_base.view.IStatusView
 import com.hjc.library_common.router.path.RouteFramePath
+import com.hjc.library_common.view.impl.CommonStatusViewImpl
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_frame.R
 import com.hjc.module_frame.adapter.ArticleAdapter
@@ -56,6 +58,10 @@ class LoadSirActivity : BaseActivity<FrameActivityLoadSirBinding, LoadSirViewMod
         return ImmersionBar.with(this)
             .fitsSystemWindows(true)
             .statusBarColor(R.color.frame_color)
+    }
+
+    override fun createStatusView(): IStatusView {
+        return CommonStatusViewImpl()
     }
 
     override fun initData(savedInstanceState: Bundle?) {

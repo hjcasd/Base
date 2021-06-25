@@ -1,6 +1,5 @@
 package com.hjc.library_base.activity
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -10,29 +9,20 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.blankj.utilcode.util.ToastUtils
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.base.BaseActionEvent
-import com.hjc.library_base.base.IBaseView
 import com.hjc.library_base.base.IViewModelAction
-import com.hjc.library_base.dialog.LoadingDialog
-import com.hjc.library_base.loadsir.EmptyCallback
-import com.hjc.library_base.loadsir.ErrorCallback
-import com.hjc.library_base.loadsir.ProgressCallback
-import com.hjc.library_base.loadsir.TimeoutCallback
 import com.hjc.library_base.utils.ClickUtils
+import com.hjc.library_base.view.ILoadingView
+import com.hjc.library_base.view.IStatusView
+import com.hjc.library_base.view.impl.BaseLoadingViewImpl
+import com.hjc.library_base.view.impl.BaseStatusViewImpl
 import com.hjc.library_base.viewmodel.BaseViewModel
-import com.kingja.loadsir.core.LoadService
-import com.kingja.loadsir.core.LoadSir
-import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
-import java.util.concurrent.TimeUnit
 
 /**
  * @Author: HJC
  * @Date: 2020/5/15 11:09
  * @Description: Activity 基类
  */
-abstract class BaseActivity<VDB : ViewDataBinding, VM : BaseViewModel> : AppCompatActivity(),
-    IBaseView, View.OnClickListener {
+abstract class BaseActivity<VDB : ViewDataBinding, VM : BaseViewModel> : AppCompatActivity(), View.OnClickListener {
 
     // ViewDataBinding
     protected lateinit var mBindingView: VDB
@@ -40,9 +30,11 @@ abstract class BaseActivity<VDB : ViewDataBinding, VM : BaseViewModel> : AppComp
     // ViewModel
     protected var mViewModel: VM? = null
 
-    private var mLoadService: LoadService<*>? = null
-    private var mLoadingDialog: LoadingDialog? = null
+    // IStateView
+    private var mStatusView: IStatusView? = null
 
+    // ILoadingView
+    private var mLoadingView: ILoadingView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,28 +54,26 @@ abstract class BaseActivity<VDB : ViewDataBinding, VM : BaseViewModel> : AppComp
     abstract fun getLayoutId(): Int
 
     private fun initViewModel() {
-        if (mViewModel == null) {
-            mViewModel = createViewModel()
-        }
+        mViewModel = createViewModel()
 
         mViewModel?.let {
             val viewModelAction: IViewModelAction = it
             viewModelAction.getActionLiveData().observe(this, { baseActionEvent: BaseActionEvent? ->
                 baseActionEvent?.let { event ->
                     when (event.action) {
-                        BaseActionEvent.SHOW_LOADING_DIALOG -> showLoading()
+                        BaseActionEvent.SHOW_LOADING_DIALOG -> mLoadingView?.showLoading()
 
-                        BaseActionEvent.DISMISS_LOADING_DIALOG -> dismissLoading()
+                        BaseActionEvent.DISMISS_LOADING_DIALOG -> mLoadingView?.dismissLoading()
 
-                        BaseActionEvent.SHOW_PROGRESS -> showProgress()
+                        BaseActionEvent.SHOW_PROGRESS -> mStatusView?.showProgress()
 
-                        BaseActionEvent.SHOW_CONTENT -> showContent()
+                        BaseActionEvent.SHOW_CONTENT -> mStatusView?.showContent()
 
-                        BaseActionEvent.SHOW_EMPTY -> showEmpty()
+                        BaseActionEvent.SHOW_EMPTY -> mStatusView?.showEmpty()
 
-                        BaseActionEvent.SHOW_ERROR -> showError()
+                        BaseActionEvent.SHOW_ERROR -> mStatusView?.showError()
 
-                        BaseActionEvent.SHOW_TIMEOUT -> showTimeout()
+                        BaseActionEvent.SHOW_TIMEOUT -> mStatusView?.showTimeout()
 
                         else -> {
                         }
@@ -103,6 +93,8 @@ abstract class BaseActivity<VDB : ViewDataBinding, VM : BaseViewModel> : AppComp
      */
     open fun initView() {
         getImmersionBar()?.init()
+        mLoadingView = createLoadingView()
+        mStatusView = createStatusView()
         ARouter.getInstance().inject(this)
     }
 
@@ -111,6 +103,20 @@ abstract class BaseActivity<VDB : ViewDataBinding, VM : BaseViewModel> : AppComp
      */
     open fun getImmersionBar(): ImmersionBar? {
         return null
+    }
+
+    /**
+     * 初始化Loading
+     */
+    open fun createLoadingView(): ILoadingView? {
+        return BaseLoadingViewImpl(this)
+    }
+
+    /**
+     * 初始化StatusView
+     */
+    open fun createStatusView(): IStatusView {
+        return BaseStatusViewImpl()
     }
 
     /**
@@ -144,66 +150,14 @@ abstract class BaseActivity<VDB : ViewDataBinding, VM : BaseViewModel> : AppComp
 
     /**
      * 注册LoadSir
-     *
-     * @param view 状态视图
+     * @param view 绑定的View
      */
     fun initLoadSir(view: View?) {
-        if (mLoadService == null) {
-            mLoadService = LoadSir.getDefault().register(view) { v: View? -> onRetryBtnClick(v) }
-        }
+        mStatusView?.setLoadSir(view) { v: View? -> onRetryBtnClick(v) }
     }
 
     /**
      * 失败重试,重新加载事件
      */
     open fun onRetryBtnClick(v: View?) {}
-
-    override fun showLoading() {
-        mLoadingDialog = LoadingDialog.Builder(this)
-            .setMessage("加载中...")
-            .setCancelable(true)
-            .setCancelOutside(false)
-            .create()
-        mLoadingDialog?.show()
-    }
-
-    override fun dismissLoading() {
-        mLoadingDialog?.dismissDialog()
-    }
-
-    @SuppressLint("CheckResult")
-    override fun showContent() {
-        Observable.timer(500, TimeUnit.MILLISECONDS)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { mLoadService?.showSuccess() }
-    }
-
-    override fun showProgress() {
-        mLoadService?.showCallback(ProgressCallback::class.java)
-    }
-
-    @SuppressLint("CheckResult")
-    override fun showEmpty() {
-        Observable.timer(500, TimeUnit.MILLISECONDS)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { mLoadService?.showCallback(EmptyCallback::class.java) }
-    }
-
-    @SuppressLint("CheckResult")
-    override fun showError() {
-        Observable.timer(500, TimeUnit.MILLISECONDS)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { mLoadService?.showCallback(ErrorCallback::class.java) }
-    }
-
-    @SuppressLint("CheckResult")
-    override fun showTimeout() {
-        Observable.timer(500, TimeUnit.MILLISECONDS)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { mLoadService?.showCallback(TimeoutCallback::class.java) }
-    }
 }

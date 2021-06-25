@@ -6,7 +6,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
+import com.hjc.library_base.view.ILoadingView
 import com.hjc.library_common.router.path.RouteHomePath
+import com.hjc.library_common.view.impl.CommonLoadingViewImpl
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_home.R
 import com.hjc.module_home.databinding.HomeActivityCoroutinesBinding
@@ -38,6 +40,10 @@ class CoroutinesActivity : BaseActivity<HomeActivityCoroutinesBinding, Coroutine
         return ImmersionBar.with(this)
             .fitsSystemWindows(true)
             .statusBarColor(R.color.home_color)
+    }
+
+    override fun createLoadingView(): ILoadingView {
+        return CommonLoadingViewImpl(this)
     }
 
     override fun initData(savedInstanceState: Bundle?) {

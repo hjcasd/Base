@@ -68,7 +68,7 @@ class MainActivity : BaseFragmentActivity<MainActivityBinding, CommonViewModel>(
 
         requestPermission()
         registerBroadcastReceiver()
-        anonymousInnerClass()
+//        anonymousInnerClass()
     }
 
     /**

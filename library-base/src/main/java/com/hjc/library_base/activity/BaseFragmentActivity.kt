@@ -17,8 +17,7 @@ import com.hjc.library_base.viewmodel.BaseViewModel
  * @Date: 2020/5/15 11:09
  * @Description: (含有Fragment)Activity 基类
  */
-abstract class BaseFragmentActivity<VDB : ViewDataBinding, VM : BaseViewModel> :
-    AppCompatActivity(), View.OnClickListener {
+abstract class BaseFragmentActivity<VDB : ViewDataBinding, VM : BaseViewModel> : AppCompatActivity(), View.OnClickListener {
 
     // ViewDataBinding
     protected lateinit var mBindingView: VDB
@@ -47,9 +46,7 @@ abstract class BaseFragmentActivity<VDB : ViewDataBinding, VM : BaseViewModel> :
     abstract fun getLayoutId(): Int
 
     private fun initViewModel() {
-        if (mViewModel == null) {
-            mViewModel = createViewModel()
-        }
+        mViewModel = createViewModel()
     }
 
     /**
