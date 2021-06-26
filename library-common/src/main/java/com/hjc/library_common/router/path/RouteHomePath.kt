@@ -10,10 +10,10 @@ object RouteHomePath {
     private const val MODULE_HOME = "/module_home"
 
     // Home页面
-    const val URL_HOME_ACTIVITY = "$MODULE_HOME/home"
+    const val URL_HOME_ACTIVITY = "$MODULE_HOME/home/activity"
 
     // HomeFragment
-    const val URL_HOME_FRAGMENT = "$MODULE_HOME/fragment"
+    const val URL_HOME_FRAGMENT = "$MODULE_HOME/home/fragment"
 
     // DataBinding页面
     const val URL_DATA_BINDING = "$MODULE_HOME/dataBinding"

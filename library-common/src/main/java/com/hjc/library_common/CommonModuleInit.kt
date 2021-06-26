@@ -20,7 +20,7 @@ class CommonModuleInit : IModuleInit {
     override fun onInitAhead(application: BaseApplication): Boolean {
         initUtils(application)
         initARouter(application)
-        BuglyUtils.init(application)
+        initBugly(application)
         X5WebUtils.init(application)
         initRetrofit()
         return false
@@ -51,6 +51,16 @@ class CommonModuleInit : IModuleInit {
         ARouter.init(application)
     }
 
+    /**
+     * 初始化Bugly
+     */
+    private fun initBugly(application: BaseApplication) {
+        BuglyUtils.init(application, AppConstants.BUGLY_CODE, AppConstants.APP_IS_DEBUG)
+    }
+
+    /**
+     * 初始化Retrofit配置
+     */
     private fun initRetrofit() {
         RetrofitClient.init(AppConstants.APP_IS_DEBUG)
     }

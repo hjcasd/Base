@@ -10,10 +10,10 @@ object RouteSeniorPath {
     private const val MODULE_SENIOR = "/module_senior"
 
     // Senior页面
-    const val URL_SENIOR_ACTIVITY = "$MODULE_SENIOR/senior"
+    const val URL_SENIOR_ACTIVITY = "$MODULE_SENIOR/senior/activity"
 
     // SeniorFragment
-    const val URL_SENIOR_FRAGMENT = "$MODULE_SENIOR/fragment"
+    const val URL_SENIOR_FRAGMENT = "$MODULE_SENIOR/senior/fragment"
 
 
     /**

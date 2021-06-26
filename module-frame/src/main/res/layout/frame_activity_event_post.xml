@@ -45,18 +45,6 @@
             android:gravity="center"
             android:text="@string/frame_event_post_btn3" />
 
-        <com.hjc.library_widget.text.SearchEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center_vertical"
-            android:hint="@string/frame_please_input"
-            android:imeOptions="actionSearch"
-            android:inputType="text"
-            android:maxLines="1"
-            android:padding="10dp"
-            android:singleLine="true" />
-
     </LinearLayout>
 
 </layout>

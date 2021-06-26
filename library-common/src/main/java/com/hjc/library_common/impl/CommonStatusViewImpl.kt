@@ -1,4 +1,4 @@
-package com.hjc.library_common.view.impl
+package com.hjc.library_common.impl
 
 import android.annotation.SuppressLint
 import android.view.View

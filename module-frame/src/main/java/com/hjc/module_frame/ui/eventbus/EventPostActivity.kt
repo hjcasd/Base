@@ -71,8 +71,8 @@ class EventPostActivity : BaseActivity<FrameActivityEventPostBinding, CommonView
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun handleEvent(event: MessageEvent<String?>) {
-        if (event.getKey() === EventCode.EVENT_RECEIVE_CODE) {
-            val data: String? = event.getData()
+        if (event.code === EventCode.EVENT_RECEIVE_CODE) {
+            val data: String? = event.data
             mBindingView.tvContent.text = data
         }
     }

@@ -10,10 +10,10 @@ object RouteOtherPath {
     private const val MODULE_OTHER = "/module_other"
 
     // Other页面
-    const val URL_OTHER_ACTIVITY = "$MODULE_OTHER/other"
+    const val URL_OTHER_ACTIVITY = "$MODULE_OTHER/other/activity"
 
     // OtherFragment
-    const val URL_OTHER_FRAGMENT = "$MODULE_OTHER/fragment"
+    const val URL_OTHER_FRAGMENT = "$MODULE_OTHER/other/fragment"
 
     // Login页面
     const val URL_LOGIN = "$MODULE_OTHER/login"

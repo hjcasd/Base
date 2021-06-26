@@ -10,7 +10,7 @@ import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
 import com.hjc.library_base.view.IStatusView
 import com.hjc.library_common.router.path.RouteFramePath
-import com.hjc.library_common.view.impl.CommonStatusViewImpl
+import com.hjc.library_common.impl.CommonStatusViewImpl
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_frame.R
 import com.hjc.module_frame.adapter.ArticleAdapter
