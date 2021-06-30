@@ -1,7 +1,6 @@
 package com.hjc.library_net.interceptor
 
 import com.blankj.utilcode.util.LogUtils
-import com.hjc.library_net.config.HttpConfig
 import okhttp3.HttpUrl
 import okhttp3.Interceptor
 import okhttp3.Request
@@ -14,6 +13,14 @@ import java.io.IOException
  * @Description: 多BaseUrl拦截器
  */
 class BaseUrlInterceptor : Interceptor {
+
+    companion object {
+        //多服务器地址1
+        private const val TEST_BASE_URL1 = "https://gank.io"
+
+        //多服务器地址2
+        private const val TEST_BASE_URL2 = "https://api-m.mtime.cn"
+    }
 
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
@@ -45,8 +52,8 @@ class BaseUrlInterceptor : Interceptor {
 
     private fun getNewBaseUrl(headerValue: String, oldHttpUrl: HttpUrl): HttpUrl? {
         return when (headerValue) {
-            "test1" -> HttpUrl.parse(HttpConfig.TEST_BASE_URL1)
-            "test2" -> HttpUrl.parse(HttpConfig.TEST_BASE_URL2)
+            "test1" -> HttpUrl.parse(TEST_BASE_URL1)
+            "test2" -> HttpUrl.parse(TEST_BASE_URL2)
             else -> oldHttpUrl
         }
     }

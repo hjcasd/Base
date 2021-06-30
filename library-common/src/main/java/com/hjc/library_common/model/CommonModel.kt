@@ -1,7 +1,7 @@
 package com.hjc.library_common.model
 
 import com.hjc.library_base.model.BaseModel
-import com.hjc.library_net.RetrofitClient
+import com.hjc.library_net.SmartHttp
 
 
 /**
@@ -12,6 +12,6 @@ import com.hjc.library_net.RetrofitClient
 open class CommonModel : BaseModel() {
 
     fun <T> getApiService(apiService: Class<T>): T {
-        return RetrofitClient.getRetrofit().create(apiService)
+        return SmartHttp.getRetrofit().create(apiService)
     }
 }

@@ -13,7 +13,5 @@ ext {
             DEV_BASE_URL : '"https://www.wanandroid.com"',
             TEST_BASE_URL: '"https://www.wanandroid.com"',
             PROD_BASE_URL: '"https://www.wanandroid.com"',
-
-            IS_DEBUG     : "true",
     ]
 }

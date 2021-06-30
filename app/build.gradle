@@ -66,13 +66,10 @@ android {
     }
 
     buildTypes {
-
         debug {
             minifyEnabled false
             zipAlignEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-
-            buildConfigField ('String', 'BASE_URL', app.DEV_BASE_URL)
 
             if (keystoreFile.exists()){
                 signingConfig signingConfigs.debug
@@ -86,8 +83,6 @@ android {
             zipAlignEnabled false
             //前一部分代表系统默认的android程序的混淆文件，该文件已经包含了基本的混淆声明,后者为自定义混淆文件
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-
-            buildConfigField ('String', 'BASE_URL', app.PROD_BASE_URL)
 
             if (keystoreFile.exists()){
                 signingConfig signingConfigs.release

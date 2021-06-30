@@ -26,19 +26,21 @@ object FormatUtils {
                     sb.append(element + "\n")
                     level++
                 }
+
                 ',' -> sb.append(element + "\n")
+
                 '}', ']' -> {
                     sb.append("\n")
                     level--
                     sb.append(getLevelStr(level))
                     sb.append(element)
                 }
+
                 else -> sb.append(element)
             }
         }
 
         val formatJson = sb.toString()
-
         var index = 0
         var max = 3800
         var sub: String
@@ -49,18 +51,18 @@ object FormatUtils {
             } else {
                 sub = formatJson.substring(index, max)
             }
-            LogUtils.e(sub)
+            LogUtils.d(sub)
             index = max
             max += 3800
         }
     }
 
     private fun getLevelStr(level: Int): String {
-        val levelStr = StringBuffer()
-        for (levelI in 0 until level) {
-            levelStr.append("\t")
+        val sb = StringBuffer()
+        for (i in 0 until level) {
+            sb.append("\t")
         }
-        return levelStr.toString()
+        return sb.toString()
     }
 
 }

@@ -29,12 +29,12 @@ class LogInterceptor : Interceptor {
         source.request(java.lang.Long.MAX_VALUE)
         val buffer = source.buffer
 
-        val requestJson = "request code === ${response.code()}" +
+        val requestJson = "\nrequest code === ${response.code()}" +
                 "\nrequest url === ${request.url()}" +
                 "\nrequest duration === ${response.receivedResponseAtMillis() - response.sentRequestAtMillis()}ms" +
                 "\nrequest header === ${request.headers()}" +
                 "\nrequest body === ${bodyToString(request.body())}"
-        LogUtils.e("requestJson: $requestJson")
+        LogUtils.d("Request: $requestJson")
 
         val responseJson = buffer.clone().readString(UTF8)
         FormatUtils.formatJsonAndLog(responseJson)
@@ -51,7 +51,7 @@ class LogInterceptor : Interceptor {
     private fun bodyToString(request: RequestBody?): String {
         return try {
             val buffer = Buffer()
-            request!!.writeTo(buffer)
+            request?.writeTo(buffer)
             buffer.readUtf8()
         } catch (e: Exception) {
             "no request body"

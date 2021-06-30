@@ -28,16 +28,17 @@ android {
     }
 
     buildTypes {
-
         debug {
-            buildConfigField ('boolean', 'IS_DEBUG', app.IS_DEBUG)
+            buildConfigField ('boolean', 'IS_DEBUG', "true")
+            buildConfigField ('String', 'BASE_URL', app.DEV_BASE_URL)
         }
 
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
-            buildConfigField ('boolean', 'IS_DEBUG', "true")
+            buildConfigField ('boolean', 'IS_DEBUG', "false")
+            buildConfigField ('String', 'BASE_URL', app.PROD_BASE_URL)
         }
     }
 
