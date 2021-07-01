@@ -9,7 +9,9 @@ import com.hjc.library_common.global.HttpConfig
 import com.hjc.library_common.module.IModuleInit
 import com.hjc.library_common.utils.BuglyUtils
 import com.hjc.library_net.SmartHttp
+import com.hjc.library_net.interceptor.BaseUrlInterceptor
 import com.hjc.library_web.utils.X5WebUtils
+import retrofit2.converter.gson.GsonConverterFactory
 
 /**
  * @Author: HJC
@@ -66,7 +68,8 @@ class CommonModuleInit : IModuleInit {
         SmartHttp.setDebug(AppConstants.APP_IS_DEBUG)
             .setBaseUrl(HttpConfig.BASE_URL)
             .setTimeout(HttpConfig.HTTP_TIME_OUT)
-            .build()
+            .addInterceptor(BaseUrlInterceptor())
+            .addConverter(GsonConverterFactory.create())
     }
 
     override fun onInitAfter(application: BaseApplication): Boolean {

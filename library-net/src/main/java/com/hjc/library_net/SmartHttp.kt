@@ -1,16 +1,11 @@
 package com.hjc.library_net
 
-import com.hjc.library_net.interceptor.BaseUrlInterceptor
 import com.hjc.library_net.interceptor.LogInterceptor
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Converter
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import java.security.SecureRandom
 import java.util.concurrent.TimeUnit
-import javax.net.ssl.SSLContext
-import javax.net.ssl.SSLSocketFactory
-import javax.net.ssl.TrustManager
 
 /**
  * @Author: HJC
@@ -19,72 +14,60 @@ import javax.net.ssl.TrustManager
  */
 object SmartHttp {
 
-    private lateinit var mRetrofit: Retrofit
+    // 初始化OkHttpClientBuilder
+    private val mOkHttpBuilder: OkHttpClient.Builder = OkHttpClient.Builder()
 
-    private val builder: OkHttpClient.Builder = OkHttpClient.Builder()
+    // 初始化RetrofitBuilder
+    private val mRetrofitBuilder: Retrofit.Builder = Retrofit.Builder()
 
-    private var isDebug: Boolean
-    private var baseUrl: String
-    private var timeout: Long
-    private var converterFactory: Converter.Factory
+    // 默认超时时间
+    private const val DEFAULT_TIME_OUT: Long = 20L
 
     init {
-        this.isDebug = false
-        this.baseUrl = ""
-        this.timeout = 20L
-        this.converterFactory = GsonConverterFactory.create()
+        mOkHttpBuilder.connectTimeout(DEFAULT_TIME_OUT, TimeUnit.SECONDS)
+            .readTimeout(DEFAULT_TIME_OUT, TimeUnit.SECONDS)
+            .writeTimeout(DEFAULT_TIME_OUT, TimeUnit.SECONDS)
+            .retryOnConnectionFailure(true)
+
+        mRetrofitBuilder.client(mOkHttpBuilder.build())
     }
 
     fun setDebug(isDebug: Boolean): SmartHttp {
-        this.isDebug = isDebug
+        if (isDebug) {
+            mOkHttpBuilder.addInterceptor(LogInterceptor())
+        }
         return this
     }
 
     fun setBaseUrl(baseUrl: String): SmartHttp {
-        this.baseUrl = baseUrl
+        mRetrofitBuilder.baseUrl(baseUrl)
         return this
     }
 
     fun setTimeout(timeout: Long): SmartHttp {
-        this.timeout = timeout
-
-        return this
-    }
-
-    fun addConverter(factory: Converter.Factory): SmartHttp {
-        this.converterFactory = factory
-        return this
-    }
-
-    fun build() {
-        builder.connectTimeout(timeout, TimeUnit.SECONDS)
+        mOkHttpBuilder.connectTimeout(timeout, TimeUnit.SECONDS)
             .readTimeout(timeout, TimeUnit.SECONDS)
             .writeTimeout(timeout, TimeUnit.SECONDS)
-            .addInterceptor(BaseUrlInterceptor())
-            .retryOnConnectionFailure(true)
-
-        if (isDebug) {
-            builder.addInterceptor(LogInterceptor())
-        }
-
-        this.mRetrofit = Retrofit.Builder()
-            .baseUrl(baseUrl)
-            .addConverterFactory(converterFactory)
-            .client(builder.build())
-            .build()
+        return this
     }
 
-    fun getRetrofit(): Retrofit {
-        return mRetrofit
+    fun addInterceptor(interceptor: Interceptor): SmartHttp {
+        mOkHttpBuilder.addInterceptor(interceptor)
+        return this
+    }
+
+    fun addConverter(converterFactory: Converter.Factory): SmartHttp {
+        mRetrofitBuilder.addConverterFactory(converterFactory)
+        return this
     }
 
     /**
-     * 设置https证书
+     * 获取Retrofit对象
      */
-    private fun createSSLSocketFactory(): SSLSocketFactory {
-        val sc = SSLContext.getInstance("TLS")
-        sc.init(null, arrayOf<TrustManager>(), SecureRandom())
-        return sc.socketFactory
+    fun getRetrofit(): Retrofit {
+        return mRetrofitBuilder
+            .client(mOkHttpBuilder.build())
+            .build()
     }
 
 }
