@@ -36,16 +36,16 @@ class BaseUrlInterceptor : Interceptor {
             val headerValue = headerValues[0]
             val newBaseUrl = getNewBaseUrl(headerValue, oldHttpUrl)
             //重建新的HttpUrl，修改需要修改的url部分
-            if (newBaseUrl != null) {
+            return newBaseUrl?.let {
                 val newFullUrl = oldHttpUrl
                     .newBuilder()
 //                    .scheme("https") //更换网络协议
-                    .host(newBaseUrl.host()) //更换主机名
-//                    .port(newBaseUrl.port()) //更换端口
+                    .host(it.host()) //更换主机名
+//                    .port(it.port()) //更换端口
                     .build()
                 LogUtils.e("newFullUrl: $newFullUrl")
-                return chain.proceed(builder.url(newFullUrl).build())
-            }
+                chain.proceed(builder.url(newFullUrl).build())
+            } ?: chain.proceed(request)
         }
         return chain.proceed(request)
     }
