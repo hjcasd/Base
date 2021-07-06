@@ -1,4 +1,4 @@
-package com.hjc.library_common.event
+package com.hjc.library_base.event
 
 /**
  * @Author: HJC

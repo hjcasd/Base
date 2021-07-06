@@ -8,7 +8,7 @@ import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
 import com.hjc.library_base.view.ILoadingView
 import com.hjc.library_common.router.path.RouteHomePath
-import com.hjc.library_common.impl.CommonLoadingViewImpl
+import com.hjc.library_common.view.impl.CommonLoadingViewImpl
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_home.R
 import com.hjc.module_home.databinding.HomeActivityCoroutinesBinding

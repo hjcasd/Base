@@ -5,8 +5,8 @@ ext {
             targetSdkVersion : 30,
             compileSdkVersion: 30,
             buildToolsVersion: "30.0.3",
-            versionCode      : 3,
-            versionName      : "3.0",
+            versionCode      : 4,
+            versionName      : "4.0",
     ]
 
     app = [

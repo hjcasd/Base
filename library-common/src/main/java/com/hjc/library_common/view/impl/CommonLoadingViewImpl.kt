@@ -1,4 +1,4 @@
-package com.hjc.library_common.impl
+package com.hjc.library_common.view.impl
 
 import android.content.Context
 import com.hjc.library_base.dialog.LoadingDialog
