@@ -18,4 +18,7 @@ object RouteOtherPath {
     // Login页面
     const val URL_LOGIN = "$MODULE_OTHER/login"
 
+    // Login页面
+    const val URL_AUDIO = "$MODULE_OTHER/audio"
+
 }

@@ -81,6 +81,7 @@ class MainActivity : BaseFragmentActivity<MainActivityBinding, CommonViewModel>(
             Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.ACCESS_COARSE_LOCATION,
             Manifest.permission.CAMERA,
+            Manifest.permission.RECORD_AUDIO,
         )
 //        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
 //            permissions.add(Manifest.permission.ACCESS_BACKGROUND_LOCATION)

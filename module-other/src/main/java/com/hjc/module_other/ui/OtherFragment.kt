@@ -67,9 +67,12 @@ class OtherFragment : BaseFragment<OtherFragmentBinding, CommonViewModel>() {
 
             R.id.btn3 -> UpdateDialog.newInstance().showDialog(childFragmentManager)
 
+            R.id.btn4 -> RouteManager.jump(RouteOtherPath.URL_AUDIO)
+
             else -> {
 
             }
         }
     }
+
 }

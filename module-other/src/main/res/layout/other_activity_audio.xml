@@ -7,48 +7,57 @@
         <variable
             name="onClickListener"
             type="android.view.View.OnClickListener" />
-
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_horizontal"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:orientation="vertical">
 
         <com.hjc.library_widget.bar.TitleBar
+            android:id="@+id/title_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/other_color"
             app:titleColor="@color/base_white"
-            app:titleText="@string/other_title" />
+            app:leftImage="@mipmap/widget_icon_back"
+            app:titleText="录音案例" />
 
         <Button
             android:id="@+id/btn1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/other_btn1"
+            android:text="开始录音"
             android:onClick="@{onClickListener}"/>
 
         <Button
             android:id="@+id/btn2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/other_btn2"
+            android:text="停止录音"
             android:onClick="@{onClickListener}"/>
 
         <Button
             android:id="@+id/btn3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/other_btn3"
+            android:text="取消录音"
             android:onClick="@{onClickListener}"/>
 
         <Button
             android:id="@+id/btn4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="录音"
+            android:text="开始播放录音"
+            android:onClick="@{onClickListener}"/>
+
+        <Button
+            android:id="@+id/btn5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="暂停播放录音"
             android:onClick="@{onClickListener}"/>
 
     </LinearLayout>
