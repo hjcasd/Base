@@ -3,7 +3,6 @@ package com.hjc.module_other.ui.audio.helper
 import android.media.AudioFormat
 import android.media.AudioRecord
 import android.media.MediaRecorder
-import com.blankj.utilcode.util.LogUtils
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
@@ -68,7 +67,7 @@ class AudioRecorderManager private constructor(private val mDir: String) {
             startTime = System.currentTimeMillis()
             mListener?.onStart()
 
-            Thread(GetVoiceRunnable()).start()
+//            Thread(GetVoiceRunnable()).start()
             Thread(AudioRecordRunnable()).start()
         }
     }
@@ -149,33 +148,33 @@ class AudioRecorderManager private constructor(private val mDir: String) {
         }
     }
 
-    /**
-     * 获取实时音量线程
-     */
-    private inner class GetVoiceRunnable : Runnable {
-        override fun run() {
-            val buffer = ShortArray(bufferSizeInBytes)
-            while (isRecord) {
-                mAudioRecord?.let {
-                    //r是实际读取的数据长度，一般而言r会小于bufferSize
-                    val r = it.read(buffer, 0, bufferSizeInBytes)
-                    var v: Long = 0
-                    // 将 buffer 内容取出，进行平方和运算
-                    for (value in buffer) {
-                        v += (value * value).toLong()
-                    }
-                    // 平方和除以数据总长度，得到音量大小。
-                    val mean = v / r.toDouble()
-                    val volume = 10 * log10(mean)
-
-                    LogUtils.e("分贝值 = $volume dB")
-
-                    Thread.sleep(100)
-                    mListener?.onUpdate(volume, System.currentTimeMillis() - startTime)
-                }
-            }
-        }
-    }
+//    /**
+//     * 获取实时音量线程
+//     */
+//    private inner class GetVoiceRunnable : Runnable {
+//        override fun run() {
+//            val buffer = ShortArray(bufferSizeInBytes)
+//            while (isRecord) {
+//                mAudioRecord?.let {
+//                    //r是实际读取的数据长度，一般而言r会小于bufferSize
+//                    val r = it.read(buffer, 0, bufferSizeInBytes)
+//                    var v: Long = 0
+//                    // 将 buffer 内容取出，进行平方和运算
+//                    for (value in buffer) {
+//                        v += (value * value).toLong()
+//                    }
+//                    // 平方和除以数据总长度，得到音量大小。
+//                    val mean = v / r.toDouble()
+//                    val volume = 10 * log10(mean)
+//
+//                    LogUtils.e("分贝值 = $volume dB")
+//
+//                    Thread.sleep(100)
+//                    mListener?.onUpdate(volume, System.currentTimeMillis() - startTime)
+//                }
+//            }
+//        }
+//    }
 
     /**
      * 往文件中写入裸数据
@@ -187,7 +186,6 @@ class AudioRecorderManager private constructor(private val mDir: String) {
         // new一个byte数组用来存一些字节数据，大小为缓冲区大小
         val audioData = ByteArray(bufferSizeInBytes)
         var fos: FileOutputStream? = null
-        var readSize: Int
         try {
             val file = File(audioRawPath)
             if (file.exists()) {
@@ -199,7 +197,19 @@ class AudioRecorderManager private constructor(private val mDir: String) {
         }
         while (isRecord) {
             mAudioRecord?.let {
-                readSize = it.read(audioData, 0, bufferSizeInBytes)
+                val readSize = it.read(audioData, 0, bufferSizeInBytes)
+
+                var v: Long = 0
+                // 将 buffer 内容取出，进行平方和运算
+                for (value in audioData) {
+                    v += (value * value).toLong()
+                }
+                // 平方和除以数据总长度，得到音量大小。
+                val mean = v / readSize.toDouble()
+                val volume = 10 * log10(mean)
+                // 获取实时音量
+                mListener?.onUpdate(volume, System.currentTimeMillis() - startTime)
+
                 if (AudioRecord.ERROR_INVALID_OPERATION != readSize) {
                     try {
                         fos?.write(audioData)
