@@ -3,5 +3,6 @@
     <color name="widget_color">#008577</color>
     <color name="widget_black">#000000</color>
     <color name="widget_gray">#f4f5f6</color>
-
+    <color name="widget_shadow_color">#000000</color>
+    <color name="widget_card_color">#ffffff</color>
 </resources>
