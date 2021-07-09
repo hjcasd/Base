@@ -48,8 +48,11 @@ class SplashActivity : BaseActivity<MainActivitySplashBinding, CommonViewModel>(
         //倒计时3s
         disposable2 = Observable.intervalRange(0, 4, 0, 1, TimeUnit.SECONDS)
             .compose(RxSchedulers.ioToMain())
+            .map {
+                3 - it
+            }
             .subscribe { aLong ->
-                val time = "倒计时" + (3 - aLong) + "s"
+                val time = "倒计时${aLong}s"
                 mBindingView.tvTime.text = time
             }
     }
