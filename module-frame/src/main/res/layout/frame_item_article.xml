@@ -19,13 +19,15 @@
         android:layout_marginTop="18dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="8dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="10dp"
-        app:contentPadding="10dp">
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_card"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@drawable/frame_selector_bg_card"
+            android:padding="15dp">
 
             <TextView
                 android:id="@+id/tv_chapter"

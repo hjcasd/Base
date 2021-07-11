@@ -14,16 +14,19 @@ import com.hjc.module_frame.entity.ArticleBean
  * @Description: 文章Adapter
  */
 class ArticleAdapter(data: MutableList<ArticleBean>?) : BaseQuickAdapter<ArticleBean, BaseViewHolder>(
-    R.layout.frame_item_article, data) {
+    R.layout.frame_item_article, data
+) {
 
     override fun onItemViewHolderCreated(viewHolder: BaseViewHolder, viewType: Int) {
         DataBindingUtil.bind<ViewDataBinding>(viewHolder.itemView)
     }
 
     override fun convert(holder: BaseViewHolder, item: ArticleBean) {
-        val binding = holder.getBinding<FrameItemArticleBinding>()
-        if (binding != null) {
-            binding.articleBean = item
+        val binding = DataBindingUtil.getBinding<FrameItemArticleBinding>(holder.itemView)
+        binding?.let {
+            it.articleBean = item
+            it.clCard.isSelected = item.isSelected
         }
     }
+
 }

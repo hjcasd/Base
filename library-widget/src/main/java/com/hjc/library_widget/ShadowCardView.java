@@ -50,6 +50,51 @@ public class ShadowCardView extends FrameLayout {
         initView(context, attrs);
     }
 
+    private void initView(Context context, AttributeSet attrs) {
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.ShadowCardView);
+        cornersRadius = typedArray.getDimensionPixelSize(R.styleable.ShadowCardView_cornersRadius, CORNERS_RADIUS);
+        shadowColor = typedArray.getColor(R.styleable.ShadowCardView_shadowColor, getResources().getColor(SHADOW_COLOR));
+        cardColor = typedArray.getColor(R.styleable.ShadowCardView_cardColor, getResources().getColor(CARD_COLOR));
+        shadowTopHeight = typedArray.getDimensionPixelSize(R.styleable.ShadowCardView_shadowTopHeight, dp2px(context, SHADOW_TOP_HEIGHT));
+        shadowLeftHeight = typedArray.getDimensionPixelSize(R.styleable.ShadowCardView_shadowLeftHeight, dp2px(context, SHADOW_LEFT_HEIGHT));
+        shadowRightHeight = typedArray.getDimensionPixelSize(R.styleable.ShadowCardView_shadowRightHeight, dp2px(context, SHADOW_RIGHT_HEIGHT));
+        shadowBottomHeight = typedArray.getDimensionPixelSize(R.styleable.ShadowCardView_shadowBottomHeight, dp2px(context, SHADOW_BOTTOM_HEIGHT));
+        shadowOffsetX = typedArray.getDimensionPixelSize(R.styleable.ShadowCardView_shadowOffsetX, dp2px(context, SHADOW_OFFSET_X));
+        shadowOffsetY = typedArray.getDimensionPixelSize(R.styleable.ShadowCardView_shadowOffsetY, dp2px(context, SHADOW_OFFSET_Y));
+        shadowRadius = typedArray.getInteger(R.styleable.ShadowCardView_shadowRadius, SHADOW_RADIUS);
+        typedArray.recycle();
+        setPadding(shadowLeftHeight, shadowTopHeight, shadowRightHeight, shadowBottomHeight);
+        setLayerType(LAYER_TYPE_SOFTWARE, null);
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+    }
+
+    @Override
+    protected void dispatchDraw(Canvas canvas) {
+        Paint paint = new Paint();
+        paint.setColor(cardColor);
+        paint.setStyle(Paint.Style.FILL);
+        paint.setAntiAlias(true);
+        float left = shadowLeftHeight;
+        float top = shadowTopHeight;
+        float right = getWidth() - shadowRightHeight;
+        float bottom = getHeight() - shadowBottomHeight;
+
+        paint.setShadowLayer(shadowRadius, shadowOffsetX, shadowOffsetY, shadowColor);
+        RectF rectF = new RectF(left, top, right, bottom);
+        canvas.drawRoundRect(rectF, cornersRadius, cornersRadius, paint);
+        canvas.save();
+        super.dispatchDraw(canvas);
+    }
+
     public ShadowCardView setShadowColor(int shadowColor) {
         this.shadowColor = shadowColor;
         return this;
@@ -100,53 +145,8 @@ public class ShadowCardView extends FrameLayout {
         return this;
     }
 
-    private void initView(Context context, AttributeSet attrs) {
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.ShadowCardView);
-        cornersRadius = typedArray.getDimensionPixelSize(R.styleable.ShadowCardView_cornersRadius, CORNERS_RADIUS);
-        shadowColor = typedArray.getColor(R.styleable.ShadowCardView_shadowColor, getResources().getColor(SHADOW_COLOR));
-        cardColor = typedArray.getColor(R.styleable.ShadowCardView_cardColor, getResources().getColor(CARD_COLOR));
-        shadowTopHeight = typedArray.getDimensionPixelSize(R.styleable.ShadowCardView_shadowTopHeight, dp2px(context, SHADOW_TOP_HEIGHT));
-        shadowLeftHeight = typedArray.getDimensionPixelSize(R.styleable.ShadowCardView_shadowLeftHeight, dp2px(context, SHADOW_LEFT_HEIGHT));
-        shadowRightHeight = typedArray.getDimensionPixelSize(R.styleable.ShadowCardView_shadowRightHeight, dp2px(context, SHADOW_RIGHT_HEIGHT));
-        shadowBottomHeight = typedArray.getDimensionPixelSize(R.styleable.ShadowCardView_shadowBottomHeight, dp2px(context, SHADOW_BOTTOM_HEIGHT));
-        shadowOffsetX = typedArray.getDimensionPixelSize(R.styleable.ShadowCardView_shadowOffsetX, dp2px(context, SHADOW_OFFSET_X));
-        shadowOffsetY = typedArray.getDimensionPixelSize(R.styleable.ShadowCardView_shadowOffsetY, dp2px(context, SHADOW_OFFSET_Y));
-        shadowRadius = typedArray.getInteger(R.styleable.ShadowCardView_shadowRadius, SHADOW_RADIUS);
-        typedArray.recycle();
-        setPadding(shadowLeftHeight, shadowTopHeight, shadowRightHeight, shadowBottomHeight);
-        setLayerType(LAYER_TYPE_SOFTWARE, null);
-    }
-
-    public static int dp2px(Context context, float dipValue) {
+    private int dp2px(Context context, float dipValue) {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dipValue * scale + 0.5f);
-    }
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-    }
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-    }
-
-    @Override
-    protected void dispatchDraw(Canvas canvas) {
-        Paint paint = new Paint();
-        paint.setColor(cardColor);
-        paint.setStyle(Paint.Style.FILL);
-        paint.setAntiAlias(true);
-        float left = shadowLeftHeight;
-        float top = shadowTopHeight;
-        float right = getWidth() - shadowRightHeight;
-        float bottom = getHeight() - shadowBottomHeight;
-
-        paint.setShadowLayer(shadowRadius, shadowOffsetX, shadowOffsetY, shadowColor);
-        RectF rectF = new RectF(left, top, right, bottom);
-        canvas.drawRoundRect(rectF, cornersRadius, cornersRadius, paint);
-        canvas.save();
-        super.dispatchDraw(canvas);
     }
 }

@@ -4,25 +4,23 @@
     <!--标题栏-->
     <declare-styleable name="TitleBar">
         <attr name="leftImage" format="integer" />
-
         <attr name="titleText" format="string" />
         <attr name="titleSize" format="dimension" />
         <attr name="titleColor" format="color" />
-
         <attr name="rightImage" format="integer" />
-
         <attr name="isShowLine" format="boolean" />
     </declare-styleable>
 
+    <!--带阴影的CardView-->
     <declare-styleable name="ShadowCardView">
         <attr name="cornersRadius" format="dimension"/>
+        <attr name="cardColor" format="color"/>
         <attr name="shadowLeftHeight" format="dimension"/>
         <attr name="shadowTopHeight" format="dimension"/>
         <attr name="shadowRightHeight" format="dimension"/>
         <attr name="shadowBottomHeight" format="dimension"/>
         <attr name="shadowOffsetX" format="dimension"/>
         <attr name="shadowOffsetY" format="dimension"/>
-        <attr name="cardColor" format="color"/>
         <attr name="shadowColor" format="color"/>
         <attr name="shadowRadius" format="integer"/>
     </declare-styleable>

@@ -5,7 +5,7 @@ import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.chad.library.adapter.base.BaseQuickAdapter.AnimationType
+import com.chad.library.adapter.base.BaseQuickAdapter
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
 import com.hjc.library_base.view.IStatusView
@@ -51,7 +51,7 @@ class LoadSirActivity : BaseActivity<FrameActivityLoadSirBinding, LoadSirViewMod
         mAdapter = ArticleAdapter(null)
         mBindingView.rvList.adapter = mAdapter
 
-        mAdapter.setAnimationWithDefault(AnimationType.SlideInLeft)
+        mAdapter.setAnimationWithDefault(BaseQuickAdapter.AnimationType.SlideInLeft)
     }
 
     override fun getImmersionBar(): ImmersionBar? {
@@ -108,6 +108,12 @@ class LoadSirActivity : BaseActivity<FrameActivityLoadSirBinding, LoadSirViewMod
                 mViewModel?.loadArticleList(mPage, false)
             }
         })
+
+        mAdapter.setOnItemClickListener { _, _, position ->
+            val item = mAdapter.data[position]
+            item.isSelected = !item.isSelected
+            mAdapter.notifyItemChanged(position)
+        }
     }
 
     override fun onSingleClick(v: View?) {
