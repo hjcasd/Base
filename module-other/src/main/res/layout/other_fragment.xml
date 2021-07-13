@@ -48,7 +48,7 @@
             android:id="@+id/btn4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="录音"
+            android:text="@string/other_btn4"
             android:onClick="@{onClickListener}"/>
 
     </LinearLayout>

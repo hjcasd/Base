@@ -23,41 +23,41 @@
             android:background="@color/other_color"
             app:titleColor="@color/base_white"
             app:leftImage="@mipmap/widget_icon_back"
-            app:titleText="录音案例" />
+            app:titleText="@string/other_audio_title" />
 
         <Button
             android:id="@+id/btn1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="开始录音"
+            android:text="@string/other_audio_btn1"
             android:onClick="@{onClickListener}"/>
 
         <Button
             android:id="@+id/btn2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="停止录音"
+            android:text="@string/other_audio_btn3"
             android:onClick="@{onClickListener}"/>
 
         <Button
             android:id="@+id/btn3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="取消录音"
+            android:text="@string/other_audio_btn3"
             android:onClick="@{onClickListener}"/>
 
         <Button
             android:id="@+id/btn4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="开始播放录音"
+            android:text="@string/other_audio_btn4"
             android:onClick="@{onClickListener}"/>
 
         <Button
             android:id="@+id/btn5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="暂停播放录音"
+            android:text="@string/other_audio_btn5"
             android:onClick="@{onClickListener}"/>
 
     </LinearLayout>
