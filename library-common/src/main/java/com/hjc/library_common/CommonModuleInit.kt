@@ -65,10 +65,11 @@ class CommonModuleInit : IModuleInit {
      * 初始化Http配置
      */
     private fun initHttp() {
-        SmartHttp.setDebug(AppConstants.APP_IS_DEBUG)
+        SmartHttp
             .setBaseUrl(HttpConfig.BASE_URL)
             .setTimeout(HttpConfig.HTTP_TIME_OUT)
             .addInterceptor(BaseUrlInterceptor())
+            .setDebug(AppConstants.APP_IS_DEBUG)
             .addConverter(GsonConverterFactory.create())
     }
 

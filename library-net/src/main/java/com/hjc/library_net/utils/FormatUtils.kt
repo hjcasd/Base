@@ -51,7 +51,7 @@ object FormatUtils {
             } else {
                 sub = formatJson.substring(index, max)
             }
-            LogUtils.d(sub)
+            LogUtils.e(sub)
             index = max
             max += 3800
         }

@@ -3,6 +3,7 @@ package com.hjc.module_other.http
 import com.hjc.library_net.bean.BaseResponse
 import com.hjc.module_other.entity.LoginBean
 import io.reactivex.Observable
+import okhttp3.MultipartBody
 import okhttp3.ResponseBody
 import retrofit2.http.*
 
@@ -32,4 +33,13 @@ interface OtherService {
     @Streaming
     @GET
     fun downloadApk(@Url url: String?): Observable<ResponseBody>
+
+
+    /**
+     * 上传录音文件
+     */
+    @Headers("url_name:test3")
+    @Multipart
+    @POST("/customize/voice/stream")
+    suspend fun uploadVoiceFile(@Part body: MultipartBody.Part): Any?
 }

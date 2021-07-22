@@ -20,6 +20,9 @@ class BaseUrlInterceptor : Interceptor {
 
         //多服务器地址2
         private const val TEST_BASE_URL2 = "https://api-m.mtime.cn"
+
+        //多服务器地址2
+        private const val TEST_BASE_URL3 = "http://10.67.200.215:8888"
     }
 
     @Throws(IOException::class)
@@ -39,9 +42,9 @@ class BaseUrlInterceptor : Interceptor {
             return newBaseUrl?.let {
                 val newFullUrl = oldHttpUrl
                     .newBuilder()
-//                    .scheme("https") //更换网络协议
+                    .scheme(it.scheme()) //更换网络协议
                     .host(it.host()) //更换主机名
-//                    .port(it.port()) //更换端口
+                    .port(it.port()) //更换端口
                     .build()
                 LogUtils.e("newFullUrl: $newFullUrl")
                 chain.proceed(builder.url(newFullUrl).build())
@@ -54,6 +57,7 @@ class BaseUrlInterceptor : Interceptor {
         return when (headerValue) {
             "test1" -> HttpUrl.parse(TEST_BASE_URL1)
             "test2" -> HttpUrl.parse(TEST_BASE_URL2)
+            "test3" -> HttpUrl.parse(TEST_BASE_URL3)
             else -> oldHttpUrl
         }
     }

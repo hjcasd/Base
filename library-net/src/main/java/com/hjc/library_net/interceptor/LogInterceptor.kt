@@ -34,7 +34,7 @@ class LogInterceptor : Interceptor {
                 "\nrequest duration === ${response.receivedResponseAtMillis() - response.sentRequestAtMillis()}ms" +
                 "\nrequest header === ${request.headers()}" +
                 "\nrequest body === ${bodyToString(request.body())}"
-        LogUtils.d("Request: $requestJson")
+        LogUtils.e("Request: $requestJson")
 
         val responseJson = buffer.clone().readString(UTF8)
         FormatUtils.formatJsonAndLog(responseJson)

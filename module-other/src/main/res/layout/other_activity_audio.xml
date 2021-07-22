@@ -36,7 +36,7 @@
             android:id="@+id/btn2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/other_audio_btn3"
+            android:text="@string/other_audio_btn2"
             android:onClick="@{onClickListener}"/>
 
         <Button
