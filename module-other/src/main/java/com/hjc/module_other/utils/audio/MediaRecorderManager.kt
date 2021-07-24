@@ -1,7 +1,8 @@
-package com.hjc.module_other.ui.audio.helper
+package com.hjc.module_other.utils.audio
 
 import android.media.MediaRecorder
 import android.os.Handler
+import com.blankj.utilcode.util.LogUtils
 import java.io.File
 import java.io.IOException
 import java.util.*
@@ -12,12 +13,12 @@ import kotlin.math.log10
  * @Date: 2021/5/27 4:00 下午
  * @Description: MediaRecorder管理类
  */
-class MediaRecorderManager private constructor(private val mDir: String?) {
+class MediaRecorderManager private constructor(private val mDirPath: String) {
 
     private var mMediaRecorder: MediaRecorder? = null
 
     // 当前录音文件路径
-    private var mCurrentFilePath: String? = null
+    private lateinit var mCurrentFilePath: String
 
     // 是否准备好录音
     private var isPrepared = false
@@ -40,8 +41,8 @@ class MediaRecorderManager private constructor(private val mDir: String?) {
         @Volatile
         private var mInstance: MediaRecorderManager? = null
 
-        fun getInstance(dir: String?) = mInstance ?: synchronized(this) {
-            mInstance ?: MediaRecorderManager(dir).also { mInstance = it }
+        fun getInstance(dirPath: String) = mInstance ?: synchronized(this) {
+            mInstance ?: MediaRecorderManager(dirPath).also { mInstance = it }
         }
     }
 
@@ -56,13 +57,7 @@ class MediaRecorderManager private constructor(private val mDir: String?) {
         try {
             isPrepared = false
 
-            val dir = File(mDir)
-            if (!dir.exists()) {
-                dir.mkdir()
-            }
-            val fileName = generateFileName()
-            val file = File(dir, fileName)
-            mCurrentFilePath = file.absolutePath
+            val file = createFile()
 
             mMediaRecorder = MediaRecorder()
             // 设置输出文件
@@ -85,6 +80,17 @@ class MediaRecorderManager private constructor(private val mDir: String?) {
         } catch (e: IOException) {
             e.printStackTrace()
         }
+    }
+
+    private fun createFile(): File {
+        val dirFile = File(mDirPath)
+        if (!dirFile.exists()) {
+            dirFile.mkdir()
+        }
+        val fileName = generateFileName()
+        val file = File(dirFile, fileName)
+        mCurrentFilePath = file.absolutePath
+        return file
     }
 
     /**
@@ -146,11 +152,15 @@ class MediaRecorderManager private constructor(private val mDir: String?) {
      */
     private fun release() {
         isPrepared = false
-        mMediaRecorder?.stop()
-        mMediaRecorder?.reset()
-        mMediaRecorder?.release()
-        mMediaRecorder = null
-        mHandler.removeCallbacksAndMessages(null)
+        try {
+            mMediaRecorder?.stop()
+            mMediaRecorder?.release()
+            mMediaRecorder?.reset()
+            mMediaRecorder = null
+            mHandler.removeCallbacksAndMessages(null)
+        }catch (e: Exception){
+            LogUtils.e("record: $e")
+        }
     }
 
 
@@ -158,12 +168,9 @@ class MediaRecorderManager private constructor(private val mDir: String?) {
      * 删除当前录音文件
      */
     private fun deleteAudioFile() {
-        mCurrentFilePath?.let {
-            val file = File(mCurrentFilePath)
-            if (file.exists()) {
-                file.delete()
-            }
-            mCurrentFilePath = null
+        val file = File(mCurrentFilePath)
+        if (file.exists()) {
+            file.delete()
         }
     }
 
@@ -187,7 +194,7 @@ class MediaRecorderManager private constructor(private val mDir: String?) {
          * 停止录音
          * @param filePath 保存路径
          */
-        fun onStop(filePath: String?)
+        fun onStop(filePath: String)
     }
 
     fun setOnAudioStateListener(listener: AudioStateListener) {

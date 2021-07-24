@@ -21,44 +21,38 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/other_color"
-            app:titleColor="@color/base_white"
             app:leftImage="@mipmap/widget_icon_back"
+            app:titleColor="@color/base_white"
             app:titleText="@string/other_audio_title" />
 
         <Button
             android:id="@+id/btn1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/other_audio_btn1"
-            android:onClick="@{onClickListener}"/>
+            android:onClick="@{onClickListener}"
+            android:text="@string/other_audio_btn1" />
 
         <Button
             android:id="@+id/btn2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/other_audio_btn2"
-            android:onClick="@{onClickListener}"/>
+            android:onClick="@{onClickListener}"
+            android:text="@string/other_audio_btn2" />
 
-        <Button
-            android:id="@+id/btn3"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/other_audio_btn3"
-            android:onClick="@{onClickListener}"/>
+            android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/btn4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/other_audio_btn4"
-            android:onClick="@{onClickListener}"/>
+            <com.hjc.module_other.view.RecordVoiceButton
+                android:id="@+id/rvb_voice"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="40dp"
+                android:background="@mipmap/other_img_stop" />
 
-        <Button
-            android:id="@+id/btn5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/other_audio_btn5"
-            android:onClick="@{onClickListener}"/>
+        </RelativeLayout>
 
     </LinearLayout>
 

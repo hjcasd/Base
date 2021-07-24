@@ -1,8 +1,13 @@
-package com.hjc.module_other.ui.audio.helper
+package com.hjc.module_other.utils.audio
 
 import java.io.File
 import java.util.*
 
+/**
+ * @Author: HJC
+ * @Date: 2021/7/24 15:42
+ * @Description: Audio文件工具类
+ */ 
 object AudioFileUtils {
 
     /**

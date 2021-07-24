@@ -14,7 +14,7 @@ import com.hjc.library_common.router.path.RouteOtherPath
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_other.R
 import com.hjc.module_other.databinding.OtherActivityAudioBinding
-import com.hjc.module_other.ui.audio.helper.MediaRecorderManager
+import com.hjc.module_other.view.RecordVoiceButton
 import com.hjc.module_other.viewmodel.AudioViewModel
 import java.io.IOException
 
@@ -26,12 +26,9 @@ import java.io.IOException
 @Route(path = RouteOtherPath.URL_AUDIO)
 class AudioActivity : BaseActivity<OtherActivityAudioBinding, AudioViewModel>() {
 
-    //    private var audioRecorderManager: AudioRecorderManager? = null
-    private var mediaRecorderManager: MediaRecorderManager? = null
+    private var mPlayer: MediaPlayer? = null
 
-    private var mediaPlayer: MediaPlayer? = null
-
-    private var mFilePath: String? = null
+    private lateinit var mFilePath: String
 
     override fun getLayoutId(): Int {
         return R.layout.other_activity_audio
@@ -48,11 +45,7 @@ class AudioActivity : BaseActivity<OtherActivityAudioBinding, AudioViewModel>() 
     }
 
     override fun initData(savedInstanceState: Bundle?) {
-        val dir = cacheDir.absolutePath
-//        audioRecorderManager = AudioRecorderManager.getInstance(dir)
-        mediaRecorderManager = MediaRecorderManager.getInstance(dir)
-
-        mediaPlayer = MediaPlayer()
+        mPlayer = MediaPlayer()
     }
 
     override fun addListeners() {
@@ -64,44 +57,16 @@ class AudioActivity : BaseActivity<OtherActivityAudioBinding, AudioViewModel>() 
             }
         })
 
-//        audioRecorderManager?.setOnAudioStateListener(object : AudioRecorderManager.AudioStateListener {
-//
-//            override fun onStart() {
-//                LogUtils.e("开始录音...")
-//            }
-//
-//            override fun onUpdate(db: Double, time: Long) {
-//                LogUtils.e("time: $time")
-//            }
-//
-//            override fun onStop(filePath: String?) {
-//                LogUtils.e("filePath: $filePath")
-//                mFilePath = filePath
-//
-//                mFilePath?.let {
-//                    mViewModel?.uploadVoiceFile(it)
-//                }
-//            }
-//
-//        })
+        mBindingView.rvbVoice.setOnAudioRecorderListener(object : RecordVoiceButton.AudioRecorderListener {
 
-        mediaRecorderManager?.setOnAudioStateListener(object : MediaRecorderManager.AudioStateListener {
-
-            override fun onStart() {
-                LogUtils.e("开始录音...")
-            }
-
-            override fun onUpdate(db: Double, time: Long) {
-
-            }
-
-            override fun onStop(filePath: String?) {
+            override fun onFinish(recordTime: Long, filePath: String) {
                 LogUtils.e("filePath: $filePath")
                 mFilePath = filePath
+//                mViewModel?.uploadVoiceFile(mFilePath)
+            }
 
-                mFilePath?.let {
-                    mViewModel?.uploadVoiceFile(it)
-                }
+            override fun onStateChange(state: Int) {
+
             }
 
         })
@@ -110,27 +75,12 @@ class AudioActivity : BaseActivity<OtherActivityAudioBinding, AudioViewModel>() 
     override fun onSingleClick(v: View?) {
         when (v?.id) {
             R.id.btn1 -> {
-//                audioRecorderManager?.startRecord()
-                mediaRecorderManager?.startRecord()
-            }
-
-            R.id.btn2 -> {
-//                audioRecorderManager?.stopRecord()
-                mediaRecorderManager?.stopRecord()
-            }
-
-            R.id.btn3 -> {
-//                audioRecorderManager?.cancelRecord()
-                mediaRecorderManager?.cancelRecord()
-            }
-
-            R.id.btn4 -> {
                 if (!TextUtils.isEmpty(mFilePath)) {
                     try {
-                        mediaPlayer = MediaPlayer()
-                        mediaPlayer?.setDataSource(mFilePath)
-                        mediaPlayer?.prepare()
-                        mediaPlayer?.start()
+                        mPlayer = MediaPlayer()
+                        mPlayer?.setDataSource(mFilePath)
+                        mPlayer?.prepare()
+                        mPlayer?.start()
                     } catch (e: IOException) {
                         e.printStackTrace()
                     }
@@ -139,11 +89,11 @@ class AudioActivity : BaseActivity<OtherActivityAudioBinding, AudioViewModel>() 
                 }
             }
 
-            R.id.btn5 -> {
-                mediaPlayer?.stop()
-                mediaPlayer?.reset()
-                mediaPlayer?.release()
-                mediaPlayer = null
+            R.id.btn2 -> {
+                mPlayer?.stop()
+                mPlayer?.reset()
+                mPlayer?.release()
+                mPlayer = null
             }
 
             else -> {
@@ -153,8 +103,8 @@ class AudioActivity : BaseActivity<OtherActivityAudioBinding, AudioViewModel>() 
 
     override fun onDestroy() {
         super.onDestroy()
-        mediaPlayer?.stop()
-        mediaPlayer?.release()
-        mediaPlayer = null
+        mPlayer?.stop()
+        mPlayer?.release()
+        mPlayer = null
     }
 }

@@ -13,7 +13,7 @@ import com.hjc.library_common.router.path.RouteOtherPath
 import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.module_other.R
 import com.hjc.module_other.databinding.OtherFragmentBinding
-import com.hjc.module_other.dialog.UpdateDialog
+import com.hjc.module_other.view.dialog.UpdateDialog
 
 /**
  * @Author: HJC
