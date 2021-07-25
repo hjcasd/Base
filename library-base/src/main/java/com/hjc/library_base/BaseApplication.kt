@@ -7,6 +7,7 @@ import androidx.multidex.MultiDexApplication
 import com.hjc.library_base.loadsir.*
 import com.hjc.library_base.utils.ActivityHelper
 import com.kingja.loadsir.core.LoadSir
+import tech.oom.idealrecorder.IdealRecorder
 
 /**
  * @Author: HJC
@@ -27,6 +28,7 @@ open class BaseApplication : MultiDexApplication() {
         super.onCreate()
         mInstance = this
 
+        IdealRecorder.getInstance().init(this)
         initLoadSir()
         registerActivity()
     }

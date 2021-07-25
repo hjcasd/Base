@@ -128,4 +128,5 @@ dependencies {
     // Zxing二维码
     api 'cn.bingoogolapple:bga-qrcode-zxing:1.3.6'
 
+    api 'com.github.ideastudios:IdealRecorder:2.0.4'
 }

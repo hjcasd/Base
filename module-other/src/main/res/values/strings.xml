@@ -21,8 +21,13 @@
     <string name="other_audio_title">录音案例</string>
     <string name="other_audio_btn1">开始播放录音</string>
     <string name="other_audio_btn2">暂停播放录音</string>
+    <string name="other_audio_btn3">录音弹框</string>
 
     <string name="other_record_finger_stroke_to_cancel">手指上滑，取消录音</string>
     <string name="other_record_release_finger_to_cancel">松开手指，取消录音</string>
     <string name="other_record_too_short">录音时间太短</string>
+
+    <string name="other_please_start_recording">请您开始录音</string>
+    <string name="other_time_hours">00:00:00</string>
+    <string name="other_long_press_to_recording">长按录音</string>
 </resources>

@@ -15,6 +15,7 @@ import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_other.R
 import com.hjc.module_other.databinding.OtherActivityAudioBinding
 import com.hjc.module_other.view.RecordVoiceButton
+import com.hjc.module_other.view.dialog.AudioDialog
 import com.hjc.module_other.viewmodel.AudioViewModel
 import java.io.IOException
 
@@ -94,6 +95,10 @@ class AudioActivity : BaseActivity<OtherActivityAudioBinding, AudioViewModel>() 
                 mPlayer?.reset()
                 mPlayer?.release()
                 mPlayer = null
+            }
+
+            R.id.btn3 -> {
+                AudioDialog.newInstance().showDialog(supportFragmentManager)
             }
 
             else -> {
