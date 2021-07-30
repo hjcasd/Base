@@ -50,7 +50,7 @@ class AudioDialog : BaseFragmentDialog<OtherDialogAudioBinding, CommonViewModel>
     }
 
     override fun getStyleRes(): Int {
-        return R.style.Base_Dialog_Action_Sheet
+        return R.style.Base_Dialog_Bottom
     }
 
     override fun getLayoutId(): Int {

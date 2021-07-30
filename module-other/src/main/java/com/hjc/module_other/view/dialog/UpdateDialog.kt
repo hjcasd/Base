@@ -29,7 +29,7 @@ class UpdateDialog : BaseFragmentDialog<OtherDialogUpdateBinding, CommonViewMode
     }
 
     override fun getStyleRes(): Int {
-       return R.style.Base_Dialog_Action_Sheet
+       return R.style.Base_Dialog
     }
 
     override fun getLayoutId(): Int {

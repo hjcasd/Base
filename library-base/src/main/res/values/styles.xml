@@ -1,71 +1,66 @@
 <resources>
-    <!--基本的dialog style-->
+    <!-- base dialog style -->
     <style name="Base_Dialog" parent="Theme.AppCompat.DayNight.Dialog">
-        <item name="colorPrimary">@color/base_color</item>
-        <item name="colorPrimaryDark">@color/base_color</item>
-        <item name="colorAccent">@color/base_color</item>
-        <!--背景颜色及和透明程度-->
+        <!-- 背景颜色及和透明程度 -->
         <item name="android:windowBackground">@android:color/transparent</item>
-        <!--是否去除标题 -->
-        <item name="android:windowNoTitle">true</item>
-        <!--是否去除边框-->
-        <item name="android:windowFrame">@null</item>
-        <!--是否浮现在activity之上-->
-        <item name="android:windowIsFloating">true</item>
-        <!--是否模糊-->
-        <item name="android:backgroundDimEnabled">true</item>
-    </style>
-
-    <!-- 仿IOS的dialog style -->
-    <style name="Base_Dialog_Action_Sheet" parent="Theme.AppCompat.DayNight.Dialog">
-        <!-- 背景透明 -->
-        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 是否有遮盖 -->
         <item name="android:windowContentOverlay">@null</item>
-        <!-- 浮于Activity之上 -->
-        <item name="android:windowIsFloating">true</item>
-        <!-- 边框 -->
-        <item name="android:windowFrame">@null</item>
-        <!-- Dialog以外的区域模糊效果 -->
-        <item name="android:backgroundDimEnabled">true</item>
-        <!-- 无标题 -->
-        <item name="android:windowNoTitle">true</item>
         <!-- 半透明 -->
         <item name="android:windowIsTranslucent">true</item>
+        <!-- 是否去除标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 是否去除边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
         <!-- Dialog进入及退出动画 -->
-        <item name="android:windowAnimationStyle">@style/Base_Animation_Action_Sheet</item>
+        <item name="android:windowAnimationStyle">@style/Base_Animation_Zoom</item>
+        <!-- Dialog以外的区域模糊效果 -->
+        <item name="android:backgroundDimEnabled">true</item>
     </style>
 
-    <!-- ActionSheet进出动画 -->
-    <style name="Base_Animation_Action_Sheet" parent="Theme.AppCompat.DayNight.Dialog">
-        <item name="android:windowEnterAnimation">@anim/base_dialog_action_sheet_in</item>
-        <item name="android:windowExitAnimation">@anim/base_dialog_action_sheet_out</item>
+    <!-- bottom dialog style -->
+    <style name="Base_Dialog_Bottom" parent="Theme.AppCompat.DayNight.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowAnimationStyle">@style/Base_Animation_Bottom</item>
+        <item name="android:backgroundDimEnabled">true</item>
     </style>
 
+    <!-- ======================================================================================== -->
 
-    <!-- dialog弹出动画-->
+    <!-- 放大缩小动画 -->
     <style name="Base_Animation_Zoom" parent="Theme.AppCompat.DayNight.Dialog">
         <item name="android:windowEnterAnimation">@anim/base_dialog_scale_in</item>
         <item name="android:windowExitAnimation">@anim/base_dialog_scale_out</item>
     </style>
 
-    <style name="Base_Animation_Bottom" parent="Theme.AppCompat.DayNight.Dialog">
-        <item name="android:windowEnterAnimation">@anim/base_dialog_bottom_in</item>
-        <item name="android:windowExitAnimation">@anim/base_dialog_bottom_out</item>
-    </style>
-
+    <!-- 顶部下滑动画 -->
     <style name="Base_Animation_Top" parent="Theme.AppCompat.DayNight.Dialog">
         <item name="android:windowEnterAnimation">@anim/base_dialog_top_in</item>
         <item name="android:windowExitAnimation">@anim/base_dialog_top_out</item>
     </style>
 
-    <style name="Base_Animation_Right" parent="Theme.AppCompat.DayNight.Dialog">
-        <item name="android:windowEnterAnimation">@anim/base_dialog_right_in</item>
-        <item name="android:windowExitAnimation">@anim/base_dialog_right_out</item>
+    <!-- 底部下滑动画 -->
+    <style name="Base_Animation_Bottom" parent="Theme.AppCompat.DayNight.Dialog">
+        <item name="android:windowEnterAnimation">@anim/base_dialog_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/base_dialog_bottom_out</item>
     </style>
 
+    <!-- 左边滑入动画 -->
     <style name="Base_Animation_Left" parent="Theme.AppCompat.DayNight.Dialog">
         <item name="android:windowEnterAnimation">@anim/base_dialog_left_in</item>
         <item name="android:windowExitAnimation">@anim/base_dialog_left_out</item>
+    </style>
+
+    <!-- 右边滑入动画 -->
+    <style name="Base_Animation_Right" parent="Theme.AppCompat.DayNight.Dialog">
+        <item name="android:windowEnterAnimation">@anim/base_dialog_right_in</item>
+        <item name="android:windowExitAnimation">@anim/base_dialog_right_out</item>
     </style>
 
 </resources>
