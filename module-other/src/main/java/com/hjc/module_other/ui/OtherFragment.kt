@@ -13,6 +13,7 @@ import com.hjc.library_common.router.path.RouteOtherPath
 import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.module_other.R
 import com.hjc.module_other.databinding.OtherFragmentBinding
+import com.hjc.module_other.view.dialog.TestDialog
 import com.hjc.module_other.view.dialog.UpdateDialog
 
 /**
@@ -68,6 +69,8 @@ class OtherFragment : BaseFragment<OtherFragmentBinding, CommonViewModel>() {
             R.id.btn3 -> UpdateDialog.newInstance().showDialog(childFragmentManager)
 
             R.id.btn4 -> RouteManager.jump(RouteOtherPath.URL_AUDIO)
+
+            R.id.btn5 -> TestDialog.newInstance().showDialog(childFragmentManager)
 
             else -> {
 

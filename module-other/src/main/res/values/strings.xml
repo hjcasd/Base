@@ -6,6 +6,7 @@
     <string name="other_btn2">退出</string>
     <string name="other_btn3">更新</string>
     <string name="other_btn4">录音</string>
+    <string name="other_btn5">弹框</string>
 
     <string name="other_login_title">登录案例</string>
     <string name="other_login_username_hint">请输入用户名</string>
@@ -17,6 +18,15 @@
     <string name="other_dialog_update_info">1: 测试111\n2: 测试222\n3: 测试333</string>
     <string name="other_dialog_update_cancel">取消</string>
     <string name="other_dialog_update_update">升级</string>
+
+    <string name="other_dialog_test_info">1: 1111111111111111111111111\n\n
+        2: 2222222222222222222222222\n\n
+        3: 3333333333333333333333333\n\n
+        4: 4444444444444444444444444\n\n
+        5: 5555555555555555555555555\n\n
+        6: 6666666666666666666666666\n\n
+        7: 7777777777777777777777777
+    </string>
 
     <string name="other_audio_title">录音案例</string>
     <string name="other_audio_btn1">开始播放录音</string>
