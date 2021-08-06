@@ -1,4 +1,4 @@
-package com.hjc.module_other.view
+package com.hjc.module_other.widget
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -11,7 +11,7 @@ import android.view.View.OnLongClickListener
 import androidx.appcompat.widget.AppCompatImageButton
 import com.hjc.module_other.R
 import com.hjc.module_other.utils.audio.MediaRecorderManager
-import com.hjc.module_other.view.dialog.RecordDialog
+import com.hjc.module_other.dialog.RecordDialog
 
 /**
  * @Author: HJC

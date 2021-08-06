@@ -2,7 +2,7 @@ package com.hjc.module_frame.http
 
 import com.hjc.library_net.bean.BaseResponse
 import com.hjc.library_net.bean.PageResponse
-import com.hjc.module_frame.entity.ArticleBean
+import com.hjc.module_frame.http.entity.ArticleBean
 import retrofit2.http.GET
 import retrofit2.http.Path
 

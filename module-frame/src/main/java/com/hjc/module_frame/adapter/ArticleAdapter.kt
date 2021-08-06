@@ -6,7 +6,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.hjc.module_frame.R
 import com.hjc.module_frame.databinding.FrameItemArticleBinding
-import com.hjc.module_frame.entity.ArticleBean
+import com.hjc.module_frame.http.entity.ArticleBean
 
 /**
  * @Author: HJC

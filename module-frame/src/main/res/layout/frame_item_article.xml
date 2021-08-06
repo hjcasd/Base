@@ -6,7 +6,7 @@
 
         <variable
             name="articleBean"
-            type="com.hjc.module_frame.entity.ArticleBean" />
+            type="com.hjc.module_frame.http.entity.ArticleBean" />
 
         <import type="android.text.Html" />
 

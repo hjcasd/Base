@@ -10,7 +10,7 @@ import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_home.R
 import com.hjc.module_home.databinding.HomeActivityDataBinding
-import com.hjc.module_home.entity.PersonBean
+import com.hjc.module_home.http.entity.PersonBean
 
 /**
  * @Author: HJC

@@ -3,7 +3,7 @@ package com.hjc.module_home.viewmodel.live
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import com.hjc.library_base.viewmodel.BaseViewModel
-import com.hjc.module_home.entity.UserBean
+import com.hjc.module_home.http.entity.UserBean
 import com.hjc.module_home.model.LiveModel
 
 class LiveViewModel(application: Application) : BaseViewModel(application) {

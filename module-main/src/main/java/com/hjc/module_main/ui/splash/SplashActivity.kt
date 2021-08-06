@@ -2,7 +2,9 @@ package com.hjc.module_main.ui.splash
 
 import android.os.Bundle
 import android.view.View
+import android.widget.FrameLayout
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.blankj.utilcode.util.BarUtils
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
 import com.hjc.library_common.router.RouteManager
@@ -34,10 +36,17 @@ class SplashActivity : BaseActivity<MainActivitySplashBinding, CommonViewModel>(
         return null
     }
 
+    override fun initView() {
+        super.initView()
+        val layoutParams = mBindingView.tvTime.layoutParams as FrameLayout.LayoutParams
+        layoutParams.topMargin = BarUtils.getStatusBarHeight()
+        mBindingView.tvTime.layoutParams = layoutParams
+    }
+
     override fun getImmersionBar(): ImmersionBar? {
         return ImmersionBar.with(this)
             .transparentStatusBar()
-            .titleBar(mBindingView.llTime)
+//            .titleBar(mBindingView.llTime)
     }
 
     override fun initData(savedInstanceState: Bundle?) {
@@ -64,6 +73,7 @@ class SplashActivity : BaseActivity<MainActivitySplashBinding, CommonViewModel>(
     override fun onSingleClick(v: View?) {
         when (v?.id) {
             R.id.tv_time -> toMain()
+
             else -> {
             }
         }

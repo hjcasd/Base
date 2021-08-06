@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.hjc.library_common.viewmodel.KotlinViewModel
-import com.hjc.module_other.entity.LoginBean
+import com.hjc.module_other.http.entity.LoginBean
 import com.hjc.module_other.model.LoginModel
 
 class LoginViewModel(application: Application) : KotlinViewModel(application) {

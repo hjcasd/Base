@@ -1,7 +1,7 @@
 package com.hjc.module_other.http
 
 import com.hjc.library_net.bean.BaseResponse
-import com.hjc.module_other.entity.LoginBean
+import com.hjc.module_other.http.entity.LoginBean
 import io.reactivex.Observable
 import okhttp3.MultipartBody
 import okhttp3.ResponseBody

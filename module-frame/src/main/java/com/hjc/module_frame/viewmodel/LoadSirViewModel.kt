@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import com.blankj.utilcode.util.ToastUtils
 import com.hjc.library_common.viewmodel.KotlinViewModel
-import com.hjc.module_frame.entity.ArticleBean
+import com.hjc.module_frame.http.entity.ArticleBean
 import com.hjc.module_frame.model.LoadSirModel
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException

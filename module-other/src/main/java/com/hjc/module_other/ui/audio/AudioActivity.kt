@@ -14,8 +14,8 @@ import com.hjc.library_common.router.path.RouteOtherPath
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_other.R
 import com.hjc.module_other.databinding.OtherActivityAudioBinding
-import com.hjc.module_other.view.RecordVoiceButton
-import com.hjc.module_other.view.dialog.AudioDialog
+import com.hjc.module_other.widget.RecordVoiceButton
+import com.hjc.module_other.dialog.AudioDialog
 import com.hjc.module_other.viewmodel.AudioViewModel
 import java.io.IOException
 

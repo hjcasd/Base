@@ -1,4 +1,4 @@
-package com.hjc.module_other.ui.update
+package com.hjc.module_other.utils.update
 
 import com.hjc.module_other.http.OtherService
 import io.reactivex.android.schedulers.AndroidSchedulers

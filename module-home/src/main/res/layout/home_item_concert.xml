@@ -6,7 +6,7 @@
 
         <variable
             name="concertBean"
-            type="com.hjc.module_home.entity.ConcertBean" />
+            type="com.hjc.module_home.http.entity.ConcertBean" />
 
     </data>
 

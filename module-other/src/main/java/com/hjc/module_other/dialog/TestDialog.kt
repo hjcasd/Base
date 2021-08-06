@@ -1,4 +1,4 @@
-package com.hjc.module_other.view.dialog
+package com.hjc.module_other.dialog
 
 import android.os.Bundle
 import android.view.View

@@ -1,4 +1,4 @@
-package com.hjc.module_home.entity
+package com.hjc.module_home.http.entity
 
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable

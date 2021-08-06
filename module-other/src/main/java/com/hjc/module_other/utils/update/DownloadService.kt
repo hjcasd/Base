@@ -1,4 +1,4 @@
-package com.hjc.module_other.ui.update
+package com.hjc.module_other.utils.update
 
 import android.app.IntentService
 import android.app.Notification

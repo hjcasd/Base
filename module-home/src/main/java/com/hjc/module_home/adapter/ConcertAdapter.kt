@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.hjc.module_home.R
 import com.hjc.module_home.databinding.HomeItemConcertBinding
-import com.hjc.module_home.entity.ConcertBean
+import com.hjc.module_home.http.entity.ConcertBean
 
 class ConcertAdapter : PagedListAdapter<ConcertBean, ConcertAdapter.MyViewHolder>(mDiffCallback) {
 

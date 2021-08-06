@@ -2,7 +2,7 @@ package com.hjc.module_other.model
 
 import com.hjc.library_common.model.CommonModel
 import com.hjc.library_net.bean.BaseResponse
-import com.hjc.module_other.entity.LoginBean
+import com.hjc.module_other.http.entity.LoginBean
 import com.hjc.module_other.http.OtherService
 
 class LoginModel : CommonModel() {

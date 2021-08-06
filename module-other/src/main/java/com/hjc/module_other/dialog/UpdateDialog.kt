@@ -1,4 +1,4 @@
-package com.hjc.module_other.view.dialog
+package com.hjc.module_other.dialog
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,7 +8,7 @@ import com.hjc.library_base.utils.ActivityHelper.finishAllActivities
 import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.module_other.R
 import com.hjc.module_other.databinding.OtherDialogUpdateBinding
-import com.hjc.module_other.ui.update.DownloadService
+import com.hjc.module_other.utils.update.DownloadService
 import com.hjc.module_other.utils.ApkUtils
 
 /**

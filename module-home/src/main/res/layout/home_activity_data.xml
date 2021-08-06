@@ -6,7 +6,7 @@
 
         <variable
             name="personBean"
-            type="com.hjc.module_home.entity.PersonBean" />
+            type="com.hjc.module_home.http.entity.PersonBean" />
 
         <variable
             name="onClickListener"

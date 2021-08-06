@@ -1,4 +1,4 @@
-package com.hjc.module_frame.entity
+package com.hjc.module_frame.http.entity
 
 import java.io.Serializable
 
