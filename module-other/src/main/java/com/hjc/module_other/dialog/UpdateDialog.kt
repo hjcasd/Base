@@ -8,8 +8,8 @@ import com.hjc.library_base.utils.ActivityHelper.finishAllActivities
 import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.module_other.R
 import com.hjc.module_other.databinding.OtherDialogUpdateBinding
-import com.hjc.module_other.utils.update.DownloadService
 import com.hjc.module_other.utils.ApkUtils
+import com.hjc.module_other.utils.update.DownloadService
 
 /**
  * @Author: HJC
@@ -29,7 +29,7 @@ class UpdateDialog : BaseFragmentDialog<OtherDialogUpdateBinding, CommonViewMode
     }
 
     override fun getStyleRes(): Int {
-       return R.style.Base_Dialog
+       return R.style.Base_Dialog_Zoom
     }
 
     override fun getLayoutId(): Int {
