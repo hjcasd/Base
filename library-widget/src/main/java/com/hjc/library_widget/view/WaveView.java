@@ -1,4 +1,4 @@
-package com.hjc.library_widget;
+package com.hjc.library_widget.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -9,6 +9,8 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+
+import com.hjc.library_widget.R;
 
 import java.util.ArrayList;
 

@@ -128,5 +128,9 @@ dependencies {
     // Zxing二维码
     api 'cn.bingoogolapple:bga-qrcode-zxing:1.3.6'
 
+    // 录音
     api 'com.github.ideastudios:IdealRecorder:2.0.4'
+
+    // 卡片
+    api 'org.linwg1988:lcardview:1.5.4'
 }

@@ -1,4 +1,4 @@
-package com.hjc.library_widget
+package com.hjc.library_widget.list
 
 import android.content.Context
 import android.util.AttributeSet

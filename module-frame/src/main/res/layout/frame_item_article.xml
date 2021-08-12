@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -12,22 +13,23 @@
 
     </data>
 
-    <androidx.cardview.widget.CardView
+    <www.linwg.org.lib.LCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="10dp"
-        app:cardUseCompatPadding="true"
-        app:cardPreventCornerOverlap="false"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="5dp">
+        app:cardBackgroundColor="@color/base_white"
+        app:cornerRadius="10dp"
+        app:shadowFluidShape="adsorption"
+        app:shadowSize="10dp"
+        app:shadowColor="#999999"
+        app:shadowStartAlpha="120">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/frame_selector_bg_card"
             android:padding="15dp">
 
             <TextView
@@ -39,7 +41,8 @@
                 android:textColor="@color/frame_color"
                 android:textSize="12sp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="哈哈哈哈" />
 
             <TextView
                 android:id="@+id/tv_time"
@@ -50,7 +53,8 @@
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@id/tv_chapter"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="2021-08-09" />
 
             <TextView
                 android:id="@+id/tv_title"
@@ -64,10 +68,11 @@
                 android:textSize="16sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_chapter" />
+                app:layout_constraintTop_toBottomOf="@id/tv_chapter"
+                tools:text="哈哈哈哈哈哈哈哈哈啊哈" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.cardview.widget.CardView>
+    </www.linwg.org.lib.LCardView>
 
 </layout>

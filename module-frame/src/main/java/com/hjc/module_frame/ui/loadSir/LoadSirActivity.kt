@@ -5,6 +5,7 @@ import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.blankj.utilcode.util.ToastUtils
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
@@ -110,9 +111,7 @@ class LoadSirActivity : BaseActivity<FrameActivityLoadSirBinding, LoadSirViewMod
         })
 
         mAdapter.setOnItemClickListener { _, _, position ->
-            val item = mAdapter.data[position]
-            item.isSelected = !item.isSelected
-            mAdapter.notifyItemChanged(position)
+            ToastUtils.showShort("position: $position")
         }
     }
 

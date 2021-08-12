@@ -25,7 +25,6 @@ class ArticleAdapter(data: MutableList<ArticleBean>?) : BaseQuickAdapter<Article
         val binding = DataBindingUtil.getBinding<FrameItemArticleBinding>(holder.itemView)
         binding?.let {
             it.articleBean = item
-            it.clCard.isSelected = item.isSelected
         }
     }
 

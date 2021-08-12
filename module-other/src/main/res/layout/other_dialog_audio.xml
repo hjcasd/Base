@@ -30,7 +30,7 @@
             android:textSize="16sp"
             android:visibility="visible" />
 
-        <com.hjc.library_widget.WaveView
+        <com.hjc.library_widget.view.WaveView
             android:id="@+id/wave_view"
             android:layout_width="match_parent"
             android:layout_height="60dp"

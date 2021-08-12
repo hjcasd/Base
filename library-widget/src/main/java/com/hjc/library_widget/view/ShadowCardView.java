@@ -1,4 +1,4 @@
-package com.hjc.library_widget;
+package com.hjc.library_widget.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -7,6 +7,8 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
+
+import com.hjc.library_widget.R;
 
 /**
  * @Author: HJC

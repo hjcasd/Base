@@ -32,5 +32,4 @@ data class ArticleBean(
     var userId: Int,
     var visible: Int,
     var zan: Int,
-    var isSelected: Boolean = false
 ) : Serializable
