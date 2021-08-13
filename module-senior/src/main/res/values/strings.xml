@@ -5,7 +5,7 @@
     <string name="senior_tab3_btn1">事件传递解析</string>
     <string name="senior_tab3_btn2">自定义View详解</string>
     <string name="senior_tab3_btn3">夜间模式切换</string>
-    <string name="senior_tab3_btn4">MotionLayout</string>
+    <string name="senior_tab3_btn4">动画详解</string>
 
     <string name="senior_touch_title">Touch</string>
     <string name="senior_touch_btn1">默认事件传递流程</string>
@@ -56,9 +56,27 @@
     <string name="senior_theme_title">夜间模式</string>
     <string name="senior_theme_btn">切换夜间模式</string>
 
-    <string name="senior_motion_title">MotionLayout的使用</string>
-    <string name="senior_motion_btn1">案例1</string>
-    <string name="senior_motion_btn2">案例2</string>
-    <string name="senior_motion_btn3">案例3</string>
+    <string name="senior_animation_title">Animation的使用</string>
+    <string name="senior_animation_btn1">ObjectAnimator</string>
+    <string name="senior_animation_btn2">ValueAnimator</string>
+    <string name="senior_animation_btn3">AnimatorSet</string>
+    <string name="senior_animation_btn4">AnimatorXML</string>
+    <string name="senior_animation_btn5">Interpolator</string>
+
+    <string name="senior_object_animator_title">属性动画</string>
+    <string name="senior_object_animator_btn1">旋转</string>
+    <string name="senior_object_animator_btn2">组合</string>
+
+    <string name="senior_value_animator_title">补间动画</string>
+    <string name="senior_value_animator_btn1">垂直</string>
+    <string name="senior_value_animator_btn2">组合(抛物线)</string>
+
+    <string name="senior_animator_set_title">组合动画</string>
+    <string name="senior_animator_set_btn1">组合(Together)</string>
+    <string name="senior_animator_set_btn2">组合(After)</string>
+
+    <string name="senior_animator_xml_title">动画XML写法</string>
+    <string name="senior_animator_xml_btn1">沿x轴放大</string>
+    <string name="senior_animator_xml_btn2">沿x,y轴一起放大</string>
 
 </resources>

@@ -37,9 +37,19 @@ object RouteSeniorPath {
 
 
     /**
-     * MotionLayout页面
+     * Theme页面
      */
     const val URL_THEME = "$MODULE_SENIOR/theme"
-    const val URL_MOTION = "$MODULE_SENIOR/motion"
+
+
+    /**
+     * Animation页面
+     */
+    const val URL_ANIMATION = "$MODULE_SENIOR/anim"
+    const val URL_ANIMATION_OBJECT = "$MODULE_SENIOR/anim/object"
+    const val URL_ANIMATION_VALUE = "$MODULE_SENIOR/anim/value"
+    const val URL_ANIMATION_SET = "$MODULE_SENIOR/anim/set"
+    const val URL_ANIMATION_XML = "$MODULE_SENIOR/anim/xml"
+    const val URL_ANIMATION_INTERPOLATOR = "$MODULE_SENIOR/anim/interpolator"
 
 }

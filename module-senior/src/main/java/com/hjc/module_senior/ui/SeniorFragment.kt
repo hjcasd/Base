@@ -50,7 +50,7 @@ class SeniorFragment : BaseFragment<SeniorFragmentBinding, SeniorViewModel>() {
 
             R.id.btn3 -> RouteManager.jump(RouteSeniorPath.URL_THEME)
 
-            R.id.btn4 -> RouteManager.jump(RouteSeniorPath.URL_MOTION)
+            R.id.btn4 -> RouteManager.jump(RouteSeniorPath.URL_ANIMATION)
 
             else -> {
             }

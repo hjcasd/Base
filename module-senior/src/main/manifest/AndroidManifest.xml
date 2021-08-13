@@ -20,11 +20,6 @@
             </intent-filter>
         </activity>
 
-
-        <activity
-            android:name=".ui.motion.MotionActivity"
-            android:screenOrientation="portrait" />
-
         <activity
             android:name=".ui.theme.ThemeActivity"
             android:screenOrientation="portrait" />
@@ -69,6 +64,27 @@
 
         <activity
             android:name=".ui.view.ViewRadarActivity"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name=".ui.animation.AnimationActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.animation.child.AnimatorObjectActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.animation.child.AnimatorValueActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.animation.child.AnimatorSetActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.animation.child.AnimatorXmlActivity"
             android:screenOrientation="portrait" />
 
     </application>
