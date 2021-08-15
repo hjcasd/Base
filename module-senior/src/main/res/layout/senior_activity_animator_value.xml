@@ -22,14 +22,14 @@
             android:background="@color/senior_color"
             app:leftImage="@mipmap/widget_icon_back"
             app:titleColor="@color/base_white"
-            app:titleText="@string/senior_value_animator_title" />
+            app:titleText="@string/senior_animator_value_title" />
 
         <Button
             android:id="@+id/btn1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
-            android:text="@string/senior_value_animator_btn1"
+            android:text="@string/senior_animator_value_btn1"
             android:textAllCaps="false" />
 
         <Button
@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{onClickListener}"
-            android:text="@string/senior_value_animator_btn2"
+            android:text="@string/senior_animator_value_btn2"
             android:textAllCaps="false" />
 
         <ImageView
@@ -47,7 +47,7 @@
             android:layout_marginTop="20dp"
             android:src="@mipmap/senior_img_circle" />
 
-<!--        <com.hjc.module_senior.widget.anim.MyAnimView-->
+<!--        <com.hjc.module_senior.widget.anim.ValueAnimView-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="match_parent"-->
 <!--            android:layout_marginTop="20dp" />-->

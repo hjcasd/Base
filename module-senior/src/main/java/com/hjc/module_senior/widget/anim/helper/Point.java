@@ -1,5 +1,10 @@
 package com.hjc.module_senior.widget.anim.helper;
 
+/**
+ * @Author: HJC
+ * @Date: 2021/8/15 15:37
+ * @Description: 定义的点
+ */
 public class Point {
 
     private float x;

@@ -56,7 +56,7 @@ dependencies {
 
     api "androidx.appcompat:appcompat:1.2.0"
     api "androidx.constraintlayout:constraintlayout:2.0.4"
-    api "androidx.recyclerview:recyclerview:1.1.0"
+    api "androidx.recyclerview:recyclerview:1.2.0"
     api "androidx.multidex:multidex:2.0.1"
     api "com.google.android.material:material:1.3.0"
 
@@ -66,12 +66,12 @@ dependencies {
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9"
 
     // JetPack
-    api "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"
+    api "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
     api "androidx.lifecycle:lifecycle-extensions:2.2.0"
-    api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
-    api "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
-    api "androidx.room:room-runtime:2.2.5"
-    kapt "androidx.room:room-compiler:2.2.5"
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
+    api "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
+    api "androidx.room:room-runtime:2.2.6"
+    kapt "androidx.room:room-compiler:2.2.6"
     api "androidx.paging:paging-runtime-ktx:2.1.2"
 
     // Gson

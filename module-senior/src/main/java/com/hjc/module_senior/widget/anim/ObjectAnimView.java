@@ -1,5 +1,7 @@
 package com.hjc.module_senior.widget.anim;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -8,24 +10,40 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.hjc.module_senior.widget.anim.helper.ColorEvaluator;
 import com.hjc.module_senior.widget.anim.helper.Point;
 import com.hjc.module_senior.widget.anim.helper.PointEvaluator;
 
+/**
+ * @Author: HJC
+ * @Date: 2021/8/15 15:40
+ * @Description: 自定义属性动画View
+ */
+public class ObjectAnimView extends View {
 
-public class MyAnimView extends View {
-    public static final float RADIUS = 50f;
+    private static final float RADIUS = 50f;
     private Point mCurrentPoint;
     private Paint mPaint;
+    private String color;
 
-    public MyAnimView(Context context, AttributeSet attrs) {
+    public ObjectAnimView(Context context, AttributeSet attrs) {
         super(context, attrs);
-
         initPaint();
     }
 
     private void initPaint() {
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setColor(Color.BLUE);
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+        mPaint.setColor(Color.parseColor(color));
+        invalidate();
     }
 
     @Override
@@ -48,12 +66,16 @@ public class MyAnimView extends View {
     private void startAnimation() {
         Point startPoint = new Point(RADIUS, RADIUS);
         Point endPoint = new Point(getWidth() - RADIUS, getHeight() - RADIUS);
-        ValueAnimator anim = ValueAnimator.ofObject(new PointEvaluator(), startPoint, endPoint);
-        anim.addUpdateListener(animation -> {
+        ValueAnimator anim1 = ValueAnimator.ofObject(new PointEvaluator(), startPoint, endPoint);
+        anim1.addUpdateListener(animation -> {
             mCurrentPoint = (Point) animation.getAnimatedValue();
             invalidate();
         });
-        anim.setDuration(5000);
-        anim.start();
+
+        ObjectAnimator anim2 = ObjectAnimator.ofObject(this, "color", new ColorEvaluator(), "#0000FF", "#FF0000");
+        AnimatorSet animSet = new AnimatorSet();
+        animSet.play(anim1).with(anim2);
+        animSet.setDuration(5000);
+        animSet.start();
     }
 }

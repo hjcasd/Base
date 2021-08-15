@@ -18,7 +18,7 @@ import com.hjc.module_senior.databinding.SeniorActivityAnimatorValueBinding
 /**
  * @Author: HJC
  * @Date: 2021/8/13 15:26
- * @Description: 补间动画
+ * @Description: 属性动画(ValueAnimator)
  */
 @Route(path = RouteSeniorPath.URL_ANIMATION_VALUE)
 class AnimatorValueActivity : BaseActivity<SeniorActivityAnimatorValueBinding, CommonViewModel>() {

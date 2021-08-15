@@ -3,10 +3,11 @@ package com.hjc.module_senior.widget.anim.helper;
 import android.animation.TimeInterpolator;
 
 /**
- * 先加速后减速的插值器
+ * @Author: HJC
+ * @Date: 2021/8/15 15:07
+ * @Description: 先加速后减速的动画插值器
  */
-
-public class DecelerateAccelerateInterpolator implements TimeInterpolator {
+public class DecAccInterpolator implements TimeInterpolator {
 
     @Override
     public float getInterpolation(float input) {

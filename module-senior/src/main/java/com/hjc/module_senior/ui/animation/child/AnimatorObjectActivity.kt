@@ -16,7 +16,7 @@ import com.hjc.module_senior.databinding.SeniorActivityAnimatorObjectBinding
 /**
  * @Author: HJC
  * @Date: 2021/8/13 15:26
- * @Description: 属性动画
+ * @Description: 属性动画(ObjectAnimator)
  */
 @Route(path = RouteSeniorPath.URL_ANIMATION_OBJECT)
 class AnimatorObjectActivity : BaseActivity<SeniorActivityAnimatorObjectBinding, CommonViewModel>() {

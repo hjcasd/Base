@@ -63,13 +63,13 @@
     <string name="senior_animation_btn4">AnimatorXML</string>
     <string name="senior_animation_btn5">Interpolator</string>
 
-    <string name="senior_object_animator_title">属性动画</string>
-    <string name="senior_object_animator_btn1">旋转</string>
-    <string name="senior_object_animator_btn2">组合</string>
+    <string name="senior_animator_object_title">属性动画(ObjectAnimator)</string>
+    <string name="senior_animator_object_btn1">旋转</string>
+    <string name="senior_animator_object_btn2">组合</string>
 
-    <string name="senior_value_animator_title">补间动画</string>
-    <string name="senior_value_animator_btn1">垂直</string>
-    <string name="senior_value_animator_btn2">组合(抛物线)</string>
+    <string name="senior_animator_value_title">属性动画(ValueAnimator)</string>
+    <string name="senior_animator_value_btn1">垂直</string>
+    <string name="senior_animator_value_btn2">组合(抛物线)</string>
 
     <string name="senior_animator_set_title">组合动画</string>
     <string name="senior_animator_set_btn1">组合(Together)</string>
@@ -78,5 +78,7 @@
     <string name="senior_animator_xml_title">动画XML写法</string>
     <string name="senior_animator_xml_btn1">沿x轴放大</string>
     <string name="senior_animator_xml_btn2">沿x,y轴一起放大</string>
+
+    <string name="senior_animator_interpolator_title">动画插值器</string>
 
 </resources>

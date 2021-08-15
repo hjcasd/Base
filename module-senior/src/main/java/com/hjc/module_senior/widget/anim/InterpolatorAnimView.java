@@ -8,19 +8,23 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.hjc.module_senior.widget.anim.helper.DecelerateAccelerateInterpolator;
+import com.hjc.module_senior.widget.anim.helper.DecAccInterpolator;
 import com.hjc.module_senior.widget.anim.helper.Point;
 import com.hjc.module_senior.widget.anim.helper.PointEvaluator;
 
+/**
+ * @Author: HJC
+ * @Date: 2021/8/15 15:40
+ * @Description: 自定义插值动画view
+ */
+public class InterpolatorAnimView extends View {
 
-public class MyAnimView3 extends View {
-    public static final float RADIUS = 50f;
+    private static final float RADIUS = 50f;
     private Point mCurrentPoint;
     private Paint mPaint;
 
-    public MyAnimView3(Context context, AttributeSet attrs) {
+    public InterpolatorAnimView(Context context, AttributeSet attrs) {
         super(context, attrs);
-
         initPaint();
     }
 
@@ -47,21 +51,18 @@ public class MyAnimView3 extends View {
     }
 
     private void startAnimation() {
-        Point startPoint = new Point(getWidth() / 2, RADIUS);
-        Point endPoint = new Point(getWidth() / 2, getHeight() - RADIUS);
+        Point startPoint = new Point(getWidth() / 2f, RADIUS);
+        Point endPoint = new Point(getWidth() / 2f, getHeight() - RADIUS);
         ValueAnimator anim = ValueAnimator.ofObject(new PointEvaluator(), startPoint, endPoint);
-        anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                mCurrentPoint = (Point) animation.getAnimatedValue();
-                invalidate();
-            }
+        anim.addUpdateListener(animation -> {
+            mCurrentPoint = (Point) animation.getAnimatedValue();
+            invalidate();
         });
         //设置加速的插值器
 //        anim.setInterpolator(new AccelerateInterpolator());
         //设置回弹的插值器
 //        anim.setInterpolator(new BounceInterpolator());
-        anim.setInterpolator(new DecelerateAccelerateInterpolator());
+        anim.setInterpolator(new DecAccInterpolator());
         anim.setDuration(3000);
         anim.start();
     }
