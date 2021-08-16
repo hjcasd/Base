@@ -101,41 +101,35 @@ class AudioActivity : BaseActivity<OtherActivityAudioBinding, AudioViewModel>() 
             R.id.btn1 -> {
                 if (!TextUtils.isEmpty(mFilePath)) {
                     try {
-                        if (mPlayer?.isPlaying == true) {
-                            LogUtils.e("1111111111111")
-                            mPlayer?.stop()
-                            mPlayer?.release()
+                        mPlayer?.let {
+                            if (it.isPlaying) {
+                                it.stop()
+                                it.reset()
+                                it.release()
+                            }
                         }
-                        LogUtils.e("2222222222222")
-                        mPlayer?.setDataSource(mFilePath)
-                        mPlayer?.prepare()
-                        mPlayer?.start()
-
-                        mPlayer?.setOnCompletionListener {
-                            LogUtils.e("4444444444444444")
-                        }
-
-                    } catch (e: IllegalStateException) {
-                        LogUtils.e("33333333333")
                         mPlayer = null
                         mPlayer = MediaPlayer()
                         mPlayer?.setDataSource(mFilePath)
                         mPlayer?.prepare()
                         mPlayer?.start()
-
-                        mPlayer?.setOnCompletionListener {
-                            LogUtils.e("5555555555555555")
-                        }
+                    } catch (e: IllegalStateException) {
+                        mPlayer = null
                     }
-
                 } else {
                     ToastUtils.showShort("请先录音")
                 }
             }
 
             R.id.btn2 -> {
-                mPlayer?.stop()
-                mPlayer?.release()
+                mPlayer?.let {
+                    if (it.isPlaying) {
+                        it.stop()
+                        it.reset()
+                        it.release()
+                    }
+                    mPlayer = null
+                }
             }
 
             R.id.btn3 -> {
@@ -149,8 +143,13 @@ class AudioActivity : BaseActivity<OtherActivityAudioBinding, AudioViewModel>() 
 
     override fun onDestroy() {
         super.onDestroy()
-        mPlayer?.stop()
-        mPlayer?.release()
-        mPlayer = null
+        mPlayer?.let {
+            if (it.isPlaying) {
+                it.stop()
+                it.reset()
+                it.release()
+            }
+            mPlayer = null
+        }
     }
 }
