@@ -50,6 +50,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <com.hjc.library_widget.view.ArcView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layerType="software"
+                app:arcHeight="50dp"
+                app:bgColor="@color/base_color" />
+
             <com.hjc.module_other.widget.RecordVoiceButton
                 android:id="@+id/rvb_voice"
                 android:layout_width="50dp"
