@@ -20,12 +20,13 @@ import java.util.concurrent.TimeUnit
  * @Date: 2021/6/25 10:02
  * @Description: 自定义状态布局实现
  */
-class CommonStatusViewImpl : IStatusView {
+open class CommonStatusViewImpl() : IStatusView {
 
-    private var mLoadService: LoadService<*>? = null
+    protected var mLoadService: LoadService<*>? = null
 
     override fun setLoadSir(view: View?, listener: Callback.OnReloadListener) {
-        mLoadService = LoadSir.getDefault().register(view) { v: View? -> listener.onReload(v) }
+        val loadSir = LoadSir.getDefault()
+        mLoadService = loadSir.register(view) { v: View? -> listener.onReload(v) }
     }
 
     @SuppressLint("CheckResult")

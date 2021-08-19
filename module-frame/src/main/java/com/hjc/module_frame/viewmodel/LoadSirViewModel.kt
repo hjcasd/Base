@@ -2,7 +2,6 @@ package com.hjc.module_frame.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
-import com.blankj.utilcode.util.ToastUtils
 import com.hjc.library_common.viewmodel.KotlinViewModel
 import com.hjc.module_frame.http.entity.ArticleBean
 import com.hjc.module_frame.model.LoadSirModel
@@ -22,20 +21,21 @@ class LoadSirViewModel(application: Application) : KotlinViewModel(application) 
         }, { result ->
             refreshData.value = true
 
-            val data = result?.datas
-            data?.let {
-                if (it.size > 0) {
-                    showContent()
-                    listData.value = it
-                } else {
-                    if (page == 0) {
-                        showEmpty()
-                    } else {
-                        showContent()
-                        ToastUtils.showShort("没有更多数据了")
-                    }
-                }
-            }
+            showEmpty()
+//            val data = result?.datas
+//            data?.let {
+//                if (it.size > 0) {
+//                    showContent()
+//                    listData.value = it
+//                } else {
+//                    if (page == 0) {
+//                        showEmpty()
+//                    } else {
+//                        showContent()
+//                        ToastUtils.showShort("没有更多数据了")
+//                    }
+//                }
+//            }
         }, { e ->
             refreshData.value = true
 

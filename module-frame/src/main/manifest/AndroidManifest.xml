@@ -20,9 +20,19 @@
             </intent-filter>
         </activity>
 
+
         <activity
-            android:name=".ui.loadSir.LoadSirActivity"
+            android:name=".ui.status.StatusActivity"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.status.StatusCustomActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.status.StatusDefaultActivity"
+            android:screenOrientation="portrait" />
+
 
         <activity
             android:name=".ui.eventbus.EventPostActivity"

@@ -8,7 +8,11 @@
     <string name="frame_btn4">X5WebView</string>
     <string name="frame_btn5">Flutter</string>
 
-    <string name="frame_load_sir_title">LoadSir</string>
+    <string name="frame_status_title">状态布局</string>
+    <string name="frame_status_btn1">Default</string>
+    <string name="frame_status_btn2">Custom</string>
+    <string name="frame_status_default_title">默认状态布局</string>
+    <string name="frame_status_custom_title">自定义状态布局</string>
 
     <string name="frame_event_post_title">EventBus(发送者)</string>
     <string name="frame_event_post_btn1">发送粘性消息</string>

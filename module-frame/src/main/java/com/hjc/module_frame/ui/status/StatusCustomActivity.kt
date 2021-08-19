@@ -1,4 +1,4 @@
-package com.hjc.module_frame.ui.loadSir
+package com.hjc.module_frame.ui.status
 
 import android.os.Bundle
 import android.view.View
@@ -11,11 +11,11 @@ import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
 import com.hjc.library_base.view.IStatusView
 import com.hjc.library_common.router.path.RouteFramePath
-import com.hjc.library_common.view.impl.CommonStatusViewImpl
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_frame.R
 import com.hjc.module_frame.adapter.ArticleAdapter
-import com.hjc.module_frame.databinding.FrameActivityLoadSirBinding
+import com.hjc.module_frame.databinding.FrameActivityStatusCustomBinding
+import com.hjc.module_frame.view.CustomStatusViewImpl
 import com.hjc.module_frame.viewmodel.LoadSirViewModel
 import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
@@ -25,8 +25,8 @@ import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
  * @Date: 2021/1/8 14:00
  * @Description: 列表
  */
-@Route(path = RouteFramePath.URL_LOAD_SIR)
-class LoadSirActivity : BaseActivity<FrameActivityLoadSirBinding, LoadSirViewModel>() {
+@Route(path = RouteFramePath.URL_STATUS_CUSTOM)
+class StatusCustomActivity : BaseActivity<FrameActivityStatusCustomBinding, LoadSirViewModel>() {
 
     private lateinit var mAdapter: ArticleAdapter
 
@@ -34,7 +34,7 @@ class LoadSirActivity : BaseActivity<FrameActivityLoadSirBinding, LoadSirViewMod
     private var mPage = 0
 
     override fun getLayoutId(): Int {
-        return R.layout.frame_activity_load_sir
+        return R.layout.frame_activity_status_custom
     }
 
     override fun createViewModel(): LoadSirViewModel {
@@ -62,7 +62,7 @@ class LoadSirActivity : BaseActivity<FrameActivityLoadSirBinding, LoadSirViewMod
     }
 
     override fun createStatusView(): IStatusView {
-        return CommonStatusViewImpl()
+        return CustomStatusViewImpl()
     }
 
     override fun initData(savedInstanceState: Bundle?) {
@@ -73,7 +73,7 @@ class LoadSirActivity : BaseActivity<FrameActivityLoadSirBinding, LoadSirViewMod
         super.observeLiveData()
 
         mViewModel?.run {
-            listData.observe(this@LoadSirActivity) { result ->
+            listData.observe(this@StatusCustomActivity) { result ->
                 if (mPage == 0) {
                     mAdapter.setNewInstance(result)
                 } else {
@@ -81,7 +81,7 @@ class LoadSirActivity : BaseActivity<FrameActivityLoadSirBinding, LoadSirViewMod
                 }
             }
 
-            refreshData.observe(this@LoadSirActivity) { result ->
+            refreshData.observe(this@StatusCustomActivity) { result ->
                 if (result) {
                     mBindingView.smartRefreshLayout.finishRefresh()
                     mBindingView.smartRefreshLayout.finishLoadMore()

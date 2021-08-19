@@ -19,7 +19,7 @@
             android:background="@color/frame_color"
             app:leftImage="@mipmap/widget_icon_back"
             app:titleColor="@color/base_white"
-            app:titleText="@string/frame_load_sir_title" />
+            app:titleText="@string/frame_status_default_title" />
 
         <com.scwang.smart.refresh.layout.SmartRefreshLayout
             android:id="@+id/smart_refresh_layout"

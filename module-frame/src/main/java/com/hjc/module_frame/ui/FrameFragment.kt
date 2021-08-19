@@ -48,7 +48,7 @@ class FrameFragment : BaseFragment<FrameFragmentBinding, CommonViewModel>() {
 
     override fun onSingleClick(v: View?) {
         when (v?.id) {
-            R.id.btn1 -> RouteManager.jump(RouteFramePath.URL_LOAD_SIR)
+            R.id.btn1 -> RouteManager.jump(RouteFramePath.URL_STATUS)
             R.id.btn2 -> RouteManager.jump(RouteFramePath.URL_EVENT_POST)
             R.id.btn3 -> RouteManager.jump(RouteFramePath.URL_QR_CODE)
             R.id.btn4 -> {

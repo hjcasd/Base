@@ -16,7 +16,9 @@ object RouteFramePath {
     const val URL_FRAME_FRAGMENT = "$MODULE_FRAME/frame/fragment"
 
     // LoadSir页面
-    const val URL_LOAD_SIR = "$MODULE_FRAME/loadSir"
+    const val URL_STATUS = "$MODULE_FRAME/status"
+    const val URL_STATUS_DEFAULT = "$MODULE_FRAME/status/default"
+    const val URL_STATUS_CUSTOM = "$MODULE_FRAME/status/custom"
 
     // EventBus页面
     const val URL_EVENT_POST = "$MODULE_FRAME/event/post"
