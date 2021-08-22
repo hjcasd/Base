@@ -54,8 +54,10 @@ abstract class BaseActivity<VDB : ViewDataBinding, VM : BaseViewModel> : AppComp
     abstract fun getLayoutId(): Int
 
     private fun initViewModel() {
-        mViewModel = createViewModel()
-
+        ARouter.getInstance().inject(this)
+        if (mViewModel == null) {
+            mViewModel = createViewModel()
+        }
         mViewModel?.let {
             val viewModelAction: IViewModelAction = it
             viewModelAction.getActionLiveData().observe(this, { baseActionEvent: BaseActionEvent? ->
@@ -95,7 +97,6 @@ abstract class BaseActivity<VDB : ViewDataBinding, VM : BaseViewModel> : AppComp
         getImmersionBar()?.init()
         mLoadingView = createLoadingView()
         mStatusView = createStatusView()
-        ARouter.getInstance().inject(this)
     }
 
     /**

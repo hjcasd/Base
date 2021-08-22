@@ -46,7 +46,10 @@ abstract class BaseFragmentActivity<VDB : ViewDataBinding, VM : BaseViewModel> :
     abstract fun getLayoutId(): Int
 
     private fun initViewModel() {
-        mViewModel = createViewModel()
+        ARouter.getInstance().inject(this)
+        if (mViewModel == null) {
+            mViewModel = createViewModel()
+        }
     }
 
     /**
@@ -59,7 +62,6 @@ abstract class BaseFragmentActivity<VDB : ViewDataBinding, VM : BaseViewModel> :
      */
     open fun initView() {
         getImmersionBar()?.init()
-        ARouter.getInstance().inject(this)
     }
 
     /**

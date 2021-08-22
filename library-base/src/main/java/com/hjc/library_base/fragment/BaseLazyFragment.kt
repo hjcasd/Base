@@ -92,8 +92,10 @@ abstract class BaseLazyFragment<VDB : ViewDataBinding, VM : BaseViewModel> : Fra
     }
 
     private fun initViewModel() {
-        mViewModel = createViewModel()
-
+        ARouter.getInstance().inject(this)
+        if (mViewModel == null) {
+            mViewModel = createViewModel()
+        }
         mViewModel?.let {
             val viewModelAction: IViewModelAction = it
             viewModelAction.getActionLiveData().observe(viewLifecycleOwner, { baseActionEvent: BaseActionEvent? ->
@@ -146,7 +148,6 @@ abstract class BaseLazyFragment<VDB : ViewDataBinding, VM : BaseViewModel> : Fra
         getImmersionBar()?.init()
         mLoadingView = createLoadingView()
         mStatusView = createStatusView()
-        ARouter.getInstance().inject(this)
     }
 
     /**
