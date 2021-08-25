@@ -12,13 +12,14 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.blankj.utilcode.util.ToastUtils
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.base.BaseActionEvent
+import com.hjc.library_base.base.ILoadingView
+import com.hjc.library_base.base.IStatusView
 import com.hjc.library_base.base.IViewModelAction
+import com.hjc.library_base.loadsir.BaseLoadingViewImpl
+import com.hjc.library_base.loadsir.BaseStatusViewImpl
 import com.hjc.library_base.utils.ClickUtils
-import com.hjc.library_base.view.ILoadingView
-import com.hjc.library_base.view.IStatusView
-import com.hjc.library_base.view.impl.BaseLoadingViewImpl
-import com.hjc.library_base.view.impl.BaseStatusViewImpl
 import com.hjc.library_base.viewmodel.BaseViewModel
+import com.kingja.loadsir.callback.Callback
 
 /**
  * @Author: HJC
@@ -109,9 +110,9 @@ abstract class BaseLazyFragment<VDB : ViewDataBinding, VM : BaseViewModel> : Fra
 
                         BaseActionEvent.SHOW_CONTENT -> mStatusView?.showContent()
 
-                        BaseActionEvent.SHOW_EMPTY -> mStatusView?.showEmpty()
+                        BaseActionEvent.SHOW_EMPTY -> mStatusView?.showEmpty(event.msg)
 
-                        BaseActionEvent.SHOW_ERROR -> mStatusView?.showError()
+                        BaseActionEvent.SHOW_ERROR -> mStatusView?.showError(event.msg)
 
                         BaseActionEvent.SHOW_TIMEOUT -> mStatusView?.showTimeout()
 
@@ -203,15 +204,11 @@ abstract class BaseLazyFragment<VDB : ViewDataBinding, VM : BaseViewModel> : Fra
     /**
      * 注册LoadSir
      * @param view 绑定的View
+     * @param listener 失败重试,重新加载事件
      */
-    fun initLoadSir(view: View?) {
-        mStatusView?.setLoadSir(view) { v: View? -> onRetryBtnClick(v) }
+    fun initLoadSir(view: View?, listener: Callback.OnReloadListener? = null) {
+        mStatusView?.setLoadSir(view, listener)
     }
-
-    /**
-     * 失败重试,重新加载事件
-     */
-    open fun onRetryBtnClick(v: View?) {}
 
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)

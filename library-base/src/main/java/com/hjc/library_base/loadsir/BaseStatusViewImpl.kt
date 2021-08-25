@@ -1,12 +1,12 @@
-package com.hjc.library_common.view.impl
+package com.hjc.library_base.loadsir
 
 import android.annotation.SuppressLint
 import android.view.View
-import com.hjc.library_base.loadsir.EmptyCallback
-import com.hjc.library_base.loadsir.ErrorCallback
-import com.hjc.library_base.loadsir.ShimmerCallback
-import com.hjc.library_base.loadsir.TimeoutCallback
-import com.hjc.library_base.view.IStatusView
+import com.hjc.library_base.base.IStatusView
+import com.hjc.library_base.loadsir.callback.DefaultEmptyCallback
+import com.hjc.library_base.loadsir.callback.DefaultErrorCallback
+import com.hjc.library_base.loadsir.callback.DefaultProgressCallback
+import com.hjc.library_base.loadsir.callback.DefaultTimeoutCallback
 import com.kingja.loadsir.callback.Callback
 import com.kingja.loadsir.core.LoadService
 import com.kingja.loadsir.core.LoadSir
@@ -18,15 +18,15 @@ import java.util.concurrent.TimeUnit
 /**
  * @Author: HJC
  * @Date: 2021/6/25 10:02
- * @Description: 自定义状态布局实现
+ * @Description: 默认状态布局实现
  */
-open class CommonStatusViewImpl() : IStatusView {
+open class BaseStatusViewImpl : IStatusView {
 
-    protected var mLoadService: LoadService<*>? = null
+    private var mLoadService: LoadService<*>? = null
 
-    override fun setLoadSir(view: View?, listener: Callback.OnReloadListener) {
+    override fun setLoadSir(view: View?, listener: Callback.OnReloadListener?) {
         val loadSir = LoadSir.getDefault()
-        mLoadService = loadSir.register(view) { v: View? -> listener.onReload(v) }
+        mLoadService = loadSir.register(view, listener)
     }
 
     @SuppressLint("CheckResult")
@@ -38,23 +38,23 @@ open class CommonStatusViewImpl() : IStatusView {
     }
 
     override fun showProgress() {
-        mLoadService?.showCallback(ShimmerCallback::class.java)
+        mLoadService?.showCallback(DefaultProgressCallback::class.java)
     }
 
     @SuppressLint("CheckResult")
-    override fun showEmpty() {
+    override fun showEmpty(msg: String) {
         Observable.timer(500, TimeUnit.MILLISECONDS)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { mLoadService?.showCallback(EmptyCallback::class.java) }
+            .subscribe { mLoadService?.showCallback(DefaultEmptyCallback::class.java) }
     }
 
     @SuppressLint("CheckResult")
-    override fun showError() {
+    override fun showError(msg: String) {
         Observable.timer(500, TimeUnit.MILLISECONDS)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { mLoadService?.showCallback(ErrorCallback::class.java) }
+            .subscribe { mLoadService?.showCallback(DefaultErrorCallback::class.java) }
     }
 
     @SuppressLint("CheckResult")
@@ -62,6 +62,6 @@ open class CommonStatusViewImpl() : IStatusView {
         Observable.timer(500, TimeUnit.MILLISECONDS)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { mLoadService?.showCallback(TimeoutCallback::class.java) }
+            .subscribe { mLoadService?.showCallback(DefaultTimeoutCallback::class.java) }
     }
 }

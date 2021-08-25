@@ -9,8 +9,7 @@ import com.hjc.library_net.exception.ExceptionUtils.handleException
  * @Date: 2019/1/7 11:52
  * @Description: 通用的Observer
  */
-abstract class BaseCommonObserver<T>(baseViewModel: BaseViewModel) :
-    BaseObserver<T>(baseViewModel) {
+abstract class BaseCommonObserver<T>(baseViewModel: BaseViewModel) : BaseObserver<T>(baseViewModel) {
 
     override fun onFailure(e: Throwable) {
         val errorMsg = handleException(e)

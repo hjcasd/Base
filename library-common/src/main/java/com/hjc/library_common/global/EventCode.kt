@@ -12,4 +12,6 @@ object EventCode {
     const val EVENT_POST_CODE = "event_post_code"
 
     const val EVENT_RECEIVE_CODE = "event_receive_code"
+
+    const val LOAD_SIR_RETRY = "load_sir_retry"
 }

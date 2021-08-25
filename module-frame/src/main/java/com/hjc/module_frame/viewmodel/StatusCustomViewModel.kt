@@ -2,13 +2,14 @@ package com.hjc.module_frame.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
+import com.blankj.utilcode.util.ToastUtils
 import com.hjc.library_common.viewmodel.KotlinViewModel
 import com.hjc.module_frame.http.entity.ArticleBean
 import com.hjc.module_frame.model.LoadSirModel
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 
-class LoadSirViewModel(application: Application) : KotlinViewModel(application) {
+class StatusCustomViewModel(application: Application) : KotlinViewModel(application) {
 
     private val mModel = LoadSirModel()
 
@@ -21,28 +22,28 @@ class LoadSirViewModel(application: Application) : KotlinViewModel(application) 
         }, { result ->
             refreshData.value = true
 
-            showEmpty()
-//            val data = result?.datas
-//            data?.let {
-//                if (it.size > 0) {
-//                    showContent()
-//                    listData.value = it
-//                } else {
-//                    if (page == 0) {
-//                        showEmpty()
-//                    } else {
-//                        showContent()
-//                        ToastUtils.showShort("没有更多数据了")
-//                    }
-//                }
-//            }
+//            showEmpty("暂无文章数据")
+            val data = result?.datas
+            data?.let {
+                if (it.size > 0) {
+                    showContent()
+                    listData.value = it
+                } else {
+                    if (page == 0) {
+                        showEmpty("暂无文章数据")
+                    } else {
+                        showContent()
+                        ToastUtils.showShort("没有更多数据了")
+                    }
+                }
+            }
         }, { e ->
             refreshData.value = true
 
             if (e is UnknownHostException || e is SocketTimeoutException) {
                 showTimeout()
             } else {
-                showError()
+                showError("服务器异常")
             }
         }, isShowProgress = isShowProgress)
     }

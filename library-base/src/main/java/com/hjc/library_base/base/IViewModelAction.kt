@@ -17,9 +17,9 @@ interface IViewModelAction {
 
     fun showContent()
 
-    fun showEmpty()
+    fun showEmpty(msg: String)
 
-    fun showError()
+    fun showError(msg: String)
 
     fun showTimeout()
 

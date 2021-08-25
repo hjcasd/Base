@@ -1,4 +1,4 @@
-package com.hjc.library_base.loadsir
+package com.hjc.library_base.loadsir.callback
 
 import com.hjc.library_base.R
 import com.kingja.loadsir.callback.Callback
@@ -8,9 +8,9 @@ import com.kingja.loadsir.callback.Callback
  * @Date: 2020/5/15 11:13
  * @Description: loadSir 网络超时
  */
-class TimeoutCallback : Callback() {
+class DefaultTimeoutCallback : Callback() {
 
     override fun onCreateView(): Int {
-        return R.layout.base_layout_timeout
+        return R.layout.base_layout_default_timeout
     }
 }

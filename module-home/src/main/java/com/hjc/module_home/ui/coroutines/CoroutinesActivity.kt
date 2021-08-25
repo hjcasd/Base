@@ -6,9 +6,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
-import com.hjc.library_base.view.ILoadingView
+import com.hjc.library_base.base.ILoadingView
+import com.hjc.library_common.loadsir.CustomLoadingViewImpl
 import com.hjc.library_common.router.path.RouteHomePath
-import com.hjc.library_common.view.impl.CommonLoadingViewImpl
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_home.R
 import com.hjc.module_home.databinding.HomeActivityCoroutinesBinding
@@ -43,7 +43,7 @@ class CoroutinesActivity : BaseActivity<HomeActivityCoroutinesBinding, Coroutine
     }
 
     override fun createLoadingView(): ILoadingView {
-        return CommonLoadingViewImpl(this)
+        return CustomLoadingViewImpl(this)
     }
 
     override fun initData(savedInstanceState: Bundle?) {

@@ -5,7 +5,7 @@ package com.hjc.library_base.base
  * @Date: 2020/12/30 14:01
  * @Description: 基础事件
  */
-class BaseActionEvent(action: Int) : BaseEvent(action) {
+class BaseActionEvent(action: Int,val msg: String = "") : BaseEvent(action) {
     companion object {
         const val SHOW_LOADING_DIALOG = 1
         const val DISMISS_LOADING_DIALOG = 2

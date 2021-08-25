@@ -1,4 +1,4 @@
-package com.hjc.library_base.loadsir
+package com.hjc.library_base.loadsir.callback
 
 import com.hjc.library_base.R
 import com.kingja.loadsir.callback.Callback
@@ -8,9 +8,9 @@ import com.kingja.loadsir.callback.Callback
  * @Date: 2020/5/15 11:13
  * @Description: loadSir 空页面
  */
-class EmptyCallback : Callback() {
+class DefaultEmptyCallback : Callback() {
 
     override fun onCreateView(): Int {
-        return R.layout.base_layout_empty
+        return R.layout.base_layout_default_empty
     }
 }

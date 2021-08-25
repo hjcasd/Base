@@ -7,22 +7,25 @@
     android:orientation="vertical">
 
     <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginBottom="4dp"
+        android:layout_width="160dp"
+        android:layout_height="120dp"
         android:background="@mipmap/base_icon_timeout" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="网络超时"
+        android:text="@string/common_status_timeout"
         android:textColor="@color/base_black_33"
+        android:layout_marginTop="5dp"
         android:textSize="14sp" />
 
     <Button
         android:id="@+id/btn_retry"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:text="点击重试"/>
+        android:layout_marginTop="10dp"
+        android:background="@drawable/base_shape_btn_red"
+        android:text="@string/common_status_retry"
+        android:textColor="@color/base_white" />
 
 </LinearLayout>

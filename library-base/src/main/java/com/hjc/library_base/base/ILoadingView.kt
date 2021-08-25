@@ -1,4 +1,4 @@
-package com.hjc.library_base.view
+package com.hjc.library_base.base
 
 /**
  * @Author: HJC

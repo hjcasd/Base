@@ -4,7 +4,10 @@ import android.app.Activity
 import android.app.Application
 import android.os.Bundle
 import androidx.multidex.MultiDexApplication
-import com.hjc.library_base.loadsir.*
+import com.hjc.library_base.loadsir.callback.DefaultEmptyCallback
+import com.hjc.library_base.loadsir.callback.DefaultErrorCallback
+import com.hjc.library_base.loadsir.callback.DefaultProgressCallback
+import com.hjc.library_base.loadsir.callback.DefaultTimeoutCallback
 import com.hjc.library_base.utils.ActivityHelper
 import com.kingja.loadsir.core.LoadSir
 import tech.oom.idealrecorder.IdealRecorder
@@ -35,11 +38,10 @@ open class BaseApplication : MultiDexApplication() {
 
     private fun initLoadSir() {
         LoadSir.beginBuilder()
-            .addCallback(ProgressCallback())
-            .addCallback(ErrorCallback())
-            .addCallback(EmptyCallback())
-            .addCallback(TimeoutCallback())
-            .addCallback(ShimmerCallback())
+            .addCallback(DefaultProgressCallback())
+            .addCallback(DefaultErrorCallback())
+            .addCallback(DefaultEmptyCallback())
+            .addCallback(DefaultTimeoutCallback())
             .commit()
     }
 

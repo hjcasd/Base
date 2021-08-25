@@ -9,14 +9,12 @@ import com.blankj.utilcode.util.ToastUtils
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
-import com.hjc.library_base.view.IStatusView
 import com.hjc.library_common.router.path.RouteFramePath
-import com.hjc.library_common.view.impl.CommonStatusViewImpl
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_frame.R
 import com.hjc.module_frame.adapter.ArticleAdapter
 import com.hjc.module_frame.databinding.FrameActivityStatusDefaultBinding
-import com.hjc.module_frame.viewmodel.LoadSirViewModel
+import com.hjc.module_frame.viewmodel.StatusDefaultViewModel
 import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
 
@@ -26,7 +24,7 @@ import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
  * @Description: 列表
  */
 @Route(path = RouteFramePath.URL_STATUS_DEFAULT)
-class StatusDefaultActivity : BaseActivity<FrameActivityStatusDefaultBinding, LoadSirViewModel>() {
+class StatusDefaultActivity : BaseActivity<FrameActivityStatusDefaultBinding, StatusDefaultViewModel>() {
 
     private lateinit var mAdapter: ArticleAdapter
 
@@ -37,14 +35,17 @@ class StatusDefaultActivity : BaseActivity<FrameActivityStatusDefaultBinding, Lo
         return R.layout.frame_activity_status_default
     }
 
-    override fun createViewModel(): LoadSirViewModel {
-        return ViewModelProvider(this)[LoadSirViewModel::class.java]
+    override fun createViewModel(): StatusDefaultViewModel {
+        return ViewModelProvider(this)[StatusDefaultViewModel::class.java]
     }
 
     override fun initView() {
         super.initView()
 
-        initLoadSir(mBindingView.smartRefreshLayout)
+        initLoadSir(mBindingView.smartRefreshLayout) {
+            mPage = 0
+            mViewModel?.loadArticleList(mPage, true)
+        }
 
         val manager = LinearLayoutManager(this)
         mBindingView.rvList.layoutManager = manager
@@ -59,10 +60,6 @@ class StatusDefaultActivity : BaseActivity<FrameActivityStatusDefaultBinding, Lo
         return ImmersionBar.with(this)
             .fitsSystemWindows(true)
             .statusBarColor(R.color.frame_color)
-    }
-
-    override fun createStatusView(): IStatusView {
-        return CommonStatusViewImpl()
     }
 
     override fun initData(savedInstanceState: Bundle?) {
@@ -117,12 +114,6 @@ class StatusDefaultActivity : BaseActivity<FrameActivityStatusDefaultBinding, Lo
 
     override fun onSingleClick(v: View?) {
 
-    }
-
-    override fun onRetryBtnClick(v: View?) {
-        super.onRetryBtnClick(v)
-        mPage = 0
-        mViewModel?.loadArticleList(mPage, true)
     }
 
 }

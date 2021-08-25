@@ -11,7 +11,7 @@ import io.reactivex.disposables.Disposable
  * @Date: 2019/1/7 11:52
  * @Description: 带进度的Observer
  */
-abstract class BasePageObserver<T>(private val mBaseViewModel: BaseViewModel,private val mIsShowProgress: Boolean = false) : Observer<T> {
+abstract class BasePageObserver<T>(private val mBaseViewModel: BaseViewModel, private val mIsShowProgress: Boolean = false) : Observer<T> {
 
     private lateinit var mDisposable: Disposable
 
@@ -32,12 +32,12 @@ abstract class BasePageObserver<T>(private val mBaseViewModel: BaseViewModel,pri
         if (!mDisposable.isDisposed) {
             mDisposable.dispose()
         }
-        mBaseViewModel.showError()
-        onFailure(e)
+        val errorMsg: String = ExceptionUtils.handleException(e)
+        mBaseViewModel.showError(errorMsg)
+        onFailure(e, errorMsg)
     }
 
-    open fun onFailure(e: Throwable) {
-        val errorMsg: String = ExceptionUtils.handleException(e)
+    open fun onFailure(e: Throwable, errorMsg: String) {
         ToastUtils.showShort(errorMsg)
     }
 

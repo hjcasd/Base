@@ -1,10 +1,12 @@
-package com.hjc.module_frame.view.callback
+package com.hjc.library_common.loadsir.callback
 
 import android.content.Context
 import android.view.View
 import android.widget.Button
-import com.blankj.utilcode.util.ToastUtils
-import com.hjc.module_frame.R
+import com.hjc.library_base.event.EventManager
+import com.hjc.library_base.event.MessageEvent
+import com.hjc.library_common.R
+import com.hjc.library_common.global.EventCode
 import com.kingja.loadsir.callback.Callback
 
 /**
@@ -15,7 +17,7 @@ import com.kingja.loadsir.callback.Callback
 class CustomEmptyCallback : Callback() {
 
     override fun onCreateView(): Int {
-        return R.layout.frame_layout_empty
+        return R.layout.common_layout_custom_empty
     }
 
     override fun onReloadEvent(context: Context?, view: View?): Boolean {
@@ -26,7 +28,7 @@ class CustomEmptyCallback : Callback() {
         super.onViewCreate(context, view)
         val btnRetry = view?.findViewById<Button>(R.id.btn_retry)
         btnRetry?.setOnClickListener {
-            ToastUtils.showShort("空数据")
+            EventManager.sendEvent(MessageEvent(EventCode.LOAD_SIR_RETRY, null))
         }
     }
 }

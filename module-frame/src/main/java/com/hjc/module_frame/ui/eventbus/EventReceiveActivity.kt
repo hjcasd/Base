@@ -26,7 +26,7 @@ import org.greenrobot.eventbus.ThreadMode
 class EventReceiveActivity : BaseActivity<FrameActivityEventReceiveBinding, CommonViewModel>() {
 
     override fun getLayoutId(): Int {
-        return  R.layout.frame_activity_event_receive
+        return R.layout.frame_activity_event_receive
     }
 
     override fun createViewModel(): CommonViewModel? {
@@ -39,16 +39,8 @@ class EventReceiveActivity : BaseActivity<FrameActivityEventReceiveBinding, Comm
             .statusBarColor(R.color.frame_color)
     }
 
-   override fun initData(savedInstanceState: Bundle?) {
+    override fun initData(savedInstanceState: Bundle?) {
         EventManager.register(this)
-    }
-
-    @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
-    fun handleEvent(event: MessageEvent<String?>) {
-        if (event.code === EventCode.EVENT_POST_CODE) {
-            val data: String? = event.data
-            mBindingView.tvContent.text = data
-        }
     }
 
     override fun addListeners() {
@@ -71,5 +63,13 @@ class EventReceiveActivity : BaseActivity<FrameActivityEventReceiveBinding, Comm
     override fun onDestroy() {
         super.onDestroy()
         EventManager.unregister(this)
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
+    fun handleEvent(event: MessageEvent<String?>) {
+        if (event.code === EventCode.EVENT_POST_CODE) {
+            val data: String? = event.data
+            mBindingView.tvContent.text = data
+        }
     }
 }

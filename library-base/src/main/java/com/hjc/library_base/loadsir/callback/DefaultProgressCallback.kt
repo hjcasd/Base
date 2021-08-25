@@ -1,4 +1,4 @@
-package com.hjc.library_base.loadsir
+package com.hjc.library_base.loadsir.callback
 
 import android.content.Context
 import android.view.View
@@ -10,10 +10,10 @@ import com.kingja.loadsir.callback.Callback
  * @Date: 2020/5/15 11:13
  * @Description: loadSir 等待加载
  */
-class ProgressCallback : Callback() {
+class DefaultProgressCallback : Callback() {
 
     override fun onCreateView(): Int {
-        return R.layout.base_layout_loading
+        return R.layout.base_layout_default_loading
     }
 
     override fun onReloadEvent(context: Context, view: View): Boolean {

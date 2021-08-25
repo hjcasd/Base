@@ -1,4 +1,4 @@
-package com.hjc.library_base.view
+package com.hjc.library_base.base
 
 import android.view.View
 import com.kingja.loadsir.callback.Callback
@@ -10,7 +10,7 @@ import com.kingja.loadsir.callback.Callback
  */
 interface IStatusView {
 
-    fun setLoadSir(view: View?, listener: Callback.OnReloadListener)
+    fun setLoadSir(view: View?, listener: Callback.OnReloadListener?)
 
     /**
      * 显示内容
@@ -25,12 +25,12 @@ interface IStatusView {
     /**
      * 显示空页面
      */
-    fun showEmpty()
+    fun showEmpty(msg: String)
 
     /**
      * 加载失败
      */
-    fun showError()
+    fun showError(msg: String)
 
     /**
      * 网络超时

@@ -9,16 +9,21 @@ import com.blankj.utilcode.util.ToastUtils
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
-import com.hjc.library_base.view.IStatusView
+import com.hjc.library_base.base.IStatusView
+import com.hjc.library_base.event.EventManager
+import com.hjc.library_base.event.MessageEvent
+import com.hjc.library_common.global.EventCode
+import com.hjc.library_common.loadsir.CustomStatusViewImpl
 import com.hjc.library_common.router.path.RouteFramePath
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_frame.R
 import com.hjc.module_frame.adapter.ArticleAdapter
 import com.hjc.module_frame.databinding.FrameActivityStatusCustomBinding
-import com.hjc.module_frame.view.CustomStatusViewImpl
-import com.hjc.module_frame.viewmodel.LoadSirViewModel
+import com.hjc.module_frame.viewmodel.StatusCustomViewModel
 import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 /**
  * @Author: HJC
@@ -26,7 +31,7 @@ import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
  * @Description: 列表
  */
 @Route(path = RouteFramePath.URL_STATUS_CUSTOM)
-class StatusCustomActivity : BaseActivity<FrameActivityStatusCustomBinding, LoadSirViewModel>() {
+class StatusCustomActivity : BaseActivity<FrameActivityStatusCustomBinding, StatusCustomViewModel>() {
 
     private lateinit var mAdapter: ArticleAdapter
 
@@ -37,8 +42,8 @@ class StatusCustomActivity : BaseActivity<FrameActivityStatusCustomBinding, Load
         return R.layout.frame_activity_status_custom
     }
 
-    override fun createViewModel(): LoadSirViewModel {
-        return ViewModelProvider(this)[LoadSirViewModel::class.java]
+    override fun createViewModel(): StatusCustomViewModel {
+        return ViewModelProvider(this)[StatusCustomViewModel::class.java]
     }
 
     override fun initView() {
@@ -66,6 +71,7 @@ class StatusCustomActivity : BaseActivity<FrameActivityStatusCustomBinding, Load
     }
 
     override fun initData(savedInstanceState: Bundle?) {
+        EventManager.register(this)
         mViewModel?.loadArticleList(0, true)
     }
 
@@ -119,10 +125,17 @@ class StatusCustomActivity : BaseActivity<FrameActivityStatusCustomBinding, Load
 
     }
 
-    override fun onRetryBtnClick(v: View?) {
-        super.onRetryBtnClick(v)
-        mPage = 0
-        mViewModel?.loadArticleList(mPage, true)
+    override fun onDestroy() {
+        super.onDestroy()
+        EventManager.unregister(this)
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun handleEvent(event: MessageEvent<*>) {
+        if (event.code === EventCode.LOAD_SIR_RETRY) {
+            mPage = 0
+            mViewModel?.loadArticleList(mPage, true)
+        }
     }
 
 }

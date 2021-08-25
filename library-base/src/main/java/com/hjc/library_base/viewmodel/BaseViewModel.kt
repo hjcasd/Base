@@ -60,13 +60,13 @@ open class BaseViewModel(application: Application) : AndroidViewModel(applicatio
         actionLiveData.value = baseActionEvent
     }
 
-    override fun showEmpty() {
-        val baseActionEvent = BaseActionEvent(BaseActionEvent.SHOW_EMPTY)
+    override fun showEmpty(msg: String) {
+        val baseActionEvent = BaseActionEvent(BaseActionEvent.SHOW_EMPTY, msg)
         actionLiveData.value = baseActionEvent
     }
 
-    override fun showError() {
-        val baseActionEvent = BaseActionEvent(BaseActionEvent.SHOW_ERROR)
+    override fun showError(msg: String) {
+        val baseActionEvent = BaseActionEvent(BaseActionEvent.SHOW_ERROR, msg)
         actionLiveData.value = baseActionEvent
     }
 

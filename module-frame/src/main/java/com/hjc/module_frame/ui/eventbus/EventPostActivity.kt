@@ -69,14 +69,6 @@ class EventPostActivity : BaseActivity<FrameActivityEventPostBinding, CommonView
         EventManager.register(this)
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    fun handleEvent(event: MessageEvent<String?>) {
-        if (event.code === EventCode.EVENT_RECEIVE_CODE) {
-            val data: String? = event.data
-            mBindingView.tvContent.text = data
-        }
-    }
-
     override fun addListeners() {
         mBindingView.onClickListener = this
 
@@ -105,5 +97,13 @@ class EventPostActivity : BaseActivity<FrameActivityEventPostBinding, CommonView
     override fun onDestroy() {
         super.onDestroy()
         EventManager.unregister(this)
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun handleEvent(event: MessageEvent<String?>) {
+        if (event.code === EventCode.EVENT_RECEIVE_CODE) {
+            val data: String? = event.data
+            mBindingView.tvContent.text = data
+        }
     }
 }
