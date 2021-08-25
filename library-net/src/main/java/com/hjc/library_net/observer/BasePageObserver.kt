@@ -25,14 +25,10 @@ abstract class BasePageObserver<T>(private val mBaseViewModel: BaseViewModel, pr
 
     override fun onNext(response: T) {
         mResponse = response
-        mBaseViewModel.showContent()
         onSuccess(response)
     }
 
     override fun onError(e: Throwable) {
-        if (!mDisposable.isDisposed) {
-            mDisposable.dispose()
-        }
         onFailure(e, mResponse)
     }
 

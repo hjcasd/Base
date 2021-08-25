@@ -3,6 +3,7 @@ package com.hjc.library_net
 import com.hjc.library_net.interceptor.LogInterceptor
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import retrofit2.CallAdapter
 import retrofit2.Converter
 import retrofit2.Retrofit
 import java.util.concurrent.TimeUnit
@@ -58,6 +59,11 @@ object SmartHttp {
 
     fun addConverter(converterFactory: Converter.Factory): SmartHttp {
         mRetrofitBuilder.addConverterFactory(converterFactory)
+        return this
+    }
+
+    fun addCallAdapterFactory(factory: CallAdapter.Factory ): SmartHttp {
+        mRetrofitBuilder.addCallAdapterFactory(factory)
         return this
     }
 

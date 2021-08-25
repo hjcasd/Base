@@ -43,8 +43,8 @@ class LoginActivity : BaseActivity<OtherActivityLoginBinding, LoginViewModel>() 
         super.observeLiveData()
 
         mViewModel?.run {
-            loginData.observe(this@LoginActivity) { result ->
-                LogUtils.e("result: ${result.username}")
+            loginData.observe(this@LoginActivity) { response ->
+                LogUtils.e("result: ${response?.username}")
                 mBindingView.etPhone.clearFocus()
                 mBindingView.etCode.clearFocus()
             }

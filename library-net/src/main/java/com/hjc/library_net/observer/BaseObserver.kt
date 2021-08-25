@@ -12,7 +12,7 @@ import io.reactivex.disposables.Disposable
  * @Date: 2019/1/7 11:52
  * @Description: 数据返回统一处理Observer基类
  */
-abstract class BaseObserver<T>(private val mBaseViewModel: BaseViewModel) : Observer<BaseResponse<T>> {
+abstract class BaseObserver<T>(private val mBaseViewModel: BaseViewModel, private val mIsShowLoading: Boolean = false) : Observer<BaseResponse<T>> {
 
     private lateinit var mDisposable: Disposable
 
@@ -21,21 +21,22 @@ abstract class BaseObserver<T>(private val mBaseViewModel: BaseViewModel) : Obse
     override fun onSubscribe(d: Disposable) {
         mBaseViewModel.addDisposable(d)
         mDisposable = d
+        if (mIsShowLoading) {
+            mBaseViewModel.showLoading()
+        }
     }
 
     override fun onNext(response: BaseResponse<T>) {
         mBaseResponse = response
         if (ServerCode.CODE_SUCCESS == response.errorCode) {  //请求成功
-            onSuccess(response)
-        } else { //请求成功,但Code错误,抛出ApiException
+            onSuccess(response.data)
+        } else {
+            //请求成功,Code错误,抛出ApiException
             onError(ApiException(response.errorMsg, response.errorCode))
         }
     }
 
     override fun onError(e: Throwable) {
-        if (!mDisposable.isDisposed) {
-            mDisposable.dispose()
-        }
         onFailure(e, mBaseResponse)
     }
 
@@ -43,9 +44,12 @@ abstract class BaseObserver<T>(private val mBaseViewModel: BaseViewModel) : Obse
         if (!mDisposable.isDisposed) {
             mDisposable.dispose()
         }
+        if (mIsShowLoading){
+            mBaseViewModel.dismissLoading()
+        }
     }
 
-    abstract fun onSuccess(response: BaseResponse<T>?)
+    abstract fun onSuccess(result: T?)
 
     abstract fun onFailure(e: Throwable, response: BaseResponse<T>?)
 }

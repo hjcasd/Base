@@ -11,6 +11,7 @@ import com.hjc.library_common.utils.BuglyUtils
 import com.hjc.library_net.SmartHttp
 import com.hjc.library_net.interceptor.BaseUrlInterceptor
 import com.hjc.library_web.utils.X5WebUtils
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 /**
@@ -71,6 +72,7 @@ class CommonModuleInit : IModuleInit {
             .addInterceptor(BaseUrlInterceptor())
             .setDebug(AppConstants.APP_IS_DEBUG)
             .addConverter(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
     }
 
     override fun onInitAfter(application: BaseApplication): Boolean {

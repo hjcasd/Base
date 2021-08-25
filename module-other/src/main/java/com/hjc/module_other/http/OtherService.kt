@@ -19,10 +19,10 @@ interface OtherService {
      */
     @FormUrlEncoded
     @POST("/user/login")
-    suspend fun login(
+    fun login(
         @Field("username") username: String?,
         @Field("password") pwd: String?
-    ): BaseResponse<LoginBean>
+    ): Observable<BaseResponse<LoginBean>>
 
     /**
      * 下载App

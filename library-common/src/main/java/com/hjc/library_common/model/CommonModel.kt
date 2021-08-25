@@ -14,4 +14,5 @@ open class CommonModel : BaseModel() {
     fun <T> getApiService(apiService: Class<T>): T {
         return SmartHttp.getRetrofit().create(apiService)
     }
+
 }
