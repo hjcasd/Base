@@ -18,6 +18,8 @@ abstract class BaseProgressObserver<T>(private val mBaseViewModel: BaseViewModel
 
     private lateinit var mDisposable: Disposable
 
+    private var mBaseResponse: BaseResponse<T>? = null
+
     override fun onSubscribe(d: Disposable) {
         mBaseViewModel.addDisposable(d)
         mDisposable = d
@@ -25,6 +27,7 @@ abstract class BaseProgressObserver<T>(private val mBaseViewModel: BaseViewModel
     }
 
     override fun onNext(response: BaseResponse<T>) {
+        mBaseResponse = response
         if (ServerCode.CODE_SUCCESS == response.errorCode) {  //请求成功
             onSuccess(response.data)
         } else {
@@ -37,7 +40,7 @@ abstract class BaseProgressObserver<T>(private val mBaseViewModel: BaseViewModel
         if (!mDisposable.isDisposed) {
             mDisposable.dispose()
         }
-        onFailure(e)
+        onFailure(e, mBaseResponse)
     }
 
     open fun onFailure(e: Throwable) {
@@ -54,4 +57,5 @@ abstract class BaseProgressObserver<T>(private val mBaseViewModel: BaseViewModel
 
     abstract fun onSuccess(result: T?)
 
+    abstract fun onFailure(e: Throwable, response: BaseResponse<T>?)
 }

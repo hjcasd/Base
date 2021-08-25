@@ -1,8 +1,6 @@
 package com.hjc.library_net.observer
 
-import com.blankj.utilcode.util.ToastUtils
 import com.hjc.library_base.viewmodel.BaseViewModel
-import com.hjc.library_net.exception.ExceptionUtils
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
 
@@ -15,6 +13,8 @@ abstract class BasePageObserver<T>(private val mBaseViewModel: BaseViewModel, pr
 
     private lateinit var mDisposable: Disposable
 
+    private var mResponse: T? = null
+
     override fun onSubscribe(d: Disposable) {
         mBaseViewModel.addDisposable(d)
         mDisposable = d
@@ -24,6 +24,7 @@ abstract class BasePageObserver<T>(private val mBaseViewModel: BaseViewModel, pr
     }
 
     override fun onNext(response: T) {
+        mResponse = response
         mBaseViewModel.showContent()
         onSuccess(response)
     }
@@ -32,13 +33,7 @@ abstract class BasePageObserver<T>(private val mBaseViewModel: BaseViewModel, pr
         if (!mDisposable.isDisposed) {
             mDisposable.dispose()
         }
-        val errorMsg: String = ExceptionUtils.handleException(e)
-        mBaseViewModel.showError(errorMsg)
-        onFailure(e, errorMsg)
-    }
-
-    open fun onFailure(e: Throwable, errorMsg: String) {
-        ToastUtils.showShort(errorMsg)
+        onFailure(e, mResponse)
     }
 
     override fun onComplete() {
@@ -49,4 +44,5 @@ abstract class BasePageObserver<T>(private val mBaseViewModel: BaseViewModel, pr
 
     abstract fun onSuccess(result: T)
 
+    abstract fun onFailure(e: Throwable, result: T?)
 }

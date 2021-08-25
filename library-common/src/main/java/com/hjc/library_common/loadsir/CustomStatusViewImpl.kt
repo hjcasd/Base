@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.view.View
 import android.widget.TextView
 import com.hjc.library_base.R
-import com.hjc.library_base.loadsir.BaseStatusViewImpl
+import com.hjc.library_base.base.IStatusView
 import com.hjc.library_common.loadsir.callback.CustomEmptyCallback
 import com.hjc.library_common.loadsir.callback.CustomErrorCallback
 import com.hjc.library_common.loadsir.callback.CustomShimmerCallback
@@ -22,9 +22,9 @@ import java.util.concurrent.TimeUnit
  * @Date: 2021/8/25 14:33
  * @Description: 自定义状态布局实现
  */
-class CustomStatusViewImpl : BaseStatusViewImpl() {
+class CustomStatusViewImpl : IStatusView {
 
-    protected var mLoadService: LoadService<*>? = null
+    private var mLoadService: LoadService<*>? = null
 
     override fun setLoadSir(view: View?, listener: Callback.OnReloadListener?) {
         val loadSir = LoadSir.Builder()
