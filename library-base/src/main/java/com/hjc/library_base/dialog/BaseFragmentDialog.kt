@@ -1,8 +1,8 @@
 package com.hjc.library_base.dialog
 
 import android.content.Context
-import android.graphics.Point
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.view.*
 import androidx.annotation.StyleRes
 import androidx.databinding.DataBindingUtil
@@ -120,11 +120,8 @@ abstract class BaseFragmentDialog<VDB : ViewDataBinding, VM : BaseViewModel> : D
      * 设置宽度为屏幕宽度的0.8
      */
     open fun getWidth(): Int {
-        val wm = mContext.getSystemService(Context.WINDOW_SERVICE) as WindowManager
-        val display = wm.defaultDisplay
-        val point = Point()
-        display.getSize(point)
-        val width = point.x
+        val dm: DisplayMetrics = resources.displayMetrics
+        val width = dm.widthPixels
         return (width * 0.8).toInt()
     }
 

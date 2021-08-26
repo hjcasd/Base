@@ -35,11 +35,23 @@
         <attr name="space" format="dimension"/>
     </declare-styleable>
 
-    <!--弧形的界面属性-->
+    <!--弧形View-->
     <declare-styleable name="ArcView">
         <attr name="arcHeight" format="dimension"/>
         <attr name="lgColor"   format="color"/>
         <attr name="bgColor" format="color"/>
+    </declare-styleable>
+
+    <!--带图片的TextView-->
+    <declare-styleable name="IconTextView">
+        <attr name="leftDrawableWidth" format="dimension" />
+        <attr name="leftDrawableHeight" format="dimension" />
+        <attr name="rightDrawableWidth" format="dimension" />
+        <attr name="rightDrawableHeight" format="dimension" />
+        <attr name="topDrawableWidth" format="dimension" />
+        <attr name="topDrawableHeight" format="dimension" />
+        <attr name="bottomDrawableWidth" format="dimension" />
+        <attr name="bottomDrawableHeight" format="dimension" />
     </declare-styleable>
 
 </resources>

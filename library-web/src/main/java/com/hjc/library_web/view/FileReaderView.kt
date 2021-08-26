@@ -43,8 +43,7 @@ class FileReaderView constructor(
      */
     fun show(filePath: String) {
         if (!TextUtils.isEmpty(filePath)) {
-            val tempPath = Environment.getExternalStorageDirectory()
-                .toString() + File.separator + "TbsReaderTemp"
+            val tempPath = Environment.getExternalStorageDirectory().toString() + File.separator + "TbsReaderTemp"
             //加载文件
             val localBundle = Bundle()
             localBundle.putString("filePath", filePath)

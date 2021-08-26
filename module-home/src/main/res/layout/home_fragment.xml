@@ -20,7 +20,7 @@
             android:id="@+id/status_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@color/home_color"/>
+            android:background="@color/home_color" />
 
         <com.hjc.library_widget.bar.TitleBar
             android:layout_width="match_parent"

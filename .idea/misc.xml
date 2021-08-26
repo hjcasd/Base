@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/MyProjects/Base/module-home/src/main/res/layout/home_fragment.xml" value="0.2" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_activity_audio.xml" value="0.1" />
         <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_animator_interpolator.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_animator_object.xml" value="0.24114583333333334" />
