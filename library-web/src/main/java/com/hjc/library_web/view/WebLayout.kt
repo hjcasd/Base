@@ -3,7 +3,6 @@ package com.hjc.library_web.view
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
-import android.os.Build
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
@@ -19,7 +18,7 @@ import com.tencent.smtt.sdk.WebView
  * @Date: 2019/7/18 10:42
  * @Description: 自定义X5WebView
  */
-class X5WebLayout @JvmOverloads constructor(
+class WebLayout @JvmOverloads constructor(
     private val mContext: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
@@ -93,10 +92,8 @@ class X5WebLayout @JvmOverloads constructor(
         // 定位是否可用
         webSetting.setGeolocationEnabled(true)
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            //设置安全的来源
-            webSetting.mixedContentMode = webSetting.mixedContentMode
-        }
+        //设置安全的来源
+        webSetting.mixedContentMode = webSetting.mixedContentMode
     }
 
 }

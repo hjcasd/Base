@@ -353,5 +353,4 @@ class WebProgress constructor(
         }
     }
 
-
 }

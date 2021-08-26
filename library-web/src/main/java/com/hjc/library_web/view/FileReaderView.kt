@@ -2,7 +2,6 @@ package com.hjc.library_web.view
 
 import android.content.Context
 import android.os.Bundle
-import android.os.Environment
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.util.Log
@@ -17,17 +16,17 @@ import java.io.File
  * @Description: 文件阅读器
  */
 class FileReaderView constructor(
-    context: Context,
+    private val mContext: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : FrameLayout(
-    context, attrs, defStyleAttr
+    mContext, attrs, defStyleAttr
 ), TbsReaderView.ReaderCallback {
 
     private var mTbsReaderView: TbsReaderView?
 
     init {
-        mTbsReaderView = getTbsReaderView(context)
+        mTbsReaderView = getTbsReaderView(mContext)
         this.addView(mTbsReaderView, LinearLayout.LayoutParams(-1, -1))
     }
 
@@ -43,13 +42,13 @@ class FileReaderView constructor(
      */
     fun show(filePath: String) {
         if (!TextUtils.isEmpty(filePath)) {
-            val tempPath = Environment.getExternalStorageDirectory().toString() + File.separator + "TbsReaderTemp"
+            val tempPath = mContext.cacheDir.absolutePath + File.separator + "TbsReaderTemp"
             //加载文件
             val localBundle = Bundle()
             localBundle.putString("filePath", filePath)
             localBundle.putString("tempPath", tempPath)
             if (mTbsReaderView == null) {
-                mTbsReaderView = getTbsReaderView(context)
+                mTbsReaderView = getTbsReaderView(mContext)
             }
 
             mTbsReaderView?.run {

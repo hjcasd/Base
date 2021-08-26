@@ -2,7 +2,6 @@ package com.hjc.library_web.view
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.os.Build
 import android.util.AttributeSet
 import android.widget.ProgressBar
 import androidx.core.content.ContextCompat
@@ -34,8 +33,8 @@ class X5WebView(context: Context, attrs: AttributeSet?) : WebView(context, attrs
 
         initWebViewSettings()
 
-        webViewClient = MyWebViewClient2(mProgressBar)
-        webChromeClient = MyWebChromeClient2(mProgressBar)
+        webViewClient = X5WebViewClient(mProgressBar)
+        webChromeClient = X5WebChromeClient(mProgressBar)
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -70,10 +69,8 @@ class X5WebView(context: Context, attrs: AttributeSet?) : WebView(context, attrs
         // 定位是否可用
         webSetting.setGeolocationEnabled(true)
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            //设置安全的来源
-            webSetting.mixedContentMode = webSetting.mixedContentMode
-        }
+        //设置安全的来源
+        webSetting.mixedContentMode = webSetting.mixedContentMode
     }
 
     /*

@@ -57,7 +57,7 @@
 
         </androidx.appcompat.widget.Toolbar>
 
-        <com.hjc.library_web.view.X5WebLayout
+        <com.hjc.library_web.view.WebLayout
             android:id="@+id/web_layout"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -66,7 +66,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbar">
 
-        </com.hjc.library_web.view.X5WebLayout>
+        </com.hjc.library_web.view.WebLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

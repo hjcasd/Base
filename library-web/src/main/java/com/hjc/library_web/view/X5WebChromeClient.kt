@@ -9,7 +9,7 @@ import com.tencent.smtt.sdk.WebView
  * @Date: 2021/1/9 15:31
  * @Description: 自定义WebChromeClient
  */
-class MyWebChromeClient2(private val mProgressBar: ProgressBar) : WebChromeClient() {
+class X5WebChromeClient(private val mProgressBar: ProgressBar) : WebChromeClient() {
 
     override fun onProgressChanged(webView: WebView?, newProgress: Int) {
         super.onProgressChanged(webView, newProgress)
