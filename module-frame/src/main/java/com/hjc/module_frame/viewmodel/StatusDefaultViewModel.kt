@@ -36,7 +36,7 @@ class StatusDefaultViewModel(application: Application) : KotlinViewModel(applica
                     }
                 }
             }
-        }, { e ->
+        }, error = { e ->
             refreshData.value = true
 
             if (e is UnknownHostException || e is SocketTimeoutException) {

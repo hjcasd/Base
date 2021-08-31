@@ -21,9 +21,11 @@ open class KotlinViewModel(application: Application) : BaseViewModel(application
     protected fun <T> launchWrapper(
         api: suspend CoroutineScope.() -> BaseResponse<T>,
         success: CoroutineScope.(T?) -> Unit,
+        fail: CoroutineScope.(BaseResponse<T>?) -> Unit = {},
         error: (e: Throwable) -> Unit = {},
         isShowLoading: Boolean = false,
         isShowProgress: Boolean = false,
+        isShowErrorMessage: Boolean = true
     ) {
         if (isShowLoading) {
             showLoading()
@@ -34,18 +36,22 @@ open class KotlinViewModel(application: Application) : BaseViewModel(application
         viewModelScope.launch(Dispatchers.Main) {
             try {
                 //IO线程请求接口,结束后自动切回Main线程
-                val response = withContext(Dispatchers.IO) {
-                    api()
-                }
+                val response = withContext(Dispatchers.IO) { api() }
                 //Main线程更新UI
-                if (ServerCode.CODE_SUCCESS == response.errorCode) { //请求成功
+                if (ServerCode.CODE_SUCCESS == response.errorCode) { //请求成功,Code正确
                     success(response.data)
                 } else { //请求成功,Code错误,抛出ApiException
-                    handleError(ApiException(response.errorMsg, response.errorCode))
-                    error(ApiException(response.errorMsg, response.errorCode))
+                    val throwable = ApiException(response.errorMsg, response.errorCode)
+                    if (isShowErrorMessage) {
+                        handleError(throwable)
+                    }
+                    fail(response)
+                    error(throwable)
                 }
             } catch (e: Throwable) { //请求失败
-                handleError(e)
+                if (isShowErrorMessage) {
+                    handleError(e)
+                }
                 error(e)
             } finally { //请求结束
                 if (isShowLoading) {
@@ -54,6 +60,7 @@ open class KotlinViewModel(application: Application) : BaseViewModel(application
             }
         }
     }
+
 
     /**
      * 请求处理(response未封装)
@@ -64,6 +71,7 @@ open class KotlinViewModel(application: Application) : BaseViewModel(application
         error: (e: Throwable) -> Unit = {},
         isShowLoading: Boolean = false,
         isShowProgress: Boolean = false,
+        isShowErrorMessage: Boolean = true
     ) {
         if (isShowLoading) {
             showLoading()
@@ -73,12 +81,14 @@ open class KotlinViewModel(application: Application) : BaseViewModel(application
         }
         viewModelScope.launch(Dispatchers.Main) {
             try {
-                val response = withContext(Dispatchers.IO) { //异步请求接口
-                    api()
-                }
+                //IO线程请求接口,结束后自动切回Main线程
+                val response = withContext(Dispatchers.IO) { api() }
+                //请求成功
                 success(response)
             } catch (e: Throwable) { //请求失败
-                handleError(e)
+                if (isShowErrorMessage) {
+                    handleError(e)
+                }
                 error(e)
             } finally { //请求结束
                 if (isShowLoading) {
@@ -88,6 +98,7 @@ open class KotlinViewModel(application: Application) : BaseViewModel(application
         }
     }
 
+
     /**
      * 错误统一处理
      */
@@ -95,4 +106,5 @@ open class KotlinViewModel(application: Application) : BaseViewModel(application
         val errorDesc = ExceptionUtils.handleException(e)
         ToastUtils.showShort(errorDesc)
     }
+
 }

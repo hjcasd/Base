@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/MyProjects/Base/library-base/src/main/res/layout/base_layout_default_loading.xml" value="0.23743589743589744" />
         <entry key="..\:/MyProjects/Base/library-web/src/main/res/layout/web_layout.xml" value="0.23743589743589744" />
         <entry key="..\:/MyProjects/Base/module-home/src/main/res/layout/home_fragment.xml" value="0.2" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_activity_audio.xml" value="0.1" />

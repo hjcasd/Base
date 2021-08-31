@@ -133,4 +133,7 @@ dependencies {
 
     // 卡片
     api 'org.linwg1988:lcardview:1.5.4'
+
+    // 动画
+    api 'com.github.ybq:Android-SpinKit:1.4.0'
 }

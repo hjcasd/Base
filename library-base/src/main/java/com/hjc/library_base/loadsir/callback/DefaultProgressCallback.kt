@@ -13,7 +13,7 @@ import com.kingja.loadsir.callback.Callback
 class DefaultProgressCallback : Callback() {
 
     override fun onCreateView(): Int {
-        return R.layout.base_layout_default_loading
+        return R.layout.base_layout_default_progress
     }
 
     override fun onReloadEvent(context: Context, view: View): Boolean {

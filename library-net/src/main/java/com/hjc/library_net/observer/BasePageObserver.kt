@@ -13,8 +13,6 @@ abstract class BasePageObserver<T>(private val mBaseViewModel: BaseViewModel, pr
 
     private lateinit var mDisposable: Disposable
 
-    private var mResponse: T? = null
-
     override fun onSubscribe(d: Disposable) {
         mBaseViewModel.addDisposable(d)
         mDisposable = d
@@ -24,12 +22,11 @@ abstract class BasePageObserver<T>(private val mBaseViewModel: BaseViewModel, pr
     }
 
     override fun onNext(response: T) {
-        mResponse = response
         onSuccess(response)
     }
 
     override fun onError(e: Throwable) {
-        onFailure(e, mResponse)
+        onFailure(e, null)
     }
 
     override fun onComplete() {

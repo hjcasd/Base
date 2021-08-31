@@ -5,8 +5,9 @@ import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.LinearLayout
-import android.widget.ProgressBar
+import com.github.ybq.android.spinkit.SpinKitView
 import com.hjc.library_web.MyWebChromeClient
 import com.hjc.library_web.MyWebViewClient
 import com.hjc.library_web.R
@@ -27,7 +28,7 @@ class WebLayout @JvmOverloads constructor(
 ) {
     private lateinit var mWebProgress: WebProgress
     private lateinit var mWebView: WebView
-    private lateinit var mLoadingView: ProgressBar
+    private lateinit var mLoadingView: SpinKitView
 
     companion object {
         const val webProgressColor = "#ff00ff00"
@@ -54,8 +55,8 @@ class WebLayout @JvmOverloads constructor(
     private fun initData() {
         initWebViewSettings()
 
-        mWebView.webViewClient = MyWebViewClient(mContext, mWebProgress, mLoadingView)
-        mWebView.webChromeClient = MyWebChromeClient(mWebProgress)
+        mWebView.webViewClient = MyWebViewClient(mContext, this)
+        mWebView.webChromeClient = MyWebChromeClient(this)
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -94,6 +95,29 @@ class WebLayout @JvmOverloads constructor(
 
         //设置安全的来源
         webSetting.mixedContentMode = webSetting.mixedContentMode
+    }
+
+    /**
+     * 设置进度条显示进度
+     */
+    fun setProgress(newProgress: Int){
+        mWebProgress.setWebProgress(newProgress)
+    }
+
+    /**
+     * 显示进度条
+     */
+    fun show(){
+        mWebProgress.show()
+        mLoadingView.visibility = View.VISIBLE
+    }
+
+    /**
+     * 隐藏进度条
+     */
+    fun hide(){
+        mWebProgress.hide()
+        mLoadingView.visibility = View.GONE
     }
 
 }

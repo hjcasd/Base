@@ -6,13 +6,11 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.util.Log
 import android.view.View
-import android.widget.ProgressBar
-import com.hjc.library_web.view.WebProgress
+import com.hjc.library_web.view.WebLayout
 import com.tencent.smtt.export.external.interfaces.SslError
 import com.tencent.smtt.export.external.interfaces.SslErrorHandler
 import com.tencent.smtt.sdk.WebView
 import com.tencent.smtt.sdk.WebViewClient
-
 
 /**
  * @Author: HJC
@@ -21,8 +19,7 @@ import com.tencent.smtt.sdk.WebViewClient
  */
 class MyWebViewClient(
     private val mContext: Context,
-    private val mWebProgress: WebProgress,
-    private val mLoadingView: ProgressBar
+    private val mWebLayout: WebLayout
 ) : WebViewClient() {
 
     /**
@@ -56,8 +53,7 @@ class MyWebViewClient(
         mIsRedirect = false
 
         webView?.visibility = View.INVISIBLE
-        mWebProgress.show()
-        mLoadingView.visibility = View.VISIBLE
+        mWebLayout.show()
     }
 
     override fun onPageFinished(webView: WebView?, s: String?) {
@@ -66,8 +62,7 @@ class MyWebViewClient(
             return
         }
         webView?.visibility = View.VISIBLE
-        mWebProgress.hide()
-        mLoadingView.visibility = View.GONE
+        mWebLayout.hide()
     }
 
     // 处理https请求

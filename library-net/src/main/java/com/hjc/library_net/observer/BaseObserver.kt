@@ -16,8 +16,6 @@ abstract class BaseObserver<T>(private val mBaseViewModel: BaseViewModel, privat
 
     private lateinit var mDisposable: Disposable
 
-    private var mBaseResponse: BaseResponse<T>? = null
-
     override fun onSubscribe(d: Disposable) {
         mBaseViewModel.addDisposable(d)
         mDisposable = d
@@ -27,17 +25,17 @@ abstract class BaseObserver<T>(private val mBaseViewModel: BaseViewModel, privat
     }
 
     override fun onNext(response: BaseResponse<T>) {
-        mBaseResponse = response
-        if (ServerCode.CODE_SUCCESS == response.errorCode) {  //请求成功
+        if (ServerCode.CODE_SUCCESS == response.errorCode) {
+            //请求成功,Code正确
             onSuccess(response.data)
         } else {
             //请求成功,Code错误,抛出ApiException
-            onError(ApiException(response.errorMsg, response.errorCode))
+            onFailure(ApiException(response.errorMsg, response.errorCode), response)
         }
     }
 
     override fun onError(e: Throwable) {
-        onFailure(e, mBaseResponse)
+        onFailure(e, null)
     }
 
     override fun onComplete() {

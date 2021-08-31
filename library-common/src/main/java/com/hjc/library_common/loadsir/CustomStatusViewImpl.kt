@@ -48,23 +48,35 @@ class CustomStatusViewImpl : IStatusView {
             .subscribe { mLoadService?.showSuccess() }
     }
 
+    @SuppressLint("CheckResult")
     override fun showEmpty(msg: String) {
         mLoadService?.setCallBack(CustomEmptyCallback::class.java) { _, view ->
             val tvEmpty = view.findViewById<TextView>(R.id.tv_empty)
             tvEmpty.text = msg
         }
-        mLoadService?.showCallback(CustomEmptyCallback::class.java)
+        Observable.timer(500, TimeUnit.MILLISECONDS)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe { mLoadService?.showCallback(CustomEmptyCallback::class.java) }
     }
 
+    @SuppressLint("CheckResult")
     override fun showError(msg: String) {
         mLoadService?.setCallBack(CustomErrorCallback::class.java) { _, view ->
             val tvError = view.findViewById<TextView>(R.id.tv_error)
             tvError.text = msg
         }
-        mLoadService?.showCallback(CustomErrorCallback::class.java)
+        Observable.timer(500, TimeUnit.MILLISECONDS)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {  mLoadService?.showCallback(CustomErrorCallback::class.java) }
     }
 
+    @SuppressLint("CheckResult")
     override fun showTimeout() {
-        mLoadService?.showCallback(CustomTimeoutCallback::class.java)
+        Observable.timer(500, TimeUnit.MILLISECONDS)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {  mLoadService?.showCallback(CustomTimeoutCallback::class.java) }
     }
 }
