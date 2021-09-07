@@ -4,7 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/MyProjects/Base/library-base/src/main/res/layout/base_layout_default_loading.xml" value="0.23743589743589744" />
+        <entry key="..\:/MyProjects/Base/library-common/src/main/res/layout/common_item_shimmer.xml" value="0.24114583333333334" />
+        <entry key="..\:/MyProjects/Base/library-common/src/main/res/layout/common_layout_custom_shimmer.xml" value="0.22037037037037038" />
+        <entry key="..\:/MyProjects/Base/library-common/src/main/res/layout/common_layout_custom_timeout.xml" value="0.21574074074074073" />
+        <entry key="..\:/MyProjects/Base/library-common/src/main/res/layout/common_layout_shimmer_item.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/library-web/src/main/res/layout/web_layout.xml" value="0.23743589743589744" />
+        <entry key="..\:/MyProjects/Base/module-frame/src/main/res/layout/frame_activity_status_custom.xml" value="0.22037037037037038" />
         <entry key="..\:/MyProjects/Base/module-home/src/main/res/layout/home_fragment.xml" value="0.2" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_activity_audio.xml" value="0.1" />
         <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_animator_interpolator.xml" value="0.24114583333333334" />
