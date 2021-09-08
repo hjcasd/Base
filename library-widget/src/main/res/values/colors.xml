@@ -5,4 +5,5 @@
     <color name="widget_gray">#f4f5f6</color>
     <color name="widget_shadow_color">#000000</color>
     <color name="widget_card_color">#ffffff</color>
+    <color name="widget_shimmer_color">#a2878787</color>
 </resources>

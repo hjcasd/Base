@@ -23,7 +23,7 @@
         app:cornerRadius="10dp"
         app:shadowFluidShape="adsorption"
         app:shadowSize="10dp"
-        app:shadowColor="#999999"
+        app:shadowColor="@color/base_black_99"
         app:shadowStartAlpha="120">
 
         <androidx.constraintlayout.widget.ConstraintLayout

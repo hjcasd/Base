@@ -5,7 +5,8 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.hjc.library_common.R
-import com.hjc.library_common.adapter.ShimmerAdapter
+import com.hjc.library_common.loadsir.adapter.ShimmerAdapter
+import com.hjc.library_widget.view.ShimmerLayout
 import com.kingja.loadsir.callback.Callback
 
 /**
@@ -14,6 +15,8 @@ import com.kingja.loadsir.callback.Callback
  * @Description: 自定义 loadSir 骨架屏加载页面
  */
 class CustomShimmerCallback : Callback() {
+
+    private  var shimmerLayout: ShimmerLayout? = null
 
     override fun onCreateView(): Int {
         return R.layout.common_layout_custom_shimmer
@@ -25,6 +28,10 @@ class CustomShimmerCallback : Callback() {
 
     override fun onViewCreate(context: Context?, view: View?) {
         super.onViewCreate(context, view)
+
+        shimmerLayout = view?.findViewById(R.id.shimmer_layout)
+        shimmerLayout?.startShimmerAnimation()
+
         val rvShimmer = view?.findViewById<RecyclerView>(R.id.rv_shimmer)
         val manager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         rvShimmer?.layoutManager = manager
@@ -32,5 +39,10 @@ class CustomShimmerCallback : Callback() {
         val list = mutableListOf("111", "222", "333", "444", "555")
         val adapter = ShimmerAdapter(list)
         rvShimmer?.adapter = adapter
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        shimmerLayout?.stopShimmerAnimation()
     }
 }

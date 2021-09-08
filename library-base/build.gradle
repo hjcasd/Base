@@ -131,12 +131,10 @@ dependencies {
     // 录音
     api 'com.github.ideastudios:IdealRecorder:2.0.4'
 
-    // 卡片
+    // 卡片(系统CardView效果不满足时使用)
     api 'org.linwg1988:lcardview:1.5.4'
 
     // 动画
     api 'com.github.ybq:Android-SpinKit:1.4.0'
 
-    // 骨架屏
-    api 'me.samlss:broccoli:1.0.0'
 }

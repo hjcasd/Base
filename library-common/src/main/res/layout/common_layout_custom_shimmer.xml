@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/ll_placeholder"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_shimmer"
+    <com.hjc.library_widget.view.ShimmerLayout
+        android:id="@+id/shimmer_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        app:shimmer_animation_duration="1200"
+        app:shimmer_color="@color/common_shimmer_dark">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_shimmer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.hjc.library_widget.view.ShimmerLayout>
 
 </LinearLayout>

@@ -42,7 +42,7 @@ class CustomStatusViewImpl : IStatusView {
 
     @SuppressLint("CheckResult")
     override fun showContent() {
-        Observable.timer(500, TimeUnit.MILLISECONDS)
+       Observable.timer(500, TimeUnit.MILLISECONDS)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { mLoadService?.showSuccess() }
@@ -69,7 +69,7 @@ class CustomStatusViewImpl : IStatusView {
         Observable.timer(500, TimeUnit.MILLISECONDS)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe {  mLoadService?.showCallback(CustomErrorCallback::class.java) }
+            .subscribe { mLoadService?.showCallback(CustomErrorCallback::class.java) }
     }
 
     @SuppressLint("CheckResult")
@@ -77,6 +77,6 @@ class CustomStatusViewImpl : IStatusView {
         Observable.timer(500, TimeUnit.MILLISECONDS)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe {  mLoadService?.showCallback(CustomTimeoutCallback::class.java) }
+            .subscribe { mLoadService?.showCallback(CustomTimeoutCallback::class.java) }
     }
 }
