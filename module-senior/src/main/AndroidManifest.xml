@@ -78,6 +78,11 @@
             android:name=".ui.animation.child.AnimatorInterpolatorActivity"
             android:screenOrientation="portrait" />
 
+
+        <activity
+            android:name=".ui.scroll.ScrollActivity"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

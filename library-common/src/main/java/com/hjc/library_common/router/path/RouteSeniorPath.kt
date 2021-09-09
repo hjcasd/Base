@@ -52,4 +52,9 @@ object RouteSeniorPath {
     const val URL_ANIMATION_XML = "$MODULE_SENIOR/anim/xml"
     const val URL_ANIMATION_INTERPOLATOR = "$MODULE_SENIOR/anim/interpolator"
 
+
+    /**
+     * Scroll页面
+     */
+    const val URL_SCROLL = "$MODULE_SENIOR/scroll"
 }

@@ -1,4 +1,4 @@
-package com.hjc.library_widget.tools
+package com.hjc.library_widget.list.manager
 
 import android.content.Context
 import androidx.recyclerview.widget.LinearLayoutManager

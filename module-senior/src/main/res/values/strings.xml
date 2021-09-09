@@ -6,6 +6,7 @@
     <string name="senior_tab3_btn2">自定义View详解</string>
     <string name="senior_tab3_btn3">夜间模式切换</string>
     <string name="senior_tab3_btn4">动画详解</string>
+    <string name="senior_tab3_btn5">滑动置顶效果</string>
 
     <string name="senior_touch_title">Touch</string>
     <string name="senior_touch_btn1">默认事件传递流程</string>
@@ -80,5 +81,7 @@
     <string name="senior_animator_xml_btn2">沿x,y轴一起放大</string>
 
     <string name="senior_animator_interpolator_title">动画插值器</string>
+
+    <string name="senior_scroll_title">滑动置顶</string>
 
 </resources>

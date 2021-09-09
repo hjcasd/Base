@@ -16,6 +16,11 @@ import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_senior.R
 import com.hjc.module_senior.databinding.SeniorActivityThemeBinding
 
+/**
+ * @Author: HJC
+ * @Date: 2021/9/9 16:32
+ * @Description: 主题切换
+ */
 @Route(path = RouteSeniorPath.URL_THEME)
 class ThemeActivity : BaseActivity<SeniorActivityThemeBinding, CommonViewModel>() {
 
