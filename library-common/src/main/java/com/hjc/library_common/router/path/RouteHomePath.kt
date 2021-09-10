@@ -15,20 +15,15 @@ object RouteHomePath {
     // HomeFragment
     const val URL_HOME_FRAGMENT = "$MODULE_HOME/home/fragment"
 
-    // DataBinding页面
-    const val URL_DATA_BINDING = "$MODULE_HOME/dataBinding"
-
-    // LiveData页面
-    const val URL_LIVE_DATA = "$MODULE_HOME/liveData"
-
-    // BindingAdapter页面
-    const val URL_BINDING_ADAPTER = "$MODULE_HOME/bindingAdapter"
-
-    // Paging页面
-    const val URL_PAGING = "$MODULE_HOME/paging"
-
-    // Room页面
-    const val URL_ROOM = "$MODULE_HOME/room"
+    /**
+     * JetPack页面
+     */
+    const val URL_JETPACK = "$MODULE_HOME/jetpack"
+    const val URL_JET_DATA_BINDING = "$MODULE_HOME/jetpack/dataBinding"
+    const val URL_JET_LIVE_DATA = "$MODULE_HOME/jetpack/liveData"
+    const val URL_JET_BINDING_ADAPTER = "$MODULE_HOME/jetpack/bindingAdapter"
+    const val URL_JET_PAGING = "$MODULE_HOME/jetpack/paging"
+    const val URL_JET_ROOM = "$MODULE_HOME/jetpack/room"
 
     // Coroutines页面
     const val URL_COROUTINES = "$MODULE_HOME/coroutines"

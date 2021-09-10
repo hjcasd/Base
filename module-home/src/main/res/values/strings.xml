@@ -3,12 +3,15 @@
 
     <string name="home_title">首页</string>
 
-    <string name="home_btn1">DataBinding</string>
-    <string name="home_btn2">LiveData</string>
-    <string name="home_btn3">BindingAdapter</string>
-    <string name="home_btn4">Room</string>
-    <string name="home_btn5">Paging</string>
-    <string name="home_btn6">Coroutines</string>
+    <string name="home_btn1">Jetpack组件演示</string>
+    <string name="home_btn2">协程演示</string>
+
+    <string name="home_jetpack_title">Jetpack</string>
+    <string name="home_jetpack_btn1">DataBinding演示</string>
+    <string name="home_jetpack_btn2">LiveData演示</string>
+    <string name="home_jetpack_btn3">BindingAdapter演示</string>
+    <string name="home_jetpack_btn4">Room演示</string>
+    <string name="home_jetpack_btn5">Paging演示</string>
 
     <string name="home_adapter_title">BindingAdapter</string>
     <string name="home_adapter_btn1">显示图片</string>

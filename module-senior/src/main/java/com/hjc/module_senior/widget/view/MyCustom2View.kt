@@ -48,7 +48,7 @@ class MyCustom2View constructor(context: Context, attrs: AttributeSet?) : View(c
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         // 设置画布颜色
-        canvas.drawColor(ContextCompat.getColor(context, R.color.senior_color))
+        canvas.drawColor(ContextCompat.getColor(context, R.color.senior_green))
         when (mType) {
             1 -> translate(canvas)
             2 -> scale(canvas)

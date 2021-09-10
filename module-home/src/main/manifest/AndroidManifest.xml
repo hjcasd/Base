@@ -22,20 +22,25 @@
 
 
         <activity
-            android:name=".ui.adapter.BindingAdapterActivity"
+            android:name=".ui.jetpack.JetpackActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.binding.DataActivity"
+            android:name=".ui.jetpack.child.JetDataActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.live.LiveActivity"
+            android:name=".ui.jetpack.child.JetLiveActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.paging.PagingActivity"
+            android:name=".ui.jetpack.child.JetAdapterActivity"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.jetpack.child.JetPagingActivity"
+            android:screenOrientation="portrait" />
+
 
         <activity
             android:name=".ui.coroutines.CoroutinesActivity"

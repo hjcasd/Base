@@ -65,4 +65,11 @@
         <attr name="shimmer_reverse_animation" format="boolean|reference"/>
     </declare-styleable>
 
+    <!--水平滑动指示器View-->
+    <declare-styleable name="LineIndicatorView">
+        <attr name="indicatorBgColor" format="color"/>
+        <attr name="indicatorColor" format="color"/>
+        <attr name="indicatorWidth" format="dimension"/>
+    </declare-styleable>
+
 </resources>

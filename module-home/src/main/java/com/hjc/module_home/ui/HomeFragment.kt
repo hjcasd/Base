@@ -41,12 +41,10 @@ class HomeFragment : BaseFragment<HomeFragmentBinding, CommonViewModel>() {
 
     override fun onSingleClick(v: View?) {
         when (v?.id) {
-            R.id.btn1 -> RouteManager.jump(RouteHomePath.URL_DATA_BINDING)
-            R.id.btn2 -> RouteManager.jump(RouteHomePath.URL_LIVE_DATA)
-            R.id.btn3 -> RouteManager.jump(RouteHomePath.URL_BINDING_ADAPTER)
-            R.id.btn4 -> RouteManager.jump(RouteHomePath.URL_ROOM)
-            R.id.btn5 -> RouteManager.jump(RouteHomePath.URL_PAGING)
-            R.id.btn6 -> RouteManager.jump(RouteHomePath.URL_COROUTINES)
+            R.id.btn1 -> RouteManager.jump(RouteHomePath.URL_JETPACK)
+
+            R.id.btn2 -> RouteManager.jump(RouteHomePath.URL_COROUTINES)
+
             else -> {
             }
         }

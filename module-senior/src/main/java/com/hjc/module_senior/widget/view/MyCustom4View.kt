@@ -52,7 +52,7 @@ class MyCustom4View constructor(context: Context, attrs: AttributeSet?) : View(c
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        canvas.drawColor(ContextCompat.getColor(context, R.color.senior_color))
+        canvas.drawColor(ContextCompat.getColor(context, R.color.senior_green))
         canvas.translate((mWidth shr 1).toFloat(), (mHeight shr 1).toFloat())
         val points = floatArrayOf(
             -mWidth.toFloat(),

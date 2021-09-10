@@ -8,11 +8,28 @@
             android:screenOrientation="portrait" />
 
         <activity
+            android:name=".ui.dialog.DialogActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name=".ui.login.LoginActivity"
             android:screenOrientation="portrait" />
 
         <activity
             android:name=".ui.audio.AudioActivity"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name=".ui.scroll.ScrollActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.scroll.ScrollToppingActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.scroll.ScrollIndicatorActivity"
             android:screenOrientation="portrait" />
 
     </application>

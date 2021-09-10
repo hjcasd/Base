@@ -55,7 +55,7 @@ class MyCustom1View constructor(context: Context, attrs: AttributeSet?) : View(c
         super.onDraw(canvas)
 
         // 设置画布颜色
-        canvas.drawColor(ContextCompat.getColor(context, R.color.senior_color))
+        canvas.drawColor(ContextCompat.getColor(context, R.color.senior_green))
 
         // 画X轴
         canvas.drawLine(0f, 0f, width.toFloat(), 0f, mAlisPaint)

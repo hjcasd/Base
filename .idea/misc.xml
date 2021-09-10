@@ -13,9 +13,28 @@
         <entry key="..\:/MyProjects/Base/library-web/src/main/res/layout/web_layout.xml" value="0.23743589743589744" />
         <entry key="..\:/MyProjects/Base/module-frame/src/main/res/layout/frame_activity_event_post.xml" value="0.23743589743589744" />
         <entry key="..\:/MyProjects/Base/module-frame/src/main/res/layout/frame_activity_status_custom.xml" value="0.22037037037037038" />
+        <entry key="..\:/MyProjects/Base/module-frame/src/main/res/layout/frame_fragment.xml" value="0.17876447876447876" />
         <entry key="..\:/MyProjects/Base/module-frame/src/main/res/layout/frame_item_article.xml" value="0.23743589743589744" />
+        <entry key="..\:/MyProjects/Base/module-home/src/main/res/layout/home_activity_adapter.xml" value="0.23148148148148148" />
+        <entry key="..\:/MyProjects/Base/module-home/src/main/res/layout/home_activity_coroutines.xml" value="0.17876447876447876" />
+        <entry key="..\:/MyProjects/Base/module-home/src/main/res/layout/home_activity_data.xml" value="0.23743589743589744" />
+        <entry key="..\:/MyProjects/Base/module-home/src/main/res/layout/home_activity_jet_adapter.xml" value="0.180859375" />
+        <entry key="..\:/MyProjects/Base/module-home/src/main/res/layout/home_activity_jet_data.xml" value="0.180859375" />
+        <entry key="..\:/MyProjects/Base/module-home/src/main/res/layout/home_activity_jet_live.xml" value="0.180859375" />
+        <entry key="..\:/MyProjects/Base/module-home/src/main/res/layout/home_activity_jet_page.xml" value="0.17876447876447876" />
+        <entry key="..\:/MyProjects/Base/module-home/src/main/res/layout/home_activity_jetpack.xml" value="0.180859375" />
+        <entry key="..\:/MyProjects/Base/module-home/src/main/res/layout/home_activity_live.xml" value="0.23743589743589744" />
         <entry key="..\:/MyProjects/Base/module-home/src/main/res/layout/home_fragment.xml" value="0.2" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_activity_audio.xml" value="0.1" />
+        <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_activity_dialog.xml" value="0.17876447876447876" />
+        <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_activity_scroll.xml" value="0.23148148148148148" />
+        <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_activity_scroll_line.xml" value="0.24114583333333334" />
+        <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_activity_scroll_topping.xml" value="0.24114583333333334" />
+        <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_fragment.xml" value="0.17876447876447876" />
+        <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_item_scroll_content.xml" value="0.24114583333333334" />
+        <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_item_scroll_line.xml" value="0.24114583333333334" />
+        <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_item_scroll_title.xml" value="0.24114583333333334" />
+        <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/senior_activity_scroll.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_animator_interpolator.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_animator_object.xml" value="0.24114583333333334" />
@@ -23,6 +42,14 @@
         <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_animator_value.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_scroll.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_theme.xml" value="0.24114583333333334" />
+        <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_touch_cancel.xml" value="0.17876447876447876" />
+        <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_touch_default.xml" value="0.180859375" />
+        <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_touch_intercept.xml" value="0.180859375" />
+        <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_view_base.xml" value="0.180859375" />
+        <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_view_canvas.xml" value="0.17876447876447876" />
+        <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_view_path.xml" value="0.180859375" />
+        <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_view_picture.xml" value="0.180859375" />
+        <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_view_radar.xml" value="0.180859375" />
         <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_fragment.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_item_scroll.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_item_scroll_content.xml" value="0.24114583333333334" />

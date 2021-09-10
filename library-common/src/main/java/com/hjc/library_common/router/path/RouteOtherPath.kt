@@ -15,10 +15,19 @@ object RouteOtherPath {
     // OtherFragment
     const val URL_OTHER_FRAGMENT = "$MODULE_OTHER/other/fragment"
 
+    // Dialog页面
+    const val URL_DIALOG = "$MODULE_OTHER/dialog"
+
     // Login页面
     const val URL_LOGIN = "$MODULE_OTHER/login"
 
-    // Login页面
+    // Audio页面
     const val URL_AUDIO = "$MODULE_OTHER/audio"
 
+    /**
+     * Scroll页面
+     */
+    const val URL_SCROLL = "${MODULE_OTHER}/scroll"
+    const val URL_SCROLL_TOPPING = "${MODULE_OTHER}/scroll/topping"
+    const val URL_SCROLL_INDICATOR = "${MODULE_OTHER}/scroll/indicator"
 }

@@ -23,7 +23,7 @@
         <com.hjc.module_senior.widget.event.MyViewGroup
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/senior_color">
+            android:background="@color/base_gray">
 
             <com.hjc.module_senior.widget.event.MyView
                 android:layout_width="200dp"
