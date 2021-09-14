@@ -27,21 +27,22 @@ object GsonHelper {
      */
     fun buildGson(): Gson {
         return GsonBuilder()
-            .registerTypeAdapter(Int::class.java, IntegerDefaultAdapter())
-            .registerTypeAdapter(Int::class.javaPrimitiveType, IntegerDefaultAdapter())
-            .registerTypeAdapter(Double::class.java, DoubleDefaultAdapter())
-            .registerTypeAdapter(Double::class.javaPrimitiveType, DoubleDefaultAdapter())
-            .registerTypeAdapter(Long::class.java, LongDefaultAdapter())
-            .registerTypeAdapter(Long::class.javaPrimitiveType, LongDefaultAdapter())
-            .registerTypeAdapter(Float::class.java, FloatDefaultAdapter())
-            .registerTypeAdapter(Float::class.javaPrimitiveType, FloatDefaultAdapter())
-            .registerTypeAdapter(Boolean::class.java, BooleanDefaultAdapter())
-            .registerTypeAdapter(Boolean::class.javaPrimitiveType, BooleanDefaultAdapter())
-            .registerTypeAdapter(String::class.java, StringNullAdapter())
+            .registerTypeAdapter(Boolean::class.java, BooleanAdapter())
+            .registerTypeAdapter(Boolean::class.javaPrimitiveType, BooleanAdapter())
+            .registerTypeAdapter(Int::class.java, IntegerAdapter())
+            .registerTypeAdapter(Int::class.javaPrimitiveType, IntegerAdapter())
+            .registerTypeAdapter(Long::class.java, LongAdapter())
+            .registerTypeAdapter(Long::class.javaPrimitiveType, LongAdapter())
+            .registerTypeAdapter(Float::class.java, FloatAdapter())
+            .registerTypeAdapter(Float::class.javaPrimitiveType, FloatAdapter())
+            .registerTypeAdapter(Double::class.java, DoubleAdapter())
+            .registerTypeAdapter(Double::class.javaPrimitiveType, DoubleAdapter())
+            .registerTypeAdapter(String::class.java, StringAdapter())
             .create()
     }
 
-    private class BooleanDefaultAdapter : JsonSerializer<Boolean>, JsonDeserializer<Boolean> {
+    private class BooleanAdapter : JsonSerializer<Boolean>, JsonDeserializer<Boolean> {
+
         @Throws(JsonParseException::class)
         override fun deserialize(json: JsonElement, typeOfT: Type, context: JsonDeserializationContext): Boolean {
             try {
@@ -60,60 +61,19 @@ object GsonHelper {
 
         }
 
+        /**
+         * Gson 会在解析指定T类型的数据时触发当前回调方法进行序列化
+         *
+         * @param src 需要转化为Json数据的类型，对应Boolean
+         * @return 返回T指定的类对应的JsonElement
+         */
         override fun serialize(src: Boolean?, typeOfSrc: Type, context: JsonSerializationContext): JsonElement {
             return JsonPrimitive(src!!)
         }
     }
 
-    private class FloatDefaultAdapter : JsonSerializer<Float>, JsonDeserializer<Float> {
-        @Throws(JsonParseException::class)
-        override fun deserialize(json: JsonElement, typeOfT: Type, context: JsonDeserializationContext): Float {
-            try {
-                //定义为Float类型,如果后台返回""或者null,则返回0f
-                if ("" == json.asString || "null" == json.asString) {
-                    return 0f
-                }
-            } catch (ignore: Exception) {
-            }
+    private class IntegerAdapter : JsonSerializer<Int>, JsonDeserializer<Int> {
 
-            try {
-                return json.asFloat
-            } catch (e: NumberFormatException) {
-                throw JsonSyntaxException(e)
-            }
-
-        }
-
-        override fun serialize(src: Float?, typeOfSrc: Type, context: JsonSerializationContext): JsonElement {
-            return JsonPrimitive(src!!)
-        }
-    }
-
-    private class DoubleDefaultAdapter : JsonSerializer<Double>, JsonDeserializer<Double> {
-        @Throws(JsonParseException::class)
-        override fun deserialize(json: JsonElement, typeOfT: Type, context: JsonDeserializationContext): Double {
-            try {
-                //定义为double类型,如果后台返回""或者null,则返回0.00
-                if ("" == json.asString || "null" == json.asString) {
-                    return 0.00
-                }
-            } catch (ignore: Exception) {
-            }
-
-            try {
-                return json.asDouble
-            } catch (e: NumberFormatException) {
-                throw JsonSyntaxException(e)
-            }
-
-        }
-
-        override fun serialize(src: Double?, typeOfSrc: Type, context: JsonSerializationContext): JsonElement {
-            return JsonPrimitive(src!!)
-        }
-    }
-
-    private class IntegerDefaultAdapter : JsonSerializer<Int>, JsonDeserializer<Int> {
         @Throws(JsonParseException::class)
         override fun deserialize(json: JsonElement, typeOfT: Type, context: JsonDeserializationContext): Int {
             try {
@@ -137,7 +97,8 @@ object GsonHelper {
         }
     }
 
-    private class LongDefaultAdapter : JsonSerializer<Long>, JsonDeserializer<Long> {
+    private class LongAdapter : JsonSerializer<Long>, JsonDeserializer<Long> {
+
         @Throws(JsonParseException::class)
         override fun deserialize(json: JsonElement, typeOfT: Type, context: JsonDeserializationContext): Long {
             try {
@@ -161,12 +122,66 @@ object GsonHelper {
         }
     }
 
-    private class StringNullAdapter : TypeAdapter<String>() {
+    private class FloatAdapter : JsonSerializer<Float>, JsonDeserializer<Float> {
+
+        @Throws(JsonParseException::class)
+        override fun deserialize(json: JsonElement, typeOfT: Type, context: JsonDeserializationContext): Float {
+            try {
+                //定义为Float类型,如果后台返回""或者null,则返回0f
+                if ("" == json.asString || "null" == json.asString) {
+                    return 0f
+                }
+            } catch (ignore: Exception) {
+            }
+
+            try {
+                return json.asFloat
+            } catch (e: NumberFormatException) {
+                throw JsonSyntaxException(e)
+            }
+
+        }
+
+        override fun serialize(src: Float?, typeOfSrc: Type, context: JsonSerializationContext): JsonElement {
+            return JsonPrimitive(src!!)
+        }
+    }
+
+    private class DoubleAdapter : JsonSerializer<Double>, JsonDeserializer<Double> {
+
+        @Throws(JsonParseException::class)
+        override fun deserialize(json: JsonElement, typeOfT: Type, context: JsonDeserializationContext): Double {
+            try {
+                //定义为double类型,如果后台返回""或者null,则返回0.00
+                if ("" == json.asString || "null" == json.asString) {
+                    return 0.00
+                }
+            } catch (ignore: Exception) {
+            }
+
+            try {
+                return json.asDouble
+            } catch (e: NumberFormatException) {
+                throw JsonSyntaxException(e)
+            }
+
+        }
+
+        override fun serialize(src: Double?, typeOfSrc: Type, context: JsonSerializationContext): JsonElement {
+            return JsonPrimitive(src!!)
+        }
+    }
+
+    private class StringAdapter : TypeAdapter<String>() {
+
+        /**
+         * 反序列化(bean转成json字符串)
+         */
         @Throws(IOException::class)
         override fun read(reader: JsonReader): String {
             if (reader.peek() == JsonToken.NULL) {
                 reader.nextNull()
-                //原先是返回Null，这里改为返回空字符串
+                //返回空字符串
                 return ""
             }
 
@@ -178,6 +193,9 @@ object GsonHelper {
             }
         }
 
+        /**
+         * 序列化(json字符串转成bean)
+         */
         @Throws(IOException::class)
         override fun write(writer: JsonWriter, value: String?) {
             if (value == null) {

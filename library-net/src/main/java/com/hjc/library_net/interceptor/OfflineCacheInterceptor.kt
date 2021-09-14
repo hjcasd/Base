@@ -1,6 +1,5 @@
 package com.hjc.library_net.interceptor
 
-import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.NetworkUtils
 import okhttp3.CacheControl
 import okhttp3.Interceptor
@@ -16,8 +15,6 @@ class OfflineCacheInterceptor : Interceptor {
 
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
-        LogUtils.e("缓存拦截器---离线")
-
         var request = chain.request()
         if (!NetworkUtils.isConnected()) {
             //无网络下强制使用缓存，无论缓存是否过期,此时该请求实际上不会被发送出去。
