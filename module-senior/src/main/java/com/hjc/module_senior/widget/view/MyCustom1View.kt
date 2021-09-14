@@ -17,21 +17,20 @@ import com.hjc.module_senior.R
  */
 class MyCustom1View constructor(context: Context, attrs: AttributeSet?) : View(context, attrs) {
 
-    private lateinit var mPaint: Paint
-    private lateinit var mAlisPaint: Paint
+    private val mPaint: Paint = Paint()
+    private val mAlisPaint: Paint = Paint()
 
     private var mType = 0
 
-    private lateinit var rectF1: RectF
-    private lateinit var rectF2: RectF
-    private lateinit var rectF3: RectF
+    private val rectF1: RectF = RectF(100f, 100f, 400f, 300f)
+    private val rectF2: RectF = RectF(100f, 100f, 400f, 300f)
+    private val rectF3: RectF = RectF(100f, 100f, 400f, 400f)
 
     init {
         initPaint()
     }
 
     private fun initPaint() {
-        mPaint = Paint()
         // 画笔颜色
         mPaint.color = Color.BLACK
         // 画笔填充模式
@@ -41,14 +40,9 @@ class MyCustom1View constructor(context: Context, attrs: AttributeSet?) : View(c
         // 抗锯齿
         mPaint.isAntiAlias = true
 
-        mAlisPaint = Paint()
         mAlisPaint.color = Color.BLUE
         mAlisPaint.style = Paint.Style.FILL
         mAlisPaint.strokeWidth = 10f
-
-        rectF1 = RectF(100f, 100f, 400f, 300f)
-        rectF2 = RectF(100f, 100f, 400f, 300f)
-        rectF3 = RectF(100f, 100f, 400f, 400f)
     }
 
     override fun onDraw(canvas: Canvas) {

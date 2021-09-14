@@ -37,31 +37,28 @@ class RadarView constructor(context: Context, attrs: AttributeSet?) : View(conte
     private val data = doubleArrayOf(100.0, 80.0, 60.0, 80.0, 100.0, 60.0)
 
     // 雷达区画笔
-    private lateinit var mainPaint: Paint
+    private val mainPaint: Paint = Paint()
 
     // 数据区画笔
-    private lateinit var valuePaint: Paint
+    private val valuePaint: Paint = Paint()
 
     // 文本画笔
-    private lateinit var textPaint: Paint
+    private val textPaint: Paint = Paint()
 
     init {
         initPaint()
     }
 
     private fun initPaint() {
-        mainPaint = Paint()
         mainPaint.style = Paint.Style.STROKE
         mainPaint.strokeWidth = 3f
         mainPaint.isAntiAlias = true
         mainPaint.color = Color.GRAY
 
-        valuePaint = Paint()
         valuePaint.style = Paint.Style.FILL_AND_STROKE
         valuePaint.color = Color.BLUE
         valuePaint.isAntiAlias = true
 
-        textPaint = Paint()
         textPaint.textSize = 40f
         textPaint.isAntiAlias = true
     }

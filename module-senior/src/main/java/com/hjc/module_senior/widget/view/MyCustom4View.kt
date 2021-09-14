@@ -14,8 +14,8 @@ import com.hjc.module_senior.R
  */
 class MyCustom4View constructor(context: Context, attrs: AttributeSet?) : View(context, attrs) {
 
-    private lateinit var mPaint: Paint
-    private lateinit var mAlisPaint: Paint
+    private val mPaint: Paint = Paint()
+    private val mAlisPaint: Paint = Paint()
 
     private var mWidth = 0
     private var mHeight = 0
@@ -26,7 +26,6 @@ class MyCustom4View constructor(context: Context, attrs: AttributeSet?) : View(c
     }
 
     private fun initPaint() {
-        mPaint = Paint()
         // 画笔颜色
         mPaint.color = Color.BLACK
         // 画笔填充模式
@@ -36,7 +35,6 @@ class MyCustom4View constructor(context: Context, attrs: AttributeSet?) : View(c
         // 抗锯齿
         mPaint.isAntiAlias = true
 
-        mAlisPaint = Paint()
         mAlisPaint.color = Color.WHITE
         mAlisPaint.style = Paint.Style.FILL
         mAlisPaint.strokeWidth = 4f

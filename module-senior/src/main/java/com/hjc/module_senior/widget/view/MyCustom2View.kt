@@ -17,7 +17,7 @@ import com.hjc.module_senior.R
  */
 class MyCustom2View constructor(context: Context, attrs: AttributeSet?) : View(context, attrs) {
 
-    private lateinit var mPaint: Paint
+    private val mPaint: Paint = Paint()
 
     private var mType = 0
     private var mWidth = 0
@@ -28,7 +28,6 @@ class MyCustom2View constructor(context: Context, attrs: AttributeSet?) : View(c
     }
 
     private fun initPaint() {
-        mPaint = Paint()
         // 画笔颜色
         mPaint.color = Color.BLACK
         // 画笔填充模式
