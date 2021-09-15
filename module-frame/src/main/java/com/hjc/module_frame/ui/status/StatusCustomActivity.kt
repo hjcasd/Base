@@ -98,7 +98,7 @@ class StatusCustomActivity : BaseActivity<FrameActivityStatusCustomBinding, Stat
 
     override fun addListeners() {
         mBindingView.titleBar.setOnViewLeftClickListener(object : OnViewLeftClickListener {
-            override fun leftClick(view: View?) {
+            override fun onViewLeftClick(view: View?) {
                 finish()
             }
         })

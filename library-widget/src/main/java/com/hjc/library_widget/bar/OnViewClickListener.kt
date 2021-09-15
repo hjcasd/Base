@@ -8,6 +8,6 @@ import android.view.View
  * @Description: TitleBar左右点击事件
  */
 interface OnViewClickListener {
-    fun leftClick(view: View?)
-    fun rightClick(view: View?)
+    fun onViewLeftClick(view: View?)
+    fun OnViewRightClick(view: View?)
 }

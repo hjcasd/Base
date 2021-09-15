@@ -42,7 +42,7 @@ class StatusActivity : BaseActivity<FrameActivityStatusBinding, CommonViewModel>
         mBindingView.onClickListener = this
 
         mBindingView.titleBar.setOnViewLeftClickListener(object : OnViewLeftClickListener {
-            override fun leftClick(view: View?) {
+            override fun onViewLeftClick(view: View?) {
                 finish()
             }
         })

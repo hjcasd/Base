@@ -1,6 +1,5 @@
 package com.hjc.library_net.converter
 
-import com.blankj.utilcode.util.LogUtils
 import com.google.gson.Gson
 import com.google.gson.JsonParser
 import com.hjc.library_net.bean.BaseResponse
@@ -24,8 +23,6 @@ class JsonResponseBodyConverter<T> constructor(
     @Throws(IOException::class)
     override fun convert(value: ResponseBody): T? {
         val json = value.string()
-        LogUtils.e("response json: $json")
-
         val jsonObject = JsonParser.parseString(json).asJsonObject
         val jsonPrimitive = jsonObject.getAsJsonPrimitive("code")
         if (jsonPrimitive != null) {

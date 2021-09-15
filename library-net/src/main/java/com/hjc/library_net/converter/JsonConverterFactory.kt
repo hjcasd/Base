@@ -13,9 +13,7 @@ import java.lang.reflect.Type
  * @Date: 2019/1/7 11:43
  * @Description: Gson数据转换
  */
-class JsonConverterFactory private constructor(gson: Gson) : Converter.Factory() {
-
-    private val mGson: Gson = gson
+class JsonConverterFactory private constructor(private val mGson: Gson) : Converter.Factory() {
 
     companion object {
         fun create(): JsonConverterFactory {

@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.blankj.utilcode.util.ConvertUtils
 import com.hjc.library_widget.R
 
 /**
@@ -47,14 +48,14 @@ class TitleBar constructor(
     }
 
     private fun initTypeArray(attrs: AttributeSet?) {
-        val ta = mContext.obtainStyledAttributes(attrs, R.styleable.TitleBar)
-        mLeftImage = ta.getResourceId(R.styleable.TitleBar_leftImage, 0)
-        mTitleText = ta.getString(R.styleable.TitleBar_titleText)
-        mTitleSize = ta.getDimensionPixelSize(R.styleable.TitleBar_titleSize, sp2px(18f)).toFloat()
-        mTitleColor = ta.getColor(R.styleable.TitleBar_titleColor, Color.BLACK)
-        mRightImage = ta.getResourceId(R.styleable.TitleBar_rightImage, 0)
-        isShowLine = ta.getBoolean(R.styleable.TitleBar_isShowLine, false)
-        ta.recycle()
+        val typeArray = mContext.obtainStyledAttributes(attrs, R.styleable.TitleBar)
+        mLeftImage = typeArray.getResourceId(R.styleable.TitleBar_leftImage, 0)
+        mTitleText = typeArray.getString(R.styleable.TitleBar_titleText)
+        mTitleSize = typeArray.getDimensionPixelSize(R.styleable.TitleBar_titleSize, ConvertUtils.sp2px(18f)).toFloat()
+        mTitleColor = typeArray.getColor(R.styleable.TitleBar_titleColor, Color.BLACK)
+        mRightImage = typeArray.getResourceId(R.styleable.TitleBar_rightImage, 0)
+        isShowLine = typeArray.getBoolean(R.styleable.TitleBar_isShowLine, false)
+        typeArray.recycle()
     }
 
     private fun initView() {
@@ -78,7 +79,7 @@ class TitleBar constructor(
         if (!TextUtils.isEmpty(mTitleText)) {
             tvTitle.visibility = VISIBLE
             tvTitle.text = mTitleText
-            tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, px2sp(mTitleSize).toFloat())
+            tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, ConvertUtils.px2sp(mTitleSize).toFloat())
             tvTitle.setTextColor(mTitleColor)
         } else {
             tvTitle.visibility = GONE
@@ -97,45 +98,39 @@ class TitleBar constructor(
     private fun addListener() {
         ivLeftImg.setOnClickListener { v ->
             if (ivRightImg.visibility == VISIBLE) {
-                mClickListener?.leftClick(v)
+                mClickListener?.onViewLeftClick(v)
             } else {
-                mLeftClickListener?.leftClick(v)
+                mLeftClickListener?.onViewLeftClick(v)
             }
         }
         ivRightImg.setOnClickListener { v ->
             if (ivLeftImg.visibility == VISIBLE) {
-                mClickListener?.rightClick(v)
+                mClickListener?.OnViewRightClick(v)
             } else {
-                mRightClickListener?.rightClick(v)
+                mRightClickListener?.OnViewRightClick(v)
             }
         }
     }
 
-    fun setTitle(title: String?) {
-        if (!TextUtils.isEmpty(title)) {
-            tvTitle.visibility = VISIBLE
-            tvTitle.text = title
-        } else {
-            tvTitle.visibility = GONE
-        }
+    /**
+     * 设置标题文本
+     */
+    fun setTitle(title: String) {
+        tvTitle.text = title
     }
 
+    /**
+     * 设置标题大小
+     */
     fun setTitleSize(size: Int) {
         tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, size.toFloat())
     }
 
+    /**
+     * 设置标题颜色
+     */
     fun setTitleTextColor(color: Int) {
         tvTitle.setTextColor(color)
-    }
-
-    private fun sp2px(spValue: Float): Int {
-        val fontScale = mContext.resources.displayMetrics.scaledDensity
-        return (spValue * fontScale + 0.5f).toInt()
-    }
-
-    private fun px2sp(pxValue: Float): Int {
-        val fontScale = mContext.resources.displayMetrics.scaledDensity
-        return (pxValue / fontScale + 0.5f).toInt()
     }
 
     fun setOnViewClickListener(listener: OnViewClickListener?) {

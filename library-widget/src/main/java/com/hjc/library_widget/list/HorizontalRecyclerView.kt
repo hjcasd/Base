@@ -14,6 +14,7 @@ import kotlin.math.abs
 class HorizontalRecyclerView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : RecyclerView(context, attrs, defStyleAttr) {
+
     private var lastX = 0
     private var lastY = 0
 
