@@ -7,7 +7,9 @@ import android.view.MotionEvent
 import android.widget.FrameLayout
 import com.blankj.utilcode.util.LogUtils
 
-class MyViewGroup2 constructor(context: Context, attrs: AttributeSet?)  : FrameLayout(context, attrs) {
+class MyViewGroup2 @JvmOverloads constructor(
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : FrameLayout(context, attrs, defStyleAttr) {
 
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
         LogUtils.e("MyViewGroup2: dispatchTouchEvent")

@@ -15,7 +15,9 @@ import com.hjc.module_senior.R
  * @Date: 2019/10/31 11:48
  * @Description: 画布操作
  */
-class MyCustom2View constructor(context: Context, attrs: AttributeSet?) : View(context, attrs) {
+class MyCustom2View @JvmOverloads constructor(
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : View(context, attrs, defStyleAttr) {
 
     private val mPaint: Paint = Paint()
 
@@ -38,8 +40,8 @@ class MyCustom2View constructor(context: Context, attrs: AttributeSet?) : View(c
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-        val width = MeasureSpec.getSize(widthMeasureSpec)
-        val height = MeasureSpec.getSize(heightMeasureSpec)
+        val width = View.MeasureSpec.getSize(widthMeasureSpec)
+        val height = View.MeasureSpec.getSize(heightMeasureSpec)
         mWidth = width
         mHeight = height
     }

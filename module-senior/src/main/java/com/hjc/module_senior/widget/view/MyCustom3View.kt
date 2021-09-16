@@ -13,7 +13,9 @@ import java.io.IOException
  * @Date: 2019/10/31 11:47
  * @Description: 图片文字
  */
-class MyCustom3View constructor(private val mContext: Context, attrs: AttributeSet?) : View(mContext, attrs) {
+class MyCustom3View @JvmOverloads constructor(
+    private val mContext: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : View(mContext, attrs, defStyleAttr) {
 
     private val mPicture = Picture()
     private var mWidth = 0
@@ -99,7 +101,7 @@ class MyCustom3View constructor(private val mContext: Context, attrs: AttributeS
         canvas.drawBitmap(bitmap, src, dst, Paint())
     }
 
-    private fun getBitmap(): Bitmap?{
+    private fun getBitmap(): Bitmap? {
         var bitmap: Bitmap? = null
         try {
             val inputStream = mContext.assets.open("senior_bitmap.png")

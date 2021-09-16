@@ -15,13 +15,9 @@ import java.io.File
  * @Date: 2019/11/6 14:14
  * @Description: 文件阅读器
  */
-class FileReaderView constructor(
-    private val mContext: Context,
-    attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
-) : FrameLayout(
-    mContext, attrs, defStyleAttr
-), TbsReaderView.ReaderCallback {
+class FileReaderView @JvmOverloads constructor(
+    private val mContext: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : FrameLayout(mContext, attrs, defStyleAttr), TbsReaderView.ReaderCallback {
 
     private var mTbsReaderView: TbsReaderView?
 

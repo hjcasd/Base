@@ -15,7 +15,9 @@ import com.hjc.module_senior.R
  * @Date: 2019/10/31 11:48
  * @Description: 基本图形
  */
-class MyCustom1View constructor(context: Context, attrs: AttributeSet?) : View(context, attrs) {
+class MyCustom1View @JvmOverloads constructor(
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : View(context, attrs, defStyleAttr) {
 
     private val mPaint: Paint = Paint()
     private val mAlisPaint: Paint = Paint()

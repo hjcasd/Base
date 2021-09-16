@@ -12,7 +12,9 @@ import com.hjc.module_senior.R
  * @Date: 2019/10/31 11:47
  * @Description: Path操作
  */
-class MyCustom4View constructor(context: Context, attrs: AttributeSet?) : View(context, attrs) {
+class MyCustom4View @JvmOverloads constructor(
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : View(context, attrs, defStyleAttr) {
 
     private val mPaint: Paint = Paint()
     private val mAlisPaint: Paint = Paint()

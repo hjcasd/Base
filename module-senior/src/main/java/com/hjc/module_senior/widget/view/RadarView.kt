@@ -15,7 +15,9 @@ import kotlin.math.sin
  * @Date: 2019/11/1 14:42
  * @Description: 自定义雷达图
  */
-class RadarView constructor(context: Context, attrs: AttributeSet?) : View(context, attrs) {
+class RadarView @JvmOverloads constructor(
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : View(context, attrs, defStyleAttr) {
 
     // 数据个数
     private val count = 6

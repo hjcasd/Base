@@ -7,7 +7,9 @@ import android.view.MotionEvent
 import android.view.View
 import com.blankj.utilcode.util.LogUtils
 
-class MyView2 constructor(context: Context, attrs: AttributeSet?)  : View(context, attrs) {
+class MyView2 @JvmOverloads constructor(
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : View(context, attrs, defStyleAttr) {
 
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
         LogUtils.e("MyView2: dispatchTouchEvent")

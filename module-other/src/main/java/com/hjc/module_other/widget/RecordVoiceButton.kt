@@ -10,16 +10,17 @@ import android.view.View
 import android.view.View.OnLongClickListener
 import androidx.appcompat.widget.AppCompatImageButton
 import com.hjc.module_other.R
-import com.hjc.module_other.utils.audio.MediaRecorderManager
 import com.hjc.module_other.dialog.RecordDialog
+import com.hjc.module_other.utils.audio.MediaRecorderManager
 
 /**
  * @Author: HJC
  * @Date: 2021/5/28 14:50
  * @Description: 自定义录音按钮类(MediaRecorder)
  */
-class RecordVoiceButton @JvmOverloads constructor(mContext: Context, attrs: AttributeSet? = null) :
-    AppCompatImageButton(mContext, attrs), MediaRecorderManager.AudioStateListener, OnLongClickListener {
+class RecordVoiceButton @JvmOverloads constructor(
+    mContext: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : AppCompatImageButton(mContext, attrs, defStyleAttr), MediaRecorderManager.AudioStateListener, OnLongClickListener {
 
     private var mDialogManager: RecordDialog? = null
     private var mRecorderManager: MediaRecorderManager? = null

@@ -14,7 +14,9 @@ import com.tencent.smtt.sdk.WebView
  * @Date: 2019/7/18 10:42
  * @Description: 自定义X5WebView
  */
-class X5WebView(context: Context, attrs: AttributeSet?) : WebView(context, attrs) {
+class X5WebView @JvmOverloads constructor(
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : WebView(context, attrs, defStyleAttr) {
 
     private lateinit var mProgressBar: ProgressBar
 

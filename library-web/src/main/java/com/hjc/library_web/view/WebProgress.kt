@@ -14,10 +14,9 @@ import android.widget.FrameLayout
  * @Date: 2021/1/14 14:35
  * @Description: WebView平滑进度条
  */
-class WebProgress constructor(
-    context: Context,
-    attrs: AttributeSet,
-) : FrameLayout(context, attrs) {
+class WebProgress @JvmOverloads constructor(
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : FrameLayout(context, attrs, defStyleAttr) {
     /**
      * 进度条颜色
      */

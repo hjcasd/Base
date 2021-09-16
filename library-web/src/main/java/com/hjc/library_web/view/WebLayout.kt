@@ -20,12 +20,9 @@ import com.tencent.smtt.sdk.WebView
  * @Description: 自定义X5WebView
  */
 class WebLayout @JvmOverloads constructor(
-    private val mContext: Context,
-    attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
-) : LinearLayout(
-    mContext, attrs, defStyleAttr
-) {
+    private val mContext: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : LinearLayout(mContext, attrs, defStyleAttr) {
+
     private lateinit var mWebProgress: WebProgress
     private lateinit var mWebView: WebView
     private lateinit var mLoadingView: SpinKitView
@@ -100,14 +97,14 @@ class WebLayout @JvmOverloads constructor(
     /**
      * 设置进度条显示进度
      */
-    fun setProgress(newProgress: Int){
+    fun setProgress(newProgress: Int) {
         mWebProgress.setWebProgress(newProgress)
     }
 
     /**
      * 显示进度条
      */
-    fun show(){
+    fun show() {
         mWebProgress.show()
         mLoadingView.visibility = View.VISIBLE
     }
@@ -115,7 +112,7 @@ class WebLayout @JvmOverloads constructor(
     /**
      * 隐藏进度条
      */
-    fun hide(){
+    fun hide() {
         mWebProgress.hide()
         mLoadingView.visibility = View.GONE
     }

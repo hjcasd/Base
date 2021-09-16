@@ -7,8 +7,9 @@ import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatButton
 import com.blankj.utilcode.util.LogUtils
 
-class MyButton constructor(context: Context, attrs: AttributeSet?) :
-    AppCompatButton(context, attrs) {
+class MyButton @JvmOverloads constructor(
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : AppCompatButton(context, attrs, defStyleAttr) {
 
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
         LogUtils.e("MyButton: dispatchTouchEvent: " + event.action)

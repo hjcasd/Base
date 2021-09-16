@@ -24,12 +24,8 @@ import com.scwang.smart.refresh.layout.constant.SpinnerStyle
  * @Description: 自定义HeaderView
  */
 class SmartCustomHeader @JvmOverloads constructor(
-    mContext: Context,
-    attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
-) : LinearLayout(
-    mContext, attrs, defStyleAttr
-), RefreshHeader {
+    mContext: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : LinearLayout(mContext, attrs, defStyleAttr), RefreshHeader {
 
     private var tvTitle: TextView
 

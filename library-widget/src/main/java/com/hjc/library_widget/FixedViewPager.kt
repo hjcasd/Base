@@ -10,10 +10,9 @@ import androidx.viewpager.widget.ViewPager
  * @Date: 2019/7/18 10:43
  * @Description: 解决ViewPager bug
  */
-class FixedViewPager(
-    context: Context,
-    attributeSet: AttributeSet?
-) : ViewPager(context, attributeSet) {
+class FixedViewPager @JvmOverloads constructor(
+    context: Context, attrs: AttributeSet? = null
+) : ViewPager(context, attrs) {
 
     override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
         return try {

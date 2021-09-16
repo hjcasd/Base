@@ -18,12 +18,9 @@ import com.hjc.library_widget.R
  * @Date: 2019/1/7 11:32
  * @Description: 自定义标题栏(代替Toolbar使用)
  */
-class TitleBar constructor(
-    private val mContext: Context,
-    attrs: AttributeSet,
-) : LinearLayout(
-    mContext, attrs
-) {
+class TitleBar @JvmOverloads constructor(
+    private val mContext: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : LinearLayout(mContext, attrs, defStyleAttr) {
     private lateinit var tvTitle: TextView
     private lateinit var ivLeftImg: ImageView
     private lateinit var ivRightImg: ImageView
