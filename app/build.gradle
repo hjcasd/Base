@@ -34,12 +34,6 @@ android {
             abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
         }
 
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName()]
-            }
-        }
-
         kapt {
             arguments {
                 arg("AROUTER_MODULE_NAME", project.getName())
@@ -47,7 +41,6 @@ android {
         }
     }
 
-    //签名信息
     //签名信息
     signingConfigs {
         release {
@@ -69,7 +62,7 @@ android {
         debug {
             minifyEnabled false
             zipAlignEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
             if (keystoreFile.exists()){
                 signingConfig signingConfigs.debug
@@ -82,7 +75,7 @@ android {
             //是否移除无用资源
             zipAlignEnabled false
             //前一部分代表系统默认的android程序的混淆文件，该文件已经包含了基本的混淆声明,后者为自定义混淆文件
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
             if (keystoreFile.exists()){
                 signingConfig signingConfigs.release
