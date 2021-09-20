@@ -9,7 +9,8 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <!--存储-->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <!--位置-->
@@ -34,7 +35,7 @@
 
 
     <application
-        android:name=".application.App"
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -76,117 +77,6 @@
         <activity
             android:name=".ui.MainActivity"
             android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.web.WebActivity"
-            android:screenOrientation="portrait" />
-
-
-        <!--=====================================================首页===========================================-->
-        <activity
-            android:name=".ui.home.activity.AdapterActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.home.activity.DataActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.home.activity.LiveActivity"
-            android:screenOrientation="portrait" />
-
-
-        <!--=====================================================框架===========================================-->
-        <activity
-            android:name=".ui.home.activity.RoomActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.home.activity.PageActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.frame.activity.LoadSirActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.frame.eventbus.EventPostActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.frame.eventbus.EventReceiveActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.frame.zxing.QRCodeActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.frame.zxing.ScanCodeActivity"
-            android:screenOrientation="portrait" />
-
-
-        <!--=====================================================高级===========================================-->
-        <activity
-            android:name=".ui.senior.touch.TouchActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.senior.touch.TouchDefaultActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.senior.touch.TouchCancelActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.senior.touch.TouchInterceptActivity"
-            android:screenOrientation="portrait" />
-
-
-        <activity
-            android:name=".ui.senior.view.ViewActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.senior.view.ViewBaseActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.senior.view.ViewCanvasActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.senior.view.ViewPictureActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.senior.view.ViewPathActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.senior.view.ViewRadarActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.senior.activity.ThemeActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.senior.activity.MotionActivity"
-            android:screenOrientation="portrait" />
-
-
-        <!--=====================================================其他===========================================-->
-        <activity
-            android:name=".ui.other.LoginActivity"
-            android:screenOrientation="portrait" />
-
-
-        <!--============================================服务=========================================-->
-        <service android:name=".service.MyService"/>
-
-        <service android:name=".service.DownloadService" />
 
 
         <!--============================================文件访问权限=========================================-->

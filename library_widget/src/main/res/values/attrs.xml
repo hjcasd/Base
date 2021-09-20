@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--标题栏-->
+    <declare-styleable name="TitleBar">
+        <attr name="leftImage" format="integer" />
+        <attr name="titleText" format="string" />
+        <attr name="titleSize" format="dimension" />
+        <attr name="titleColor" format="color" />
+        <attr name="rightImage" format="integer" />
+        <attr name="isShowLine" format="boolean" />
+    </declare-styleable>
+
+    <!--带图片的TextView-->
+    <declare-styleable name="IconTextView">
+        <attr name="leftDrawableWidth" format="dimension" />
+        <attr name="leftDrawableHeight" format="dimension" />
+        <attr name="rightDrawableWidth" format="dimension" />
+        <attr name="rightDrawableHeight" format="dimension" />
+        <attr name="topDrawableWidth" format="dimension" />
+        <attr name="topDrawableHeight" format="dimension" />
+        <attr name="bottomDrawableWidth" format="dimension" />
+        <attr name="bottomDrawableHeight" format="dimension" />
+    </declare-styleable>
+
+    <!--闪烁效果View-->
+    <declare-styleable name="ShimmerLayout">
+        <attr name="shimmer_color" format="color|reference"/>
+        <attr name="shimmer_animation_duration" format="integer|reference"/>
+        <attr name="shimmer_auto_start" format="boolean|reference"/>
+        <attr name="shimmer_angle" format="integer|reference"/>
+        <attr name="shimmer_mask_width" format="float|reference"/>
+        <attr name="shimmer_gradient_center_color_width" format="float|reference"/>
+        <attr name="shimmer_reverse_animation" format="boolean|reference"/>
+    </declare-styleable>
+
+</resources>

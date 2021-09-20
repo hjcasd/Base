@@ -1,18 +1,14 @@
 package com.hjc.base.ui.fragment;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.annotation.Nullable;
 
 import com.hjc.base.R;
-import com.hjc.base.constant.RoutePath;
 import com.hjc.base.databinding.FragmentTab4Binding;
-import com.hjc.base.widget.dialog.UpdateDialog;
-import com.hjc.base.utils.helper.RouteManager;
-import com.hjc.baselib.fragment.BaseFragment;
-import com.hjc.baselib.viewmodel.CommonViewModel;
+import com.hjc.base.viewmodel.CommonViewModel;
+import com.hjc.library_base.fragment.BaseFragment;
 
 /**
  * @Author: HJC
@@ -31,7 +27,7 @@ public class Tab4Fragment extends BaseFragment<FragmentTab4Binding, CommonViewMo
     }
 
     @Override
-    protected CommonViewModel getViewModel() {
+    public CommonViewModel createViewModel() {
         return null;
     }
 
@@ -45,21 +41,9 @@ public class Tab4Fragment extends BaseFragment<FragmentTab4Binding, CommonViewMo
         mBindingView.setOnClickListener(this);
     }
 
-    @SuppressLint("NonConstantResourceId")
     @Override
     public void onSingleClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn1:
-                UpdateDialog.newInstance().showDialog(getChildFragmentManager());
-                break;
 
-            case R.id.btn2:
-                RouteManager.jumpWithTransition(mContext, RoutePath.URL_LOGIN, R.anim.slide_enter, R.anim.slide_exit);
-                break;
-
-            default:
-                break;
-        }
     }
 
 }

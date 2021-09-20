@@ -6,5 +6,12 @@
     <string name="app_tab3">高级</string>
     <string name="app_tab4">其他</string>
 
+    <string name="app_web_back">返回</string>
+    <string name="app_menu_web1">关闭</string>
+    <string name="app_menu_web2">刷新</string>
+    <string name="app_menu_web3">分享</string>
+    <string name="app_menu_web4">复制链接</string>
+    <string name="app_menu_web5">浏览器打开</string>
+
     <string name="app_splash_text">倒计时3S</string>
 </resources>

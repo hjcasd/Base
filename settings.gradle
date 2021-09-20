@@ -1,2 +1,5 @@
-include ':BaseLib'
-include ':app', ':WebViewLib'
+include ':app'
+include ':library_base'
+include ':library_web'
+include ':library_net'
+include ':library_widget'

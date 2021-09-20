@@ -6,12 +6,14 @@ import android.view.View;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.gyf.immersionbar.ImmersionBar;
 import com.hjc.base.R;
-import com.hjc.base.constant.RoutePath;
 import com.hjc.base.databinding.ActivitySplashBinding;
-import com.hjc.base.http.RxSchedulers;
-import com.hjc.base.utils.helper.RouteManager;
-import com.hjc.baselib.activity.BaseActivity;
-import com.hjc.baselib.viewmodel.CommonViewModel;
+import com.hjc.base.router.RouteManager;
+import com.hjc.base.router.RoutePath;
+import com.hjc.base.utils.RxSchedulers;
+import com.hjc.base.viewmodel.CommonViewModel;
+import com.hjc.library_base.activity.BaseActivity;
+
+import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.TimeUnit;
 
@@ -34,13 +36,14 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding, CommonVi
         return R.layout.activity_splash;
     }
 
+    @Nullable
     @Override
-    protected CommonViewModel getViewModel() {
+    public CommonViewModel createViewModel() {
         return null;
     }
 
     @Override
-    protected ImmersionBar getImmersionBar() {
+    public ImmersionBar getImmersionBar() {
         return ImmersionBar.with(this);
     }
 
@@ -73,7 +76,7 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding, CommonVi
     }
 
     private void toMain() {
-        RouteManager.jump(RoutePath.URL_MAIN);
+        RouteManager.INSTANCE.jump(RoutePath.URL_MAIN);
         finish();
     }
 
@@ -89,4 +92,5 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding, CommonVi
             disposable2.dispose();
         }
     }
+
 }

@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 def config = rootProject.ext.android
 def app = rootProject.ext.app
@@ -64,6 +65,7 @@ android {
             zipAlignEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
+            buildConfigField ('boolean', 'IS_DEBUG', "true")
             buildConfigField ('String', 'BASE_URL', app.DEV_BASE_URL)
 
             if (keystoreFile.exists()){
@@ -79,6 +81,7 @@ android {
             //前一部分代表系统默认的android程序的混淆文件，该文件已经包含了基本的混淆声明,后者为自定义混淆文件
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
+            buildConfigField ('boolean', 'IS_DEBUG', "false")
             buildConfigField ('String', 'BASE_URL', app.PROD_BASE_URL)
 
             if (keystoreFile.exists()){
@@ -127,45 +130,21 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    testImplementation lib["junit"]
-    androidTestImplementation lib["testJunit"]
-    androidTestImplementation lib["espresso-core"]
+    testImplementation "junit:junit:4.13.2"
+    androidTestImplementation "androidx.test.ext:junit:1.1.2"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.3.0"
 
-    implementation lib["constraintlayout"]
-    implementation lib["appcompat"]
-    implementation lib["recyclerview"]
-    implementation lib["material"]
-
-    implementation lib["room-runtime"]
-    annotationProcessor lib["room-compiler"]
-    implementation lib["paging-runtime"]
-
-    implementation lib["retrofit"]
-    implementation lib["converter-gson"]
-    implementation lib["adapter-rxjava2"]
-
-    implementation lib["multidex"]
-
-    implementation lib["glide"]
-    annotationProcessor lib["glide-compiler"]
-    implementation lib["glide-transformations"]
-
-    annotationProcessor lib["arouter-compiler"]
-
-    implementation lib["crashreport"]
-    implementation lib["nativecrashreport"]
-
-    implementation lib["BaseRecyclerViewAdapterHelper"]
-
-    implementation lib["SmartRefreshLayout"]
-    implementation lib["SmartRefreshHeader"]
-
-    implementation lib["zxing"]
+    // 路由
+    annotationProcessor 'com.alibaba:arouter-compiler:1.5.1'
 
     // 内存泄漏检测
     debugImplementation lib.leakcanary_android
 
-    implementation project(path: ':BaseLib')
-    implementation project(path: ':WebViewLib')
+//    implementation project(path: ':BaseLib')
+//    implementation project(path: ':WebViewLib')
 
+    api project(path: ':library_base')
+    api project(path: ':library_net')
+    api project(path: ':library_web')
+    api project(path: ':library_widget')
 }

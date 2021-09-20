@@ -1,17 +1,14 @@
 package com.hjc.base.ui.fragment;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.annotation.Nullable;
 
 import com.hjc.base.R;
-import com.hjc.base.constant.RoutePath;
 import com.hjc.base.databinding.FragmentTab3Binding;
-import com.hjc.base.utils.helper.RouteManager;
-import com.hjc.baselib.fragment.BaseFragment;
-import com.hjc.baselib.viewmodel.CommonViewModel;
+import com.hjc.base.viewmodel.CommonViewModel;
+import com.hjc.library_base.fragment.BaseFragment;
 
 /**
  * @Author: HJC
@@ -30,7 +27,7 @@ public class Tab3Fragment extends BaseFragment<FragmentTab3Binding, CommonViewMo
     }
 
     @Override
-    protected CommonViewModel getViewModel() {
+    public CommonViewModel createViewModel() {
         return null;
     }
 
@@ -44,29 +41,9 @@ public class Tab3Fragment extends BaseFragment<FragmentTab3Binding, CommonViewMo
         mBindingView.setOnClickListener(this);
     }
 
-    @SuppressLint("NonConstantResourceId")
     @Override
     public void onSingleClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn1:
-                RouteManager.jump(RoutePath.URL_TOUCH);
-                break;
 
-            case R.id.btn2:
-                RouteManager.jump(RoutePath.URL_VIEW);
-                break;
-
-            case R.id.btn3:
-               RouteManager.jump(RoutePath.URL_THEME);
-                break;
-
-            case R.id.btn4:
-                RouteManager.jump(RoutePath.URL_MOTION);
-                break;
-
-            default:
-                break;
-        }
     }
 
 }

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="web_green">#8000ff00</color>
-    <color name="web_yellow">#80ffd300</color>
-    <color name="web_yellow_dark">#a0ffcb00</color>
-    <color name="web_white">#00ffffff</color>
-
-</resources>
