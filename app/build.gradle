@@ -1,9 +1,7 @@
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
 
 def config = rootProject.ext.android
 def app = rootProject.ext.app
-def lib = rootProject.ext.dependencies
 
 //获取当前日期
 def static releaseTime() {
@@ -138,10 +136,7 @@ dependencies {
     annotationProcessor 'com.alibaba:arouter-compiler:1.5.1'
 
     // 内存泄漏检测
-    debugImplementation lib.leakcanary_android
-
-//    implementation project(path: ':BaseLib')
-//    implementation project(path: ':WebViewLib')
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:2.7"
 
     api project(path: ':library_base')
     api project(path: ':library_net')

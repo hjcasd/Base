@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+<layer-list xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@color/base_white" />
+
+
+    <item android:bottom="120dp">
+        <bitmap
+            android:scaleType="fitXY"
+            android:src="@mipmap/img_splash"
+            android:tileMode="disabled" />
+    </item>
 
     <item
-        android:drawable="@color/app_white"/>
-
-    <item >
+        android:height="120dp"
+        android:gravity="bottom"
+        tools:targetApi="m"
+        tools:ignore="UnusedAttribute">
         <bitmap
-            android:gravity="bottom"
-            android:src="@mipmap/icon_splash_logo"/>
+            android:scaleType="fitXY"
+            android:src="@mipmap/icon_splash_logo" />
     </item>
 
 </layer-list>

@@ -20,6 +20,11 @@ import com.hjc.base.viewmodel.CommonViewModel;
 import com.hjc.library_base.activity.BaseFragmentActivity;
 import com.permissionx.guolindev.PermissionX;
 
+/**
+ * @Author: HJC
+ * @Date: 2021/9/22 20:41
+ * @Description: 主界面
+ */
 @Route(path = RoutePath.URL_MAIN)
 public class MainActivity extends BaseFragmentActivity<ActivityMainBinding, CommonViewModel> {
 

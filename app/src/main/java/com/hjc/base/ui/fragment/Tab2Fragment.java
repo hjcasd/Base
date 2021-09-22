@@ -14,7 +14,7 @@ import com.hjc.library_base.fragment.BaseFragment;
 /**
  * @Author: HJC
  * @Date: 2019/7/26 10:42
- * @Description: Room
+ * @Description: Tab2
  */
 public class Tab2Fragment extends BaseFragment<FragmentTab2Binding, CommonViewModel> {
 

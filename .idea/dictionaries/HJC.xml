@@ -4,10 +4,13 @@
       <w>bffq</w>
       <w>eventbus</w>
       <w>gson</w>
+      <w>oldh</w>
+      <w>oldw</w>
       <w>proc</w>
       <w>quickadapter</w>
       <w>stateview</w>
       <w>viewmodel</w>
+      <w>webview</w>
       <w>zxing</w>
     </words>
   </dictionary>

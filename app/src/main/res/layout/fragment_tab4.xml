@@ -18,7 +18,7 @@
         <com.hjc.library_widget.bar.TitleBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            android:background="@color/app_color"
             app:titleColor="@color/app_white"
             app:titleText="@string/app_tab4" />
 

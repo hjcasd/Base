@@ -1,0 +1,14 @@
+<resources>
+
+    <style name="AppTheme" parent="BaseAppTheme">
+
+    </style>
+
+    <style name="SplashTheme" parent="BaseAppTheme">
+        <item name="android:windowBackground">@drawable/shape_bg_splash</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <!--不让windowBackground延申到navigation bar区域-->
+<!--        <item name="android:windowDrawsSystemBarBackgrounds">false</item>-->
+    </style>
+
+</resources>

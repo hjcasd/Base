@@ -13,7 +13,7 @@ import com.hjc.library_base.fragment.BaseFragment;
 /**
  * @Author: HJC
  * @Date: 2019/7/26 10:42
- * @Description: Tab1
+ * @Description: Tab3
  */
 public class Tab3Fragment extends BaseFragment<FragmentTab3Binding, CommonViewModel> {
 

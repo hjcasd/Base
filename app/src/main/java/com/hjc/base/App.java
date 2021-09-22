@@ -5,7 +5,6 @@ import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.Utils;
 import com.hjc.library_base.BaseApplication;
 
-
 /**
  * @Author: HJC
  * @Date: 2019/1/4 14:46

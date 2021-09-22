@@ -8,4 +8,5 @@ import androidx.core.content.FileProvider;
  * @Description: FileProvider
  */
 public class MyFileProvider extends FileProvider {
+
 }

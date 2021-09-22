@@ -101,7 +101,6 @@ public class CommonBindingAdapters {
         }
     }
 
-
     @BindingAdapter(value = {"imageBlurUrl", "placeholder", "radius", "sampling"}, requireAll = false)
     public static void loadBlurImage(ImageView imageView, String url, Drawable drawable, int radius, int sampling) {
         RequestOptions requestOptions = new RequestOptions()
