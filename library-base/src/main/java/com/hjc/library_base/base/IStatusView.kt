@@ -10,6 +10,9 @@ import com.kingja.loadsir.callback.Callback
  */
 interface IStatusView {
 
+    /**
+     * 设置LoadSir
+     */
     fun setLoadSir(view: View?, listener: Callback.OnReloadListener?)
 
     /**
@@ -36,4 +39,5 @@ interface IStatusView {
      * 网络超时
      */
     fun showTimeout()
+
 }

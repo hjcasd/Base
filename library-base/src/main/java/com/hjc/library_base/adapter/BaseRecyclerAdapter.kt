@@ -2,6 +2,7 @@ package com.hjc.library_base.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
@@ -27,6 +28,10 @@ abstract class BaseRecyclerAdapter : RecyclerView.Adapter<BaseRecyclerAdapter.My
 
     }
 
+    /**
+     * 获取布局ID
+     */
+    @LayoutRes
     abstract fun getLayoutId(): Int
 
     class MyViewHolder(mBinding: ViewDataBinding) : RecyclerView.ViewHolder(

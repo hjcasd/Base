@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.*
+import androidx.annotation.LayoutRes
 import androidx.annotation.StyleRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -21,16 +22,31 @@ import com.hjc.library_base.viewmodel.BaseViewModel
 abstract class BaseFragmentDialog<VDB : ViewDataBinding, VM : BaseViewModel> : DialogFragment(),
     View.OnClickListener {
 
-    // ViewDataBinding
-    protected lateinit var mBindingView: VDB
-
-    // ViewModel
-    protected var mViewModel: VM? = null
-
+    /**
+     * 上下文
+     */
     protected lateinit var mContext: Context
 
-    private var mGravity = Gravity.CENTER //位置
-    private var mAnimStyle = 0 //进入退出动画
+    /**
+     * ViewDataBinding
+     */
+    protected lateinit var mBindingView: VDB
+
+    /**
+     * ViewModel
+     */
+    protected var mViewModel: VM? = null
+
+    /**
+     * dialog的位置
+     */
+    private var mGravity = Gravity.CENTER
+
+    /**
+     * dialog进入退出的动画
+     */
+    private var mAnimStyle = 0
+
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -45,6 +61,7 @@ abstract class BaseFragmentDialog<VDB : ViewDataBinding, VM : BaseViewModel> : D
     /**
      * 获取Dialog的Theme
      */
+    @StyleRes
     abstract fun getStyleRes(): Int
 
     override fun onCreateView(
@@ -60,41 +77,8 @@ abstract class BaseFragmentDialog<VDB : ViewDataBinding, VM : BaseViewModel> : D
     /**
      * 获取布局的ID
      */
+    @LayoutRes
     abstract fun getLayoutId(): Int
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        initViewModel()
-        initView()
-        initData(savedInstanceState)
-        addListeners()
-    }
-
-    private fun initViewModel() {
-        if (mViewModel == null) {
-            mViewModel = createViewModel()
-        }
-    }
-
-    /**
-     * 获取viewModel
-     */
-    abstract fun createViewModel(): VM?
-
-    /**
-     * 初始化View
-     */
-    open fun initView() {}
-
-    /**
-     * 初始化数据
-     */
-    abstract fun initData(savedInstanceState: Bundle?)
-
-    /**
-     * 设置监听器
-     */
-    protected abstract fun addListeners()
 
     override fun onStart() {
         super.onStart()
@@ -114,6 +98,57 @@ abstract class BaseFragmentDialog<VDB : ViewDataBinding, VM : BaseViewModel> : D
                 window.attributes = params
             }
         }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initViewModel()
+        initView()
+        initData(savedInstanceState)
+        addListeners()
+    }
+
+    /**
+     * 初始化ViewModel
+     */
+    private fun initViewModel() {
+        if (mViewModel == null) {
+            mViewModel = createViewModel()
+        }
+    }
+
+    /**
+     * 创建ViewModel
+     */
+    abstract fun createViewModel(): VM?
+
+    /**
+     * 初始化View
+     */
+    open fun initView() {}
+
+    /**
+     * 初始化数据
+     */
+    abstract fun initData(savedInstanceState: Bundle?)
+
+    /**
+     * 设置监听器
+     */
+    abstract fun addListeners()
+
+    /**
+     * 设置点击事件
+     */
+    abstract fun onSingleClick(v: View?)
+
+    override fun onClick(v: View) {
+        //避免快速点击
+        if (isFastClick()) {
+            ToastUtils.showShort("点的太快了,歇会呗!")
+            return
+        }
+        onSingleClick(v)
     }
 
     /**
@@ -155,17 +190,4 @@ abstract class BaseFragmentDialog<VDB : ViewDataBinding, VM : BaseViewModel> : D
         show(fm, "DialogFragment")
     }
 
-    /**
-     * 设置点击事件
-     */
-    abstract fun onSingleClick(v: View?)
-
-    override fun onClick(v: View) {
-        //避免快速点击
-        if (isFastClick()) {
-            ToastUtils.showShort("点的太快了,歇会呗!")
-            return
-        }
-        onSingleClick(v)
-    }
 }

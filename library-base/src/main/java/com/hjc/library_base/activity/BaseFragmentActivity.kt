@@ -2,6 +2,7 @@ package com.hjc.library_base.activity
 
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -19,13 +20,21 @@ import com.hjc.library_base.viewmodel.BaseViewModel
  */
 abstract class BaseFragmentActivity<VDB : ViewDataBinding, VM : BaseViewModel> : AppCompatActivity(), View.OnClickListener {
 
-    // ViewDataBinding
+    /**
+     * ViewDataBinding
+     */
     protected lateinit var mBindingView: VDB
 
-    // ViewModel
+    /**
+     * ViewModel
+     */
     protected var mViewModel: VM? = null
 
+    /**
+     * 当前fragment
+     */
     private var mCurrentFragment = Fragment()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,8 +52,12 @@ abstract class BaseFragmentActivity<VDB : ViewDataBinding, VM : BaseViewModel> :
     /**
      * 获取布局的ID
      */
+    @LayoutRes
     abstract fun getLayoutId(): Int
 
+    /**
+     * 初始化ViewModel
+     */
     private fun initViewModel() {
         ARouter.getInstance().inject(this)
         if (mViewModel == null) {
@@ -53,7 +66,7 @@ abstract class BaseFragmentActivity<VDB : ViewDataBinding, VM : BaseViewModel> :
     }
 
     /**
-     * 获取viewModel
+     * 创建ViewModel
      */
     abstract fun createViewModel(): VM?
 
@@ -91,11 +104,6 @@ abstract class BaseFragmentActivity<VDB : ViewDataBinding, VM : BaseViewModel> :
      */
     abstract fun onSingleClick(v: View?)
 
-    /**
-     * 布局中Fragment的容器ID
-     */
-    abstract fun getFragmentContentId(): Int
-
     override fun onClick(v: View) {
         //避免快速点击
         if (ClickUtils.isFastClick()) {
@@ -121,4 +129,10 @@ abstract class BaseFragmentActivity<VDB : ViewDataBinding, VM : BaseViewModel> :
             }
         }
     }
+
+    /**
+     * 获取布局中Fragment容器的ID
+     */
+    abstract fun getFragmentContentId(): Int
+
 }

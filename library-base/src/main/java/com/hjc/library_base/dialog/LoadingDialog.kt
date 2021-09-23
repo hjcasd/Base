@@ -19,10 +19,27 @@ import java.util.concurrent.TimeUnit
 class LoadingDialog(context: Context, themeResId: Int = R.style.Base_Dialog) : Dialog(context, themeResId) {
 
     class Builder(private val mContext: Context) {
+
+        /**
+         * 提示信息
+         */
         private var message: String? = ""
+
+        /**
+         * 是否显示提示信息
+         */
         private var isShowMessage = true
+
+        /**
+         * 否可以按返回键取消
+         */
         private var isCancelable = false
+
+        /**
+         * 是否可以取消
+         */
         private var isCancelOutside = false
+
 
         /**
          * 设置提示信息
@@ -56,6 +73,9 @@ class LoadingDialog(context: Context, themeResId: Int = R.style.Base_Dialog) : D
             return this
         }
 
+        /**
+         * 创建Dialog
+         */
         fun create(): LoadingDialog {
             val view = View.inflate(mContext, R.layout.base_dialog_loading, null)
             val dialog = LoadingDialog(mContext)
@@ -74,6 +94,9 @@ class LoadingDialog(context: Context, themeResId: Int = R.style.Base_Dialog) : D
         }
     }
 
+    /**
+     * 延迟500ms关闭dialog
+     */
     @SuppressLint("CheckResult")
     fun dismissDialog() {
         Observable.timer(500, TimeUnit.MILLISECONDS)

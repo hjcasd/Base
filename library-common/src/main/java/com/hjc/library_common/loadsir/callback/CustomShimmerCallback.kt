@@ -16,7 +16,7 @@ import com.kingja.loadsir.callback.Callback
  */
 class CustomShimmerCallback : Callback() {
 
-    private  var shimmerLayout: ShimmerLayout? = null
+    private var shimmerLayout: ShimmerLayout? = null
 
     override fun onCreateView(): Int {
         return R.layout.common_layout_custom_shimmer

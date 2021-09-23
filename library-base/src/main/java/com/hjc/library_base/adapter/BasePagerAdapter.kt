@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.SparseArray
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.LayoutRes
 import androidx.viewpager.widget.PagerAdapter
 
 /**
@@ -14,18 +15,28 @@ import androidx.viewpager.widget.PagerAdapter
 abstract class BasePagerAdapter<T>(protected var mContext: Context, list: List<T>) :
     PagerAdapter() {
 
+    /**
+     * 缓存的View集合
+     */
     private val mViews: SparseArray<View> = SparseArray(list.size)
 
+    /**
+     * 数据源
+     */
     private var mDataList: List<T>? = list
 
+    /**
+     * Item点击监听接口回调
+     */
     private var mOnItemClickListener: OnItemClickListener? = null
+
 
     override fun getCount(): Int {
         return mDataList?.size ?: 0
     }
 
-    override fun isViewFromObject(view: View, `object`: Any): Boolean {
-        return view === `object`
+    override fun isViewFromObject(view: View, any: Any): Boolean {
+        return view === any
     }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
@@ -42,18 +53,31 @@ abstract class BasePagerAdapter<T>(protected var mContext: Context, list: List<T
         return view
     }
 
-    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
+    override fun destroyItem(container: ViewGroup, position: Int, any: Any) {
         container.removeView(mViews[position])
     }
 
+    /**
+     * 获取布局ID
+     */
+    @LayoutRes
     abstract fun getLayoutId(): Int
 
+    /**
+     * 初始化View
+     */
     abstract fun initView(itemView: View?, position: Int)
 
+    /**
+     * Item监听接口
+     */
     interface OnItemClickListener {
         fun onItemClick(view: View?, position: Int)
     }
 
+    /**
+     * 设置监听
+     */
     fun setOnItemClickListener(onItemClickListener: OnItemClickListener?) {
         mOnItemClickListener = onItemClickListener
     }

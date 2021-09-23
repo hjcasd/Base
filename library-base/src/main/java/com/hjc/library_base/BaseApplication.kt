@@ -20,11 +20,19 @@ import tech.oom.idealrecorder.IdealRecorder
 open class BaseApplication : MultiDexApplication() {
 
     companion object {
+
+        /**
+         * 应用实例
+         */
         private lateinit var mInstance: Application
 
+        /**
+         * 获取应用实例
+         */
         fun getApp(): Application {
             return mInstance
         }
+
     }
 
     override fun onCreate() {
@@ -36,6 +44,9 @@ open class BaseApplication : MultiDexApplication() {
         registerActivity()
     }
 
+    /**
+     * 初始化loadSir
+     */
     private fun initLoadSir() {
         LoadSir.beginBuilder()
             .addCallback(DefaultProgressCallback())
@@ -45,6 +56,9 @@ open class BaseApplication : MultiDexApplication() {
             .commit()
     }
 
+    /**
+     * 全局Activity管理
+     */
     private fun registerActivity() {
         registerActivityLifecycleCallbacks(object : ActivityLifecycleCallbacks {
 

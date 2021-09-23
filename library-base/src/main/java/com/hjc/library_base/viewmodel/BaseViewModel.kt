@@ -16,25 +16,16 @@ import io.reactivex.disposables.Disposable
 open class BaseViewModel(application: Application) : AndroidViewModel(application),
     IViewModelAction {
 
+    /**
+     * Rxjava dispose的容器
+     */
     private var mCompositeDisposable: CompositeDisposable? = null
 
+    /**
+     * 消息LiveData
+     */
     private val actionLiveData: MutableLiveData<BaseActionEvent> = MutableLiveData()
 
-    fun addDisposable(disposable: Disposable) {
-        if (mCompositeDisposable == null) {
-            mCompositeDisposable = CompositeDisposable()
-        }
-        mCompositeDisposable?.add(disposable)
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        mCompositeDisposable?.let {
-            if (!it.isDisposed) {
-                it.clear()
-            }
-        }
-    }
 
     override fun getActionLiveData(): MutableLiveData<BaseActionEvent> {
         return actionLiveData
@@ -73,6 +64,25 @@ open class BaseViewModel(application: Application) : AndroidViewModel(applicatio
     override fun showTimeout() {
         val baseActionEvent = BaseActionEvent(BaseActionEvent.SHOW_TIMEOUT)
         actionLiveData.value = baseActionEvent
+    }
+
+    /**
+     * 添加dispose到容器中
+     */
+    fun addDisposable(disposable: Disposable) {
+        if (mCompositeDisposable == null) {
+            mCompositeDisposable = CompositeDisposable()
+        }
+        mCompositeDisposable?.add(disposable)
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        mCompositeDisposable?.let {
+            if (!it.isDisposed) {
+                it.clear()
+            }
+        }
     }
 
 }

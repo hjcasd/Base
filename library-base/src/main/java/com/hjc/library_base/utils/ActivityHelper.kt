@@ -9,6 +9,10 @@ import java.util.*
  * @Description: Activity管理类
  */
 object ActivityHelper {
+
+    /**
+     * Activity的集合
+     */
     private val activityList: MutableList<Activity> = LinkedList()
 
     /**
@@ -51,4 +55,5 @@ object ActivityHelper {
             activity.finish()
         }
     }
+
 }

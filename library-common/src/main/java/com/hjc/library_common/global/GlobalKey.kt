@@ -12,5 +12,9 @@ object GlobalKey {
      */
     const val USER_INFO = "user_info"
 
+    /**
+     * ARouter传参key
+     */
     const val ROUTER_PARAMS = "router_params"
+
 }

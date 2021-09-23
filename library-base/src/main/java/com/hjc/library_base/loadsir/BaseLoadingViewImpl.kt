@@ -11,6 +11,9 @@ import com.hjc.library_base.dialog.LoadingDialog
  */
 class BaseLoadingViewImpl(context: Context) : ILoadingView {
 
+    /**
+     * LoadingDialog
+     */
     private var mLoadingDialog: LoadingDialog? = null
 
     init {
@@ -28,4 +31,5 @@ class BaseLoadingViewImpl(context: Context) : ILoadingView {
     override fun dismissLoading() {
         mLoadingDialog?.dismissDialog()
     }
+
 }

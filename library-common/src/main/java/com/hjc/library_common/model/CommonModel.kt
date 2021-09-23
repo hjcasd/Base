@@ -11,6 +11,9 @@ import com.hjc.library_net.SmartHttp
  */
 open class CommonModel : BaseModel() {
 
+    /**
+     * 获取api实例
+     */
     fun <T> getApiService(apiService: Class<T>): T {
         return SmartHttp.getRetrofit().create(apiService)
     }

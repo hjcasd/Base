@@ -2,6 +2,7 @@ package com.hjc.library_base.activity
 
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -25,17 +26,26 @@ import com.kingja.loadsir.callback.Callback
  */
 abstract class BaseActivity<VDB : ViewDataBinding, VM : BaseViewModel> : AppCompatActivity(), View.OnClickListener {
 
-    // ViewDataBinding
+    /**
+     *  ViewDataBinding
+     */
     protected lateinit var mBindingView: VDB
 
-    // ViewModel
+    /**
+     * ViewModel
+     */
     protected var mViewModel: VM? = null
 
-    // IStateView
+    /**
+     * IStateView
+     */
     private var mStatusView: IStatusView? = null
 
-    // ILoadingView
+    /**
+     * ILoadingView
+     */
     private var mLoadingView: ILoadingView? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,8 +62,12 @@ abstract class BaseActivity<VDB : ViewDataBinding, VM : BaseViewModel> : AppComp
     /**
      * 获取布局的ID
      */
+    @LayoutRes
     abstract fun getLayoutId(): Int
 
+    /**
+     * 初始化ViewModel
+     */
     private fun initViewModel() {
         ARouter.getInstance().inject(this)
         if (mViewModel == null) {
@@ -87,7 +101,7 @@ abstract class BaseActivity<VDB : ViewDataBinding, VM : BaseViewModel> : AppComp
     }
 
     /**
-     * 获取viewModel
+     * 创建ViewModel
      */
     abstract fun createViewModel(): VM?
 

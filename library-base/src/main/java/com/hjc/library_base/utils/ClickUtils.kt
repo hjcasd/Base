@@ -8,10 +8,15 @@ import java.util.*
  * @Description: 点击工具类
  */
 object ClickUtils {
-    private val records: MutableMap<String, Long> = HashMap()
-    private val record2s: MutableMap<String, Long> = HashMap()
 
-    //本方法被调用的文件名和行号作为标记
+    /**
+     * 记录的map
+     */
+    private val records: MutableMap<String, Long> = HashMap()
+
+    /**
+     * 是否为快速点击
+     */
     fun isFastClick(): Boolean {
         if (records.size > 1000) {
             records.clear()
@@ -32,22 +37,4 @@ object ClickUtils {
         return timeDuration in 1..499
     }
 
-    //本方法被调用的文件名和行号作为标记
-    fun isDoubleClick(): Boolean {
-        if (record2s.size > 1000) {
-            record2s.clear()
-        }
-        //本方法被调用的文件名和行号作为标记
-        val ste = Throwable().stackTrace[1]
-        val key = ste.fileName + ste.lineNumber
-        var lastClickTime = record2s[key]
-        val thisClickTime = System.currentTimeMillis()
-        record2s[key] = thisClickTime
-        if (lastClickTime == null) {
-            lastClickTime = 0L
-        }
-        val timeDuration = thisClickTime - lastClickTime
-        //如果两次点击间隔在2000ms之内,则为双击
-        return timeDuration in 1..1999
-    }
 }

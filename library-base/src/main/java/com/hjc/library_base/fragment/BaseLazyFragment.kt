@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
@@ -28,20 +29,30 @@ import com.kingja.loadsir.callback.Callback
  */
 abstract class BaseLazyFragment<VDB : ViewDataBinding, VM : BaseViewModel> : Fragment(), View.OnClickListener {
 
-    // ViewDataBinding
+    /**
+     * Fragment对应的Activity(避免使用getActivity()导致空指针异常)
+     */
+    protected lateinit var mContext: Context
+
+    /**
+     * ViewDataBinding
+     */
     protected lateinit var mBindingView: VDB
 
-    // ViewModel
+    /**
+     * ViewModel
+     */
     protected var mViewModel: VM? = null
 
-    // IStateView
+    /**
+     * IStateView
+     */
     private var mStatusView: IStatusView? = null
 
-    // ILoadingView
+    /**
+     * ILoadingView
+     */
     private var mLoadingView: ILoadingView? = null
-
-    // Fragment对应的Activity(避免使用getActivity()导致空指针异常)
-    protected lateinit var mContext: Context
 
     /**
      * 判断View是否加载完成
@@ -84,6 +95,7 @@ abstract class BaseLazyFragment<VDB : ViewDataBinding, VM : BaseViewModel> : Fra
     /**
      * 获取布局的ID
      */
+    @LayoutRes
     abstract fun getLayoutId(): Int
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -92,6 +104,9 @@ abstract class BaseLazyFragment<VDB : ViewDataBinding, VM : BaseViewModel> : Fra
         lazyLoad()
     }
 
+    /**
+     * 初始化ViewModel
+     */
     private fun initViewModel() {
         ARouter.getInstance().inject(this)
         if (mViewModel == null) {
@@ -125,7 +140,7 @@ abstract class BaseLazyFragment<VDB : ViewDataBinding, VM : BaseViewModel> : Fra
     }
 
     /**
-     * 获取viewModel
+     * 创建ViewModel
      */
     abstract fun createViewModel(): VM?
 
@@ -154,7 +169,7 @@ abstract class BaseLazyFragment<VDB : ViewDataBinding, VM : BaseViewModel> : Fra
     /**
      * 初始化沉浸式
      */
-    protected open fun getImmersionBar(): ImmersionBar? {
+    open fun getImmersionBar(): ImmersionBar? {
         return null
     }
 
@@ -201,15 +216,6 @@ abstract class BaseLazyFragment<VDB : ViewDataBinding, VM : BaseViewModel> : Fra
         onSingleClick(v)
     }
 
-    /**
-     * 注册LoadSir
-     * @param view 绑定的View
-     * @param listener 失败重试,重新加载事件
-     */
-    fun initLoadSir(view: View?, listener: Callback.OnReloadListener? = null) {
-        mStatusView?.setLoadSir(view, listener)
-    }
-
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)
         if (!hidden) {
@@ -220,6 +226,15 @@ abstract class BaseLazyFragment<VDB : ViewDataBinding, VM : BaseViewModel> : Fra
     override fun onDestroyView() {
         super.onDestroyView()
         isViewCreated = false
+    }
+
+    /**
+     * 注册LoadSir
+     * @param view 绑定的View
+     * @param listener 失败重试,重新加载事件
+     */
+    fun initLoadSir(view: View?, listener: Callback.OnReloadListener? = null) {
+        mStatusView?.setLoadSir(view, listener)
     }
 
 }

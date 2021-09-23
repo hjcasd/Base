@@ -7,11 +7,19 @@ package com.hjc.library_common.global
  */
 object EventCode {
 
-    const val LOGIN_CODE = "login_code"
-
+    /**
+     * event post消息
+     */
     const val EVENT_POST_CODE = "event_post_code"
 
+    /**
+     * event receive消息
+     */
     const val EVENT_RECEIVE_CODE = "event_receive_code"
 
+    /**
+     * LoadSir重试消息
+     */
     const val LOAD_SIR_RETRY = "load_sir_retry"
+
 }

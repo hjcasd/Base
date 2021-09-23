@@ -11,6 +11,9 @@ import com.hjc.library_base.dialog.LoadingDialog
  */
 class CustomLoadingViewImpl(context: Context) : ILoadingView {
 
+    /**
+     * LoadingDialog
+     */
     private var mLoadingDialog: LoadingDialog? = null
 
     init {

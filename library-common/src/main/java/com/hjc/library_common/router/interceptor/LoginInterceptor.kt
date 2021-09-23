@@ -15,14 +15,15 @@ import com.blankj.utilcode.util.LogUtils
 @Interceptor(name = "登录拦截器", priority = 8)
 class LoginInterceptor : IInterceptor {
 
-    private var mContext: Context? = null
-
-    override fun process(postcard: Postcard, callback: InterceptorCallback) {
-        callback.onContinue(postcard)
-    }
+    private lateinit var mContext: Context
 
     override fun init(context: Context) {
         this.mContext = context
         LogUtils.d("登录拦截器被初始化了")
     }
+
+    override fun process(postcard: Postcard, callback: InterceptorCallback) {
+        callback.onContinue(postcard)
+    }
+
 }

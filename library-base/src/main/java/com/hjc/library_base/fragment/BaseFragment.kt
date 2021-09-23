@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
@@ -28,20 +29,31 @@ import com.kingja.loadsir.callback.Callback
  */
 abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel> : Fragment(), View.OnClickListener {
 
-    // ViewDataBinding
-    protected lateinit var mBindingView: VDB
-
-    // ViewModel
-    protected var mViewModel: VM? = null
-
-    // Fragment对应的Activity(避免使用getActivity()导致空指针异常)
+    /**
+     * Fragment对应的Activity(避免使用getActivity()导致空指针异常)
+     */
     protected lateinit var mContext: Context
 
-    // IStateView
+    /**
+     * ViewDataBinding
+     */
+    protected lateinit var mBindingView: VDB
+
+    /**
+     * ViewModel
+     */
+    protected var mViewModel: VM? = null
+
+    /**
+     * IStateView
+     */
     private var mStatusView: IStatusView? = null
 
-    // ILoadingView
+    /**
+     * ILoadingView
+     */
     private var mLoadingView: ILoadingView? = null
+
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -61,6 +73,7 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel> : Fragmen
     /**
      * 获取布局的ID
      */
+    @LayoutRes
     abstract fun getLayoutId(): Int
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -72,6 +85,9 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel> : Fragmen
         addListeners()
     }
 
+    /**
+     * 初始化ViewModel
+     */
     private fun initViewModel() {
         ARouter.getInstance().inject(this)
         if (mViewModel == null) {
@@ -105,7 +121,7 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel> : Fragmen
     }
 
     /**
-     * 获取viewModel
+     * 创建ViewModel
      */
     abstract fun createViewModel(): VM?
 
@@ -168,6 +184,13 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel> : Fragmen
         onSingleClick(v)
     }
 
+    override fun onHiddenChanged(hidden: Boolean) {
+        super.onHiddenChanged(hidden)
+        if (!hidden) {
+            getImmersionBar()?.init()
+        }
+    }
+
     /**
      * 注册LoadSir
      * @param view 绑定的View
@@ -175,13 +198,6 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel> : Fragmen
      */
     fun initLoadSir(view: View?, listener: Callback.OnReloadListener? = null) {
         mStatusView?.setLoadSir(view, listener)
-    }
-
-    override fun onHiddenChanged(hidden: Boolean) {
-        super.onHiddenChanged(hidden)
-        if (!hidden) {
-            getImmersionBar()?.init()
-        }
     }
 
 }

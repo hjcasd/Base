@@ -22,10 +22,13 @@ import jp.wasabeef.glide.transformations.BlurTransformation
 /**
  * @Author: HJC
  * @Date: 2021/1/8 16:23
- * @Description: 自定义BindingAdapter
+ * @Description: 自定义BindingAdapter(布局里直接使用)
  */
 object CommonBindingAdapters {
 
+    /**
+     * 加载图片
+     */
     @JvmStatic
     @BindingAdapter(value = ["imageUrl", "placeholder"], requireAll = false)
     fun loadImage(imageView: ImageView, url: String?, drawable: Drawable?) {
@@ -42,6 +45,9 @@ object CommonBindingAdapters {
         }
     }
 
+    /**
+     * 加载背景图片
+     */
     @JvmStatic
     @BindingAdapter("imageBgUrl")
     fun loadBgImage(viewGroup: ViewGroup, url: String?) {
@@ -64,6 +70,9 @@ object CommonBindingAdapters {
         }
     }
 
+    /**
+     * 加载圆角图片
+     */
     @JvmStatic
     @BindingAdapter(value = ["imageRoundUrl", "placeholder", "roundingRadius"], requireAll = false)
     fun loadRoundImage(
@@ -86,6 +95,9 @@ object CommonBindingAdapters {
         }
     }
 
+    /**
+     * 加载圆形图片
+     */
     @JvmStatic
     @BindingAdapter(value = ["imageCircleUrl", "placeholder"], requireAll = false)
     fun loadCircleImage(imageView: ImageView, url: String?, drawable: Drawable?) {
@@ -102,6 +114,9 @@ object CommonBindingAdapters {
         }
     }
 
+    /**
+     * 加载高斯模糊图片
+     */
     @JvmStatic
     @BindingAdapter(
         value = ["imageBlurUrl", "placeholder", "radius", "sampling"],

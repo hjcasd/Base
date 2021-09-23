@@ -24,6 +24,9 @@ import java.util.concurrent.TimeUnit
  */
 class CustomStatusViewImpl : IStatusView {
 
+    /**
+     * LoadSir服务
+     */
     private var mLoadService: LoadService<*>? = null
 
     override fun setLoadSir(view: View?, listener: Callback.OnReloadListener?) {

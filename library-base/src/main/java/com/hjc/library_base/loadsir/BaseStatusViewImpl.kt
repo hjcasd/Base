@@ -22,6 +22,9 @@ import java.util.concurrent.TimeUnit
  */
 open class BaseStatusViewImpl : IStatusView {
 
+    /**
+     * LoadSir服务
+     */
     private var mLoadService: LoadService<*>? = null
 
     override fun setLoadSir(view: View?, listener: Callback.OnReloadListener?) {
@@ -64,4 +67,5 @@ open class BaseStatusViewImpl : IStatusView {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { mLoadService?.showCallback(DefaultTimeoutCallback::class.java) }
     }
+
 }

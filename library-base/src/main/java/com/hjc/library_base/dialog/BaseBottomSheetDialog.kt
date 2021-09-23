@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.LayoutRes
+import androidx.annotation.StyleRes
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -24,13 +26,21 @@ import com.hjc.library_base.viewmodel.BaseViewModel
 abstract class BaseBottomSheetDialog<VDB : ViewDataBinding, VM : BaseViewModel> : BottomSheetDialogFragment(),
     View.OnClickListener {
 
-    // ViewDataBinding
+    /**
+     * 上下文
+     */
+    protected lateinit var mContext: Context
+
+    /**
+     * ViewDataBinding
+     */
     protected lateinit var mBindingView: VDB
 
-    // ViewModel
+    /**
+     * ViewModel
+     */
     protected var mViewModel: VM? = null
 
-    protected lateinit var mContext: Context
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -45,56 +55,8 @@ abstract class BaseBottomSheetDialog<VDB : ViewDataBinding, VM : BaseViewModel> 
     /**
      * 获取Dialog的Theme
      */
+    @StyleRes
     abstract fun getStyleRes(): Int
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        mBindingView = DataBindingUtil.inflate(inflater, getLayoutId(), container, false)
-        mBindingView.lifecycleOwner = this
-        return mBindingView.root
-    }
-
-    /**
-     * 获取布局的ID
-     */
-    abstract fun getLayoutId(): Int
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        initViewModel()
-        initView()
-        initData(savedInstanceState)
-        addListeners()
-    }
-
-    private fun initViewModel() {
-        if (mViewModel == null) {
-            mViewModel = createViewModel()
-        }
-    }
-
-    /**
-     * 获取viewModel
-     */
-    abstract fun createViewModel(): VM?
-
-    /**
-     * 初始化View
-     */
-    open fun initView() {}
-
-    /**
-     * 初始化数据
-     */
-    abstract fun initData(savedInstanceState: Bundle?)
-
-    /**
-     * 设置监听器
-     */
-    protected abstract fun addListeners()
 
     override fun onStart() {
         super.onStart()
@@ -116,12 +78,58 @@ abstract class BaseBottomSheetDialog<VDB : ViewDataBinding, VM : BaseViewModel> 
         }
     }
 
-    /**
-     * 显示Fragment
-     */
-    fun showDialog(fm: FragmentManager) {
-        show(fm, "DialogFragment")
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        mBindingView = DataBindingUtil.inflate(inflater, getLayoutId(), container, false)
+        mBindingView.lifecycleOwner = this
+        return mBindingView.root
     }
+
+    /**
+     * 获取布局的ID
+     */
+    @LayoutRes
+    abstract fun getLayoutId(): Int
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initViewModel()
+        initView()
+        initData(savedInstanceState)
+        addListeners()
+    }
+
+    /**
+     * 初始化ViewModel
+     */
+    private fun initViewModel() {
+        if (mViewModel == null) {
+            mViewModel = createViewModel()
+        }
+    }
+
+    /**
+     * 创建ViewModel
+     */
+    abstract fun createViewModel(): VM?
+
+    /**
+     * 初始化View
+     */
+    open fun initView() {}
+
+    /**
+     * 初始化数据
+     */
+    abstract fun initData(savedInstanceState: Bundle?)
+
+    /**
+     * 设置监听器
+     */
+    abstract fun addListeners()
 
     /**
      * 设置点击事件
@@ -136,4 +144,12 @@ abstract class BaseBottomSheetDialog<VDB : ViewDataBinding, VM : BaseViewModel> 
         }
         onSingleClick(v)
     }
+
+    /**
+     * 显示Fragment
+     */
+    fun showDialog(fm: FragmentManager) {
+        show(fm, "DialogFragment")
+    }
+
 }
