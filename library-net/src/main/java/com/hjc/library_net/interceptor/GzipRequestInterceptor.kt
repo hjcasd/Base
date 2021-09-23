@@ -39,7 +39,7 @@ class GzipRequestInterceptor : Interceptor {
             }
 
             override fun contentLength(): Long {
-                // 无法提前知道压缩后的数据大小
+                //无法提前知道压缩后的数据大小
                 return -1
             }
 
@@ -51,4 +51,5 @@ class GzipRequestInterceptor : Interceptor {
             }
         }
     }
+
 }

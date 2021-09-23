@@ -19,15 +19,19 @@ class FileReaderView @JvmOverloads constructor(
     private val mContext: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : FrameLayout(mContext, attrs, defStyleAttr), TbsReaderView.ReaderCallback {
 
-    private var mTbsReaderView: TbsReaderView?
+    private var mTbsReaderView: TbsReaderView? = null
 
     init {
         mTbsReaderView = getTbsReaderView(mContext)
-        this.addView(mTbsReaderView, LinearLayout.LayoutParams(-1, -1))
+        addView(mTbsReaderView, LinearLayout.LayoutParams(-1, -1))
     }
 
     private fun getTbsReaderView(context: Context): TbsReaderView {
         return TbsReaderView(context, this)
+    }
+
+    override fun onCallBackAction(integer: Int, o: Any, o1: Any) {
+
     }
 
     /**
@@ -48,21 +52,19 @@ class FileReaderView @JvmOverloads constructor(
             }
 
             mTbsReaderView?.run {
-                val bool = preOpen(getFileType(filePath), false)
-                if (bool) {
+                val isPrepared = preOpen(getFileType(filePath), false)
+                if (isPrepared) {
                     openFile(localBundle)
                 }
             }
-
         } else {
             Log.e("FileReaderView", "文件路径无效！")
         }
     }
 
-    override fun onCallBackAction(integer: Int, o: Any, o1: Any) {}
-
     /**
-     * 务必在onDestroy方法中调用此方法，否则第二次打开无法浏览
+     * 销毁view
+     * 注意: 务必在onDestroy方法中调用此方法，否则第二次打开无法浏览
      */
     fun stop() {
         mTbsReaderView?.onStop()

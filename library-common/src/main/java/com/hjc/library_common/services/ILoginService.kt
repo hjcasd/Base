@@ -9,10 +9,6 @@ import com.alibaba.android.arouter.facade.template.IProvider
  */
 interface ILoginService : IProvider {
 
-    companion object {
-        const val LOGIN_SERVICE_NAME = "login_service"
-    }
-
     /**
      * 保存登录状态
      *

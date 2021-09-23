@@ -31,4 +31,5 @@ class OfflineCacheInterceptor : Interceptor {
         }
         return chain.proceed(request)
     }
+
 }

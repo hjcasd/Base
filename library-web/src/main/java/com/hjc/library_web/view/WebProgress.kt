@@ -17,6 +17,7 @@ import android.widget.FrameLayout
 class WebProgress @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
+
     /**
      * 进度条颜色
      */
@@ -51,9 +52,14 @@ class WebProgress @JvmOverloads constructor(
      * 第一次过来进度show，后面就是setProgress
      */
     private var isShow = false
+
+    /**
+     * 当前进度
+     */
     private var mCurrentProgress = 0f
 
     companion object {
+
         /**
          * 默认匀速动画最大的时长
          */
@@ -97,6 +103,7 @@ class WebProgress @JvmOverloads constructor(
         const val UN_START = 0
         const val STARTED = 1
         const val FINISH = 2
+
     }
 
     init {
@@ -112,6 +119,89 @@ class WebProgress @JvmOverloads constructor(
         mPaint.strokeCap = Paint.Cap.SQUARE
         mTargetWidth = context.resources.displayMetrics.widthPixels
         mTargetHeight = dip2px(WEB_PROGRESS_DEFAULT_HEIGHT.toFloat())
+    }
+
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        val wMode = MeasureSpec.getMode(widthMeasureSpec)
+        var w = MeasureSpec.getSize(widthMeasureSpec)
+        val hMode = MeasureSpec.getMode(heightMeasureSpec)
+        var h = MeasureSpec.getSize(heightMeasureSpec)
+        if (wMode == MeasureSpec.AT_MOST) {
+            w = w.coerceAtMost(context.resources.displayMetrics.widthPixels)
+        }
+        if (hMode == MeasureSpec.AT_MOST) {
+            h = mTargetHeight
+        }
+        setMeasuredDimension(w, h)
+    }
+
+    override fun onDraw(canvas: Canvas) {
+
+    }
+
+    override fun dispatchDraw(canvas: Canvas) {
+        canvas.drawRect(
+            0f,
+            0f,
+            mCurrentProgress / 100 * this.width.toFloat(),
+            this.height.toFloat(),
+            mPaint
+        )
+    }
+
+    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+        super.onSizeChanged(w, h, oldw, oldh)
+        mTargetWidth = measuredWidth
+        val screenWidth = context.resources.displayMetrics.widthPixels
+        if (mTargetWidth >= screenWidth) {
+            CURRENT_MAX_DECELERATE_SPEED_DURATION = MAX_DECELERATE_SPEED_DURATION
+            CURRENT_MAX_UNIFORM_SPEED_DURATION = MAX_UNIFORM_SPEED_DURATION
+        } else {
+            //取比值
+            val rate = mTargetWidth / screenWidth.toFloat()
+            CURRENT_MAX_UNIFORM_SPEED_DURATION = (MAX_UNIFORM_SPEED_DURATION * rate).toInt()
+            CURRENT_MAX_DECELERATE_SPEED_DURATION = (MAX_DECELERATE_SPEED_DURATION * rate).toInt()
+        }
+    }
+
+    override fun onDetachedFromWindow() {
+        super.onDetachedFromWindow()
+        mAnimator?.let {
+            if (it.isStarted) {
+                it.cancel()
+                mAnimator = null
+            }
+        }
+    }
+
+    private val mAnimatorUpdateListener = AnimatorUpdateListener { animation ->
+        mCurrentProgress = animation.animatedValue as Float
+        this@WebProgress.invalidate()
+    }
+
+    private val mAnimatorListenerAdapter: AnimatorListenerAdapter =
+        object : AnimatorListenerAdapter() {
+            override fun onAnimationEnd(animation: Animator) {
+                doEnd()
+            }
+        }
+
+    private fun doEnd() {
+        if (state == FINISH && mCurrentProgress == 100f) {
+            visibility = GONE
+            mCurrentProgress = 0f
+            this.alpha = 1f
+        }
+        state = UN_START
+    }
+
+    fun reset() {
+        mCurrentProgress = 0f
+        mAnimator?.let {
+            if (it.isStarted) {
+                it.cancel()
+            }
+        }
     }
 
     /**
@@ -147,141 +237,6 @@ class WebProgress @JvmOverloads constructor(
      */
     fun setColor(startColor: String?, endColor: String?) {
         this.setColor(Color.parseColor(startColor), Color.parseColor(endColor))
-    }
-
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        val wMode = MeasureSpec.getMode(widthMeasureSpec)
-        var w = MeasureSpec.getSize(widthMeasureSpec)
-        val hMode = MeasureSpec.getMode(heightMeasureSpec)
-        var h = MeasureSpec.getSize(heightMeasureSpec)
-        if (wMode == MeasureSpec.AT_MOST) {
-            w = w.coerceAtMost(context.resources.displayMetrics.widthPixels)
-        }
-        if (hMode == MeasureSpec.AT_MOST) {
-            h = mTargetHeight
-        }
-        setMeasuredDimension(w, h)
-    }
-
-    override fun onDraw(canvas: Canvas) {}
-
-    override fun dispatchDraw(canvas: Canvas) {
-        canvas.drawRect(
-            0f,
-            0f,
-            mCurrentProgress / 100 * this.width.toFloat(),
-            this.height.toFloat(),
-            mPaint
-        )
-    }
-
-    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
-        super.onSizeChanged(w, h, oldw, oldh)
-        mTargetWidth = measuredWidth
-        val screenWidth = context.resources.displayMetrics.widthPixels
-        if (mTargetWidth >= screenWidth) {
-            CURRENT_MAX_DECELERATE_SPEED_DURATION = MAX_DECELERATE_SPEED_DURATION
-            CURRENT_MAX_UNIFORM_SPEED_DURATION = MAX_UNIFORM_SPEED_DURATION
-        } else {
-            //取比值
-            val rate = mTargetWidth / screenWidth.toFloat()
-            CURRENT_MAX_UNIFORM_SPEED_DURATION = (MAX_UNIFORM_SPEED_DURATION * rate).toInt()
-            CURRENT_MAX_DECELERATE_SPEED_DURATION = (MAX_DECELERATE_SPEED_DURATION * rate).toInt()
-        }
-    }
-
-    private fun setFinish() {
-        isShow = false
-        state = FINISH
-    }
-
-    private fun startAnim(isFinished: Boolean) {
-        val v: Float = if (isFinished) 100.0f else 95.0f
-        mAnimator?.let {
-            if (it.isStarted) {
-                it.cancel()
-            }
-        }
-
-        mCurrentProgress = if (mCurrentProgress == 0f) 0.00000001f else mCurrentProgress
-        // 可能由于透明度造成突然出现的问题
-        alpha = 1f
-        if (!isFinished) {
-            val mAnimator = ValueAnimator.ofFloat(mCurrentProgress, v)
-            val residue = 1f - mCurrentProgress / 100 - 0.05f
-            mAnimator.interpolator = LinearInterpolator()
-            mAnimator.duration = (residue * CURRENT_MAX_UNIFORM_SPEED_DURATION).toLong()
-            mAnimator.addUpdateListener(mAnimatorUpdateListener)
-            mAnimator.start()
-            this.mAnimator = mAnimator
-        } else {
-            var segment95Animator: ValueAnimator? = null
-            if (mCurrentProgress < 95) {
-                segment95Animator = ValueAnimator.ofFloat(mCurrentProgress, 95f)
-                val residue = 1f - mCurrentProgress / 100f - 0.05f
-                segment95Animator.interpolator = LinearInterpolator()
-                segment95Animator.duration =
-                    (residue * CURRENT_MAX_DECELERATE_SPEED_DURATION).toLong()
-                segment95Animator.interpolator = DecelerateInterpolator()
-                segment95Animator.addUpdateListener(mAnimatorUpdateListener)
-            }
-            val mObjectAnimator = ObjectAnimator.ofFloat(this, "alpha", 1f, 0f)
-            mObjectAnimator.duration = DO_END_ALPHA_DURATION.toLong()
-            val mValueAnimatorEnd = ValueAnimator.ofFloat(95f, 100f)
-            mValueAnimatorEnd.duration = DO_END_PROGRESS_DURATION.toLong()
-            mValueAnimatorEnd.addUpdateListener(mAnimatorUpdateListener)
-            var mAnimatorSet = AnimatorSet()
-            mAnimatorSet.playTogether(mObjectAnimator, mValueAnimatorEnd)
-            if (segment95Animator != null) {
-                val mAnimatorSet1 = AnimatorSet()
-                mAnimatorSet1.play(mAnimatorSet).after(segment95Animator)
-                mAnimatorSet = mAnimatorSet1
-            }
-            mAnimatorSet.addListener(mAnimatorListenerAdapter)
-            mAnimatorSet.start()
-            mAnimator = mAnimatorSet
-        }
-        state = STARTED
-    }
-
-    private val mAnimatorUpdateListener = AnimatorUpdateListener { animation ->
-        mCurrentProgress = animation.animatedValue as Float
-        this@WebProgress.invalidate()
-    }
-
-    private val mAnimatorListenerAdapter: AnimatorListenerAdapter =
-        object : AnimatorListenerAdapter() {
-            override fun onAnimationEnd(animation: Animator) {
-                doEnd()
-            }
-        }
-
-    override fun onDetachedFromWindow() {
-        super.onDetachedFromWindow()
-        mAnimator?.let {
-            if (it.isStarted) {
-                it.cancel()
-                mAnimator = null
-            }
-        }
-    }
-
-    private fun doEnd() {
-        if (state == FINISH && mCurrentProgress == 100f) {
-            visibility = GONE
-            mCurrentProgress = 0f
-            this.alpha = 1f
-        }
-        state = UN_START
-    }
-
-    fun reset() {
-        mCurrentProgress = 0f
-        mAnimator?.let {
-            if (it.isStarted) {
-                it.cancel()
-            }
-        }
     }
 
     private fun setProgress(newProgress: Int) {
@@ -350,6 +305,60 @@ class WebProgress @JvmOverloads constructor(
             setProgress(newProgress)
             setFinish()
         }
+    }
+
+    private fun setFinish() {
+        isShow = false
+        state = FINISH
+    }
+
+    private fun startAnim(isFinished: Boolean) {
+        val v: Float = if (isFinished) 100.0f else 95.0f
+        mAnimator?.let {
+            if (it.isStarted) {
+                it.cancel()
+            }
+        }
+
+        mCurrentProgress = if (mCurrentProgress == 0f) 0.00000001f else mCurrentProgress
+        // 可能由于透明度造成突然出现的问题
+        alpha = 1f
+        if (!isFinished) {
+            val mAnimator = ValueAnimator.ofFloat(mCurrentProgress, v)
+            val residue = 1f - mCurrentProgress / 100 - 0.05f
+            mAnimator.interpolator = LinearInterpolator()
+            mAnimator.duration = (residue * CURRENT_MAX_UNIFORM_SPEED_DURATION).toLong()
+            mAnimator.addUpdateListener(mAnimatorUpdateListener)
+            mAnimator.start()
+            this.mAnimator = mAnimator
+        } else {
+            var segment95Animator: ValueAnimator? = null
+            if (mCurrentProgress < 95) {
+                segment95Animator = ValueAnimator.ofFloat(mCurrentProgress, 95f)
+                val residue = 1f - mCurrentProgress / 100f - 0.05f
+                segment95Animator.interpolator = LinearInterpolator()
+                segment95Animator.duration =
+                    (residue * CURRENT_MAX_DECELERATE_SPEED_DURATION).toLong()
+                segment95Animator.interpolator = DecelerateInterpolator()
+                segment95Animator.addUpdateListener(mAnimatorUpdateListener)
+            }
+            val mObjectAnimator = ObjectAnimator.ofFloat(this, "alpha", 1f, 0f)
+            mObjectAnimator.duration = DO_END_ALPHA_DURATION.toLong()
+            val mValueAnimatorEnd = ValueAnimator.ofFloat(95f, 100f)
+            mValueAnimatorEnd.duration = DO_END_PROGRESS_DURATION.toLong()
+            mValueAnimatorEnd.addUpdateListener(mAnimatorUpdateListener)
+            var mAnimatorSet = AnimatorSet()
+            mAnimatorSet.playTogether(mObjectAnimator, mValueAnimatorEnd)
+            if (segment95Animator != null) {
+                val mAnimatorSet1 = AnimatorSet()
+                mAnimatorSet1.play(mAnimatorSet).after(segment95Animator)
+                mAnimatorSet = mAnimatorSet1
+            }
+            mAnimatorSet.addListener(mAnimatorListenerAdapter)
+            mAnimatorSet.start()
+            mAnimator = mAnimatorSet
+        }
+        state = STARTED
     }
 
 }

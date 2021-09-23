@@ -10,6 +10,9 @@ import android.webkit.WebView
  */
 object WebViewManager {
 
+    /**
+     * 清除WebView缓存
+     */
     fun clearWebViewCache(context: Context) {
         //安卓自带浏览器内核
         val cookieManager = android.webkit.CookieManager.getInstance()
@@ -24,5 +27,6 @@ object WebViewManager {
         WebView(context).clearCache(true)
         com.tencent.smtt.sdk.WebView(context).clearCache(true)
     }
+
 }
 

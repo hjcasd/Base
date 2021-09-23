@@ -41,6 +41,9 @@ object GsonHelper {
             .create()
     }
 
+    /**
+     * BooleanAdapter
+     */
     private class BooleanAdapter : JsonSerializer<Boolean>, JsonDeserializer<Boolean> {
 
         @Throws(JsonParseException::class)
@@ -68,10 +71,14 @@ object GsonHelper {
          * @return 返回T指定的类对应的JsonElement
          */
         override fun serialize(src: Boolean?, typeOfSrc: Type, context: JsonSerializationContext): JsonElement {
-            return JsonPrimitive(src!!)
+            return JsonPrimitive(src)
         }
+
     }
 
+    /**
+     * IntegerAdapter
+     */
     private class IntegerAdapter : JsonSerializer<Int>, JsonDeserializer<Int> {
 
         @Throws(JsonParseException::class)
@@ -93,10 +100,14 @@ object GsonHelper {
         }
 
         override fun serialize(src: Int?, typeOfSrc: Type, context: JsonSerializationContext): JsonElement {
-            return JsonPrimitive(src!!)
+            return JsonPrimitive(src)
         }
+
     }
 
+    /**
+     * LongAdapter
+     */
     private class LongAdapter : JsonSerializer<Long>, JsonDeserializer<Long> {
 
         @Throws(JsonParseException::class)
@@ -118,10 +129,14 @@ object GsonHelper {
         }
 
         override fun serialize(src: Long?, typeOfSrc: Type, context: JsonSerializationContext): JsonElement {
-            return JsonPrimitive(src!!)
+            return JsonPrimitive(src)
         }
+
     }
 
+    /**
+     * FloatAdapter
+     */
     private class FloatAdapter : JsonSerializer<Float>, JsonDeserializer<Float> {
 
         @Throws(JsonParseException::class)
@@ -143,10 +158,14 @@ object GsonHelper {
         }
 
         override fun serialize(src: Float?, typeOfSrc: Type, context: JsonSerializationContext): JsonElement {
-            return JsonPrimitive(src!!)
+            return JsonPrimitive(src)
         }
+
     }
 
+    /**
+     * DoubleAdapter
+     */
     private class DoubleAdapter : JsonSerializer<Double>, JsonDeserializer<Double> {
 
         @Throws(JsonParseException::class)
@@ -168,10 +187,14 @@ object GsonHelper {
         }
 
         override fun serialize(src: Double?, typeOfSrc: Type, context: JsonSerializationContext): JsonElement {
-            return JsonPrimitive(src!!)
+            return JsonPrimitive(src)
         }
+
     }
 
+    /**
+     * StringAdapter
+     */
     private class StringAdapter : TypeAdapter<String>() {
 
         /**

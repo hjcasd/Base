@@ -25,4 +25,5 @@ class AllTrustManager : X509TrustManager {
     override fun getAcceptedIssuers(): Array<X509Certificate> {
         return arrayOf()
     }
+
 }

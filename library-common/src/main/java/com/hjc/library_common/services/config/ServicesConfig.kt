@@ -7,6 +7,9 @@ package com.hjc.library_common.services.config
  */
 object ServicesConfig {
 
+    /**
+     * service路径
+     */
     private const val SERVICE = "/service"
 
     /**
@@ -17,6 +20,8 @@ object ServicesConfig {
         /**
          * 用户登录状态
          */
-        const val LONGING_SERVICE = "$SERVICE/login"
+        const val LOGIN_SERVICE = "$SERVICE/login"
+
     }
+
 }

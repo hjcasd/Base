@@ -13,7 +13,8 @@ class AllHostnameVerifier : HostnameVerifier {
 
     @SuppressLint("BadHostnameVerifier")
     override fun verify(hostname: String, session: SSLSession): Boolean {
-//        校验hostname是否正确，如果正确则建立连接
+        //校验hostname是否正确，如果正确则建立连接
         return true
     }
+
 }

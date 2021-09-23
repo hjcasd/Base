@@ -15,16 +15,20 @@ import com.tencent.smtt.sdk.WebView
  * @Description: 自定义X5WebView
  */
 class X5WebView @JvmOverloads constructor(
-    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
-) : WebView(context, attrs, defStyleAttr) {
+   private val mContext: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : WebView(mContext, attrs, defStyleAttr) {
 
     private lateinit var mProgressBar: ProgressBar
 
     init {
-        initLayout(context)
+        initView()
+        initData()
     }
 
-    private fun initLayout(context: Context) {
+    /**
+     * 初始化View
+     */
+    private fun initView() {
         mProgressBar = ProgressBar(context, null, android.R.attr.progressBarStyleHorizontal)
         val layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, dp2px(context))
         mProgressBar.layoutParams = layoutParams
@@ -32,13 +36,21 @@ class X5WebView @JvmOverloads constructor(
         val drawable = ContextCompat.getDrawable(context, R.drawable.web_shape_progress_bar)
         mProgressBar.progressDrawable = drawable
         addView(mProgressBar)
+    }
 
+    /**
+     * 初始化数据
+     */
+    private fun initData(){
         initWebViewSettings()
 
         webViewClient = X5WebViewClient(mProgressBar)
         webChromeClient = X5WebChromeClient(mProgressBar)
     }
 
+    /**
+     * 初始化WebView配置
+     */
     @SuppressLint("SetJavaScriptEnabled")
     private fun initWebViewSettings() {
         val webSetting = this.settings

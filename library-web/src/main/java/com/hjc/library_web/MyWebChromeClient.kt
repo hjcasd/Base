@@ -39,4 +39,5 @@ class MyWebChromeClient(private val mWebLayout: WebLayout) : WebChromeClient() {
         callback?.invoke(origin, true, false)
         super.onGeolocationPermissionsShowPrompt(origin, callback)
     }
+
 }

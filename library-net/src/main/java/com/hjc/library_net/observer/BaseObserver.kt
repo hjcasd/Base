@@ -10,10 +10,14 @@ import io.reactivex.disposables.Disposable
 /**
  * @Author: HJC
  * @Date: 2019/1/7 11:52
- * @Description: 数据返回统一处理Observer基类
+ * @Description: 带加载框的Observer
  */
-abstract class BaseObserver<T>(private val mBaseViewModel: BaseViewModel, private val mIsShowLoading: Boolean = false) : Observer<BaseResponse<T>> {
+abstract class BaseObserver<T>(private val mBaseViewModel: BaseViewModel, private val mIsShowLoading: Boolean = false) :
+    Observer<BaseResponse<T>> {
 
+    /**
+     * dispose
+     */
     private lateinit var mDisposable: Disposable
 
     override fun onSubscribe(d: Disposable) {
@@ -35,19 +39,34 @@ abstract class BaseObserver<T>(private val mBaseViewModel: BaseViewModel, privat
     }
 
     override fun onError(e: Throwable) {
+        dispose()
         onFailure(e, null)
     }
 
     override fun onComplete() {
+        dispose()
+    }
+
+    /**
+     * 关闭dispose和loading
+     */
+    private fun dispose() {
         if (!mDisposable.isDisposed) {
             mDisposable.dispose()
         }
-        if (mIsShowLoading){
+        if (mIsShowLoading) {
             mBaseViewModel.dismissLoading()
         }
     }
 
-    abstract fun onSuccess(result: T?)
+    /**
+     * 成功回调
+     */
+    abstract fun onSuccess(response: T?)
 
+    /**
+     * 错误回调
+     */
     abstract fun onFailure(e: Throwable, response: BaseResponse<T>?)
+
 }

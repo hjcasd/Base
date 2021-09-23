@@ -13,6 +13,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+/**
+ * @Author: HJC
+ * @Date: 2021/9/23 19:34
+ * @Description: 协程封装的ViewModel
+ */
 open class KotlinViewModel(application: Application) : BaseViewModel(application) {
 
     /**

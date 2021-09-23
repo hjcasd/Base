@@ -21,7 +21,7 @@ import com.scwang.smart.refresh.layout.constant.SpinnerStyle
 /**
  * @Author: HJC
  * @Date: 2020/12/5 14:43
- * @Description: 自定义HeaderView
+ * @Description: 自定义HeaderView(SmartRefreshLayout)
  */
 class SmartCustomHeader @JvmOverloads constructor(
     mContext: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -108,4 +108,5 @@ class SmartCustomHeader @JvmOverloads constructor(
     override fun setPrimaryColors(@ColorInt vararg colors: Int) {
 
     }
+
 }

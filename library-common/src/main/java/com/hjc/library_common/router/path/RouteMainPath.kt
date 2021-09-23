@@ -7,15 +7,24 @@ package com.hjc.library_common.router.path
  */
 object RouteMainPath {
 
+    /**
+     * Main路径
+     */
     private const val MODULE_MAIN = "/module_main"
 
-    // Splash页面
+    /**
+     * Splash页面
+     */
     const val URL_SPLASH = "$MODULE_MAIN/splash"
 
-    // 主界面
+    /**
+     * 主界面
+     */
     const val URL_MAIN = "$MODULE_MAIN/main"
 
-    // Web页面
+    /**
+     * Web页面
+     */
     const val URL_WEB = "$MODULE_MAIN/web"
 
 }

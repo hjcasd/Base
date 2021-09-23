@@ -41,4 +41,5 @@ object RxSchedulers {
                 .observeOn(AndroidSchedulers.mainThread())
         }
     }
+
 }

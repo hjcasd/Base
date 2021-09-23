@@ -21,6 +21,7 @@ import com.hjc.library_widget.R
 class TitleBar @JvmOverloads constructor(
     private val mContext: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : LinearLayout(mContext, attrs, defStyleAttr) {
+
     private lateinit var tvTitle: TextView
     private lateinit var ivLeftImg: ImageView
     private lateinit var ivRightImg: ImageView
@@ -102,7 +103,7 @@ class TitleBar @JvmOverloads constructor(
         }
         ivRightImg.setOnClickListener { v ->
             if (ivLeftImg.visibility == VISIBLE) {
-                mClickListener?.OnViewRightClick(v)
+                mClickListener?.onViewRightClick(v)
             } else {
                 mRightClickListener?.OnViewRightClick(v)
             }

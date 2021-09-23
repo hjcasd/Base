@@ -67,17 +67,17 @@ class CommonModuleInit : IModuleInit {
      * 初始化Http配置
      */
     private fun initHttp() {
-        SmartHttp
-            .setBaseUrl(HttpConfig.BASE_URL)
+        SmartHttp.setBaseUrl(HttpConfig.BASE_URL)
             .setTimeout(HttpConfig.HTTP_TIME_OUT)
             .addInterceptor(BaseUrlInterceptor())
             .setDebug(AppConstants.APP_IS_DEBUG)
             .addConverter(GsonConverterFactory.create(GsonHelper.buildGson()))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .addCache()
+//            .addCache()
     }
 
     override fun onInitAfter(application: BaseApplication): Boolean {
         return false
     }
+
 }

@@ -15,14 +15,22 @@ import java.io.IOException
 class BaseUrlInterceptor : Interceptor {
 
     companion object {
-        //多服务器地址1
+
+        /**
+         * 多服务器地址1
+         */
         private const val TEST_BASE_URL1 = "https://gank.io"
 
-        //多服务器地址2
+        /**
+         * 多服务器地址2
+         */
         private const val TEST_BASE_URL2 = "https://api-m.mtime.cn"
 
-        //多服务器地址2
+        /**
+         * 多服务器地址3
+         */
         private const val TEST_BASE_URL3 = "http://10.67.200.215:8888"
+
     }
 
     @Throws(IOException::class)
@@ -53,6 +61,9 @@ class BaseUrlInterceptor : Interceptor {
         return chain.proceed(request)
     }
 
+    /**
+     * 获取新的服务器地址
+     */
     private fun getNewBaseUrl(headerValue: String, oldHttpUrl: HttpUrl): HttpUrl? {
         return when (headerValue) {
             "test1" -> HttpUrl.parse(TEST_BASE_URL1)
@@ -61,4 +72,5 @@ class BaseUrlInterceptor : Interceptor {
             else -> oldHttpUrl
         }
     }
+
 }

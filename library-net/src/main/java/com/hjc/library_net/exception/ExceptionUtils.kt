@@ -14,6 +14,10 @@ import java.text.ParseException
  * @Description: 对返回的错误进行处理
  */
 object ExceptionUtils {
+
+    /**
+     * 错误处理
+     */
     fun handleException(e: Throwable): String {
         LogUtils.e("error: $e")
         return when (e) {
@@ -33,6 +37,9 @@ object ExceptionUtils {
         }
     }
 
+    /**
+     * Http错误码处理
+     */
     private fun convertHttpCode(e: HttpException): String {
         return when (e.code()) {
             in 500..599 -> "服务器处理请求出错"
@@ -45,6 +52,9 @@ object ExceptionUtils {
         }
     }
 
+    /**
+     * 服务器错误码处理
+     */
     private fun convertServerCode(e: ApiException): String {
         return when (e.code) {
             ServerCode.CODE_FAIL -> e.message.toString()
@@ -54,4 +64,5 @@ object ExceptionUtils {
             else -> "未知请求"
         }
     }
+
 }

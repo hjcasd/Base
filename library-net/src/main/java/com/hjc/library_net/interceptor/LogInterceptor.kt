@@ -16,7 +16,11 @@ import java.nio.charset.Charset
  */
 class LogInterceptor : Interceptor {
 
-    companion object{
+    companion object {
+
+        /**
+         * 编码方式
+         */
         private val UTF8 = Charset.forName("UTF-8")
     }
 
@@ -58,4 +62,5 @@ class LogInterceptor : Interceptor {
         }
 
     }
+
 }

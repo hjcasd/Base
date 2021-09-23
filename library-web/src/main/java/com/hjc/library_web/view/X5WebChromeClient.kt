@@ -15,4 +15,5 @@ class X5WebChromeClient(private val mProgressBar: ProgressBar) : WebChromeClient
         super.onProgressChanged(webView, newProgress)
         mProgressBar.progress = newProgress
     }
+
 }

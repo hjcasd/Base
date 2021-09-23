@@ -9,5 +9,5 @@ import android.view.View
  */
 interface OnViewClickListener {
     fun onViewLeftClick(view: View?)
-    fun OnViewRightClick(view: View?)
+    fun onViewRightClick(view: View?)
 }

@@ -22,13 +22,19 @@ import java.util.concurrent.TimeUnit
  */
 object SmartHttp {
 
-    // 初始化OkHttpClientBuilder
+    /**
+     * 初始化OkHttpClientBuilder
+     */
     private val mOkHttpBuilder: OkHttpClient.Builder = OkHttpClient.Builder()
 
-    // 初始化RetrofitBuilder
+    /**
+     * 初始化RetrofitBuilder
+     */
     private val mRetrofitBuilder: Retrofit.Builder = Retrofit.Builder()
 
-    // 默认超时时间
+    /**
+     * 默认超时时间
+     */
     private const val DEFAULT_TIME_OUT: Long = 20L
 
     init {

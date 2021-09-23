@@ -13,7 +13,9 @@ import com.tencent.smtt.sdk.WebViewClient
  */
 class X5WebViewClient(private val mProgressBar: ProgressBar) : WebViewClient() {
 
-    // 防止加载网页时调起系统浏览器
+    /**
+     * 防止加载网页时调起系统浏览器
+     */
     override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
         view?.loadUrl(url)
         return true
@@ -28,4 +30,5 @@ class X5WebViewClient(private val mProgressBar: ProgressBar) : WebViewClient() {
         super.onPageFinished(webView, s)
         mProgressBar.visibility = View.GONE
     }
+
 }

@@ -7,12 +7,19 @@ package com.hjc.library_common.router.path
  */
 object RouteHomePath {
 
+    /**
+     * Home路径
+     */
     private const val MODULE_HOME = "/module_home"
 
-    // Home页面
+    /**
+     * Home页面
+     */
     const val URL_HOME_ACTIVITY = "$MODULE_HOME/home/activity"
 
-    // HomeFragment
+    /**
+     * HomeFragment
+     */
     const val URL_HOME_FRAGMENT = "$MODULE_HOME/home/fragment"
 
     /**
@@ -25,7 +32,9 @@ object RouteHomePath {
     const val URL_JET_PAGING = "$MODULE_HOME/jetpack/paging"
     const val URL_JET_ROOM = "$MODULE_HOME/jetpack/room"
 
-    // Coroutines页面
+    /**
+     * Coroutines页面
+     */
     const val URL_COROUTINES = "$MODULE_HOME/coroutines"
 
 }

@@ -13,6 +13,9 @@ import com.tencent.smtt.sdk.QbSdk.PreInitCallback
  */
 object X5WebUtils {
 
+    /**
+     * 初始化
+     */
     fun init(context: Context) {
         if (context is Application) {
             // 搜集本地tbs内核信息并上报服务器，服务器返回结果决定使用哪个内核。

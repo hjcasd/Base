@@ -10,7 +10,12 @@ import java.io.IOException
  * @Description: Token拦截器
  */
 class TokenInterceptor(private val token: String?) : Interceptor {
+
     companion object {
+
+        /**
+         * Token key
+         */
         private const val USER_TOKEN = "Authorization"
     }
 
@@ -25,4 +30,5 @@ class TokenInterceptor(private val token: String?) : Interceptor {
             .build()
         return chain.proceed(request)
     }
+
 }

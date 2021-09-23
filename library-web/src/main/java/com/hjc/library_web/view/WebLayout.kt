@@ -36,6 +36,9 @@ class WebLayout @JvmOverloads constructor(
         initData()
     }
 
+    /**
+     * 初始化View
+     */
     private fun initView() {
         LayoutInflater.from(mContext).inflate(R.layout.web_layout, this)
         mWebProgress = findViewById(R.id.web_progress)
@@ -45,10 +48,9 @@ class WebLayout @JvmOverloads constructor(
         mWebProgress.setColor(Color.parseColor(webProgressColor))
     }
 
-    fun getWebView(): WebView {
-        return mWebView
-    }
-
+    /**
+     * 初始化数据
+     */
     private fun initData() {
         initWebViewSettings()
 
@@ -56,6 +58,9 @@ class WebLayout @JvmOverloads constructor(
         mWebView.webChromeClient = MyWebChromeClient(this)
     }
 
+    /**
+     * 初始化WebView配置
+     */
     @SuppressLint("SetJavaScriptEnabled")
     private fun initWebViewSettings() {
         val webSetting = mWebView.settings
@@ -92,6 +97,13 @@ class WebLayout @JvmOverloads constructor(
 
         //设置安全的来源
         webSetting.mixedContentMode = webSetting.mixedContentMode
+    }
+
+    /**
+     * 获取WebView
+     */
+    fun getWebView(): WebView {
+        return mWebView
     }
 
     /**

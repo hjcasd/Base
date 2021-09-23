@@ -15,6 +15,9 @@ import com.blankj.utilcode.util.LogUtils
 @Interceptor(name = "登录拦截器", priority = 8)
 class LoginInterceptor : IInterceptor {
 
+    /**
+     * 上下文
+     */
     private lateinit var mContext: Context
 
     override fun init(context: Context) {

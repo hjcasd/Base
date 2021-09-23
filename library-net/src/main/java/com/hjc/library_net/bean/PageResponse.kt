@@ -5,7 +5,7 @@ import java.io.Serializable
 /**
  * @Author: HJC
  * @Date: 2021/1/9 15:18
- * @Description: 列表通用Json
+ * @Description: 含列表的Json封装
  */
 data class PageResponse<T>(
     var datas: T,

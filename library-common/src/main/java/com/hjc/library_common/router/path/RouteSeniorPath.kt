@@ -7,14 +7,20 @@ package com.hjc.library_common.router.path
  */
 object RouteSeniorPath {
 
+    /**
+     * Senior路径
+     */
     private const val MODULE_SENIOR = "/module_senior"
 
-    // Senior页面
+    /**
+     * Senior页面
+     */
     const val URL_SENIOR_ACTIVITY = "$MODULE_SENIOR/senior/activity"
 
-    // SeniorFragment
+    /**
+     * SeniorFragment
+     */
     const val URL_SENIOR_FRAGMENT = "$MODULE_SENIOR/senior/fragment"
-
 
     /**
      * Touch页面
@@ -23,7 +29,6 @@ object RouteSeniorPath {
     const val URL_TOUCH_DEFAULT = "$MODULE_SENIOR/touch/default"
     const val URL_TOUCH_CANCEL = "$MODULE_SENIOR/touch/cancel"
     const val URL_TOUCH_INTERCEPT = "$MODULE_SENIOR/touch/intercept"
-
 
     /**
      * View页面
@@ -35,12 +40,10 @@ object RouteSeniorPath {
     const val URL_VIEW_PATH = "$MODULE_SENIOR/view/path"
     const val URL_VIEW_RADAR = "$MODULE_SENIOR/view/radar"
 
-
     /**
      * Theme页面
      */
     const val URL_THEME = "$MODULE_SENIOR/theme"
-
 
     /**
      * Animation页面

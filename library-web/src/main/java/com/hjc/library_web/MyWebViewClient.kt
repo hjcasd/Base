@@ -65,7 +65,9 @@ class MyWebViewClient(
         mWebLayout.hide()
     }
 
-    // 处理https请求
+    /**
+     * 处理https请求
+     */
     override fun onReceivedSslError(
         webView: WebView?,
         handler: SslErrorHandler?,
@@ -74,4 +76,5 @@ class MyWebViewClient(
         super.onReceivedSslError(webView, handler, error)
         handler?.proceed()
     }
+
 }

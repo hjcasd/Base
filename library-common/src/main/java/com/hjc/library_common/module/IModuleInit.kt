@@ -10,12 +10,13 @@ import com.hjc.library_base.BaseApplication
 interface IModuleInit {
 
     /**
-     * 需要优先初始化的
+     * 需要优先初始化的代码
      */
     fun onInitAhead(application: BaseApplication): Boolean
 
     /**
-     * 可以后初始化的
+     * 可以后初始化的代码
      */
     fun onInitAfter(application: BaseApplication): Boolean
+
 }
