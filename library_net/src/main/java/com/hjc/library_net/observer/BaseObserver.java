@@ -22,7 +22,6 @@ public abstract class BaseObserver<T> implements Observer<BaseResponse<T>> {
 
     private Disposable mDisposable;
 
-    private BaseResponse<T> mBaseResponse = new BaseResponse<>();
 
     public BaseObserver(BaseViewModel baseViewModel) {
         this.mBaseViewModel = baseViewModel;
@@ -44,21 +43,19 @@ public abstract class BaseObserver<T> implements Observer<BaseResponse<T>> {
 
     @Override
     public void onNext(BaseResponse<T> response) {
-        mBaseResponse = response;
-
         if (ServerCode.CODE_SUCCESS.equals(response.getErrorCode())) {
             //请求成功,Code正确
             onSuccess(response.getData());
         } else {
             //请求成功,Code错误,抛出ApiException
-            onError(new ApiException(response.getErrorMsg(), response.getErrorCode()));
+            onFailure(new ApiException(response.getErrorMsg(), response.getErrorCode()), response);
         }
     }
 
     @Override
     public void onError(@NonNull Throwable e) {
         dispose();
-        onFailure(e, mBaseResponse);
+        onFailure(e, null);
     }
 
     @Override
@@ -75,8 +72,8 @@ public abstract class BaseObserver<T> implements Observer<BaseResponse<T>> {
         }
     }
 
-    public abstract void onSuccess(T result);
+    public abstract void onSuccess(T response);
 
-    public abstract void onFailure(@NonNull Throwable e, BaseResponse<T> baseResponse);
+    public abstract void onFailure(@NonNull Throwable e, BaseResponse<T> response);
 
 }

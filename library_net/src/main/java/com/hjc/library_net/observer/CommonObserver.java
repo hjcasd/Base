@@ -23,12 +23,12 @@ public class CommonObserver<T> extends BaseObserver<T> {
     }
 
     @Override
-    public void onSuccess(T result) {
+    public void onSuccess(T response) {
 
     }
 
     @Override
-    public void onFailure(@NonNull Throwable e, BaseResponse<T> baseResponse) {
+    public void onFailure(@NonNull Throwable e, BaseResponse<T> response) {
         String errorMsg = ExceptionUtils.handleException(e);
         ToastUtils.showShort(errorMsg);
     }
