@@ -18,7 +18,7 @@ import io.reactivex.disposables.Disposable;
 public abstract class BasePageObserver<T> implements Observer<BaseResponse<T>> {
 
     private final BaseViewModel mBaseViewModel;
-    private  boolean mIsShowProgress = false;
+    private boolean mIsShowProgress = false;
 
     private Disposable mDisposable;
 
@@ -57,11 +57,16 @@ public abstract class BasePageObserver<T> implements Observer<BaseResponse<T>> {
 
     @Override
     public void onError(@NonNull Throwable e) {
+        dispose();
         onFailure(e, mBaseResponse);
     }
 
     @Override
     public void onComplete() {
+        dispose();
+    }
+
+    private void dispose() {
         if (mDisposable != null && !mDisposable.isDisposed()) {
             mDisposable.dispose();
         }
