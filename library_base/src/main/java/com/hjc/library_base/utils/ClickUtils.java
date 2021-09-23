@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * @Author: HJC
  * @Date: 2019/1/7 11:34
- * @Description: 点击工具类
+ * @Description: 点击工具类(有问题,待优化)
  */
 public class ClickUtils {
 

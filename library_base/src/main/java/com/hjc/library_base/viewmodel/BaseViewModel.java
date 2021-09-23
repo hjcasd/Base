@@ -19,27 +19,13 @@ import io.reactivex.disposables.Disposable;
  */
 public class BaseViewModel extends AndroidViewModel implements IViewModelAction {
 
-    private CompositeDisposable mCompositeDisposable;
     private final MutableLiveData<BaseActionEvent> actionLiveData;
+
+    private CompositeDisposable mCompositeDisposable;
 
     public BaseViewModel(@NonNull Application application) {
         super(application);
         actionLiveData = new MutableLiveData<>();
-    }
-
-    public void addDisposable(Disposable disposable) {
-        if (mCompositeDisposable == null) {
-            mCompositeDisposable = new CompositeDisposable();
-        }
-        mCompositeDisposable.add(disposable);
-    }
-
-    @Override
-    protected void onCleared() {
-        super.onCleared();
-        if (mCompositeDisposable != null && !mCompositeDisposable.isDisposed()) {
-            mCompositeDisposable.clear();
-        }
     }
 
     @Override
@@ -87,6 +73,21 @@ public class BaseViewModel extends AndroidViewModel implements IViewModelAction 
     @Override
     public MutableLiveData<BaseActionEvent> getActionLiveData() {
         return actionLiveData;
+    }
+
+    public void addDisposable(Disposable disposable) {
+        if (mCompositeDisposable == null) {
+            mCompositeDisposable = new CompositeDisposable();
+        }
+        mCompositeDisposable.add(disposable);
+    }
+
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+        if (mCompositeDisposable != null && !mCompositeDisposable.isDisposed()) {
+            mCompositeDisposable.clear();
+        }
     }
 
 }

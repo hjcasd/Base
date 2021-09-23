@@ -20,8 +20,8 @@ import com.hjc.library_base.base.BaseActionEvent;
 import com.hjc.library_base.base.ILoadingView;
 import com.hjc.library_base.base.IStatusView;
 import com.hjc.library_base.base.IViewModelAction;
-import com.hjc.library_base.loadsir.BaseLoadingViewImpl;
-import com.hjc.library_base.loadsir.BaseStatusViewImpl;
+import com.hjc.library_base.loadsir.DefaultLoadingViewImpl;
+import com.hjc.library_base.loadsir.DefaultStatusViewImpl;
 import com.hjc.library_base.utils.ClickUtils;
 import com.hjc.library_base.viewmodel.BaseViewModel;
 import com.kingja.loadsir.callback.Callback;
@@ -185,14 +185,14 @@ public abstract class BaseLazyFragment<VDB extends ViewDataBinding, VM extends B
      * 初始化Loading
      */
     public ILoadingView createLoadingView() {
-        return new BaseLoadingViewImpl(mContext);
+        return new DefaultLoadingViewImpl(mContext);
     }
 
     /**
      * 初始化StatusView
      */
     public IStatusView createStatusView() {
-        return new BaseStatusViewImpl();
+        return new DefaultStatusViewImpl();
     }
 
     /**

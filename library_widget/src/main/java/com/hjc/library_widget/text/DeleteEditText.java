@@ -1,6 +1,5 @@
 package com.hjc.library_widget.text;
 
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Rect;
@@ -23,8 +22,16 @@ import java.util.Objects;
  * @Description: 带删除图标的EditText
  */
 public class DeleteEditText extends AppCompatEditText implements TextWatcher, View.OnFocusChangeListener, View.OnKeyListener {
-    private Drawable mClearDrawable;           //保存 EditText右侧的删除按钮
-    private boolean hasFocus;                  //保存控件是否获取到焦点
+
+    /**
+     * 保存 EditText右侧的删除按钮
+     */
+    private Drawable mClearDrawable;
+
+    /**
+     * 保存控件是否获取到焦点
+     */
+    private boolean hasFocus;
 
     private OnSearchClickListener listener;
 
@@ -87,10 +94,13 @@ public class DeleteEditText extends AppCompatEditText implements TextWatcher, Vi
         if (event.getAction() == MotionEvent.ACTION_UP) {
             int x = (int) event.getX();
             int y = (int) event.getY();
-            if (getCompoundDrawables()[2] != null) { //清除按钮存在时
+            //清除按钮存在时
+            if (getCompoundDrawables()[2] != null) {
                 Rect rect = getCompoundDrawables()[2].getBounds();
-                int height = rect.height(); //按钮高
-                int distance = (getHeight() - height) / 2; //按钮距离上边缘（下边缘）的距离
+                //按钮高
+                int height = rect.height();
+                //按钮距离上边缘（下边缘）的距离
+                int distance = (getHeight() - height) / 2;
                 boolean isInnerWidth = x > (getWidth() - getTotalPaddingRight()) && x < (getWidth() - getPaddingRight());
                 boolean isInnerHeight = y > distance && y < (distance + height);
                 if (isInnerWidth && isInnerHeight) {

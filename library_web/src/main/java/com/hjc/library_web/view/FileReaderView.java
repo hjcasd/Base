@@ -12,7 +12,6 @@ import com.tencent.smtt.sdk.TbsReaderView;
 
 import java.io.File;
 
-
 /**
  * @Author: HJC
  * @Date: 2019/11/6 14:14
@@ -20,8 +19,8 @@ import java.io.File;
  */
 public class FileReaderView extends FrameLayout implements TbsReaderView.ReaderCallback {
 
-    private TbsReaderView mTbsReaderView;
     private final Context mContext;
+    private TbsReaderView mTbsReaderView;
 
     public FileReaderView(Context context) {
         this(context, null);

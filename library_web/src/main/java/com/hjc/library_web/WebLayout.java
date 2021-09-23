@@ -17,7 +17,6 @@ import com.hjc.library_web.view.WebProgressView;
 import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebView;
 
-
 /**
  * @Author: HJC
  * @Date: 2019/7/18 10:42

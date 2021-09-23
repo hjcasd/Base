@@ -15,7 +15,7 @@ public class AllHostnameVerifier implements HostnameVerifier {
     @SuppressLint("BadHostnameVerifier")
     @Override
     public boolean verify(String hostname, SSLSession session) {
-        //        校验hostname是否正确，如果正确则建立连接
+        //校验hostname是否正确，如果正确则建立连接
         return true;
     }
 }

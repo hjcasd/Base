@@ -10,6 +10,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
  * @Description: 禁止水平,垂直RecyclerView滑动的管理器
  */
 public class NoScrollLinearManager extends LinearLayoutManager {
+
+    /**
+     * 是否可滑动
+     */
     private boolean isScrollEnabled = true;
 
     public NoScrollLinearManager(Context context) {

@@ -24,12 +24,18 @@ public class LinearItemDecoration extends RecyclerView.ItemDecoration {
 
     public static final int VERTICAL_LIST = LinearLayoutManager.VERTICAL;
 
-    private final Drawable mDivider;
+    /**
+     * 分割线Drawable
+     */
+    private final Drawable mDividerDrawable;
 
+    /**
+     * 分割线方向
+     */
     private int mOrientation;
 
     public LinearItemDecoration(Context context, int orientation, int drawableId) {
-        mDivider = ContextCompat.getDrawable(context, drawableId);
+        mDividerDrawable = ContextCompat.getDrawable(context, drawableId);
         setOrientation(orientation);
     }
 
@@ -58,9 +64,9 @@ public class LinearItemDecoration extends RecyclerView.ItemDecoration {
             final View child = parent.getChildAt(i);
             final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child.getLayoutParams();
             final int top = child.getBottom() + params.bottomMargin;
-            final int bottom = top + mDivider.getIntrinsicHeight();
-            mDivider.setBounds(left, top, right, bottom);
-            mDivider.draw(c);
+            final int bottom = top + mDividerDrawable.getIntrinsicHeight();
+            mDividerDrawable.setBounds(left, top, right, bottom);
+            mDividerDrawable.draw(c);
         }
     }
 
@@ -73,9 +79,9 @@ public class LinearItemDecoration extends RecyclerView.ItemDecoration {
             final View child = parent.getChildAt(i);
             final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child.getLayoutParams();
             final int left = child.getRight() + params.rightMargin;
-            final int right = left + mDivider.getIntrinsicHeight();
-            mDivider.setBounds(left, top, right, bottom);
-            mDivider.draw(c);
+            final int right = left + mDividerDrawable.getIntrinsicHeight();
+            mDividerDrawable.setBounds(left, top, right, bottom);
+            mDividerDrawable.draw(c);
         }
     }
 
@@ -83,11 +89,12 @@ public class LinearItemDecoration extends RecyclerView.ItemDecoration {
     public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
         if (mOrientation == VERTICAL_LIST) {
             int pos = parent.getChildLayoutPosition(view);
-            if (pos != Objects.requireNonNull(parent.getAdapter()).getItemCount() - 1) {  //最后一个不添加分割线
-                outRect.set(0, 0, 0, mDivider.getIntrinsicHeight());
+            //最后一个不添加分割线
+            if (pos != Objects.requireNonNull(parent.getAdapter()).getItemCount() - 1) {
+                outRect.set(0, 0, 0, mDividerDrawable.getIntrinsicHeight());
             }
         } else {
-            outRect.set(0, 0, mDivider.getIntrinsicWidth(), 0);
+            outRect.set(0, 0, mDividerDrawable.getIntrinsicWidth(), 0);
         }
     }
 }

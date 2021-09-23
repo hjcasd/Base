@@ -1,6 +1,5 @@
 package com.hjc.library_web.view;
 
-
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
@@ -33,62 +32,77 @@ public class WebProgressView extends FrameLayout {
      * 默认匀速动画最大的时长
      */
     public static final int MAX_UNIFORM_SPEED_DURATION = 8 * 1000;
+
     /**
      * 默认加速后减速动画最大时长
      */
     public static final int MAX_DECELERATE_SPEED_DURATION = 450;
+
     /**
      * 95f-100f时，透明度1f-0f时长
      */
     public static final int DO_END_ALPHA_DURATION = 630;
+
     /**
      * 95f - 100f动画时长
      */
     public static final int DO_END_PROGRESS_DURATION = 500;
+
     /**
      * 当前匀速动画最大的时长
      */
     private static int CURRENT_MAX_UNIFORM_SPEED_DURATION = MAX_UNIFORM_SPEED_DURATION;
+
     /**
      * 当前加速后减速动画最大时长
      */
     private static int CURRENT_MAX_DECELERATE_SPEED_DURATION = MAX_DECELERATE_SPEED_DURATION;
+
     /**
      * 默认的高度(dp)
      */
     public static final int WEB_PROGRESS_DEFAULT_HEIGHT = 3;
+
     /**
      * 进度条颜色默认
      */
     public static final String WEB_PROGRESS_COLOR = "#2483D9";
+
     /**
      * 进度条颜色
      */
     private int mColor;
+
     /**
      * 进度条的画笔
      */
     private Paint mPaint;
+
     /**
      * 进度条动画
      */
     private Animator mAnimator;
+
     /**
      * 控件的宽度
      */
     private int mTargetWidth = 0;
+
     /**
      * 控件的高度
      */
     private int mTargetHeight;
+
     /**
      * 标志当前进度条的状态
      */
     private int TAG = 0;
+
     /**
      * 第一次过来进度show，后面就是setProgress
      */
     private boolean isShow = false;
+
     public static final int UN_START = 0;
     public static final int STARTED = 1;
     public static final int FINISH = 2;

@@ -15,6 +15,10 @@ import retrofit2.HttpException;
  */
 public class ExceptionUtils {
 
+    private ExceptionUtils() {
+        throw new UnsupportedOperationException("u can't instantiate me...");
+    }
+
     public static String handleException(Throwable e) {
         String error = "未知错误";
         if (e instanceof UnknownHostException) {

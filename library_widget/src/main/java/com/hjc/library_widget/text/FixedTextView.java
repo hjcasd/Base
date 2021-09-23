@@ -14,6 +14,7 @@ import androidx.appcompat.widget.AppCompatTextView;
  * @Description: 解决TextView默认上下的padding(对UI要求严格时使用)
  */
 public class FixedTextView extends AppCompatTextView {
+
     private int mAdditionalPadding;
 
     public FixedTextView(Context context) {

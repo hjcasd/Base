@@ -44,7 +44,8 @@ public class GzipRequestInterceptor implements Interceptor {
 
             @Override
             public long contentLength() {
-                return -1; // 无法提前知道压缩后的数据大小
+                //无法提前知道压缩后的数据大小
+                return -1;
             }
 
             @Override

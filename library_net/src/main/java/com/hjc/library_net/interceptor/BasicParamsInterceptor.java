@@ -188,4 +188,5 @@ public class BasicParamsInterceptor implements Interceptor {
             return interceptor;
         }
     }
+
 }

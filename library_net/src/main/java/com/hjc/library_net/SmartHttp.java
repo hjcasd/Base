@@ -14,6 +14,11 @@ import retrofit2.CallAdapter;
 import retrofit2.Converter;
 import retrofit2.Retrofit;
 
+/**
+ * @Author: HJC
+ * @Date: 2021/9/23 10:27
+ * @Description: Http封装类
+ */
 public class SmartHttp {
 
     private static SmartHttp mSmartHttp;

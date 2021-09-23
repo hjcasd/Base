@@ -6,6 +6,11 @@ import io.reactivex.Observable;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
 
+/**
+ * @Author: HJC
+ * @Date: 2021/9/23 10:26
+ * @Description: 通用接口
+ */
 public interface CommonService {
 
     /**

@@ -17,13 +17,13 @@ import androidx.annotation.Nullable;
 import com.blankj.utilcode.util.ConvertUtils;
 import com.hjc.library_widget.R;
 
-
 /**
  * @Author: HJC
  * @Date: 2019/1/7 11:32
  * @Description: 自定义标题栏(代替Toolbar使用)
  */
 public class TitleBar extends LinearLayout {
+
     private String mTitleText;
     private float mTitleSize;
     private int mTitleColor;

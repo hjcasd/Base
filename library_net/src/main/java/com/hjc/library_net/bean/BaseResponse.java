@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
  * @Description: 通用返回Json封装
  */
 public class BaseResponse<T> {
+
     private String errorCode;
     private String errorMsg;
     private T data;

@@ -10,11 +10,11 @@ import com.hjc.library_base.dialog.LoadingDialog;
  * @Date: 2021/6/25 10:01
  * @Description: 默认加载框实现
  */
-public class BaseLoadingViewImpl implements ILoadingView {
+public class DefaultLoadingViewImpl implements ILoadingView {
 
     private final LoadingDialog mLoadingDialog;
 
-    public BaseLoadingViewImpl(Context context){
+    public DefaultLoadingViewImpl(Context context){
         mLoadingDialog = new LoadingDialog.Builder(context)
                 .setMessage("加载中...")
                 .setCancelable(true)

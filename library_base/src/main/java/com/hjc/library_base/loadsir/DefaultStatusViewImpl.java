@@ -23,7 +23,7 @@ import io.reactivex.schedulers.Schedulers;
  * @Date: 2021/6/25 10:02
  * @Description: 默认状态布局实现
  */
-public class BaseStatusViewImpl implements IStatusView {
+public class DefaultStatusViewImpl implements IStatusView {
 
     private LoadService<?> mLoadService;
 

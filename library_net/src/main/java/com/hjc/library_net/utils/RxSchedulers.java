@@ -13,6 +13,10 @@ import io.reactivex.schedulers.Schedulers;
  */
 public class RxSchedulers {
 
+    private RxSchedulers() {
+        throw new UnsupportedOperationException("u can't instantiate me...");
+    }
+
     /**
      * Observable 切换到主线程
      */

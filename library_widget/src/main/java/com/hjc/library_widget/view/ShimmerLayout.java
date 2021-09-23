@@ -74,10 +74,7 @@ public class ShimmerLayout extends FrameLayout {
 
         setWillNotDraw(false);
 
-        TypedArray a = context.getTheme().obtainStyledAttributes(
-                attrs,
-                R.styleable.ShimmerLayout,
-                0, 0);
+        TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.ShimmerLayout, 0, 0);
 
         try {
             shimmerAngle = a.getInteger(R.styleable.ShimmerLayout_shimmer_angle, DEFAULT_ANGLE);

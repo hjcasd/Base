@@ -6,6 +6,7 @@ package com.hjc.library_base.event;
  * @Description: 封装用于EventBus传递消息类
  */
 public class MessageEvent<T> {
+
     private int code;
     private T data;
 

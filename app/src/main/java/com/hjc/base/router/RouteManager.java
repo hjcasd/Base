@@ -18,6 +18,10 @@ import com.hjc.library_base.utils.ClickUtils;
  */
 public class RouteManager {
 
+    private RouteManager() {
+        throw new UnsupportedOperationException("u can't instantiate me...");
+    }
+
     /**
      * 页面跳转
      *

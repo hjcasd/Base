@@ -7,8 +7,11 @@ import com.blankj.utilcode.util.LogUtils;
  * @Date: 2019/3/7 16:33
  * @Description: 格式化Json工具类
  */
-
 public class FormatUtils {
+
+    private FormatUtils() {
+        throw new UnsupportedOperationException("u can't instantiate me...");
+    }
 
     /**
      * 将json格式化并在logcat中输出

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.webkit.CookieManager;
 import android.webkit.WebView;
 
-
 /**
  * @Author: HJC
  * @Date: 2021/2/2 17:21
@@ -16,6 +15,10 @@ public final class WebViewManager {
         throw new UnsupportedOperationException("u can't instantiate me...");
     }
 
+    /**
+     * 清除Webview缓存
+     * @param context 上下文
+     */
     public static void clearWebViewCache(Context context) {
         //安卓自带浏览器内核
         CookieManager cookieManager = CookieManager.getInstance();

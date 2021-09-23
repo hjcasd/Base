@@ -10,6 +10,10 @@ import androidx.recyclerview.widget.GridLayoutManager;
  * @Description: 禁止网格RecyclerView滑动的管理器
  */
 public class NoScrollGridManager extends GridLayoutManager {
+
+    /**
+     * 是否可滑动
+     */
     private boolean isScrollEnabled = true;
 
     public NoScrollGridManager(Context context, int spanCount) {

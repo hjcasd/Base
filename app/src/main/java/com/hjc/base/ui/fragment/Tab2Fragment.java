@@ -10,7 +10,6 @@ import com.hjc.base.databinding.FragmentTab2Binding;
 import com.hjc.base.viewmodel.CommonViewModel;
 import com.hjc.library_base.fragment.BaseFragment;
 
-
 /**
  * @Author: HJC
  * @Date: 2019/7/26 10:42

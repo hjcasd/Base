@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.Objects;
 
-
 /**
  * @Author: HJC
  * @Date: 2019/1/7 11:29
@@ -21,11 +20,13 @@ import java.util.Objects;
  */
 public class GridItemDecoration extends RecyclerView.ItemDecoration {
 
-    private final Drawable mDrawable;
+    /**
+     * 分割线Drawable
+     */
+    private final Drawable mDividerDrawable;
 
     public GridItemDecoration(Context context, int resId) {
-        //获取 Drawable 对象
-        mDrawable = ContextCompat.getDrawable(context, resId);
+        mDividerDrawable = ContextCompat.getDrawable(context, resId);
     }
 
     @Override
@@ -36,11 +37,11 @@ public class GridItemDecoration extends RecyclerView.ItemDecoration {
             View mChildView = parent.getChildAt(i);
             RecyclerView.LayoutParams mLayoutParams = (RecyclerView.LayoutParams) mChildView.getLayoutParams();
             int left = mChildView.getLeft() - mLayoutParams.leftMargin;
-            int right = mChildView.getRight() + mDrawable.getIntrinsicWidth() + mLayoutParams.rightMargin;
+            int right = mChildView.getRight() + mDividerDrawable.getIntrinsicWidth() + mLayoutParams.rightMargin;
             int top = mChildView.getBottom() + mLayoutParams.bottomMargin;
-            int bottom = top + mDrawable.getIntrinsicHeight();
-            mDrawable.setBounds(left, top, right, bottom);
-            mDrawable.draw(canvas);
+            int bottom = top + mDividerDrawable.getIntrinsicHeight();
+            mDividerDrawable.setBounds(left, top, right, bottom);
+            mDividerDrawable.draw(canvas);
         }
 
         //绘制垂直方向
@@ -48,18 +49,18 @@ public class GridItemDecoration extends RecyclerView.ItemDecoration {
             View childView = parent.getChildAt(i);
             RecyclerView.LayoutParams mLayoutParams = (RecyclerView.LayoutParams) childView.getLayoutParams();
             int left = childView.getRight() + mLayoutParams.rightMargin;
-            int right = left + mDrawable.getIntrinsicWidth();
+            int right = left + mDividerDrawable.getIntrinsicWidth();
             int top = childView.getTop() - mLayoutParams.topMargin;
             int bottom = childView.getBottom() + mLayoutParams.bottomMargin;
-            mDrawable.setBounds(left, top, right, bottom);
-            mDrawable.draw(canvas);
+            mDividerDrawable.setBounds(left, top, right, bottom);
+            mDividerDrawable.draw(canvas);
         }
     }
 
     @Override
     public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
-        int bottom = mDrawable.getIntrinsicHeight();
-        int right = mDrawable.getIntrinsicWidth();
+        int bottom = mDividerDrawable.getIntrinsicHeight();
+        int right = mDividerDrawable.getIntrinsicWidth();
         //如果是最后一列，留出位置
         if (isLastCol(view, parent)) {
             right = 0;

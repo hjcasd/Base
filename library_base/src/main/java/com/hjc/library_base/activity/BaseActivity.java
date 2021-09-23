@@ -16,12 +16,11 @@ import com.hjc.library_base.base.BaseActionEvent;
 import com.hjc.library_base.base.ILoadingView;
 import com.hjc.library_base.base.IStatusView;
 import com.hjc.library_base.base.IViewModelAction;
-import com.hjc.library_base.loadsir.BaseLoadingViewImpl;
-import com.hjc.library_base.loadsir.BaseStatusViewImpl;
+import com.hjc.library_base.loadsir.DefaultLoadingViewImpl;
+import com.hjc.library_base.loadsir.DefaultStatusViewImpl;
 import com.hjc.library_base.utils.ClickUtils;
 import com.hjc.library_base.viewmodel.BaseViewModel;
 import com.kingja.loadsir.callback.Callback;
-
 
 /**
  * @Author: HJC
@@ -136,14 +135,14 @@ public abstract class BaseActivity<VDB extends ViewDataBinding, VM extends BaseV
      * 初始化Loading
      */
     public ILoadingView createLoadingView() {
-        return new BaseLoadingViewImpl(this);
+        return new DefaultLoadingViewImpl(this);
     }
 
     /**
      * 初始化StatusView
      */
     public IStatusView createStatusView() {
-        return new BaseStatusViewImpl();
+        return new DefaultStatusViewImpl();
     }
 
     /**

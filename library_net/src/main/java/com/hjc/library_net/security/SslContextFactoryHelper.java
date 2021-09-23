@@ -12,6 +12,10 @@ import javax.net.ssl.SSLSocketFactory;
  */
 public class SslContextFactoryHelper {
 
+    private SslContextFactoryHelper() {
+        throw new UnsupportedOperationException("u can't instantiate me...");
+    }
+
     /**
      * 获取证书
      */

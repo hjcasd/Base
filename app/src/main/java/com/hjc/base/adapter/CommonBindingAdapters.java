@@ -23,7 +23,6 @@ import com.bumptech.glide.request.transition.Transition;
 
 import jp.wasabeef.glide.transformations.BlurTransformation;
 
-
 /**
  * @Author: HJC
  * @Date: 2020/5/14 15:45

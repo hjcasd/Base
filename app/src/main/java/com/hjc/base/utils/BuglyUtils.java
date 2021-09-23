@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.text.TextUtils;
 
-import com.hjc.base.BuildConfig;
+import com.hjc.base.global.AppConstants;
 import com.tencent.bugly.crashreport.CrashReport;
 
 import java.io.BufferedReader;
@@ -31,7 +31,7 @@ public class BuglyUtils {
             // 设置是否为上报进程
             CrashReport.UserStrategy strategy = new CrashReport.UserStrategy(context);
             strategy.setUploadProcess(processName == null || processName.equals(packageName));
-            CrashReport.initCrashReport(context, "04002332f3", BuildConfig.DEBUG, strategy);
+            CrashReport.initCrashReport(context, "04002332f3", AppConstants.APP_IS_DEBUG, strategy);
         } else {
             throw new UnsupportedOperationException("context must be application...");
         }
