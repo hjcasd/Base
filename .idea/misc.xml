@@ -8,11 +8,14 @@
         <entry key="..\:/MyProjects/Base/app/src/main/res/drawable/shape_bg_splash.xml" value="0.19296875" />
         <entry key="..\:/MyProjects/Base/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/MyProjects/Base/app/src/main/res/layout/activity_splash.xml" value="0.17847222222222223" />
+        <entry key="..\:/MyProjects/Base/app/src/main/res/layout/activity_video.xml" value="0.180859375" />
         <entry key="..\:/MyProjects/Base/app/src/main/res/layout/activity_web.xml" value="0.1" />
-        <entry key="..\:/MyProjects/Base/app/src/main/res/layout/fragment_tab1.xml" value="0.24114583333333334" />
+        <entry key="..\:/MyProjects/Base/app/src/main/res/layout/fragment_piture.xml" value="0.180859375" />
+        <entry key="..\:/MyProjects/Base/app/src/main/res/layout/fragment_tab1.xml" value="0.180859375" />
         <entry key="..\:/MyProjects/Base/app/src/main/res/layout/fragment_tab2.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/app/src/main/res/layout/fragment_tab3.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/app/src/main/res/layout/fragment_tab4.xml" value="0.24114583333333334" />
+        <entry key="..\:/MyProjects/Base/app/src/main/res/layout/fragment_video.xml" value="0.180859375" />
         <entry key="..\:/MyProjects/Base/app/src/main/res/menu/menu_tab.xml" value="0.17847222222222223" />
         <entry key="..\:/MyProjects/Base/app/src/main/res/menu/menu_web_view.xml" value="0.1" />
         <entry key="..\:/MyProjects/Base/library_base/src/main/res/drawable/base_shape_btn_red.xml" value="0.1" />

@@ -8,7 +8,13 @@
         <item name="android:windowBackground">@drawable/shape_bg_splash</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <!--不让windowBackground延申到navigation bar区域-->
-<!--        <item name="android:windowDrawsSystemBarBackgrounds">false</item>-->
+        <!--        <item name="android:windowDrawsSystemBarBackgrounds">false</item>-->
+    </style>
+
+    <style name="VideoTheme" parent="BaseAppTheme">
+        <item name="android:windowBackground">@color/app_black</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowFullscreen">true</item>
     </style>
 
 </resources>

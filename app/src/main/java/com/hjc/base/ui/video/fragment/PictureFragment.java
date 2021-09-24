@@ -1,4 +1,4 @@
-package com.hjc.base.ui.fragment;
+package com.hjc.base.ui.video.fragment;
 
 import android.os.Bundle;
 import android.view.View;
@@ -6,9 +6,7 @@ import android.view.View;
 import androidx.annotation.Nullable;
 
 import com.hjc.base.R;
-import com.hjc.base.databinding.FragmentTab1Binding;
-import com.hjc.base.router.RouteManager;
-import com.hjc.base.router.RoutePath;
+import com.hjc.base.databinding.FragmentPitureBinding;
 import com.hjc.base.viewmodel.CommonViewModel;
 import com.hjc.library_base.fragment.BaseFragment;
 
@@ -17,15 +15,15 @@ import com.hjc.library_base.fragment.BaseFragment;
  * @Date: 2019/7/26 10:42
  * @Description: Tab1
  */
-public class Tab1Fragment extends BaseFragment<FragmentTab1Binding, CommonViewModel> {
+public class PictureFragment extends BaseFragment<FragmentPitureBinding, CommonViewModel> {
 
-    public static Tab1Fragment newInstance() {
-        return new Tab1Fragment();
+    public static PictureFragment newInstance() {
+        return new PictureFragment();
     }
 
     @Override
     public int getLayoutId() {
-        return R.layout.fragment_tab1;
+        return R.layout.fragment_piture;
     }
 
     @Override
@@ -45,9 +43,7 @@ public class Tab1Fragment extends BaseFragment<FragmentTab1Binding, CommonViewMo
 
     @Override
     public void onSingleClick(View v) {
-        if (v.getId() == R.id.btn1){
-            RouteManager.jump(RoutePath.URL_VIDEO);
-        }
+
     }
 
 }

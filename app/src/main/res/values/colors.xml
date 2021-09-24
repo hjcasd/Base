@@ -2,6 +2,7 @@
 <resources>
     <color name="app_color">#FF6200EE</color>
     <color name="app_bg">#F1F3F4</color>
+    <color name="app_black">#000000</color>
     <color name="app_white">#ffffff</color>
     <color name="app_gray">#a4a2a2</color>
 </resources>

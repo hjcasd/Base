@@ -24,4 +24,9 @@ public class RoutePath {
      */
     public static final String URL_WEB = "/base/web";
 
+    /**
+     * video页面
+     */
+    public static final String URL_VIDEO = "/base/video";
+
 }

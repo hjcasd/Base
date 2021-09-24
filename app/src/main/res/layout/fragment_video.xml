@@ -15,20 +15,10 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.hjc.library_widget.bar.TitleBar
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/player_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/app_color"
-            app:titleColor="@color/app_white"
-            app:titleText="@string/app_tab1" />
-
-        <Button
-            android:id="@+id/btn1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="@{onClickListener}"
-            android:textColor="@color/base_white"
-            android:text="测试" />
+            android:layout_height="match_parent"/>
 
     </LinearLayout>
 
