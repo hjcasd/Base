@@ -45,7 +45,6 @@ public abstract class BaseActivity<VDB extends ViewDataBinding, VM extends BaseV
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        init();
         mBindingView = DataBindingUtil.setContentView(this, getLayoutId());
         mBindingView.setLifecycleOwner(this);
 
@@ -54,10 +53,6 @@ public abstract class BaseActivity<VDB extends ViewDataBinding, VM extends BaseV
         initData(savedInstanceState);
         observeLiveData();
         addListeners();
-    }
-
-    protected void init(){
-
     }
 
     /**
