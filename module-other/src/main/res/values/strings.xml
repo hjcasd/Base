@@ -6,6 +6,7 @@
     <string name="other_btn2">登录案例演示</string>
     <string name="other_btn3">录音案例演示</string>
     <string name="other_btn4">常见列表效果演示</string>
+    <string name="other_btn5">视频播放演示</string>
 
     <string name="other_login_title">登录案例</string>
     <string name="other_login_username_hint">请输入用户名</string>

@@ -45,6 +45,11 @@
             android:name=".ui.scroll.ScrollIndicatorActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".ui.video.VideoActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/VideoTheme" />
+
     </application>
 
 </manifest>

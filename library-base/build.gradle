@@ -137,4 +137,8 @@ dependencies {
     // 动画
     api 'com.github.ybq:Android-SpinKit:1.4.0'
 
+    // ExoPlayer
+    api 'com.google.android.exoplayer:exoplayer-core:2.13.3'
+    api 'com.google.android.exoplayer:exoplayer-ui:2.13.3'
+
 }
