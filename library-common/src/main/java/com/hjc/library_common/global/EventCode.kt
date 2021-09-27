@@ -22,4 +22,14 @@ object EventCode {
      */
     const val LOAD_SIR_RETRY = "load_sir_retry"
 
+    /**
+     * 隐藏PlaneView消息
+     */
+    const val HIDE_PLANE_VIEW = "hide_plane_view"
+
+    /**
+     * 隐藏SeatView消息
+     */
+    const val HIDE_SEAT_VIEW = "hide_seat_view"
+
 }

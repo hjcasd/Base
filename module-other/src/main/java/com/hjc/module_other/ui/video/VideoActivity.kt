@@ -8,8 +8,10 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.blankj.utilcode.util.BarUtils
-import com.blankj.utilcode.util.ToastUtils
 import com.hjc.library_base.activity.BaseActivity
+import com.hjc.library_base.event.EventManager
+import com.hjc.library_base.event.MessageEvent
+import com.hjc.library_common.global.EventCode
 import com.hjc.library_common.router.path.RouteOtherPath
 import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.module_other.R
@@ -17,6 +19,9 @@ import com.hjc.module_other.adapter.MyFragmentPagerAdapter
 import com.hjc.module_other.databinding.OtherActivityVideoBinding
 import com.hjc.module_other.ui.video.fragment.PictureFragment
 import com.hjc.module_other.ui.video.fragment.VideoFragment
+import com.hjc.module_other.utils.ViewUtils
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 import java.util.*
 
 /**
@@ -45,6 +50,8 @@ class VideoActivity : BaseActivity<OtherActivityVideoBinding, CommonViewModel>()
     }
 
     override fun initData(savedInstanceState: Bundle?) {
+        EventManager.register(this)
+
         fragments.add(VideoFragment.newInstance())
         fragments.add(PictureFragment.newInstance())
 
@@ -77,18 +84,64 @@ class VideoActivity : BaseActivity<OtherActivityVideoBinding, CommonViewModel>()
             R.id.iv_close -> finish()
 
             R.id.iv_plane -> {
-                mBindingView.planeInfoView.visibility = View.VISIBLE
+                setPanelEnable(false)
+                mBindingView.ivPlane.setImageResource(R.mipmap.other_icon_plane_red)
+                ViewUtils.showRightView(mBindingView.planeInfoView)
             }
 
             R.id.iv_seat -> {
-                mBindingView.seatInfoView.visibility = View.VISIBLE
+                setPanelEnable(false)
+                mBindingView.ivSeat.setImageResource(R.mipmap.other_icon_seat_red)
+                ViewUtils.showRightView(mBindingView.seatInfoView)
             }
 
-            R.id.ll_switch -> ToastUtils.showShort("开关")
+            R.id.ll_switch1 -> {
+                mBindingView.llSwitch1.visibility = View.GONE
+                ViewUtils.showLeftView(mBindingView.llFunction)
+            }
+
+            R.id.ll_switch2 -> {
+                ViewUtils.hideLeftView(mBindingView.llFunction, mBindingView.llSwitch1)
+            }
 
             else -> {
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        EventManager.unregister(this)
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun handleEvent(event: MessageEvent<*>) {
+        when (event.code) {
+            EventCode.HIDE_PLANE_VIEW -> {
+                setPanelEnable(true)
+                mBindingView.ivPlane.setImageResource(R.mipmap.other_icon_plane_white)
+                ViewUtils.hideRightView(mBindingView.planeInfoView)
+            }
+
+            EventCode.HIDE_SEAT_VIEW -> {
+                setPanelEnable(true)
+                mBindingView.ivSeat.setImageResource(R.mipmap.other_icon_seat_white)
+                ViewUtils.hideRightView(mBindingView.seatInfoView)
+            }
+
+            else -> {
+
+            }
+        }
+    }
+
+    /**
+     * 设置左边面板是否可点击,ViewPager是否可滑动
+     */
+    private fun setPanelEnable(isEnable: Boolean) {
+        mBindingView.ivPlane.isEnabled = isEnable
+        mBindingView.ivSeat.isEnabled = isEnable
+        mBindingView.viewPager.setCanScroll(isEnable)
     }
 
 }

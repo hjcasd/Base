@@ -1,84 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ll_root"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:background="@android:color/transparent"
-    android:gravity="end"
+    android:alpha="0.6"
+    android:background="@drawable/other_shape_bg_panel_info"
     android:orientation="horizontal">
 
+    <ImageView
+        android:id="@+id/iv_hide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:padding="10dp"
+        android:src="@mipmap/other_icon_arrow_right" />
+
     <LinearLayout
+        android:id="@+id/ll_right"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:alpha="0.6"
-        android:background="@drawable/shape_bg_panel_info"
-        android:orientation="horizontal">
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingStart="10dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="25dp"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="波音777-30ER"
+            android:textColor="@color/base_white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="『大型机』"
+            android:textColor="@color/base_white"
+            android:textSize="14sp" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:padding="10dp"
-            android:src="@mipmap/icon_arrow_right" />
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@mipmap/ic_launcher" />
 
-        <LinearLayout
-            android:id="@+id/ll_right"
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingStart="10dp"
-            android:paddingTop="20dp"
-            android:paddingEnd="25dp"
-            android:paddingBottom="20dp">
+            android:layout_height="wrap_content"
+            android:text="机龄 5年"
+            android:textColor="@color/base_white"
+            android:textSize="14sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="波音777-30ER"
-                android:textColor="@color/base_white"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="座位数 388"
+            android:textColor="@color/base_white"
+            android:textSize="14sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="『大型机』"
-                android:textColor="@color/base_white"
-                android:textSize="14sp" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:background="@mipmap/ic_launcher" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="机龄 5年"
-                android:textColor="@color/base_white"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="座位数 388"
-                android:textColor="@color/base_white"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="飞行里程 18888km"
-                android:textColor="@color/base_white"
-                android:textSize="14sp" />
-
-        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="飞行里程 18888km"
+            android:textColor="@color/base_white"
+            android:textSize="14sp" />
 
     </LinearLayout>
 
