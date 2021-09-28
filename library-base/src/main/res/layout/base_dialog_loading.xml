@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@drawable/base_shape_dialog_loading_bg"
+        android:background="@drawable/base_shape_bg_dialog_loading"
         android:gravity="center"
         android:minWidth="120dp"
         android:orientation="vertical"

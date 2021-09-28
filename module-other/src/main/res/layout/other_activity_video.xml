@@ -125,24 +125,6 @@
             app:layout_constraintTop_toTopOf="@id/ll_panel"
             tools:text="1/2" />
 
-        <com.hjc.module_other.widget.PlaneInfoView
-            android:id="@+id/plane_info_view"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:visibility="invisible"
-            app:layout_constraintRight_toRightOf="parent">
-
-        </com.hjc.module_other.widget.PlaneInfoView>
-
-        <com.hjc.module_other.widget.SeatInfoView
-            android:id="@+id/seat_info_view"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:visibility="invisible"
-            app:layout_constraintRight_toRightOf="parent">
-
-        </com.hjc.module_other.widget.SeatInfoView>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

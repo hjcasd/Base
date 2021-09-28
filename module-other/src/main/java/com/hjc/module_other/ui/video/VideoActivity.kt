@@ -1,6 +1,7 @@
 package com.hjc.module_other.ui.video
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
@@ -17,6 +18,8 @@ import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.module_other.R
 import com.hjc.module_other.adapter.MyFragmentPagerAdapter
 import com.hjc.module_other.databinding.OtherActivityVideoBinding
+import com.hjc.module_other.dialog.PlaneInfoDialog
+import com.hjc.module_other.dialog.SeatInfoDialog
 import com.hjc.module_other.ui.video.fragment.PictureFragment
 import com.hjc.module_other.ui.video.fragment.VideoFragment
 import com.hjc.module_other.utils.ViewUtils
@@ -84,15 +87,13 @@ class VideoActivity : BaseActivity<OtherActivityVideoBinding, CommonViewModel>()
             R.id.iv_close -> finish()
 
             R.id.iv_plane -> {
-                setPanelEnable(false)
                 mBindingView.ivPlane.setImageResource(R.mipmap.other_icon_plane_red)
-                ViewUtils.showRightView(mBindingView.planeInfoView)
+                PlaneInfoDialog.newInstance().setGravity(Gravity.END).showDialog(supportFragmentManager)
             }
 
             R.id.iv_seat -> {
-                setPanelEnable(false)
+                SeatInfoDialog.newInstance().setGravity(Gravity.END).showDialog(supportFragmentManager)
                 mBindingView.ivSeat.setImageResource(R.mipmap.other_icon_seat_red)
-                ViewUtils.showRightView(mBindingView.seatInfoView)
             }
 
             R.id.ll_switch1 -> {
@@ -118,30 +119,17 @@ class VideoActivity : BaseActivity<OtherActivityVideoBinding, CommonViewModel>()
     fun handleEvent(event: MessageEvent<*>) {
         when (event.code) {
             EventCode.HIDE_PLANE_VIEW -> {
-                setPanelEnable(true)
                 mBindingView.ivPlane.setImageResource(R.mipmap.other_icon_plane_white)
-                ViewUtils.hideRightView(mBindingView.planeInfoView)
             }
 
             EventCode.HIDE_SEAT_VIEW -> {
-                setPanelEnable(true)
                 mBindingView.ivSeat.setImageResource(R.mipmap.other_icon_seat_white)
-                ViewUtils.hideRightView(mBindingView.seatInfoView)
             }
 
             else -> {
 
             }
         }
-    }
-
-    /**
-     * 设置左边面板是否可点击,ViewPager是否可滑动
-     */
-    private fun setPanelEnable(isEnable: Boolean) {
-        mBindingView.ivPlane.isEnabled = isEnable
-        mBindingView.ivSeat.isEnabled = isEnable
-        mBindingView.viewPager.setCanScroll(isEnable)
     }
 
 }

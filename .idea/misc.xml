@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/CompanyProjects/Base/module-other/src/main/res/layout/other_activity_video.xml" value="0.24114583333333334" />
+        <entry key="..\:/CompanyProjects/Base/module-other/src/main/res/layout/other_dialog_audio.xml" value="0.24114583333333334" />
+        <entry key="..\:/CompanyProjects/Base/module-other/src/main/res/layout/other_dialog_plane_info.xml" value="0.24114583333333334" />
+        <entry key="..\:/CompanyProjects/Base/module-other/src/main/res/layout/other_dialog_seat_info.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/app/src/main/res/drawable-v24/selector_tab_text.xml" value="0.19296875" />
         <entry key="..\:/MyProjects/Base/app/src/main/res/drawable/shape_bg_count_time.xml" value="0.19296875" />
         <entry key="..\:/MyProjects/Base/app/src/main/res/drawable/shape_bg_info.xml" value="0.19296875" />
