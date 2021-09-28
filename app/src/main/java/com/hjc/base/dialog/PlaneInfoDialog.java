@@ -1,4 +1,4 @@
-package com.hjc.base.widget;
+package com.hjc.base.dialog;
 
 import android.app.Dialog;
 import android.os.Bundle;
