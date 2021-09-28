@@ -38,7 +38,7 @@ class VideoFragment : BaseFragment<OtherFragmentVideoBinding, CommonViewModel>()
         mBindingView.playerView.player = player
 
         //播放视频
-        val videoUrl = "https://v-cdn.zjol.com.cn/276982.mp4"
+        val videoUrl = "https://v-cdn.zjol.com.cn/276984.mp4"
         val mediaItem = MediaItem.fromUri(videoUrl)
         player?.setMediaItem(mediaItem)
         player?.prepare()
@@ -55,6 +55,7 @@ class VideoFragment : BaseFragment<OtherFragmentVideoBinding, CommonViewModel>()
     override fun onDestroy() {
         super.onDestroy()
         player?.release()
+        player = null
     }
 
 }

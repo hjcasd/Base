@@ -57,10 +57,16 @@ class VideoActivity : BaseActivity<OtherActivityVideoBinding, CommonViewModel>()
 
         fragments.add(VideoFragment.newInstance())
         fragments.add(PictureFragment.newInstance())
+        fragments.add(PictureFragment.newInstance())
+        fragments.add(PictureFragment.newInstance())
+        fragments.add(PictureFragment.newInstance())
 
         val adapter =
             MyFragmentPagerAdapter(supportFragmentManager, FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, fragments)
         mBindingView.viewPager.adapter = adapter
+
+        //参数含义:预加载n个页面,同时缓存2n + 1个页面
+        mBindingView.viewPager.offscreenPageLimit = 4
 
         val pageCount = "1/" + fragments.size
         mBindingView.tvPageCount.text = pageCount
