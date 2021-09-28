@@ -12,7 +12,7 @@
     </style>
 
     <style name="VideoTheme" parent="BaseAppTheme">
-        <item name="android:windowBackground">@color/app_black</item>
+        <item name="android:windowBackground">@color/base_black</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowFullscreen">true</item>
     </style>

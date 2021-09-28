@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="base_color">#FF6200EE</color>
-    <color name="base_white">#FFFFFFFF</color>
+    <color name="base_white">#FFFFFF</color>
+    <color name="base_black">#000000</color>
     <color name="base_black_33">#333333</color>
     <color name="base_black_8833">#88333333</color>
 </resources>

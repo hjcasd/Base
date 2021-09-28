@@ -2,6 +2,7 @@ package com.hjc.base.ui.video;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -10,9 +11,10 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.blankj.utilcode.util.BarUtils;
-import com.blankj.utilcode.util.ToastUtils;
 import com.hjc.base.R;
 import com.hjc.base.databinding.ActivityVideoBinding;
+import com.hjc.base.widget.PlaneInfoDialog;
+import com.hjc.base.widget.SeatInfoDialog;
 import com.hjc.base.router.RoutePath;
 import com.hjc.base.ui.video.adapter.MyFragmentPagerAdapter;
 import com.hjc.base.ui.video.fragment.PictureFragment;
@@ -76,11 +78,11 @@ public class VideoActivity extends BaseActivity<ActivityVideoBinding, CommonView
                 break;
 
             case R.id.ll_bottom_panel:
-                ToastUtils.showShort("左边面板");
+                PlaneInfoDialog.newInstance().setGravity(Gravity.START).showDialog(getSupportFragmentManager());
                 break;
 
             case R.id.ll_right_panel:
-                ToastUtils.showShort("右边面板");
+                SeatInfoDialog.newInstance().setGravity(Gravity.END).showDialog(getSupportFragmentManager());
                 break;
         }
     }

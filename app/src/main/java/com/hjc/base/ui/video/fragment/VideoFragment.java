@@ -19,6 +19,8 @@ import com.hjc.library_base.fragment.BaseFragment;
  */
 public class VideoFragment extends BaseFragment<FragmentVideoBinding, CommonViewModel> {
 
+    private SimpleExoPlayer player;
+
     public static VideoFragment newInstance() {
         return new VideoFragment();
     }
@@ -36,7 +38,7 @@ public class VideoFragment extends BaseFragment<FragmentVideoBinding, CommonView
     @Override
     public void initData(@Nullable Bundle savedInstanceState) {
         //设置播放器
-        SimpleExoPlayer player = new SimpleExoPlayer.Builder(mContext).build();
+        player = new SimpleExoPlayer.Builder(mContext).build();
         mBindingView.playerView.setPlayer(player);
 
         //播放视频
@@ -57,4 +59,11 @@ public class VideoFragment extends BaseFragment<FragmentVideoBinding, CommonView
 
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (player !=null){
+            player.release();
+        }
+    }
 }
