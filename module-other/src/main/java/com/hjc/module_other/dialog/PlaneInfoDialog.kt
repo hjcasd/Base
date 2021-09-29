@@ -9,6 +9,7 @@ import android.widget.LinearLayout
 import com.blankj.utilcode.util.BarUtils
 import android.os.Bundle
 import android.view.View
+import com.blankj.utilcode.util.LogUtils
 import com.hjc.library_base.event.EventManager
 import com.hjc.library_base.event.MessageEvent
 import com.hjc.library_common.global.EventCode
@@ -35,10 +36,6 @@ class PlaneInfoDialog : BaseFragmentDialog<OtherDialogPlaneInfoBinding, CommonVi
         return R.layout.other_dialog_plane_info
     }
 
-    override fun createViewModel(): CommonViewModel? {
-        return null
-    }
-
     override fun getWidth(): Int {
         return WindowManager.LayoutParams.WRAP_CONTENT
     }
@@ -47,11 +44,18 @@ class PlaneInfoDialog : BaseFragmentDialog<OtherDialogPlaneInfoBinding, CommonVi
         return WindowManager.LayoutParams.MATCH_PARENT
     }
 
+    override fun createViewModel(): CommonViewModel? {
+        return null
+    }
+
     override fun initView() {
         super.initView()
-        val layoutParams = mBindingView.llInfo.layoutParams as LinearLayout.LayoutParams
-        layoutParams.rightMargin = BarUtils.getStatusBarHeight()
-        mBindingView.llInfo.layoutParams = layoutParams
+        val statusBarHeight = BarUtils.getStatusBarHeight()
+        if (statusBarHeight > 80) {
+            val layoutParams = mBindingView.llInfo.layoutParams as LinearLayout.LayoutParams
+            layoutParams.rightMargin = BarUtils.getStatusBarHeight()
+            mBindingView.llInfo.layoutParams = layoutParams
+        }
     }
 
     override fun initData(savedInstanceState: Bundle?) {
@@ -64,7 +68,7 @@ class PlaneInfoDialog : BaseFragmentDialog<OtherDialogPlaneInfoBinding, CommonVi
 
     override fun onSingleClick(v: View?) {
         when (v?.id) {
-            R.id.ll_left -> {
+            R.id.iv_arrow -> {
                 dismiss()
             }
 

@@ -47,9 +47,12 @@ class VideoActivity : BaseActivity<OtherActivityVideoBinding, CommonViewModel>()
 
     override fun initView() {
         super.initView()
-        val layoutParams = mBindingView.clRoot.layoutParams as FrameLayout.LayoutParams
-        layoutParams.rightMargin = BarUtils.getStatusBarHeight()
-        mBindingView.clRoot.layoutParams = layoutParams
+        val statusBarHeight = BarUtils.getStatusBarHeight()
+        if (statusBarHeight > 80) {
+            val layoutParams = mBindingView.clRoot.layoutParams as FrameLayout.LayoutParams
+            layoutParams.rightMargin = statusBarHeight
+            mBindingView.clRoot.layoutParams = layoutParams
+        }
     }
 
     override fun initData(savedInstanceState: Bundle?) {

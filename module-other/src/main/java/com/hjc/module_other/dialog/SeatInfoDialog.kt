@@ -8,8 +8,11 @@ import android.view.WindowManager
 import android.widget.LinearLayout
 import com.blankj.utilcode.util.BarUtils
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.view.View
+import android.widget.FrameLayout
 import androidx.recyclerview.widget.GridLayoutManager
+import com.blankj.utilcode.util.LogUtils
 import com.hjc.library_base.event.EventManager
 import com.hjc.library_base.event.MessageEvent
 import com.hjc.library_common.global.EventCode
@@ -42,24 +45,32 @@ class SeatInfoDialog : BaseFragmentDialog<OtherDialogSeatInfoBinding, CommonView
         return R.layout.other_dialog_seat_info
     }
 
-    override fun createViewModel(): CommonViewModel? {
-        return null
-    }
-
     override fun getWidth(): Int {
-        return WindowManager.LayoutParams.WRAP_CONTENT
+        val dm: DisplayMetrics = resources.displayMetrics
+        val width = dm.widthPixels
+        return (width * 0.6).toInt()
     }
 
     override fun getHeight(): Int {
         return WindowManager.LayoutParams.MATCH_PARENT
     }
 
+    override fun createViewModel(): CommonViewModel? {
+        return null
+    }
+
     override fun initView() {
         super.initView()
-        val layoutParams = mBindingView.rvCabin.layoutParams as LinearLayout.LayoutParams
-        layoutParams.rightMargin = BarUtils.getStatusBarHeight()
-        mBindingView.rvCabin.layoutParams = layoutParams
+        val statusBarHeight = BarUtils.getStatusBarHeight()
+        if (statusBarHeight > 80) {
+            val layoutParams = mBindingView.rvCabin.layoutParams as LinearLayout.LayoutParams
+            layoutParams.rightMargin = BarUtils.getStatusBarHeight()
+            mBindingView.rvCabin.layoutParams = layoutParams
+        }
+        initRecyclerView()
+    }
 
+    private fun initRecyclerView(){
         val manager1 = GridLayoutManager(mContext, 4)
         manager1.orientation = GridLayoutManager.HORIZONTAL
         mBindingView.rvCabin.layoutManager = manager1
@@ -105,7 +116,7 @@ class SeatInfoDialog : BaseFragmentDialog<OtherDialogSeatInfoBinding, CommonView
 
     override fun onSingleClick(v: View?) {
         when (v?.id) {
-            R.id.ll_left -> {
+            R.id.iv_arrow -> {
                 dismiss()
             }
 
