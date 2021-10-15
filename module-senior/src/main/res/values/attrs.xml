@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--测试View-->
+    <declare-styleable name="TestView">
+        <attr name="customText" format="string" />
+        <attr name="customTextSize" format="dimension" />
+        <attr name="customTextColor" format="color" />
+    </declare-styleable>
+
+</resources>

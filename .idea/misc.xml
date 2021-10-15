@@ -51,6 +51,7 @@
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_activity_video.xml" value="0.180859375" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_dialog_plane_info.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_dialog_seat_info.xml" value="0.24114583333333334" />
+        <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_dialog_update.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_fragment.xml" value="0.180859375" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_fragment_picture.xml" value="0.180859375" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_fragment_video.xml" value="0.180859375" />
@@ -60,6 +61,10 @@
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_layout_player_control_view.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_layout_seat_info.xml" value="0.180859375" />
         <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_animator_value.xml" value="0.24114583333333334" />
+        <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_view.xml" value="0.24114583333333334" />
+        <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_view_base.xml" value="0.23743589743589744" />
+        <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_view_custom.xml" value="0.24114583333333334" />
+        <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_view_test.xml" value="0.24114583333333334" />
       </map>
     </option>
   </component>

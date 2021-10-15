@@ -64,6 +64,14 @@
             android:text="@string/senior_view_btn5"
             android:textAllCaps="false" />
 
+        <Button
+            android:id="@+id/btn_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{onClickListener}"
+            android:text="@string/senior_view_btn6"
+            android:textAllCaps="false" />
+
     </LinearLayout>
 
 </layout>

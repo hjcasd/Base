@@ -39,6 +39,7 @@ object RouteSeniorPath {
     const val URL_VIEW_PICTURE = "$MODULE_SENIOR/view/picture"
     const val URL_VIEW_PATH = "$MODULE_SENIOR/view/path"
     const val URL_VIEW_RADAR = "$MODULE_SENIOR/view/radar"
+    const val URL_VIEW_TEST = "$MODULE_SENIOR/view/test"
 
     /**
      * Theme页面

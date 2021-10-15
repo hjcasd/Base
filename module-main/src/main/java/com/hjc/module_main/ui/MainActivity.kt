@@ -64,7 +64,9 @@ class MainActivity : BaseFragmentActivity<MainActivityBinding, CommonViewModel>(
             ARouter.getInstance().build(RouteOtherPath.URL_OTHER_FRAGMENT).navigation() as Fragment?
                 ?: TestFragment.getInstance()
 
-        showFragment(mTab1Fragment)
+        if (savedInstanceState == null){
+            showFragment(mTab1Fragment)
+        }
 
         requestPermission()
         registerBroadcastReceiver()

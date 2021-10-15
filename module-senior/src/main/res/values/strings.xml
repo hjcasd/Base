@@ -24,6 +24,7 @@
     <string name="senior_view_btn3">绘制图片和文字</string>
     <string name="senior_view_btn4">Path基本操作</string>
     <string name="senior_view_btn5">自定义雷达图</string>
+    <string name="senior_view_btn6">View测试</string>
 
     <string name="senior_view_base_title">绘制基本图形</string>
     <string name="senior_view_base_btn1">画一个点</string>
@@ -52,6 +53,7 @@
     <string name="senior_view_picture_btn2">位图</string>
     <string name="senior_view_picture_btn3">文字</string>
     <string name="senior_view_radar_title">雷达图</string>
+    <string name="senior_view_custom_title">测试View</string>
 
     <string name="senior_theme_title">夜间模式</string>
     <string name="senior_theme_btn">切换模式</string>

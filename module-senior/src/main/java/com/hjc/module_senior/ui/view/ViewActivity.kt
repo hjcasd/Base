@@ -20,6 +20,13 @@ import com.hjc.module_senior.databinding.SeniorActivityViewBinding
 @Route(path = RouteSeniorPath.URL_VIEW)
 class ViewActivity : BaseActivity<SeniorActivityViewBinding, CommonViewModel>() {
 
+    /**
+     * 1. 定义自定义的View的属性(res/value/attrs.xml, string,color,dimension,integer,enum,reference,float,boolean,fraction,flag)
+     * 2. 在View的构造方法中获取自定义的属性
+     * 3. 重写onMeasure()方法()
+     * 4. 重写onDraw()方法
+     */
+
     override fun getLayoutId(): Int {
         return R.layout.senior_activity_view
     }
@@ -59,6 +66,8 @@ class ViewActivity : BaseActivity<SeniorActivityViewBinding, CommonViewModel>() 
             R.id.btn_path -> RouteManager.jump(RouteSeniorPath.URL_VIEW_PATH)
 
             R.id.btn_radar -> RouteManager.jump(RouteSeniorPath.URL_VIEW_RADAR)
+
+            R.id.btn_test -> RouteManager.jump(RouteSeniorPath.URL_VIEW_TEST)
 
             else -> {
             }

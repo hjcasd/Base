@@ -40,8 +40,8 @@ class MyCustom2View @JvmOverloads constructor(
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-        val width = View.MeasureSpec.getSize(widthMeasureSpec)
-        val height = View.MeasureSpec.getSize(heightMeasureSpec)
+        val width = MeasureSpec.getSize(widthMeasureSpec)
+        val height = MeasureSpec.getSize(heightMeasureSpec)
         mWidth = width
         mHeight = height
     }

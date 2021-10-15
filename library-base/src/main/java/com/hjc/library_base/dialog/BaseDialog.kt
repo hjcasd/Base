@@ -1,24 +1,29 @@
-package com.hjc.library_base.activity
+package com.hjc.library_base.dialog
 
+import android.app.Dialog
+import android.content.Context
 import android.os.Bundle
+import android.util.DisplayMetrics
+import android.view.Gravity
+import android.view.LayoutInflater
 import android.view.View
+import android.view.WindowManager
 import androidx.annotation.LayoutRes
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.fragment.app.Fragment
-import com.alibaba.android.arouter.launcher.ARouter
 import com.blankj.utilcode.util.ToastUtils
-import com.gyf.immersionbar.ImmersionBar
+import com.hjc.library_base.R
 import com.hjc.library_base.utils.ClickUtils
 import com.hjc.library_base.viewmodel.BaseViewModel
 
 /**
  * @Author: HJC
- * @Date: 2020/5/15 11:09
- * @Description: (含有Fragment)Activity 基类
+ * @Date: 2021/6/20 17:29
+ * @Description: Dialog基类
  */
-abstract class BaseFragmentActivity<VDB : ViewDataBinding, VM : BaseViewModel> : AppCompatActivity(), View.OnClickListener {
+abstract class BaseDialog<VDB : ViewDataBinding, VM : BaseViewModel> constructor(
+    private val mContext: Context, themeResId: Int = R.style.Base_Dialog
+) : Dialog(mContext, themeResId), View.OnClickListener {
 
     /**
      * ViewDataBinding
@@ -31,21 +36,26 @@ abstract class BaseFragmentActivity<VDB : ViewDataBinding, VM : BaseViewModel> :
     protected var mViewModel: VM? = null
 
     /**
-     * 当前fragment
+     * dialog的位置
      */
-    private var mCurrentFragment = Fragment()
+    private var mGravity = Gravity.CENTER
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mBindingView = DataBindingUtil.inflate(LayoutInflater.from(mContext), getLayoutId(), null, false)
+        setContentView(mBindingView.root)
 
-        mBindingView = DataBindingUtil.setContentView(this, getLayoutId())
-        mBindingView.lifecycleOwner = this
-
+        window?.let {
+            val params = it.attributes
+            params.gravity = mGravity
+            params.width = getWidth()
+            params.height = getHeight()
+            it.attributes = params
+        }
         initViewModel()
         initView()
         initData(savedInstanceState)
-        observeLiveData()
         addListeners()
     }
 
@@ -59,7 +69,6 @@ abstract class BaseFragmentActivity<VDB : ViewDataBinding, VM : BaseViewModel> :
      * 初始化ViewModel
      */
     private fun initViewModel() {
-        ARouter.getInstance().inject(this)
         if (mViewModel == null) {
             mViewModel = createViewModel()
         }
@@ -73,26 +82,12 @@ abstract class BaseFragmentActivity<VDB : ViewDataBinding, VM : BaseViewModel> :
     /**
      * 初始化View
      */
-    open fun initView() {
-        getImmersionBar()?.init()
-    }
-
-    /**
-     * 初始化沉浸式
-     */
-    open fun getImmersionBar(): ImmersionBar? {
-        return null
-    }
+    open fun initView() {}
 
     /**
      * 初始化数据
      */
     abstract fun initData(savedInstanceState: Bundle?)
-
-    /**
-     * 监听LiveData
-     */
-    open fun observeLiveData() {}
 
     /**
      * 设置监听器
@@ -114,25 +109,27 @@ abstract class BaseFragmentActivity<VDB : ViewDataBinding, VM : BaseViewModel> :
     }
 
     /**
-     * 显示fragment
+     * 设置宽度为屏幕宽度的0.8
      */
-    fun showFragment(fragment: Fragment) {
-        if (mCurrentFragment !== fragment) {
-            val fm = supportFragmentManager
-            val ft = fm.beginTransaction()
-            ft.hide(mCurrentFragment)
-            mCurrentFragment = fragment
-            if (!fragment.isAdded) {
-                ft.add(getFragmentContentId(), fragment, fragment.javaClass.simpleName).show(fragment).commit()
-            } else {
-                ft.show(fragment).commit()
-            }
-        }
+    open fun getWidth(): Int {
+        val dm: DisplayMetrics = mContext.resources.displayMetrics
+        val width = dm.widthPixels
+        return (width * 0.8).toInt()
     }
 
     /**
-     * 获取布局中Fragment容器的ID
+     * 设置高度wrap
      */
-    abstract fun getFragmentContentId(): Int
+    open fun getHeight(): Int {
+        return WindowManager.LayoutParams.WRAP_CONTENT
+    }
+
+    /**
+     * 设置Dialog位置
+     */
+    fun setGravity(gravity: Int): BaseDialog<*, *> {
+        mGravity = gravity
+        return this
+    }
 
 }

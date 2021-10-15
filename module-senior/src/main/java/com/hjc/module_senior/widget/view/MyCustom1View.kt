@@ -42,7 +42,7 @@ class MyCustom1View @JvmOverloads constructor(
         // 抗锯齿
         mPaint.isAntiAlias = true
 
-        mAlisPaint.color = Color.BLUE
+        mAlisPaint.color = Color.RED
         mAlisPaint.style = Paint.Style.FILL
         mAlisPaint.strokeWidth = 10f
     }

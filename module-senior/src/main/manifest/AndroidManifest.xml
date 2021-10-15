@@ -24,7 +24,7 @@
             android:name=".ui.theme.ThemeActivity"
             android:screenOrientation="portrait" />
 
-
+        <!--============================================Touch=========================================-->
         <activity
             android:name=".ui.touch.TouchActivity"
             android:screenOrientation="portrait" />
@@ -41,7 +41,7 @@
             android:name=".ui.touch.TouchInterceptActivity"
             android:screenOrientation="portrait" />
 
-
+        <!--============================================View=========================================-->
         <activity
             android:name=".ui.view.ViewActivity"
             android:screenOrientation="portrait" />
@@ -66,7 +66,11 @@
             android:name=".ui.view.ViewRadarActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".ui.view.ViewTestActivity"
+            android:screenOrientation="portrait" />
 
+        <!--============================================Animation=========================================-->
         <activity
             android:name=".ui.animation.AnimationActivity"
             android:screenOrientation="portrait" />
