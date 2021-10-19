@@ -45,8 +45,8 @@ object RouteOtherPath {
     const val URL_SCROLL_INDICATOR = "${MODULE_OTHER}/scroll/indicator"
 
     /**
-     * Video页面
+     * 富媒体页面
      */
-    const val URL_VIDEO = "$MODULE_OTHER/video"
+    const val URL_RICH_MEDIA = "$MODULE_OTHER/richMedia"
 
 }

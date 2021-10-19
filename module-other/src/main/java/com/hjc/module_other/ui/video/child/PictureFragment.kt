@@ -1,4 +1,4 @@
-package com.hjc.module_other.ui.video.fragment
+package com.hjc.module_other.ui.video.child
 
 import android.os.Bundle
 import android.view.View

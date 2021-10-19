@@ -1,13 +1,18 @@
-package com.hjc.module_other.ui.video.fragment
+package com.hjc.module_other.ui.video.child
 
 import android.os.Bundle
 import android.view.View
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.SimpleExoPlayer
+import com.hjc.library_base.event.EventManager
+import com.hjc.library_base.event.MessageEvent
 import com.hjc.library_base.fragment.BaseFragment
+import com.hjc.library_common.global.EventCode
 import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.module_other.R
 import com.hjc.module_other.databinding.OtherFragmentVideoBinding
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 /**
  * @Author: HJC
@@ -33,15 +38,18 @@ class VideoFragment : BaseFragment<OtherFragmentVideoBinding, CommonViewModel>()
     }
 
     override fun initData(savedInstanceState: Bundle?) {
+        EventManager.register(this)
+
         //设置播放器
         player = SimpleExoPlayer.Builder(mContext).build()
         mBindingView.playerView.player = player
 
         //播放视频
-        val videoUrl = "https://v-cdn.zjol.com.cn/276984.mp4"
+        val videoUrl = "https://v-cdn.zjol.com.cn/280443.mp4"
         val mediaItem = MediaItem.fromUri(videoUrl)
         player?.setMediaItem(mediaItem)
         player?.prepare()
+        player?.play()
     }
 
     override fun addListeners() {
@@ -52,8 +60,41 @@ class VideoFragment : BaseFragment<OtherFragmentVideoBinding, CommonViewModel>()
 
     }
 
+    override fun onHiddenChanged(hidden: Boolean) {
+        super.onHiddenChanged(hidden)
+        if (hidden){
+            player?.stop()
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun handleEvent(event: MessageEvent<*>) {
+        when (event.code) {
+            EventCode.PLAY_PLANE_VIDEO -> {
+                val videoUrl = "https://v-cdn.zjol.com.cn/280443.mp4"
+                val mediaItem = MediaItem.fromUri(videoUrl)
+                player?.setMediaItem(mediaItem)
+                player?.prepare()
+                player?.play()
+            }
+
+            EventCode.PLAY_SEAT_VIDEO -> {
+                val videoUrl = "https://v-cdn.zjol.com.cn/276982.mp4"
+                val mediaItem = MediaItem.fromUri(videoUrl)
+                player?.setMediaItem(mediaItem)
+                player?.prepare()
+                player?.play()
+            }
+
+            else -> {
+
+            }
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
+        EventManager.unregister(this)
         player?.release()
         player = null
     }

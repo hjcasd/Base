@@ -17,11 +17,11 @@ import com.hjc.library_common.router.path.RouteOtherPath
 import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.module_other.R
 import com.hjc.module_other.adapter.MyFragmentPagerAdapter
-import com.hjc.module_other.databinding.OtherActivityVideoBinding
+import com.hjc.module_other.databinding.OtherActivityRichMediaBinding
 import com.hjc.module_other.dialog.PlaneInfoDialog
 import com.hjc.module_other.dialog.SeatInfoDialog
-import com.hjc.module_other.ui.video.fragment.PictureFragment
-import com.hjc.module_other.ui.video.fragment.VideoFragment
+import com.hjc.module_other.ui.video.child.PictureFragment
+import com.hjc.module_other.ui.video.child.VideoFragment
 import com.hjc.module_other.utils.ViewUtils
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -32,13 +32,17 @@ import java.util.*
  * @Date: 2019/7/29 14:29
  * @Description: 视频播放页
  */
-@Route(path = RouteOtherPath.URL_VIDEO)
-class VideoActivity : BaseActivity<OtherActivityVideoBinding, CommonViewModel>() {
+@Route(path = RouteOtherPath.URL_RICH_MEDIA)
+class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonViewModel>() {
 
     private val fragments: MutableList<Fragment> = ArrayList()
 
+    private var isShowSeat = false
+    private var isClickPlane = false
+    private var isClickSeat = false
+
     override fun getLayoutId(): Int {
-        return R.layout.other_activity_video
+        return R.layout.other_activity_rich_media
     }
 
     override fun createViewModel(): CommonViewModel? {
@@ -73,6 +77,9 @@ class VideoActivity : BaseActivity<OtherActivityVideoBinding, CommonViewModel>()
 
         val pageCount = "1/" + fragments.size
         mBindingView.tvPageCount.text = pageCount
+
+        isClickPlane= true
+        PlaneInfoDialog.newInstance().setGravity(Gravity.END).showDialog(supportFragmentManager)
     }
 
     override fun addListeners() {
@@ -96,13 +103,27 @@ class VideoActivity : BaseActivity<OtherActivityVideoBinding, CommonViewModel>()
             R.id.iv_close -> finish()
 
             R.id.iv_plane -> {
-                mBindingView.ivPlane.setImageResource(R.mipmap.other_icon_plane_red)
-                PlaneInfoDialog.newInstance().setGravity(Gravity.END).showDialog(supportFragmentManager)
+                isShowSeat = false
+                isClickSeat = false
+                if (!isClickPlane){
+                    mBindingView.rlRightPanel.visibility = View.GONE
+                    mBindingView.ivPlane.setImageResource(R.mipmap.other_icon_plane_red)
+                    mBindingView.ivSeat.setImageResource(R.mipmap.other_icon_seat_white)
+                    EventManager.sendEvent(MessageEvent(EventCode.PLAY_PLANE_VIDEO, null))
+                    PlaneInfoDialog.newInstance().setGravity(Gravity.END).showDialog(supportFragmentManager)
+                }
             }
 
             R.id.iv_seat -> {
-                SeatInfoDialog.newInstance().setGravity(Gravity.END).showDialog(supportFragmentManager)
-                mBindingView.ivSeat.setImageResource(R.mipmap.other_icon_seat_red)
+                isShowSeat = true
+                isClickPlane = false
+                if (!isClickSeat){
+                    mBindingView.rlRightPanel.visibility = View.GONE
+                    mBindingView.ivSeat.setImageResource(R.mipmap.other_icon_seat_red)
+                    mBindingView.ivPlane.setImageResource(R.mipmap.other_icon_plane_white)
+                    EventManager.sendEvent(MessageEvent(EventCode.PLAY_SEAT_VIDEO, null))
+                    SeatInfoDialog.newInstance().setGravity(Gravity.END).showDialog(supportFragmentManager)
+                }
             }
 
             R.id.ll_switch1 -> {
@@ -114,6 +135,27 @@ class VideoActivity : BaseActivity<OtherActivityVideoBinding, CommonViewModel>()
                 ViewUtils.hideLeftView(mBindingView.llFunction, mBindingView.llSwitch1)
             }
 
+            R.id.rl_right_panel -> {
+                mBindingView.rlRightPanel.visibility = View.GONE
+                if (isShowSeat) {
+                    SeatInfoDialog.newInstance().setGravity(Gravity.END).showDialog(supportFragmentManager)
+                } else {
+                    PlaneInfoDialog.newInstance().setGravity(Gravity.END).showDialog(supportFragmentManager)
+                }
+            }
+
+            else -> {
+            }
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun handleEvent(event: MessageEvent<*>) {
+        when (event.code) {
+            EventCode.HIDE_RIGHT_PANEL -> {
+                mBindingView.rlRightPanel.visibility = View.VISIBLE
+            }
+
             else -> {
             }
         }
@@ -122,23 +164,6 @@ class VideoActivity : BaseActivity<OtherActivityVideoBinding, CommonViewModel>()
     override fun onDestroy() {
         super.onDestroy()
         EventManager.unregister(this)
-    }
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    fun handleEvent(event: MessageEvent<*>) {
-        when (event.code) {
-            EventCode.HIDE_PLANE_VIEW -> {
-                mBindingView.ivPlane.setImageResource(R.mipmap.other_icon_plane_white)
-            }
-
-            EventCode.HIDE_SEAT_VIEW -> {
-                mBindingView.ivSeat.setImageResource(R.mipmap.other_icon_seat_white)
-            }
-
-            else -> {
-
-            }
-        }
     }
 
 }

@@ -23,13 +23,18 @@ object EventCode {
     const val LOAD_SIR_RETRY = "load_sir_retry"
 
     /**
-     * 隐藏PlaneView消息
+     * 隐藏右侧面板消息
      */
-    const val HIDE_PLANE_VIEW = "hide_plane_view"
+    const val HIDE_RIGHT_PANEL = "hide_right_panel"
 
     /**
-     * 隐藏SeatView消息
+     * 播放飞机视频消息
      */
-    const val HIDE_SEAT_VIEW = "hide_seat_view"
+    const val PLAY_PLANE_VIDEO = "play_plane_video"
+
+    /**
+     * 播放座位视频消息
+     */
+    const val PLAY_SEAT_VIDEO = "play_seat_video"
 
 }

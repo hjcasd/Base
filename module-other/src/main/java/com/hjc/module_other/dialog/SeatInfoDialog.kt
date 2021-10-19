@@ -1,5 +1,6 @@
 package com.hjc.module_other.dialog
 
+import android.annotation.SuppressLint
 import android.content.DialogInterface
 import com.hjc.library_base.dialog.BaseFragmentDialog
 import com.hjc.library_common.viewmodel.CommonViewModel
@@ -81,6 +82,7 @@ class SeatInfoDialog : BaseFragmentDialog<OtherDialogSeatInfoBinding, CommonView
     }
 
     override fun initData(savedInstanceState: Bundle?) {
+        isCancelable = false
         dialog?.window?.setDimAmount(0f)
 
         val titleList = mutableListOf("豪华公务舱", "公务舱", "超级经济舱", "经济舱")
@@ -102,6 +104,7 @@ class SeatInfoDialog : BaseFragmentDialog<OtherDialogSeatInfoBinding, CommonView
         mBindingView.rvService.adapter = mServiceAdapter
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun addListeners() {
         mBindingView.onClickListener = this
 
@@ -127,7 +130,7 @@ class SeatInfoDialog : BaseFragmentDialog<OtherDialogSeatInfoBinding, CommonView
 
     override fun onDismiss(dialog: DialogInterface) {
         super.onDismiss(dialog)
-        EventManager.sendEvent(MessageEvent(EventCode.HIDE_SEAT_VIEW, null))
+        EventManager.sendEvent(MessageEvent(EventCode.HIDE_RIGHT_PANEL, null))
     }
 
 }

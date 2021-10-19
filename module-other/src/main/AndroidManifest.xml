@@ -33,9 +33,9 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.video.VideoActivity"
+            android:name=".ui.video.RichMediaActivity"
             android:screenOrientation="landscape"
-            android:theme="@style/VideoTheme"/>
+            android:theme="@style/RichMediaTheme"/>
 
     </application>
 

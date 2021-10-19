@@ -56,7 +56,7 @@ class OtherFragment : BaseFragment<OtherFragmentBinding, CommonViewModel>() {
 
             R.id.btn4 -> RouteManager.jump(RouteOtherPath.URL_SCROLL)
 
-            R.id.btn5 -> RouteManager.jump(RouteOtherPath.URL_VIDEO)
+            R.id.btn5 -> RouteManager.jump(RouteOtherPath.URL_RICH_MEDIA)
 
             else -> {
 

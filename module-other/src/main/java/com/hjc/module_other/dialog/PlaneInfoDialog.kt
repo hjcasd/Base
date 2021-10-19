@@ -59,6 +59,7 @@ class PlaneInfoDialog : BaseFragmentDialog<OtherDialogPlaneInfoBinding, CommonVi
     }
 
     override fun initData(savedInstanceState: Bundle?) {
+        isCancelable = false
         dialog?.window?.setDimAmount(0f)
     }
 
@@ -79,7 +80,7 @@ class PlaneInfoDialog : BaseFragmentDialog<OtherDialogPlaneInfoBinding, CommonVi
 
     override fun onDismiss(dialog: DialogInterface) {
         super.onDismiss(dialog)
-        EventManager.sendEvent(MessageEvent(EventCode.HIDE_PLANE_VIEW, null))
+        EventManager.sendEvent(MessageEvent(EventCode.HIDE_RIGHT_PANEL, null))
     }
 
 }
