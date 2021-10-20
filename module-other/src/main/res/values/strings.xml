@@ -51,4 +51,11 @@
     <string name="other_scroll_topping_title">滑动置顶效果</string>
     <string name="other_scroll_line_title">水平滑动指示器效果</string>
 
+    <string name="other_rich_seat_title">服务设施</string>
+    <string name="other_rich_plane_text1">波音777–30ER</string>
+    <string name="other_rich_plane_text2">『大型机』</string>
+    <string name="other_rich_plane_text3">机龄 5年</string>
+    <string name="other_rich_plane_text4">座位数 388</string>
+    <string name="other_rich_plane_text5">飞行里程 18888km</string>
+
 </resources>

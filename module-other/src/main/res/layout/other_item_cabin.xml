@@ -49,7 +49,7 @@
             app:layout_constraintLeft_toLeftOf="@id/iv_cover"
             app:layout_constraintRight_toRightOf="@id/iv_cover"
             app:layout_constraintTop_toBottomOf="@id/iv_cover"
-            tools:text="标题1" />
+            tools:text="标题" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

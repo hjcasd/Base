@@ -71,7 +71,7 @@ class SeatInfoDialog : BaseFragmentDialog<OtherDialogSeatInfoBinding, CommonView
         initRecyclerView()
     }
 
-    private fun initRecyclerView(){
+    private fun initRecyclerView() {
         val manager1 = GridLayoutManager(mContext, 4)
         manager1.orientation = GridLayoutManager.HORIZONTAL
         mBindingView.rvCabin.layoutManager = manager1
@@ -82,7 +82,6 @@ class SeatInfoDialog : BaseFragmentDialog<OtherDialogSeatInfoBinding, CommonView
     }
 
     override fun initData(savedInstanceState: Bundle?) {
-        isCancelable = false
         dialog?.window?.setDimAmount(0f)
 
         val titleList = mutableListOf("豪华公务舱", "公务舱", "超级经济舱", "经济舱")
@@ -119,7 +118,7 @@ class SeatInfoDialog : BaseFragmentDialog<OtherDialogSeatInfoBinding, CommonView
 
     override fun onSingleClick(v: View?) {
         when (v?.id) {
-            R.id.iv_arrow -> {
+            R.id.ll_arrow -> {
                 dismiss()
             }
 

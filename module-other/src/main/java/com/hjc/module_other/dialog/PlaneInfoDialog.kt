@@ -59,7 +59,6 @@ class PlaneInfoDialog : BaseFragmentDialog<OtherDialogPlaneInfoBinding, CommonVi
     }
 
     override fun initData(savedInstanceState: Bundle?) {
-        isCancelable = false
         dialog?.window?.setDimAmount(0f)
     }
 
@@ -69,7 +68,7 @@ class PlaneInfoDialog : BaseFragmentDialog<OtherDialogPlaneInfoBinding, CommonVi
 
     override fun onSingleClick(v: View?) {
         when (v?.id) {
-            R.id.iv_arrow -> {
+            R.id.ll_arrow -> {
                 dismiss()
             }
 

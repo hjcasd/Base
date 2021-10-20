@@ -33,7 +33,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <RelativeLayout
-            android:id="@+id/ll_panel"
+            android:id="@+id/rl_left_panel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="35dp"
@@ -50,8 +50,8 @@
                 android:background="@drawable/other_shape_bg_panel_circle"
                 android:gravity="center"
                 android:onClick="@{onClickListener}"
-                android:visibility="gone"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <ImageView
                     android:layout_width="20dp"
@@ -120,19 +120,20 @@
             android:alpha="0.6"
             android:background="@drawable/other_shape_bg_page_round"
             android:textColor="@color/base_white"
-            app:layout_constraintBottom_toBottomOf="@id/ll_panel"
+            app:layout_constraintBottom_toBottomOf="@id/rl_left_panel"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@id/ll_panel"
+            app:layout_constraintTop_toTopOf="@id/rl_left_panel"
             tools:text="1/2" />
 
         <RelativeLayout
             android:id="@+id/rl_right_panel"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
             android:background="@drawable/other_shape_bg_panel_right"
             android:onClick="@{onClickListener}"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent">

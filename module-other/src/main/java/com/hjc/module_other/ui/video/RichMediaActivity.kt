@@ -78,7 +78,7 @@ class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonView
         val pageCount = "1/" + fragments.size
         mBindingView.tvPageCount.text = pageCount
 
-        isClickPlane= true
+        isClickPlane = true
         PlaneInfoDialog.newInstance().setGravity(Gravity.END).showDialog(supportFragmentManager)
     }
 
@@ -90,6 +90,11 @@ class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonView
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
 
             override fun onPageSelected(position: Int) {
+                if (position > 0) {
+                    mBindingView.rlLeftPanel.visibility = View.INVISIBLE
+                } else {
+                    mBindingView.rlLeftPanel.visibility = View.VISIBLE
+                }
                 val pageCount = (position + 1).toString() + "/" + fragments.size
                 mBindingView.tvPageCount.text = pageCount
             }
@@ -105,7 +110,8 @@ class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonView
             R.id.iv_plane -> {
                 isShowSeat = false
                 isClickSeat = false
-                if (!isClickPlane){
+                if (!isClickPlane) {
+                    isClickPlane = true
                     mBindingView.rlRightPanel.visibility = View.GONE
                     mBindingView.ivPlane.setImageResource(R.mipmap.other_icon_plane_red)
                     mBindingView.ivSeat.setImageResource(R.mipmap.other_icon_seat_white)
@@ -117,7 +123,8 @@ class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonView
             R.id.iv_seat -> {
                 isShowSeat = true
                 isClickPlane = false
-                if (!isClickSeat){
+                if (!isClickSeat) {
+                    isClickSeat = true
                     mBindingView.rlRightPanel.visibility = View.GONE
                     mBindingView.ivSeat.setImageResource(R.mipmap.other_icon_seat_red)
                     mBindingView.ivPlane.setImageResource(R.mipmap.other_icon_plane_white)

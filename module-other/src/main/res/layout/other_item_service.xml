@@ -30,8 +30,8 @@
             android:layout_marginTop="5dp"
             android:text="@{title}"
             android:textColor="@color/base_white"
-            android:textSize="10sp"
-            tools:text="标题1" />
+            android:textSize="11sp"
+            tools:text="标题" />
 
     </LinearLayout>
 

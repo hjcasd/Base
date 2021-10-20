@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.SimpleExoPlayer
+import com.google.android.exoplayer2.ui.AspectRatioFrameLayout
 import com.hjc.library_base.event.EventManager
 import com.hjc.library_base.event.MessageEvent
 import com.hjc.library_base.fragment.BaseFragment
@@ -43,6 +44,7 @@ class VideoFragment : BaseFragment<OtherFragmentVideoBinding, CommonViewModel>()
         //设置播放器
         player = SimpleExoPlayer.Builder(mContext).build()
         mBindingView.playerView.player = player
+        mBindingView.playerView.resizeMode = AspectRatioFrameLayout.RESIZE_MODE_FILL
 
         //播放视频
         val videoUrl = "https://v-cdn.zjol.com.cn/280443.mp4"
@@ -79,7 +81,7 @@ class VideoFragment : BaseFragment<OtherFragmentVideoBinding, CommonViewModel>()
             }
 
             EventCode.PLAY_SEAT_VIDEO -> {
-                val videoUrl = "https://v-cdn.zjol.com.cn/276982.mp4"
+                val videoUrl = "https://v-cdn.zjol.com.cn/276984.mp4"
                 val mediaItem = MediaItem.fromUri(videoUrl)
                 player?.setMediaItem(mediaItem)
                 player?.prepare()
