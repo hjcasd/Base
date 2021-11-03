@@ -6,11 +6,7 @@ import com.blankj.utilcode.util.LogUtils
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
-import com.google.android.exoplayer2.analytics.AnalyticsListener
-import com.google.android.exoplayer2.metadata.Metadata
-import com.google.android.exoplayer2.metadata.MetadataOutput
 import com.google.android.exoplayer2.ui.AspectRatioFrameLayout
-import com.google.android.exoplayer2.video.VideoListener
 import com.hjc.library_base.event.EventManager
 import com.hjc.library_base.event.MessageEvent
 import com.hjc.library_base.fragment.BaseFragment
@@ -61,18 +57,36 @@ class VideoFragment : BaseFragment<OtherFragmentVideoBinding, CommonViewModel>()
     }
 
     override fun addListeners() {
+        player?.addListener(object : Player.EventListener {
 
+            override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
+                LogUtils.e("playWhenReady: $playWhenReady")
+                when (playbackState) {
+                    Player.STATE_IDLE -> {
+                        LogUtils.e("播放器没有可播放的媒体")
+                    }
+
+                    Player.STATE_BUFFERING -> {
+                        mBindingView.pbLoading.visibility = View.VISIBLE
+                        LogUtils.e("视频正在加载中")
+                    }
+
+                    Player.STATE_READY -> {
+                        mBindingView.pbLoading.visibility = View.GONE
+                        LogUtils.e("视频加载完成,可以播放了")
+                    }
+
+                    Player.STATE_ENDED -> {
+                        LogUtils.e("视频播放结束了")
+                    }
+                }
+            }
+
+        })
     }
 
     override fun onSingleClick(v: View?) {
 
-    }
-
-    override fun onHiddenChanged(hidden: Boolean) {
-        super.onHiddenChanged(hidden)
-        if (hidden) {
-            player?.stop()
-        }
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -98,6 +112,17 @@ class VideoFragment : BaseFragment<OtherFragmentVideoBinding, CommonViewModel>()
 
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        player?.play()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        player?.pause()
+        // mBinding.downLoading?.clearAnimation()
     }
 
     override fun onDestroy() {

@@ -6,10 +6,9 @@
 
     </data>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <com.google.android.exoplayer2.ui.PlayerView
             android:id="@+id/player_view"
@@ -17,6 +16,13 @@
             android:layout_height="match_parent"
             app:controller_layout_id="@layout/other_layout_player_control_view" />
 
-    </LinearLayout>
+        <ProgressBar
+            android:id="@+id/pb_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+    </FrameLayout>
 
 </layout>
