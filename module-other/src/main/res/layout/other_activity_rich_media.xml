@@ -32,8 +32,8 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <RelativeLayout
-            android:id="@+id/rl_left_panel"
+        <LinearLayout
+            android:id="@+id/ll_left_panel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="35dp"
@@ -42,7 +42,32 @@
             app:layout_constraintLeft_toLeftOf="parent">
 
             <LinearLayout
-                android:id="@+id/ll_switch1"
+                android:id="@+id/ll_function"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.6"
+                android:background="@drawable/other_shape_bg_panel_rectangle"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_plane"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:onClick="@{onClickListener}"
+                    android:src="@mipmap/other_icon_plane_red" />
+
+                <ImageView
+                    android:id="@+id/iv_seat"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="15dp"
+                    android:onClick="@{onClickListener}"
+                    android:src="@mipmap/other_icon_seat_white" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_switch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -50,67 +75,17 @@
                 android:background="@drawable/other_shape_bg_panel_circle"
                 android:gravity="center"
                 android:onClick="@{onClickListener}"
-                android:orientation="horizontal"
-                android:visibility="gone">
+                android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/iv_eyes"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@mipmap/other_icon_eyes_white" />
+                    android:src="@mipmap/other_icon_eyes_red" />
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/ll_function"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:alpha="0.6"
-                    android:background="@drawable/other_shape_bg_panel_rectangle"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/iv_plane"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:onClick="@{onClickListener}"
-                        android:src="@mipmap/other_icon_plane_red" />
-
-                    <ImageView
-                        android:id="@+id/iv_seat"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginStart="15dp"
-                        android:onClick="@{onClickListener}"
-                        android:src="@mipmap/other_icon_seat_white" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_switch2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:alpha="0.6"
-                    android:background="@drawable/other_shape_bg_panel_circle"
-                    android:gravity="center"
-                    android:onClick="@{onClickListener}"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/iv_eyes"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@mipmap/other_icon_eyes_red" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </RelativeLayout>
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tv_page_count"
@@ -120,9 +95,9 @@
             android:alpha="0.6"
             android:background="@drawable/other_shape_bg_page_round"
             android:textColor="@color/base_white"
-            app:layout_constraintBottom_toBottomOf="@id/rl_left_panel"
+            app:layout_constraintBottom_toBottomOf="@id/ll_left_panel"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@id/rl_left_panel"
+            app:layout_constraintTop_toTopOf="@id/ll_left_panel"
             tools:text="1/2" />
 
         <RelativeLayout

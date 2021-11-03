@@ -3,6 +3,7 @@ package com.hjc.module_frame.ui
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
@@ -57,6 +58,15 @@ class FrameFragment : BaseFragment<FrameFragmentBinding, CommonViewModel>() {
                 }else{
                     RouteManager.jumpToWeb("万达电影", "https://m.wandacinemas.com")
                 }
+//                val intent = Intent()
+//                intent.action = Intent.ACTION_VIEW
+//                intent.addCategory(Intent.CATEGORY_DEFAULT)
+////                androidamap://route?sourceApplication=amap&dlat=40.0836620000&dlon=116.4127900000&dname=北京饭店&dev=0&t=0
+////                androidamap://navi?sourceApplication=appname&poiname=fangheng&lat=36.547901&lon=104.258354&dev=1&style=2
+//                val url = "amapuri://route/plan/?sid=&slat=39.92848272&slon=116.39560823&sname=A&did=&dlat=39.98848272&dlon=116.47560823&dname=B&dev=0&t=0"
+//                val uri: Uri = Uri.parse(url)
+//                intent.data = uri
+//                startActivity(intent)
             }
             else -> {
             }

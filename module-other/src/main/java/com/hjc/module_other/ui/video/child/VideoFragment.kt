@@ -2,9 +2,15 @@ package com.hjc.module_other.ui.video.child
 
 import android.os.Bundle
 import android.view.View
+import com.blankj.utilcode.util.LogUtils
 import com.google.android.exoplayer2.MediaItem
+import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
+import com.google.android.exoplayer2.analytics.AnalyticsListener
+import com.google.android.exoplayer2.metadata.Metadata
+import com.google.android.exoplayer2.metadata.MetadataOutput
 import com.google.android.exoplayer2.ui.AspectRatioFrameLayout
+import com.google.android.exoplayer2.video.VideoListener
 import com.hjc.library_base.event.EventManager
 import com.hjc.library_base.event.MessageEvent
 import com.hjc.library_base.fragment.BaseFragment
@@ -64,7 +70,7 @@ class VideoFragment : BaseFragment<OtherFragmentVideoBinding, CommonViewModel>()
 
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)
-        if (hidden){
+        if (hidden) {
             player?.stop()
         }
     }

@@ -22,7 +22,7 @@ import com.hjc.module_other.dialog.PlaneInfoDialog
 import com.hjc.module_other.dialog.SeatInfoDialog
 import com.hjc.module_other.ui.video.child.PictureFragment
 import com.hjc.module_other.ui.video.child.VideoFragment
-import com.hjc.module_other.utils.ViewUtils
+import com.hjc.module_other.utils.MediaViewUtils
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import java.util.*
@@ -40,6 +40,8 @@ class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonView
     private var isShowSeat = false
     private var isClickPlane = false
     private var isClickSeat = false
+
+    private var flag = false
 
     override fun getLayoutId(): Int {
         return R.layout.other_activity_rich_media
@@ -90,11 +92,6 @@ class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonView
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
 
             override fun onPageSelected(position: Int) {
-                if (position > 0) {
-                    mBindingView.rlLeftPanel.visibility = View.INVISIBLE
-                } else {
-                    mBindingView.rlLeftPanel.visibility = View.VISIBLE
-                }
                 val pageCount = (position + 1).toString() + "/" + fragments.size
                 mBindingView.tvPageCount.text = pageCount
             }
@@ -133,13 +130,16 @@ class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonView
                 }
             }
 
-            R.id.ll_switch1 -> {
-                mBindingView.llSwitch1.visibility = View.GONE
-                ViewUtils.showLeftView(mBindingView.llFunction)
-            }
-
-            R.id.ll_switch2 -> {
-                ViewUtils.hideLeftView(mBindingView.llFunction, mBindingView.llSwitch1)
+            R.id.ll_switch -> {
+                if (flag) {
+                    flag = false
+                    mBindingView.ivEyes.setImageResource(R.mipmap.other_icon_eyes_red)
+                    MediaViewUtils.showLeftView(mBindingView.llLeftPanel)
+                } else {
+                    flag = true
+                    mBindingView.ivEyes.setImageResource(R.mipmap.other_icon_eyes_white)
+                    MediaViewUtils.hideLeftView(mBindingView.llLeftPanel,  mBindingView.llFunction.width.toFloat())
+                }
             }
 
             R.id.rl_right_panel -> {
