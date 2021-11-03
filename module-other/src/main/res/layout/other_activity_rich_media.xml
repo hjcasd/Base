@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -17,8 +16,8 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.hjc.library_widget.FixedViewPager
-            android:id="@+id/view_pager"
+        <FrameLayout
+            android:id="@+id/fl_content"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
@@ -32,73 +31,14 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:id="@+id/ll_left_panel"
+        <com.hjc.module_other.view.FunctionView
+            android:id="@+id/function_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="35dp"
-            android:orientation="horizontal"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent">
-
-            <LinearLayout
-                android:id="@+id/ll_function"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:alpha="0.6"
-                android:background="@drawable/other_shape_bg_panel_rectangle"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/iv_plane"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:onClick="@{onClickListener}"
-                    android:src="@mipmap/other_icon_plane_red" />
-
-                <ImageView
-                    android:id="@+id/iv_seat"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginStart="15dp"
-                    android:onClick="@{onClickListener}"
-                    android:src="@mipmap/other_icon_seat_white" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_switch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:alpha="0.6"
-                android:background="@drawable/other_shape_bg_panel_circle"
-                android:gravity="center"
-                android:onClick="@{onClickListener}"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/iv_eyes"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@mipmap/other_icon_eyes_red" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tv_page_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:alpha="0.6"
-            android:background="@drawable/other_shape_bg_page_round"
-            android:textColor="@color/base_white"
-            app:layout_constraintBottom_toBottomOf="@id/ll_left_panel"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@id/ll_left_panel"
-            tools:text="1/2" />
+            app:layout_constraintLeft_toLeftOf="parent" />
 
         <RelativeLayout
             android:id="@+id/rl_right_panel"
@@ -120,6 +60,24 @@
                 android:src="@mipmap/other_icon_arrow_left" />
 
         </RelativeLayout>
+
+        <com.hjc.module_other.view.PlaneInfoView
+            android:id="@+id/plane_info_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            app:layout_constraintRight_toRightOf="parent">
+
+        </com.hjc.module_other.view.PlaneInfoView>
+
+        <com.hjc.module_other.widget.SeatInfoView
+            android:id="@+id/seat_info_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            app:layout_constraintRight_toRightOf="parent">
+
+        </com.hjc.module_other.widget.SeatInfoView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

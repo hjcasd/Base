@@ -8,33 +8,38 @@ package com.hjc.library_common.global
 object EventCode {
 
     /**
-     * event post消息
+     * event post
      */
     const val EVENT_POST_CODE = "event_post_code"
 
     /**
-     * event receive消息
+     * event receive
      */
     const val EVENT_RECEIVE_CODE = "event_receive_code"
 
     /**
-     * LoadSir重试消息
+     * LoadSir重试
      */
     const val LOAD_SIR_RETRY = "load_sir_retry"
 
     /**
-     * 隐藏右侧面板消息
+     * 显示右侧面板
+     */
+    const val SHOW_RIGHT_PANEL = "show_right_panel"
+
+    /**
+     * 隐藏右侧面板
      */
     const val HIDE_RIGHT_PANEL = "hide_right_panel"
 
     /**
-     * 播放飞机视频消息
+     * 显示所有面板
      */
-    const val PLAY_PLANE_VIDEO = "play_plane_video"
+    const val SHOW_ALL_VIEW = "show_all_view"
 
     /**
-     * 播放座位视频消息
+     * 显示页码
      */
-    const val PLAY_SEAT_VIDEO = "play_seat_video"
+    const val SHOW_PAGE_COUNT = "show_page_count"
 
 }

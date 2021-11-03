@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_root"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/ll_function"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.6"
+        android:background="@drawable/other_shape_bg_panel_rectangle"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_plane"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/other_icon_plane_red" />
+
+        <ImageView
+            android:id="@+id/iv_seat"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="15dp"
+            android:src="@mipmap/other_icon_seat_white" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_eye"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:alpha="0.6"
+        android:background="@drawable/other_shape_bg_panel_circle"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_eye"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/other_icon_eyes_red" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -2,27 +2,22 @@ package com.hjc.module_other.utils
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
-import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
-import android.graphics.Point
 import android.view.View
-import androidx.constraintlayout.widget.Placeholder
-import android.view.Display
-import android.view.animation.LinearInterpolator
-
 
 object MediaViewUtils {
 
     /**
      * 显示View动画
      */
-    fun showRightView(view: View) {
+    fun showRightView(view: View, otherView: View) {
         val animator = ObjectAnimator.ofFloat(view, "translationX", view.width.toFloat(), 0f)
         animator.addListener(object : AnimatorListenerAdapter() {
 
             override fun onAnimationStart(animation: Animator?) {
                 super.onAnimationStart(animation)
                 view.visibility = View.VISIBLE
+                otherView.visibility = View.GONE
             }
         })
         animator.setDuration(500)
@@ -32,13 +27,14 @@ object MediaViewUtils {
     /**
      * 隐藏View动画
      */
-    fun hideRightView(view: View) {
+    fun hideRightView(view: View, otherView: View) {
         val animator = ObjectAnimator.ofFloat(view, "translationX", 0f, view.width.toFloat())
         animator.addListener(object : AnimatorListenerAdapter() {
 
             override fun onAnimationEnd(animation: Animator?) {
                 super.onAnimationEnd(animation)
                 view.visibility = View.INVISIBLE
+                otherView.visibility = View.VISIBLE
             }
         })
         animator.setDuration(500)
@@ -63,4 +59,5 @@ object MediaViewUtils {
         animator.setDuration(500)
             .start()
     }
+
 }

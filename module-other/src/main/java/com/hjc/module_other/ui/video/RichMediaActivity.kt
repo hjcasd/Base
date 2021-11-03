@@ -1,12 +1,9 @@
 package com.hjc.module_other.ui.video
 
 import android.os.Bundle
-import android.view.Gravity
 import android.view.View
 import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentStatePagerAdapter
-import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.blankj.utilcode.util.BarUtils
 import com.hjc.library_base.activity.BaseActivity
@@ -16,13 +13,10 @@ import com.hjc.library_common.global.EventCode
 import com.hjc.library_common.router.path.RouteOtherPath
 import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.module_other.R
-import com.hjc.module_other.adapter.MyFragmentPagerAdapter
 import com.hjc.module_other.databinding.OtherActivityRichMediaBinding
-import com.hjc.module_other.dialog.PlaneInfoDialog
-import com.hjc.module_other.dialog.SeatInfoDialog
-import com.hjc.module_other.ui.video.child.PictureFragment
-import com.hjc.module_other.ui.video.child.VideoFragment
+import com.hjc.module_other.ui.video.child.MediaFragment
 import com.hjc.module_other.utils.MediaViewUtils
+import com.hjc.module_other.view.FunctionView
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import java.util.*
@@ -37,11 +31,10 @@ class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonView
 
     private val fragments: MutableList<Fragment> = ArrayList()
 
-    private var isShowSeat = false
-    private var isClickPlane = false
-    private var isClickSeat = false
-
-    private var flag = false
+    /**
+     * 0:点击飞机,播放飞机视频, 1:点击舱位,播放舱位视频
+     */
+    private var type = 0
 
     override fun getLayoutId(): Int {
         return R.layout.other_activity_rich_media
@@ -63,40 +56,28 @@ class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonView
 
     override fun initData(savedInstanceState: Bundle?) {
         EventManager.register(this)
-
-        fragments.add(VideoFragment.newInstance())
-        fragments.add(PictureFragment.newInstance())
-        fragments.add(PictureFragment.newInstance())
-        fragments.add(PictureFragment.newInstance())
-        fragments.add(PictureFragment.newInstance())
-
-        val adapter =
-            MyFragmentPagerAdapter(supportFragmentManager, FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, fragments)
-        mBindingView.viewPager.adapter = adapter
-
-        //参数含义:预加载n个页面,同时缓存2n + 1个页面
-        mBindingView.viewPager.offscreenPageLimit = 4
-
-        val pageCount = "1/" + fragments.size
-        mBindingView.tvPageCount.text = pageCount
-
-        isClickPlane = true
-        PlaneInfoDialog.newInstance().setGravity(Gravity.END).showDialog(supportFragmentManager)
+        showVideoAndPicture()
     }
 
     override fun addListeners() {
         mBindingView.onClickListener = this
 
-        mBindingView.viewPager.addOnPageChangeListener(object : OnPageChangeListener {
 
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
 
-            override fun onPageSelected(position: Int) {
-                val pageCount = (position + 1).toString() + "/" + fragments.size
-                mBindingView.tvPageCount.text = pageCount
+        mBindingView.functionView.setOnFunctionClickListener(object : FunctionView.OnFunctionClickListener {
+
+            override fun onPlaneClick(view: View?) {
+                type = 0
+                MediaViewUtils.hideRightView(mBindingView.seatInfoView, mBindingView.rlRightPanel)
+                showVideoAndPicture()
             }
 
-            override fun onPageScrollStateChanged(state: Int) {}
+            override fun onSeatClick(view: View?) {
+                type = 1
+                MediaViewUtils.hideRightView(mBindingView.planeInfoView, mBindingView.rlRightPanel)
+                showVideoAndPicture()
+            }
+
         })
     }
 
@@ -104,51 +85,8 @@ class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonView
         when (v?.id) {
             R.id.iv_close -> finish()
 
-            R.id.iv_plane -> {
-                isShowSeat = false
-                isClickSeat = false
-                if (!isClickPlane) {
-                    isClickPlane = true
-                    mBindingView.rlRightPanel.visibility = View.GONE
-                    mBindingView.ivPlane.setImageResource(R.mipmap.other_icon_plane_red)
-                    mBindingView.ivSeat.setImageResource(R.mipmap.other_icon_seat_white)
-                    EventManager.sendEvent(MessageEvent(EventCode.PLAY_PLANE_VIDEO, null))
-                    PlaneInfoDialog.newInstance().setGravity(Gravity.END).showDialog(supportFragmentManager)
-                }
-            }
-
-            R.id.iv_seat -> {
-                isShowSeat = true
-                isClickPlane = false
-                if (!isClickSeat) {
-                    isClickSeat = true
-                    mBindingView.rlRightPanel.visibility = View.GONE
-                    mBindingView.ivSeat.setImageResource(R.mipmap.other_icon_seat_red)
-                    mBindingView.ivPlane.setImageResource(R.mipmap.other_icon_plane_white)
-                    EventManager.sendEvent(MessageEvent(EventCode.PLAY_SEAT_VIDEO, null))
-                    SeatInfoDialog.newInstance().setGravity(Gravity.END).showDialog(supportFragmentManager)
-                }
-            }
-
-            R.id.ll_switch -> {
-                if (flag) {
-                    flag = false
-                    mBindingView.ivEyes.setImageResource(R.mipmap.other_icon_eyes_red)
-                    MediaViewUtils.showLeftView(mBindingView.llLeftPanel)
-                } else {
-                    flag = true
-                    mBindingView.ivEyes.setImageResource(R.mipmap.other_icon_eyes_white)
-                    MediaViewUtils.hideLeftView(mBindingView.llLeftPanel,  mBindingView.llFunction.width.toFloat())
-                }
-            }
-
             R.id.rl_right_panel -> {
-                mBindingView.rlRightPanel.visibility = View.GONE
-                if (isShowSeat) {
-                    SeatInfoDialog.newInstance().setGravity(Gravity.END).showDialog(supportFragmentManager)
-                } else {
-                    PlaneInfoDialog.newInstance().setGravity(Gravity.END).showDialog(supportFragmentManager)
-                }
+                showRightPanelView()
             }
 
             else -> {
@@ -156,16 +94,77 @@ class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonView
         }
     }
 
+    /**
+     * 显示视频和图片
+     */
+    private fun showVideoAndPicture() {
+        val videoUrl: String
+        val imageUrls = ArrayList<String>()
+        if (type == 0) {
+            videoUrl = "https://v-cdn.zjol.com.cn/280443.mp4"
+            imageUrls.add("http://pic1.win4000.com/wallpaper/b/58ca58d35d719.jpg")
+            imageUrls.add("http://pic1.win4000.com/wallpaper/5/58d1e4522374c.jpg")
+        } else {
+            videoUrl = "https://v-cdn.zjol.com.cn/276982.mp4"
+            imageUrls.add("http://pic1.win4000.com/wallpaper/5/58d21cc8f12c9.jpg")
+            imageUrls.add("http://pic1.win4000.com/wallpaper/3/58d0c78e390e5.jpg")
+        }
+        val fragment = MediaFragment.newInstance(videoUrl, imageUrls, type)
+        val fm = supportFragmentManager
+        val ft = fm.beginTransaction()
+        ft.replace(R.id.fl_content, fragment).commit()
+    }
+
+    /**
+     * 显示右边面板
+     */
+    private fun showRightPanelView() {
+        if (type == 0) {
+            MediaViewUtils.showRightView(mBindingView.planeInfoView, mBindingView.rlRightPanel)
+        } else {
+            MediaViewUtils.showRightView(mBindingView.seatInfoView, mBindingView.rlRightPanel)
+        }
+    }
+
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun handleEvent(event: MessageEvent<*>) {
         when (event.code) {
+
+            // 显示右侧面板
+            EventCode.SHOW_RIGHT_PANEL -> {
+                val type = event.data as Int
+                if (type == 0) {
+                    MediaViewUtils.showRightView(mBindingView.planeInfoView, mBindingView.rlRightPanel)
+                } else {
+                    MediaViewUtils.showRightView(mBindingView.seatInfoView, mBindingView.rlRightPanel)
+                }
+            }
+
+            // 隐藏右侧面板
             EventCode.HIDE_RIGHT_PANEL -> {
-                mBindingView.rlRightPanel.visibility = View.VISIBLE
+                val type = event.data as Int
+                if (type == 0) {
+                    MediaViewUtils.hideRightView(mBindingView.planeInfoView, mBindingView.rlRightPanel)
+                } else {
+                    MediaViewUtils.hideRightView(mBindingView.seatInfoView, mBindingView.rlRightPanel)
+                }
+
+            }
+
+            // 显示所有面板
+            EventCode.SHOW_ALL_VIEW -> {
+                showAllView()
             }
 
             else -> {
             }
         }
+    }
+
+    private fun showAllView() {
+        showRightPanelView()
+        mBindingView.functionView.visibility = View.VISIBLE
+        EventManager.sendEvent(MessageEvent(EventCode.SHOW_PAGE_COUNT, null))
     }
 
     override fun onDestroy() {

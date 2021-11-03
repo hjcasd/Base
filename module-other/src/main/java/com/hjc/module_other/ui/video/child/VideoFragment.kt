@@ -12,10 +12,14 @@ import com.hjc.library_base.event.MessageEvent
 import com.hjc.library_base.fragment.BaseFragment
 import com.hjc.library_common.global.EventCode
 import com.hjc.library_common.viewmodel.CommonViewModel
+import com.hjc.library_net.utils.RxSchedulers
 import com.hjc.module_other.R
 import com.hjc.module_other.databinding.OtherFragmentVideoBinding
-import org.greenrobot.eventbus.Subscribe
-import org.greenrobot.eventbus.ThreadMode
+import io.reactivex.Observable
+import io.reactivex.Observer
+import io.reactivex.disposables.Disposable
+import java.util.concurrent.TimeUnit
+import kotlin.math.ceil
 
 /**
  * @Author: HJC
@@ -26,9 +30,18 @@ class VideoFragment : BaseFragment<OtherFragmentVideoBinding, CommonViewModel>()
 
     private var player: SimpleExoPlayer? = null
 
+    private var disposable: Disposable? = null
+
+    private var mType = 0
+
     companion object {
-        fun newInstance(): VideoFragment {
-            return VideoFragment()
+        fun newInstance(videoUrl: String, type: Int): VideoFragment {
+            val fragment = VideoFragment()
+            val bundle = Bundle()
+            bundle.putString("videoUrl", videoUrl)
+            bundle.putInt("type", type)
+            fragment.arguments = bundle
+            return fragment
         }
     }
 
@@ -41,26 +54,54 @@ class VideoFragment : BaseFragment<OtherFragmentVideoBinding, CommonViewModel>()
     }
 
     override fun initData(savedInstanceState: Bundle?) {
-        EventManager.register(this)
-
         //设置播放器
         player = SimpleExoPlayer.Builder(mContext).build()
         mBindingView.playerView.player = player
         mBindingView.playerView.resizeMode = AspectRatioFrameLayout.RESIZE_MODE_FILL
 
-        //播放视频
-        val videoUrl = "https://v-cdn.zjol.com.cn/280443.mp4"
-        val mediaItem = MediaItem.fromUri(videoUrl)
-        player?.setMediaItem(mediaItem)
-        player?.prepare()
-        player?.play()
+        arguments?.let {
+            val videoUrl = it.getString("videoUrl", "")
+            mType = it.getInt("type", 0)
+
+            //播放视频
+            val mediaItem = MediaItem.fromUri(videoUrl)
+            player?.setMediaItem(mediaItem)
+            player?.prepare()
+            player?.play()
+        }
+
+        Observable.interval(0, 1, TimeUnit.SECONDS)
+            .compose(RxSchedulers.ioToMain())
+            .subscribe(object : Observer<Long> {
+                override fun onSubscribe(d: Disposable) {
+                    disposable = d
+                }
+
+                override fun onNext(t: Long) {
+                    player?.let {
+                        val time = ceil(it.currentPosition / 1000.0).toInt()
+                        if (time == 3) {
+                            EventManager.sendEvent(MessageEvent(EventCode.SHOW_ALL_VIEW, null))
+                            disposable?.dispose()
+                        }
+                    }
+                }
+
+                override fun onError(e: Throwable) {
+
+                }
+
+                override fun onComplete() {
+
+                }
+
+            })
     }
 
     override fun addListeners() {
-        player?.addListener(object : Player.EventListener {
+        player?.addListener(object : Player.Listener {
 
             override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
-                LogUtils.e("playWhenReady: $playWhenReady")
                 when (playbackState) {
                     Player.STATE_IDLE -> {
                         LogUtils.e("播放器没有可播放的媒体")
@@ -74,6 +115,11 @@ class VideoFragment : BaseFragment<OtherFragmentVideoBinding, CommonViewModel>()
                     Player.STATE_READY -> {
                         mBindingView.pbLoading.visibility = View.GONE
                         LogUtils.e("视频加载完成,可以播放了")
+                        if (playWhenReady) {
+                            EventManager.sendEvent(MessageEvent(EventCode.HIDE_RIGHT_PANEL, mType))
+                        } else {
+                            EventManager.sendEvent(MessageEvent(EventCode.SHOW_RIGHT_PANEL, mType))
+                        }
                     }
 
                     Player.STATE_ENDED -> {
@@ -89,31 +135,6 @@ class VideoFragment : BaseFragment<OtherFragmentVideoBinding, CommonViewModel>()
 
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    fun handleEvent(event: MessageEvent<*>) {
-        when (event.code) {
-            EventCode.PLAY_PLANE_VIDEO -> {
-                val videoUrl = "https://v-cdn.zjol.com.cn/280443.mp4"
-                val mediaItem = MediaItem.fromUri(videoUrl)
-                player?.setMediaItem(mediaItem)
-                player?.prepare()
-                player?.play()
-            }
-
-            EventCode.PLAY_SEAT_VIDEO -> {
-                val videoUrl = "https://v-cdn.zjol.com.cn/276984.mp4"
-                val mediaItem = MediaItem.fromUri(videoUrl)
-                player?.setMediaItem(mediaItem)
-                player?.prepare()
-                player?.play()
-            }
-
-            else -> {
-
-            }
-        }
-    }
-
     override fun onResume() {
         super.onResume()
         player?.play()
@@ -122,12 +143,10 @@ class VideoFragment : BaseFragment<OtherFragmentVideoBinding, CommonViewModel>()
     override fun onPause() {
         super.onPause()
         player?.pause()
-        // mBinding.downLoading?.clearAnimation()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        EventManager.unregister(this)
         player?.release()
         player = null
     }

@@ -44,7 +44,7 @@
         app:layout_constraintLeft_toRightOf="@id/exo_position"
         app:layout_constraintRight_toLeftOf="@id/exo_duration"
         app:layout_constraintTop_toTopOf="@id/exo_position"
-        app:played_color="@color/other_color"
+        app:played_color="@color/base_white"
         app:unplayed_color="@color/base_black" />
 
     <TextView

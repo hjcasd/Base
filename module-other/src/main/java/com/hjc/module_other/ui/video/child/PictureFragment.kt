@@ -3,6 +3,7 @@ package com.hjc.module_other.ui.video.child
 import android.os.Bundle
 import android.view.View
 import com.hjc.library_base.fragment.BaseFragment
+import com.hjc.library_common.utils.ImageManager
 import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.module_other.R
 import com.hjc.module_other.databinding.OtherFragmentPictureBinding
@@ -15,8 +16,12 @@ import com.hjc.module_other.databinding.OtherFragmentPictureBinding
 class PictureFragment : BaseFragment<OtherFragmentPictureBinding, CommonViewModel>() {
 
     companion object {
-        fun newInstance(): PictureFragment {
-            return PictureFragment()
+        fun newInstance(imageUrl: String): PictureFragment {
+            val fragment = PictureFragment()
+            val bundle = Bundle()
+            bundle.putString("imageUrl", imageUrl)
+            fragment.arguments = bundle
+            return fragment
         }
     }
 
@@ -29,7 +34,10 @@ class PictureFragment : BaseFragment<OtherFragmentPictureBinding, CommonViewMode
     }
 
     override fun initData(savedInstanceState: Bundle?) {
-
+        arguments?.let {
+            val imageUrl = it.getString("imageUrl", "")
+            ImageManager.loadImage(mBindingView.ivCover, imageUrl)
+        }
     }
 
     override fun addListeners() {

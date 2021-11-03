@@ -49,19 +49,24 @@
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/dialog_plane_info.xml" value="0.180859375" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/layout_plane_info.xml" value="0.180859375" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/layout_seat_info.xml" value="0.180859375" />
-        <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_activity_rich_media.xml" value="0.264" />
+        <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/main_fragment_rich_media.xml" value="0.180859375" />
+        <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/main_fragment_rich_picture.xml" value="0.180859375" />
+        <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/main_fragment_rich_video.xml" value="0.180859375" />
+        <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_activity_rich_media.xml" value="0.10078125" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_activity_video.xml" value="0.180859375" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_dialog_plane_info.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_dialog_seat_info.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_dialog_update.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_fragment.xml" value="0.180859375" />
+        <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_fragment_media.xml" value="0.180859375" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_fragment_picture.xml" value="0.180859375" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_fragment_video.xml" value="0.180859375" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_item_cabin.xml" value="0.180859375" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_item_scroll_topping_title.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_item_service.xml" value="0.24114583333333334" />
+        <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_layout_function.xml" value="0.180859375" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_layout_plane_info.xml" value="0.180859375" />
-        <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_layout_player_control_view.xml" value="0.24114583333333334" />
+        <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_layout_player_control_view.xml" value="0.17876447876447876" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_layout_seat_info.xml" value="0.180859375" />
         <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_animator_value.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_view.xml" value="0.24114583333333334" />
@@ -70,6 +75,11 @@
         <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_view_test.xml" value="0.24114583333333334" />
       </map>
     </option>
+  </component>
+  <component name="EntryPointsManager">
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="org.greenrobot.eventbus.Subscribe" />
+    </list>
   </component>
   <component name="NullableNotNullManager">
     <option name="myDefaultNullable" value="android.support.annotation.Nullable" />
