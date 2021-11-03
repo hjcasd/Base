@@ -81,6 +81,7 @@ class VideoFragment : BaseFragment<OtherFragmentVideoBinding, CommonViewModel>()
                     player?.let {
                         val time = ceil(it.currentPosition / 1000.0).toInt()
                         if (time == 3) {
+                            player?.pause()
                             EventManager.sendEvent(MessageEvent(EventCode.SHOW_ALL_VIEW, null))
                             disposable?.dispose()
                         }
