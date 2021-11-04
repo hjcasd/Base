@@ -20,6 +20,7 @@ import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
 import java.util.concurrent.TimeUnit
 import kotlin.math.ceil
+import kotlin.math.round
 
 /**
  * @Author: HJC
@@ -33,6 +34,8 @@ class VideoFragment : BaseFragment<OtherFragmentVideoBinding, CommonViewModel>()
     private var disposable: Disposable? = null
 
     private var mType = 0
+
+    private var isFirst = true
 
     companion object {
         fun newInstance(videoUrl: String, type: Int): VideoFragment {
@@ -79,8 +82,9 @@ class VideoFragment : BaseFragment<OtherFragmentVideoBinding, CommonViewModel>()
 
                 override fun onNext(t: Long) {
                     player?.let {
-                        val time = ceil(it.currentPosition / 1000.0).toInt()
+                        val time = round(it.currentPosition / 1000.0).toInt()
                         if (time == 3) {
+                            isFirst = false
                             player?.pause()
                             EventManager.sendEvent(MessageEvent(EventCode.SHOW_ALL_VIEW, null))
                             disposable?.dispose()
@@ -109,17 +113,19 @@ class VideoFragment : BaseFragment<OtherFragmentVideoBinding, CommonViewModel>()
                     }
 
                     Player.STATE_BUFFERING -> {
-                        mBindingView.pbLoading.visibility = View.VISIBLE
                         LogUtils.e("视频正在加载中")
+                        mBindingView.pbLoading.visibility = View.VISIBLE
                     }
 
                     Player.STATE_READY -> {
-                        mBindingView.pbLoading.visibility = View.GONE
                         LogUtils.e("视频加载完成,可以播放了")
-                        if (playWhenReady) {
-                            EventManager.sendEvent(MessageEvent(EventCode.HIDE_RIGHT_PANEL, mType))
-                        } else {
-                            EventManager.sendEvent(MessageEvent(EventCode.SHOW_RIGHT_PANEL, mType))
+                        mBindingView.pbLoading.visibility = View.GONE
+                        if (!isFirst) {
+                            if (playWhenReady) {
+                                EventManager.sendEvent(MessageEvent(EventCode.HIDE_RIGHT_PANEL, mType))
+                            } else {
+                                EventManager.sendEvent(MessageEvent(EventCode.SHOW_RIGHT_PANEL, mType))
+                            }
                         }
                     }
 

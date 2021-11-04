@@ -41,7 +41,7 @@
             app:layout_constraintLeft_toLeftOf="parent" />
 
         <RelativeLayout
-            android:id="@+id/rl_right_panel"
+            android:id="@+id/rl_arrow"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
             android:background="@drawable/other_shape_bg_panel_right"

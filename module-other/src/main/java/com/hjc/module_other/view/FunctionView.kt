@@ -48,13 +48,13 @@ class FunctionView @JvmOverloads constructor(
             R.id.iv_plane -> {
                 ivPlane.setImageResource(R.mipmap.other_icon_plane_red)
                 ivSeat.setImageResource(R.mipmap.other_icon_seat_white)
-                mOnFunctionClickListener?.onPlaneClick(this)
+                mOnFunctionClickListener?.onPlaneClick()
             }
 
             R.id.iv_seat -> {
                 ivSeat.setImageResource(R.mipmap.other_icon_seat_red)
                 ivPlane.setImageResource(R.mipmap.other_icon_plane_white)
-                mOnFunctionClickListener?.onSeatClick(this)
+                mOnFunctionClickListener?.onSeatClick()
             }
 
             R.id.ll_eye -> {
@@ -62,10 +62,12 @@ class FunctionView @JvmOverloads constructor(
                     flag = false
                     ivEye.setImageResource(R.mipmap.other_icon_eyes_red)
                     MediaViewUtils.showLeftView(llRoot)
+                    mOnFunctionClickListener?.onEyeStateChanged(0)
                 } else {
                     flag = true
                     ivEye.setImageResource(R.mipmap.other_icon_eyes_white)
                     MediaViewUtils.hideLeftView(llRoot, llFunction.width.toFloat())
+                    mOnFunctionClickListener?.onEyeStateChanged(1)
                 }
             }
 
@@ -75,8 +77,9 @@ class FunctionView @JvmOverloads constructor(
     }
 
     interface OnFunctionClickListener {
-        fun onPlaneClick(view: View?)
-        fun onSeatClick(view: View?)
+        fun onPlaneClick()
+        fun onSeatClick()
+        fun onEyeStateChanged(state: Int)
     }
 
     fun setOnFunctionClickListener(onFunctionClickListener: OnFunctionClickListener) {

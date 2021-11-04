@@ -54,7 +54,6 @@ class MediaFragment : BaseFragment<OtherFragmentMediaBinding, CommonViewModel>()
             val type = it.getInt("type", 0)
 
             fragments.add(VideoFragment.newInstance(videoUrl, type))
-
             if (!imageUrls.isNullOrEmpty()) {
                 for (imageUrl in imageUrls) {
                     fragments.add(PictureFragment.newInstance(imageUrl))
@@ -93,10 +92,10 @@ class MediaFragment : BaseFragment<OtherFragmentMediaBinding, CommonViewModel>()
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun handleEvent(event: MessageEvent<*>) {
         when (event.code) {
-
-            // 隐藏飞机面板
+            // 显示或者隐藏页码
             EventCode.SHOW_PAGE_COUNT -> {
-                mBindingView.tvPageCount.visibility = View.VISIBLE
+                val isShow = event.data as Boolean
+                mBindingView.tvPageCount.visibility = if (isShow) View.VISIBLE else View.GONE
             }
 
             else -> {

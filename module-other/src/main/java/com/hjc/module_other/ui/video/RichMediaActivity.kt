@@ -3,7 +3,6 @@ package com.hjc.module_other.ui.video
 import android.os.Bundle
 import android.view.View
 import android.widget.FrameLayout
-import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.blankj.utilcode.util.BarUtils
 import com.hjc.library_base.activity.BaseActivity
@@ -28,8 +27,6 @@ import java.util.*
  */
 @Route(path = RouteOtherPath.URL_RICH_MEDIA)
 class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonViewModel>() {
-
-    private val fragments: MutableList<Fragment> = ArrayList()
 
     /**
      * 0:点击飞机,播放飞机视频, 1:点击舱位,播放舱位视频
@@ -62,20 +59,32 @@ class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonView
     override fun addListeners() {
         mBindingView.onClickListener = this
 
-
-
         mBindingView.functionView.setOnFunctionClickListener(object : FunctionView.OnFunctionClickListener {
 
-            override fun onPlaneClick(view: View?) {
+            override fun onPlaneClick() {
                 type = 0
-                MediaViewUtils.hideRightView(mBindingView.seatInfoView, mBindingView.rlRightPanel)
                 showVideoAndPicture()
+                MediaViewUtils.hideRightView(mBindingView.seatInfoView, mBindingView.rlArrow)
             }
 
-            override fun onSeatClick(view: View?) {
+            override fun onSeatClick() {
                 type = 1
-                MediaViewUtils.hideRightView(mBindingView.planeInfoView, mBindingView.rlRightPanel)
                 showVideoAndPicture()
+                MediaViewUtils.hideRightView(mBindingView.planeInfoView, mBindingView.rlArrow)
+            }
+
+            override fun onEyeStateChanged(state: Int) {
+                if (state == 0) {
+                    mBindingView.ivClose.visibility = View.VISIBLE
+                    mBindingView.rlArrow.visibility = View.VISIBLE
+                    EventManager.sendEvent(MessageEvent(EventCode.SHOW_PAGE_COUNT, true))
+                } else {
+                    mBindingView.ivClose.visibility = View.GONE
+                    mBindingView.rlArrow.visibility = View.GONE
+                    mBindingView.planeInfoView.visibility = View.GONE
+                    mBindingView.seatInfoView.visibility = View.GONE
+                    EventManager.sendEvent(MessageEvent(EventCode.SHOW_PAGE_COUNT, false))
+                }
             }
 
         })
@@ -85,7 +94,7 @@ class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonView
         when (v?.id) {
             R.id.iv_close -> finish()
 
-            R.id.rl_right_panel -> {
+            R.id.rl_arrow -> {
                 showRightPanelView()
             }
 
@@ -120,9 +129,9 @@ class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonView
      */
     private fun showRightPanelView() {
         if (type == 0) {
-            MediaViewUtils.showRightView(mBindingView.planeInfoView, mBindingView.rlRightPanel)
+            MediaViewUtils.showRightView(mBindingView.planeInfoView, mBindingView.rlArrow)
         } else {
-            MediaViewUtils.showRightView(mBindingView.seatInfoView, mBindingView.rlRightPanel)
+            MediaViewUtils.showRightView(mBindingView.seatInfoView, mBindingView.rlArrow)
         }
     }
 
@@ -134,9 +143,9 @@ class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonView
             EventCode.SHOW_RIGHT_PANEL -> {
                 val type = event.data as Int
                 if (type == 0) {
-                    MediaViewUtils.showRightView(mBindingView.planeInfoView, mBindingView.rlRightPanel)
+                    MediaViewUtils.showRightView(mBindingView.planeInfoView, mBindingView.rlArrow)
                 } else {
-                    MediaViewUtils.showRightView(mBindingView.seatInfoView, mBindingView.rlRightPanel)
+                    MediaViewUtils.showRightView(mBindingView.seatInfoView, mBindingView.rlArrow)
                 }
             }
 
@@ -144,27 +153,22 @@ class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonView
             EventCode.HIDE_RIGHT_PANEL -> {
                 val type = event.data as Int
                 if (type == 0) {
-                    MediaViewUtils.hideRightView(mBindingView.planeInfoView, mBindingView.rlRightPanel)
+                    MediaViewUtils.hideRightView(mBindingView.planeInfoView, mBindingView.rlArrow)
                 } else {
-                    MediaViewUtils.hideRightView(mBindingView.seatInfoView, mBindingView.rlRightPanel)
+                    MediaViewUtils.hideRightView(mBindingView.seatInfoView, mBindingView.rlArrow)
                 }
-
             }
 
             // 显示所有面板
             EventCode.SHOW_ALL_VIEW -> {
-                showAllView()
+                showRightPanelView()
+                mBindingView.functionView.visibility = View.VISIBLE
+                EventManager.sendEvent(MessageEvent(EventCode.SHOW_PAGE_COUNT, true))
             }
 
             else -> {
             }
         }
-    }
-
-    private fun showAllView() {
-        showRightPanelView()
-        mBindingView.functionView.visibility = View.VISIBLE
-        EventManager.sendEvent(MessageEvent(EventCode.SHOW_PAGE_COUNT, null))
     }
 
     override fun onDestroy() {

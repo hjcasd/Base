@@ -44,13 +44,6 @@ class SeatInfoView @JvmOverloads constructor(
         rvCabin = findViewById(R.id.rv_cabin)
         rvService = findViewById(R.id.rv_service)
 
-        val statusBarHeight = BarUtils.getStatusBarHeight()
-        if (statusBarHeight > 80) {
-            val layoutParams = rvCabin.layoutParams as LayoutParams
-            layoutParams.rightMargin = BarUtils.getStatusBarHeight()
-            rvCabin.layoutParams = layoutParams
-        }
-
         val manager1 = GridLayoutManager(mContext, 4)
         manager1.orientation = GridLayoutManager.HORIZONTAL
         rvCabin.layoutManager = manager1

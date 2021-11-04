@@ -30,8 +30,8 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@mipmap/ic_launcher" />
 
         <LinearLayout
@@ -41,20 +41,20 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:src="@mipmap/ic_launcher" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:src="@mipmap/ic_launcher" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:src="@mipmap/ic_launcher" />
 
         </LinearLayout>
