@@ -31,7 +31,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.hjc.module_other.view.FunctionView
+        <com.hjc.module_other.ui.video.view.FunctionView
             android:id="@+id/function_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -40,44 +40,21 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent" />
 
-        <RelativeLayout
-            android:id="@+id/rl_arrow"
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:background="@drawable/other_shape_bg_panel_right"
-            android:onClick="@{onClickListener}"
-            android:paddingLeft="2dp"
-            android:paddingRight="2dp"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_centerInParent="true"
-                android:src="@mipmap/other_icon_arrow_left" />
-
-        </RelativeLayout>
-
-        <com.hjc.module_other.view.PlaneInfoView
+        <com.hjc.module_other.ui.video.view.PlaneInfoView
             android:id="@+id/plane_info_view"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:visibility="invisible"
             app:layout_constraintRight_toRightOf="parent">
 
-        </com.hjc.module_other.view.PlaneInfoView>
+        </com.hjc.module_other.ui.video.view.PlaneInfoView>
 
-        <com.hjc.module_other.widget.SeatInfoView
-            android:id="@+id/seat_info_view"
+        <com.hjc.module_other.widget.CabinInfoView
+            android:id="@+id/cabin_info_view"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:visibility="invisible"
             app:layout_constraintRight_toRightOf="parent">
 
-        </com.hjc.module_other.widget.SeatInfoView>
+        </com.hjc.module_other.widget.CabinInfoView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

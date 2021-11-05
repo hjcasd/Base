@@ -11,6 +11,9 @@ object MediaViewUtils {
      * 显示View动画
      */
     fun showRightView(view: View, otherView: View) {
+        if (view.visibility == View.VISIBLE) {
+            return
+        }
         val animator = ObjectAnimator.ofFloat(view, "translationX", view.width.toFloat(), 0f)
         animator.addListener(object : AnimatorListenerAdapter() {
 
@@ -28,6 +31,9 @@ object MediaViewUtils {
      * 隐藏View动画
      */
     fun hideRightView(view: View, otherView: View) {
+        if (view.visibility == View.INVISIBLE) {
+            return
+        }
         val animator = ObjectAnimator.ofFloat(view, "translationX", 0f, view.width.toFloat())
         animator.addListener(object : AnimatorListenerAdapter() {
 

@@ -14,8 +14,7 @@ import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.module_other.R
 import com.hjc.module_other.databinding.OtherActivityRichMediaBinding
 import com.hjc.module_other.ui.video.child.MediaFragment
-import com.hjc.module_other.utils.MediaViewUtils
-import com.hjc.module_other.view.FunctionView
+import com.hjc.module_other.ui.video.view.FunctionView
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import java.util.*
@@ -64,25 +63,25 @@ class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonView
             override fun onPlaneClick() {
                 type = 0
                 showVideoAndPicture()
-                MediaViewUtils.hideRightView(mBindingView.seatInfoView, mBindingView.rlArrow)
+                mBindingView.cabinInfoView.hide(1)
             }
 
             override fun onSeatClick() {
                 type = 1
                 showVideoAndPicture()
-                MediaViewUtils.hideRightView(mBindingView.planeInfoView, mBindingView.rlArrow)
+                mBindingView.planeInfoView.hide(1)
             }
 
             override fun onEyeStateChanged(state: Int) {
                 if (state == 0) {
                     mBindingView.ivClose.visibility = View.VISIBLE
-                    mBindingView.rlArrow.visibility = View.VISIBLE
+                    mBindingView.planeInfoView.show(1)
+                    mBindingView.cabinInfoView.show(1)
                     EventManager.sendEvent(MessageEvent(EventCode.SHOW_PAGE_COUNT, true))
                 } else {
                     mBindingView.ivClose.visibility = View.GONE
-                    mBindingView.rlArrow.visibility = View.GONE
-                    mBindingView.planeInfoView.visibility = View.GONE
-                    mBindingView.seatInfoView.visibility = View.GONE
+                    mBindingView.planeInfoView.hide(1)
+                    mBindingView.cabinInfoView.hide(1)
                     EventManager.sendEvent(MessageEvent(EventCode.SHOW_PAGE_COUNT, false))
                 }
             }
@@ -93,10 +92,6 @@ class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonView
     override fun onSingleClick(v: View?) {
         when (v?.id) {
             R.id.iv_close -> finish()
-
-            R.id.rl_arrow -> {
-                showRightPanelView()
-            }
 
             else -> {
             }
@@ -129,9 +124,9 @@ class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonView
      */
     private fun showRightPanelView() {
         if (type == 0) {
-            MediaViewUtils.showRightView(mBindingView.planeInfoView, mBindingView.rlArrow)
+            mBindingView.planeInfoView.show()
         } else {
-            MediaViewUtils.showRightView(mBindingView.seatInfoView, mBindingView.rlArrow)
+            mBindingView.cabinInfoView.show()
         }
     }
 
@@ -143,9 +138,9 @@ class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonView
             EventCode.SHOW_RIGHT_PANEL -> {
                 val type = event.data as Int
                 if (type == 0) {
-                    MediaViewUtils.showRightView(mBindingView.planeInfoView, mBindingView.rlArrow)
+                    mBindingView.planeInfoView.show()
                 } else {
-                    MediaViewUtils.showRightView(mBindingView.seatInfoView, mBindingView.rlArrow)
+                    mBindingView.cabinInfoView.show()
                 }
             }
 
@@ -153,9 +148,9 @@ class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonView
             EventCode.HIDE_RIGHT_PANEL -> {
                 val type = event.data as Int
                 if (type == 0) {
-                    MediaViewUtils.hideRightView(mBindingView.planeInfoView, mBindingView.rlArrow)
+                    mBindingView.planeInfoView.hide()
                 } else {
-                    MediaViewUtils.hideRightView(mBindingView.seatInfoView, mBindingView.rlArrow)
+                    mBindingView.cabinInfoView.hide()
                 }
             }
 
