@@ -92,8 +92,8 @@ class MediaFragment : BaseFragment<OtherFragmentMediaBinding, CommonViewModel>()
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun handleEvent(event: MessageEvent<*>) {
         when (event.code) {
-            // 显示或者隐藏页码
-            EventCode.SHOW_PAGE_COUNT -> {
+            // 显示或者隐藏功能面板
+            EventCode.SHOW_FUNCTION_VIEW -> {
                 val isShow = event.data as Boolean
                 mBindingView.tvPageCount.visibility = if (isShow) View.VISIBLE else View.GONE
             }

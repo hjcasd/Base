@@ -9,14 +9,10 @@ import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.blankj.utilcode.util.BarUtils
-import com.hjc.library_base.event.EventManager
-import com.hjc.library_base.event.MessageEvent
-import com.hjc.library_common.global.EventCode
 import com.hjc.module_other.R
-import com.hjc.module_other.adapter.CabinAdapter
-import com.hjc.module_other.adapter.ServiceAdapter
 import com.hjc.module_other.http.entity.CabinBean
+import com.hjc.module_other.ui.video.adapter.CabinAdapter
+import com.hjc.module_other.ui.video.adapter.ServiceAdapter
 import com.hjc.module_other.utils.MediaViewUtils
 
 /**
@@ -88,11 +84,11 @@ class CabinInfoView @JvmOverloads constructor(
     @SuppressLint("NotifyDataSetChanged")
     private fun addListener() {
         rlShowArrow.setOnClickListener {
-            show()
+            showPanel()
         }
 
         rlHideArrow.setOnClickListener {
-            hide()
+            hidePanel()
         }
 
         mCabinAdapter.setOnItemClickListener { _, _, position ->
@@ -105,27 +101,33 @@ class CabinInfoView @JvmOverloads constructor(
     }
 
     /**
-     * 显示View
+     * 显示面板
      */
-    fun show(type: Int = 0) {
-        if (type == 0) {
-            MediaViewUtils.showRightView(llInfo, rlShowArrow)
-        } else {
-            rlShowArrow.visibility = View.VISIBLE
-            llInfo.visibility = View.INVISIBLE
-        }
+    fun showPanel() {
+        MediaViewUtils.showRightView(llInfo, rlShowArrow)
     }
 
     /**
-     * 隐藏View
+     * 显示箭头
      */
-    fun hide(type: Int = 0) {
-        if (type == 0) {
-            MediaViewUtils.hideRightView(llInfo, rlShowArrow)
-        } else {
-            rlShowArrow.visibility = View.GONE
-            llInfo.visibility = View.INVISIBLE
-        }
+    fun showArrow() {
+        rlShowArrow.visibility = View.VISIBLE
+        llInfo.visibility = View.INVISIBLE
+    }
+
+    /**
+     * 隐藏面板
+     */
+    fun hidePanel() {
+        MediaViewUtils.hideRightView(llInfo, rlShowArrow)
+    }
+
+    /**
+     * 隐藏整个View
+     */
+    fun hideAll() {
+        rlShowArrow.visibility = View.GONE
+        llInfo.visibility = View.INVISIBLE
     }
 
 }

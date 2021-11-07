@@ -19,7 +19,6 @@ import io.reactivex.Observable
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
 import java.util.concurrent.TimeUnit
-import kotlin.math.ceil
 import kotlin.math.round
 
 /**
@@ -33,9 +32,20 @@ class VideoFragment : BaseFragment<OtherFragmentVideoBinding, CommonViewModel>()
 
     private var disposable: Disposable? = null
 
-    private var mType = 0
+    /**
+     * 飞机还是舱位类型
+     */
+    private var type = 0
 
-    private var isFirst = true
+    /**
+     * 是否第一次播放视频
+     */
+    private var isFirstPlay = true
+
+    /**
+     * 界面是否不可见
+     */
+    private var isHide = false
 
     companion object {
         fun newInstance(videoUrl: String, type: Int): VideoFragment {
@@ -64,7 +74,7 @@ class VideoFragment : BaseFragment<OtherFragmentVideoBinding, CommonViewModel>()
 
         arguments?.let {
             val videoUrl = it.getString("videoUrl", "")
-            mType = it.getInt("type", 0)
+            type = it.getInt("type", 0)
 
             //播放视频
             val mediaItem = MediaItem.fromUri(videoUrl)
@@ -84,9 +94,8 @@ class VideoFragment : BaseFragment<OtherFragmentVideoBinding, CommonViewModel>()
                     player?.let {
                         val time = round(it.currentPosition / 1000.0).toInt()
                         if (time == 3) {
-                            isFirst = false
+                            isFirstPlay = false
                             player?.pause()
-                            EventManager.sendEvent(MessageEvent(EventCode.SHOW_ALL_VIEW, null))
                             disposable?.dispose()
                         }
                     }
@@ -120,11 +129,12 @@ class VideoFragment : BaseFragment<OtherFragmentVideoBinding, CommonViewModel>()
                     Player.STATE_READY -> {
                         LogUtils.e("视频加载完成,可以播放了")
                         mBindingView.pbLoading.visibility = View.GONE
-                        if (!isFirst) {
+
+                        if (!isFirstPlay && !isHide) {
                             if (playWhenReady) {
-                                EventManager.sendEvent(MessageEvent(EventCode.HIDE_RIGHT_PANEL, mType))
+                                EventManager.sendEvent(MessageEvent(EventCode.HIDE_RIGHT_PANEL, type))
                             } else {
-                                EventManager.sendEvent(MessageEvent(EventCode.SHOW_RIGHT_PANEL, mType))
+                                EventManager.sendEvent(MessageEvent(EventCode.SHOW_RIGHT_PANEL, type))
                             }
                         }
                     }
@@ -144,11 +154,13 @@ class VideoFragment : BaseFragment<OtherFragmentVideoBinding, CommonViewModel>()
 
     override fun onResume() {
         super.onResume()
+        isHide = false
         player?.play()
     }
 
     override fun onPause() {
         super.onPause()
+        isHide = true
         player?.pause()
     }
 

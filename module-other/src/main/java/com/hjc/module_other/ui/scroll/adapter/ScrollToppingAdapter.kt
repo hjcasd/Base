@@ -1,4 +1,4 @@
-package com.hjc.module_other.adapter
+package com.hjc.module_other.ui.scroll.adapter
 
 import com.chad.library.adapter.base.BaseDelegateMultiAdapter
 import com.chad.library.adapter.base.delegate.BaseMultiTypeDelegate

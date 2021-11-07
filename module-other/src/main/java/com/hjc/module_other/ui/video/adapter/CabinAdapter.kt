@@ -1,4 +1,4 @@
-package com.hjc.module_other.adapter
+package com.hjc.module_other.ui.video.adapter
 
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding

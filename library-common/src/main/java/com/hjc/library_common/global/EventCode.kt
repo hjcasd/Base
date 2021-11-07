@@ -33,13 +33,8 @@ object EventCode {
     const val HIDE_RIGHT_PANEL = "hide_right_panel"
 
     /**
-     * 显示所有面板
+     * 显示功能面板
      */
-    const val SHOW_ALL_VIEW = "show_all_view"
-
-    /**
-     * 显示页码
-     */
-    const val SHOW_PAGE_COUNT = "show_page_count"
+    const val SHOW_FUNCTION_VIEW = "show_function_view"
 
 }

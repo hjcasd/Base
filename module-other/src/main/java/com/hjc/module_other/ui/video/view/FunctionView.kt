@@ -6,14 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
-import androidx.databinding.DataBindingUtil
 import com.hjc.module_other.R
 import com.hjc.module_other.utils.MediaViewUtils
 
 /**
  * @Author: HJC
  * @Date: 2021/9/27 10:55
- * @Description: view
+ * @Description: 功能面板view
  */
 class FunctionView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -88,14 +87,14 @@ class FunctionView @JvmOverloads constructor(
     /**
      * 显示View
      */
-    fun show() {
+    private fun show() {
         MediaViewUtils.showLeftView(llRoot)
     }
 
     /**
      * 隐藏View
      */
-    fun hide() {
+    private fun hide() {
         MediaViewUtils.hideLeftView(llRoot, llFunction.width.toFloat())
     }
 

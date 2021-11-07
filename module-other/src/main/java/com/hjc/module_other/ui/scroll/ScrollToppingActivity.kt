@@ -10,7 +10,7 @@ import com.hjc.library_common.router.path.RouteOtherPath
 import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_other.R
-import com.hjc.module_other.adapter.ScrollToppingAdapter
+import com.hjc.module_other.ui.scroll.adapter.ScrollToppingAdapter
 import com.hjc.module_other.databinding.OtherActivityScrollToppingBinding
 import com.hjc.module_other.http.entity.ScrollBean
 import com.hjc.module_other.widget.sticky.StickyItemDecoration

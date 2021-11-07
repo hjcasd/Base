@@ -32,6 +32,8 @@ class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonView
      */
     private var type = 0
 
+    private var isFirstIn = true
+
     override fun getLayoutId(): Int {
         return R.layout.other_activity_rich_media
     }
@@ -62,27 +64,33 @@ class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonView
 
             override fun onPlaneClick() {
                 type = 0
+                mBindingView.cabinInfoView.hideAll()
                 showVideoAndPicture()
-                mBindingView.cabinInfoView.hide(1)
             }
 
             override fun onSeatClick() {
                 type = 1
+                mBindingView.planeInfoView.hideAll()
                 showVideoAndPicture()
-                mBindingView.planeInfoView.hide(1)
             }
 
             override fun onEyeStateChanged(state: Int) {
                 if (state == 0) {
                     mBindingView.ivClose.visibility = View.VISIBLE
-                    mBindingView.planeInfoView.show(1)
-                    mBindingView.cabinInfoView.show(1)
-                    EventManager.sendEvent(MessageEvent(EventCode.SHOW_PAGE_COUNT, true))
+                    if (type == 0) {
+                        mBindingView.planeInfoView.showArrow()
+                    } else {
+                        mBindingView.cabinInfoView.showArrow()
+                    }
+                    EventManager.sendEvent(MessageEvent(EventCode.SHOW_FUNCTION_VIEW, true))
                 } else {
                     mBindingView.ivClose.visibility = View.GONE
-                    mBindingView.planeInfoView.hide(1)
-                    mBindingView.cabinInfoView.hide(1)
-                    EventManager.sendEvent(MessageEvent(EventCode.SHOW_PAGE_COUNT, false))
+                    if (type == 0) {
+                        mBindingView.planeInfoView.hideAll()
+                    } else {
+                        mBindingView.cabinInfoView.hideAll()
+                    }
+                    EventManager.sendEvent(MessageEvent(EventCode.SHOW_FUNCTION_VIEW, false))
                 }
             }
 
@@ -119,28 +127,21 @@ class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonView
         ft.replace(R.id.fl_content, fragment).commit()
     }
 
-    /**
-     * 显示右边面板
-     */
-    private fun showRightPanelView() {
-        if (type == 0) {
-            mBindingView.planeInfoView.show()
-        } else {
-            mBindingView.cabinInfoView.show()
-        }
-    }
-
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun handleEvent(event: MessageEvent<*>) {
         when (event.code) {
-
             // 显示右侧面板
             EventCode.SHOW_RIGHT_PANEL -> {
                 val type = event.data as Int
                 if (type == 0) {
-                    mBindingView.planeInfoView.show()
+                    if (isFirstIn) {
+                        isFirstIn = false
+                        mBindingView.functionView.visibility = View.VISIBLE
+                        EventManager.sendEvent(MessageEvent(EventCode.SHOW_FUNCTION_VIEW, true))
+                    }
+                    mBindingView.planeInfoView.showPanel()
                 } else {
-                    mBindingView.cabinInfoView.show()
+                    mBindingView.cabinInfoView.showPanel()
                 }
             }
 
@@ -148,17 +149,10 @@ class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonView
             EventCode.HIDE_RIGHT_PANEL -> {
                 val type = event.data as Int
                 if (type == 0) {
-                    mBindingView.planeInfoView.hide()
+                    mBindingView.planeInfoView.hidePanel()
                 } else {
-                    mBindingView.cabinInfoView.hide()
+                    mBindingView.cabinInfoView.hidePanel()
                 }
-            }
-
-            // 显示所有面板
-            EventCode.SHOW_ALL_VIEW -> {
-                showRightPanelView()
-                mBindingView.functionView.visibility = View.VISIBLE
-                EventManager.sendEvent(MessageEvent(EventCode.SHOW_PAGE_COUNT, true))
             }
 
             else -> {

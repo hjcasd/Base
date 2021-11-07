@@ -1,27 +1,25 @@
-package com.hjc.module_other.adapter
+package com.hjc.module_other.ui.video.adapter
 
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.hjc.module_other.R
-import com.hjc.module_other.databinding.OtherItemScrollIndicatorBinding
+import com.hjc.module_other.databinding.OtherItemServiceBinding
 
 /**
  * @Author: HJC
- * @Date: 2021/1/8 16:22
- * @Description: 文章Adapter
+ * @Date: 2021/9/26 16:35
+ * @Description: 服务列表
  */
-class ScrollLineAdapter(data: MutableList<String>? = null) : BaseQuickAdapter<String, BaseViewHolder>(
-    R.layout.other_item_scroll_indicator, data
-) {
+class ServiceAdapter(data: MutableList<String>) : BaseQuickAdapter<String, BaseViewHolder>(R.layout.other_item_service, data) {
 
     override fun onItemViewHolderCreated(viewHolder: BaseViewHolder, viewType: Int) {
         DataBindingUtil.bind<ViewDataBinding>(viewHolder.itemView)
     }
 
     override fun convert(holder: BaseViewHolder, item: String) {
-        val binding = DataBindingUtil.getBinding<OtherItemScrollIndicatorBinding>(holder.itemView)
+        val binding = DataBindingUtil.getBinding<OtherItemServiceBinding>(holder.itemView)
         binding?.title = item
     }
 
