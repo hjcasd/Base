@@ -8,4 +8,13 @@
         <attr name="customTextColor" format="color" />
     </declare-styleable>
 
+    <!--测试View-->
+    <declare-styleable name="CabinView">
+        <attr name="cabinCornerRadius" format="dimension" />
+        <attr name="cabinContentAlpha" format="integer" />
+        <attr name="cabinContentColor" format="color" />
+        <attr name="cabinStrokeWidth" format="dimension" />
+        <attr name="cabinStrokeColor" format="color" />
+    </declare-styleable>
+
 </resources>

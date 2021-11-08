@@ -1,15 +1,18 @@
 package com.hjc.module_senior.ui.view
 
+import android.graphics.RectF
 import android.os.Bundle
 import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
+import com.hjc.library_common.router.RouteManager
 import com.hjc.library_common.router.path.RouteSeniorPath
 import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_senior.R
 import com.hjc.module_senior.databinding.SeniorActivityViewTestBinding
+import com.hjc.module_senior.widget.CabinView
 
 /**
  * @Author: HJC
@@ -38,6 +41,8 @@ class ViewTestActivity : BaseActivity<SeniorActivityViewTestBinding, CommonViewM
     }
 
     override fun addListeners() {
+        mBindingView.onClickListener = this
+
         mBindingView.titleBar.setOnViewLeftClickListener(object : OnViewLeftClickListener {
             override fun onViewLeftClick(view: View?) {
                 finish()
@@ -46,6 +51,14 @@ class ViewTestActivity : BaseActivity<SeniorActivityViewTestBinding, CommonViewM
     }
 
     override fun onSingleClick(v: View?) {
+        when (v?.id) {
+            R.id.btn_test -> {
+                val rectF = RectF(200f, 400f, 400f, 800f)
+                mBindingView.cabinView.startAnimation(rectF)
+            }
 
+            else -> {
+            }
+        }
     }
 }

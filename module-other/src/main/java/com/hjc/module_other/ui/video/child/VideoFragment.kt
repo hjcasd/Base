@@ -166,6 +166,7 @@ class VideoFragment : BaseFragment<OtherFragmentVideoBinding, CommonViewModel>()
 
     override fun onDestroy() {
         super.onDestroy()
+        disposable?.dispose()
         player?.release()
         player = null
     }

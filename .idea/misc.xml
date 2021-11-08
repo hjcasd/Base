@@ -61,16 +61,18 @@
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_item_cabin.xml" value="0.180859375" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_item_scroll_topping_title.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_item_service.xml" value="0.24114583333333334" />
-        <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_layout_cabin_info.xml" value="0.180859375" />
+        <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_layout_cabin_info.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_layout_function.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_layout_plane_info.xml" value="0.180859375" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_layout_player_control_view.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/module-other/src/main/res/layout/other_layout_seat_info.xml" value="0.24114583333333334" />
+        <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_animator_object.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_animator_value.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_view.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_view_base.xml" value="0.23743589743589744" />
         <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_view_custom.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_activity_view_test.xml" value="0.24114583333333334" />
+        <entry key="..\:/MyProjects/Base/module-senior/src/main/res/layout/senior_fragment.xml" value="0.24114583333333334" />
       </map>
     </option>
   </component>

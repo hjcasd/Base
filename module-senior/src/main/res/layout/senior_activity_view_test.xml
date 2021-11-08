@@ -4,6 +4,10 @@
 
     <data>
 
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+
     </data>
 
     <LinearLayout
@@ -26,7 +30,7 @@
             android:padding="20dp"
             app:customText="王者荣耀"
             app:customTextColor="@color/base_black"
-            app:customTextSize="24sp"/>
+            app:customTextSize="24sp" />
 
         <com.hjc.module_senior.widget.TestViewGroup
             android:layout_width="match_parent"
@@ -36,24 +40,51 @@
             <View
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="@color/base_red"/>
+                android:background="@color/base_red" />
 
             <View
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="@color/base_red"/>
+                android:background="@color/base_red" />
 
             <View
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="@color/base_red"/>
+                android:background="@color/base_red" />
 
             <View
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="@color/base_red"/>
+                android:background="@color/base_red" />
 
         </com.hjc.module_senior.widget.TestViewGroup>
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="400dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@mipmap/base_img_example">
+
+            <com.hjc.module_senior.widget.CabinView
+                android:id="@+id/cabin_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cabinContentAlpha="125"
+                app:cabinContentColor="#003236"
+                app:cabinCornerRadius="30dp"
+                app:cabinStrokeColor="#23CBF9"
+                app:cabinStrokeWidth="1dp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="@{onClickListener}"
+            android:text="平移" />
 
     </LinearLayout>
 
