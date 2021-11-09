@@ -15,6 +15,10 @@
         <attr name="cabinContentColor" format="color" />
         <attr name="cabinStrokeWidth" format="dimension" />
         <attr name="cabinStrokeColor" format="color" />
+
+        <attr name="cabinShadowStartColor" format="color" />
+        <attr name="cabinShadowEndColor" format="color" />
+        <attr name="cabinShadowRadius" format="dimension" />
     </declare-styleable>
 
 </resources>

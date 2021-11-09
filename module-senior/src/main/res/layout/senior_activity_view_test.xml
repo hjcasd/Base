@@ -34,7 +34,7 @@
 
         <com.hjc.module_senior.widget.TestViewGroup
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="100dp"
             android:background="@color/base_color">
 
             <View
@@ -61,12 +61,12 @@
 
         <LinearLayout
             android:layout_width="200dp"
-            android:layout_height="400dp"
+            android:layout_height="300dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:background="@mipmap/base_img_example">
 
-            <com.hjc.module_senior.widget.CabinView
+            <com.hjc.module_senior.widget.cabin.CabinView
                 android:id="@+id/cabin_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -74,17 +74,37 @@
                 app:cabinContentColor="#003236"
                 app:cabinCornerRadius="30dp"
                 app:cabinStrokeColor="#23CBF9"
-                app:cabinStrokeWidth="1dp" />
+                app:cabinStrokeWidth="1dp"
+                app:cabinShadowRadius="30dp"
+                app:cabinShadowStartColor="#00CEFE"
+                app:cabinShadowEndColor="#00CEFE"/>
 
         </LinearLayout>
 
         <Button
-            android:id="@+id/btn_test"
+            android:id="@+id/btn_cabin1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:onClick="@{onClickListener}"
-            android:text="平移" />
+            android:text="@string/cabin1"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/btn_cabin2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{onClickListener}"
+            android:text="@string/cabin2"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/btn_cabin3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{onClickListener}"
+            android:text="@string/cabin3"
+            android:textAllCaps="false"/>
 
     </LinearLayout>
 

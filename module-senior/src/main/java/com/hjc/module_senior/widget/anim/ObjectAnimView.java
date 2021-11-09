@@ -17,7 +17,7 @@ import com.hjc.module_senior.widget.anim.helper.PointEvaluator;
 /**
  * @Author: HJC
  * @Date: 2021/8/15 15:40
- * @Description: 自定义属性动画View
+ * @Description: 自定义ObjectAnimator动画View
  */
 public class ObjectAnimView extends View {
 

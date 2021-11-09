@@ -83,4 +83,8 @@
 
     <string name="senior_animator_interpolator_title">Interpolator</string>
 
+    <string name="cabin1">豪华舱</string>
+    <string name="cabin2">公务舱</string>
+    <string name="cabin3">经济舱</string>
+
 </resources>

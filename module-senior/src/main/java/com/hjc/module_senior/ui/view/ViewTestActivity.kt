@@ -6,13 +6,11 @@ import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
-import com.hjc.library_common.router.RouteManager
 import com.hjc.library_common.router.path.RouteSeniorPath
 import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_senior.R
 import com.hjc.module_senior.databinding.SeniorActivityViewTestBinding
-import com.hjc.module_senior.widget.CabinView
 
 /**
  * @Author: HJC
@@ -52,8 +50,18 @@ class ViewTestActivity : BaseActivity<SeniorActivityViewTestBinding, CommonViewM
 
     override fun onSingleClick(v: View?) {
         when (v?.id) {
-            R.id.btn_test -> {
-                val rectF = RectF(200f, 400f, 400f, 800f)
+            R.id.btn_cabin1 -> {
+                val rectF = RectF(200f, 100f, 300f, 300f)
+                mBindingView.cabinView.startAnimation(rectF)
+            }
+
+            R.id.btn_cabin2 -> {
+                val rectF = RectF(200f, 300f, 300f, 600f)
+                mBindingView.cabinView.startAnimation(rectF)
+            }
+
+            R.id.btn_cabin3 -> {
+                val rectF = RectF(200f, 500f, 300f, 700f)
                 mBindingView.cabinView.startAnimation(rectF)
             }
 
