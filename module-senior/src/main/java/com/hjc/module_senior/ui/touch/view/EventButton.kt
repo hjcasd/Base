@@ -1,29 +1,24 @@
-package com.hjc.module_senior.widget.event
+package com.hjc.module_senior.ui.touch.view
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.MotionEvent
-import android.widget.FrameLayout
+import androidx.appcompat.widget.AppCompatButton
 import com.blankj.utilcode.util.LogUtils
 
-class MyViewGroup @JvmOverloads constructor(
+class EventButton @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
-) : FrameLayout(context, attrs, defStyleAttr) {
+) : AppCompatButton(context, attrs, defStyleAttr) {
 
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
-        LogUtils.e("MyViewGroup: dispatchTouchEvent")
+        LogUtils.e("EventButton: dispatchTouchEvent: " + event.action)
         return super.dispatchTouchEvent(event)
-    }
-
-    override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
-        LogUtils.e("MyViewGroup: onInterceptTouchEvent")
-        return super.onInterceptTouchEvent(ev)
     }
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean {
-        LogUtils.e("MyViewGroup: onTouchEvent")
+        LogUtils.e("EventButton: onTouchEvent: " + event.action)
         return super.onTouchEvent(event)
     }
 }

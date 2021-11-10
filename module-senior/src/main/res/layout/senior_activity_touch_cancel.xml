@@ -20,7 +20,7 @@
             app:titleColor="@color/base_white"
             app:titleText="@string/senior_touch_cancel_title" />
 
-        <com.hjc.module_senior.widget.event.MyScrollView
+        <com.hjc.module_senior.ui.touch.view.EventScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/base_gray">
@@ -30,14 +30,14 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <com.hjc.module_senior.widget.event.MyButton
+                <com.hjc.module_senior.ui.touch.view.EventButton
                     android:layout_width="200dp"
                     android:layout_height="200dp"
                     android:layout_gravity="center_horizontal"
                     android:background="@color/senior_green"
                     android:text="@string/senior_touch_cancel_btn">
 
-                </com.hjc.module_senior.widget.event.MyButton>
+                </com.hjc.module_senior.ui.touch.view.EventButton>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -45,7 +45,7 @@
 
             </LinearLayout>
 
-        </com.hjc.module_senior.widget.event.MyScrollView>
+        </com.hjc.module_senior.ui.touch.view.EventScrollView>
 
     </LinearLayout>
 

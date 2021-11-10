@@ -1,4 +1,4 @@
-package com.hjc.module_senior.widget.view
+package com.hjc.module_senior.widget
 
 import android.content.Context
 import android.graphics.Canvas

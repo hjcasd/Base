@@ -48,7 +48,7 @@
             android:layout_marginTop="20dp"
             android:src="@mipmap/senior_img_example" />
 
-<!--        <com.hjc.module_senior.widget.anim.ObjectAnimView-->
+<!--        <com.hjc.module_senior.ui.animation.view.ObjectAnimView-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="match_parent"-->
 <!--            android:layout_marginTop="20dp" />-->

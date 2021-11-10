@@ -47,7 +47,7 @@
             android:layout_marginTop="20dp"
             android:src="@mipmap/senior_img_circle" />
 
-<!--        <com.hjc.module_senior.widget.anim.ValueAnimView-->
+<!--        <com.hjc.module_senior.ui.animation.view.ValueAnimView-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="match_parent"-->
 <!--            android:layout_marginTop="20dp" />-->

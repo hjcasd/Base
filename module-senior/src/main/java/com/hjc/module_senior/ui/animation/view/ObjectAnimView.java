@@ -1,4 +1,4 @@
-package com.hjc.module_senior.widget.anim;
+package com.hjc.module_senior.ui.animation.view;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -10,9 +10,9 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.hjc.module_senior.widget.anim.helper.ColorEvaluator;
-import com.hjc.module_senior.widget.anim.helper.Point;
-import com.hjc.module_senior.widget.anim.helper.PointEvaluator;
+import com.hjc.module_senior.ui.animation.helper.ColorEvaluator;
+import com.hjc.module_senior.ui.animation.helper.Point;
+import com.hjc.module_senior.ui.animation.helper.PointEvaluator;
 
 /**
  * @Author: HJC

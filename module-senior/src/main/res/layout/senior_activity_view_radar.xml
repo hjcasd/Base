@@ -20,7 +20,7 @@
             app:titleColor="@color/base_white"
             app:titleText="@string/senior_view_radar_title" />
 
-        <com.hjc.module_senior.widget.view.RadarView
+        <com.hjc.module_senior.widget.RadarView
             android:id="@+id/radar_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

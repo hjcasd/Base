@@ -29,7 +29,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <com.hjc.module_senior.widget.view.MyCustom3View
+            <com.hjc.module_senior.widget.MyCustom3View
                 android:id="@+id/custom_view"
                 android:layout_width="match_parent"
                 android:layout_height="300dp" />

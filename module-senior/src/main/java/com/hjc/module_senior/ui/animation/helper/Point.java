@@ -1,4 +1,4 @@
-package com.hjc.module_senior.widget.anim.helper;
+package com.hjc.module_senior.ui.animation.helper;
 
 /**
  * @Author: HJC

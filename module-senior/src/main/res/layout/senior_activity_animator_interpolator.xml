@@ -24,7 +24,7 @@
             app:titleColor="@color/base_white"
             app:titleText="@string/senior_animator_interpolator_title" />
 
-        <com.hjc.module_senior.widget.anim.InterpolatorAnimView
+        <com.hjc.module_senior.ui.animation.view.InterpolatorAnimView
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
