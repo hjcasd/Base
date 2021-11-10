@@ -10,7 +10,6 @@ import android.view.View
 import com.blankj.utilcode.util.ConvertUtils
 import com.hjc.module_senior.R
 
-
 /**
  * @Author: HJC
  * @Date: 2019/10/31 11:48
@@ -40,16 +39,15 @@ class CabinView @JvmOverloads constructor(
      */
     private var mCabinStrokeWidth = 0f
 
-
-    private var mCabinShadowStartColor = 0
-    private var mCabinShadowEndColor = 0
-    private var mCabinShadowRadius = 0f
-
-
     /**
      * 边框颜色
      */
     private var mCabinStrokeColor = 0
+
+    /**
+     * 模糊半径
+     */
+    private var mCabinBlurRadius = 0f
 
     /**
      * 内容画笔
@@ -62,19 +60,9 @@ class CabinView @JvmOverloads constructor(
     private val mStrokePaint: Paint = Paint()
 
     /**
-     * 阴影画笔
-     */
-    private val mShadowPaint: Paint = Paint()
-
-    /**
-     * 初始矩形
-     */
-    private var mOriginalRectF = RectF(200f, 100f, 300f, 300f)
-
-    /**
      * 当前矩形
      */
-    private var mCurrentRectF: RectF? = null
+    private var mCurrentRectF: RectF = RectF(200f, 100f, 300f, 300f)
 
     init {
         initTypeArray(attrs)
@@ -85,50 +73,38 @@ class CabinView @JvmOverloads constructor(
         val typeArray = mContext.obtainStyledAttributes(attrs, R.styleable.CabinView)
         mCabinCornerRadius = typeArray.getDimensionPixelSize(R.styleable.CabinView_cabinCornerRadius, ConvertUtils.dp2px(8f)).toFloat()
         mCabinContentAlpha = typeArray.getInteger(R.styleable.CabinView_cabinContentAlpha, 0)
-        mCabinContentColor = typeArray.getColor(R.styleable.CabinView_cabinContentColor, Color.BLACK)
+        mCabinContentColor = typeArray.getColor(R.styleable.CabinView_cabinContentColor, Color.GREEN)
         mCabinStrokeWidth = typeArray.getDimensionPixelSize(R.styleable.CabinView_cabinStrokeWidth, ConvertUtils.dp2px(1f)).toFloat()
         mCabinStrokeColor = typeArray.getColor(R.styleable.CabinView_cabinStrokeColor, Color.BLUE)
-
-        mCabinShadowStartColor = typeArray.getColor(R.styleable.CabinView_cabinShadowStartColor, Color.RED)
-        mCabinShadowEndColor = typeArray.getColor(R.styleable.CabinView_cabinShadowEndColor, Color.RED)
-        mCabinShadowRadius = typeArray.getDimensionPixelSize(R.styleable.CabinView_cabinShadowRadius, ConvertUtils.dp2px(10f)).toFloat()
+        mCabinBlurRadius = typeArray.getDimensionPixelSize(R.styleable.CabinView_cabinBlurRadius, ConvertUtils.dp2px(10f)).toFloat()
 
         typeArray.recycle()
+
+        setLayerType(LAYER_TYPE_SOFTWARE, null)
     }
 
     private fun initPaint() {
+        // 初始化内容画笔
         mContentPaint.style = Paint.Style.FILL
         mContentPaint.color = mCabinContentColor
         // setAlpha()要放在setColor()方法之后才能生效
         mContentPaint.alpha = mCabinContentAlpha
 
+        val blurMaskFilter = BlurMaskFilter(mCabinBlurRadius, BlurMaskFilter.Blur.SOLID)
+        mContentPaint.maskFilter = blurMaskFilter
+
+        // 初始化边框画笔
         mStrokePaint.style = Paint.Style.STROKE
         mStrokePaint.isAntiAlias = true
         mStrokePaint.strokeWidth = mCabinStrokeWidth
         mStrokePaint.color = mCabinStrokeColor
-
-        val linearGradient = LinearGradient(
-            0f,
-            0f,
-            10f,
-            0f,
-            mCabinShadowStartColor,
-            mCabinShadowEndColor,
-            Shader.TileMode.CLAMP
-        )
-        mShadowPaint.shader = linearGradient
-
-        val blurMaskFilter = BlurMaskFilter(mCabinShadowRadius, BlurMaskFilter.Blur.NORMAL)
-        mShadowPaint.maskFilter = blurMaskFilter
-
-        setLayerType(LAYER_TYPE_SOFTWARE, mShadowPaint)
     }
 
     /**
      * 开始动画
      */
     fun startAnimation(newRectF: RectF) {
-        val valueAnimator = ValueAnimator.ofObject(CabinRectEvaluator(), mOriginalRectF, newRectF)
+        val valueAnimator = ValueAnimator.ofObject(CabinRectEvaluator(), mCurrentRectF, newRectF)
         valueAnimator.duration = 500
         valueAnimator.start()
         valueAnimator.addUpdateListener { animation ->
@@ -138,7 +114,7 @@ class CabinView @JvmOverloads constructor(
         valueAnimator.addListener(object : AnimatorListenerAdapter() {
 
             override fun onAnimationEnd(animation: Animator?) {
-                mOriginalRectF = newRectF
+                mCurrentRectF = newRectF
             }
 
         })
@@ -146,20 +122,15 @@ class CabinView @JvmOverloads constructor(
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        if (mCurrentRectF == null) {
-            mCurrentRectF = mOriginalRectF
-            drawRoundRect(canvas)
-        } else {
-            drawRoundRect(canvas)
-        }
+        drawRoundRect(canvas)
     }
 
+    /**
+     * 画圆角矩形
+     */
     private fun drawRoundRect(canvas: Canvas) {
-        mCurrentRectF?.let {
-            canvas.drawRoundRect(it, mCabinShadowRadius, mCabinShadowRadius, mShadowPaint)
-            canvas.drawRoundRect(it, mCabinCornerRadius, mCabinCornerRadius, mContentPaint)
-            canvas.drawRoundRect(it, mCabinCornerRadius, mCabinCornerRadius, mStrokePaint)
-        }
+        canvas.drawRoundRect(mCurrentRectF, mCabinCornerRadius, mCabinCornerRadius, mContentPaint)
+        canvas.drawRoundRect(mCurrentRectF, mCabinCornerRadius, mCabinCornerRadius, mStrokePaint)
     }
 
 }

@@ -18,7 +18,7 @@
 
         <attr name="cabinShadowStartColor" format="color" />
         <attr name="cabinShadowEndColor" format="color" />
-        <attr name="cabinShadowRadius" format="dimension" />
+        <attr name="cabinBlurRadius" format="dimension" />
     </declare-styleable>
 
 </resources>
