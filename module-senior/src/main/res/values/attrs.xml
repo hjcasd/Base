@@ -8,8 +8,7 @@
         <attr name="customTextColor" format="color" />
     </declare-styleable>
 
-    <!--测试View-->
-    <declare-styleable name="CabinView">
+    <declare-styleable name="CabinMaskView">
         <attr name="cabinCornerRadius" format="dimension" />
         <attr name="cabinContentAlpha" format="integer" />
         <attr name="cabinContentColor" format="color" />
@@ -19,6 +18,17 @@
         <attr name="cabinShadowStartColor" format="color" />
         <attr name="cabinShadowEndColor" format="color" />
         <attr name="cabinBlurRadius" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CabinImageView">
+        <attr name="maskCornerRadius" format="dimension" />
+        <attr name="maskContentAlpha" format="integer" />
+        <attr name="maskContentColor" format="color" />
+        <attr name="maskStrokeWidth" format="dimension" />
+        <attr name="maskStrokeColor" format="color" />
+        <attr name="maskShadowStartColor" format="color" />
+        <attr name="maskShadowEndColor" format="color" />
+        <attr name="maskBlurRadius" format="dimension" />
     </declare-styleable>
 
 </resources>

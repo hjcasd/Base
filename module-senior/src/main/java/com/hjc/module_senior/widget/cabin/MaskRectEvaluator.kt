@@ -8,7 +8,7 @@ import android.graphics.RectF
  * @Date: 2021/8/15 15:08
  * @Description: 矩形过渡的TypeEvaluator
  */
-class CabinRectEvaluator : TypeEvaluator<RectF> {
+class MaskRectEvaluator : TypeEvaluator<RectF> {
     /**
      *
      * @param fraction 用于表示动画的完成度，类似于百分比

@@ -59,31 +59,47 @@
 
         </com.hjc.module_senior.widget.TestViewGroup>
 
-        <LinearLayout
+        <com.hjc.module_senior.widget.cabin.CabinImageView
+            android:id="@+id/iv_cabin"
             android:layout_width="200dp"
-            android:layout_height="300dp"
+            android:layout_height="200dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:background="@mipmap/base_img_example">
+            android:layout_marginBottom="10dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/base_img_example"
+            app:maskBlurRadius="10dp"
+            app:maskContentAlpha="125"
+            app:maskContentColor="#ff0000"
+            app:maskCornerRadius="20dp"
+            app:maskStrokeColor="#23CBF9"
+            app:maskStrokeWidth="0.5dp" />
 
-            <com.hjc.module_senior.widget.cabin.CabinView
-                android:id="@+id/cabin_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:cabinBlurRadius="30dp"
-                app:cabinContentAlpha="125"
-                app:cabinContentColor="#003236"
-                app:cabinCornerRadius="20dp"
-                app:cabinStrokeColor="#23CBF9"
-                app:cabinStrokeWidth="0.5dp" />
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="200dp"-->
+        <!--            android:layout_height="200dp"-->
+        <!--            android:layout_gravity="center"-->
+        <!--            android:layout_marginTop="10dp"-->
+        <!--            android:layout_marginBottom="10dp"-->
+        <!--            android:background="@mipmap/base_img_example">-->
 
-        </LinearLayout>
+        <!--            <com.hjc.module_senior.widget.cabin.CabinMaskView-->
+        <!--                android:id="@+id/cabin_mask_view"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="match_parent"-->
+        <!--                app:cabinBlurRadius="10dp"-->
+        <!--                app:cabinContentAlpha="125"-->
+        <!--                app:cabinContentColor="#003236"-->
+        <!--                app:cabinCornerRadius="20dp"-->
+        <!--                app:cabinStrokeColor="#23CBF9"-->
+        <!--                app:cabinStrokeWidth="0.5dp" />-->
+
+        <!--        </LinearLayout>-->
 
         <Button
             android:id="@+id/btn_cabin1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:onClick="@{onClickListener}"
             android:text="@string/cabin1"
             android:textAllCaps="false" />

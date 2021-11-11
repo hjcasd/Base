@@ -15,7 +15,7 @@ import com.hjc.module_senior.R
  * @Date: 2019/10/31 11:48
  * @Description: 圆角矩形View
  */
-class CabinView @JvmOverloads constructor(
+class CabinMaskView @JvmOverloads constructor(
     private val mContext: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(mContext, attrs, defStyleAttr) {
 
@@ -62,7 +62,7 @@ class CabinView @JvmOverloads constructor(
     /**
      * 当前矩形
      */
-    private var mCurrentRectF: RectF = RectF(200f, 100f, 300f, 300f)
+    private var mCurrentRectF: RectF = RectF(0f, 0f, 0f, 0f)
 
     init {
         initTypeArray(attrs)
@@ -70,13 +70,13 @@ class CabinView @JvmOverloads constructor(
     }
 
     private fun initTypeArray(attrs: AttributeSet?) {
-        val typeArray = mContext.obtainStyledAttributes(attrs, R.styleable.CabinView)
-        mCabinCornerRadius = typeArray.getDimensionPixelSize(R.styleable.CabinView_cabinCornerRadius, ConvertUtils.dp2px(8f)).toFloat()
-        mCabinContentAlpha = typeArray.getInteger(R.styleable.CabinView_cabinContentAlpha, 0)
-        mCabinContentColor = typeArray.getColor(R.styleable.CabinView_cabinContentColor, Color.GREEN)
-        mCabinStrokeWidth = typeArray.getDimensionPixelSize(R.styleable.CabinView_cabinStrokeWidth, ConvertUtils.dp2px(1f)).toFloat()
-        mCabinStrokeColor = typeArray.getColor(R.styleable.CabinView_cabinStrokeColor, Color.BLUE)
-        mCabinBlurRadius = typeArray.getDimensionPixelSize(R.styleable.CabinView_cabinBlurRadius, ConvertUtils.dp2px(10f)).toFloat()
+        val typeArray = mContext.obtainStyledAttributes(attrs, R.styleable.CabinMaskView)
+        mCabinCornerRadius = typeArray.getDimensionPixelSize(R.styleable.CabinMaskView_cabinCornerRadius, ConvertUtils.dp2px(8f)).toFloat()
+        mCabinContentAlpha = typeArray.getInteger(R.styleable.CabinMaskView_cabinContentAlpha, 0)
+        mCabinContentColor = typeArray.getColor(R.styleable.CabinMaskView_cabinContentColor, Color.GREEN)
+        mCabinStrokeWidth = typeArray.getDimensionPixelSize(R.styleable.CabinMaskView_cabinStrokeWidth, ConvertUtils.dp2px(1f)).toFloat()
+        mCabinStrokeColor = typeArray.getColor(R.styleable.CabinMaskView_cabinStrokeColor, Color.BLUE)
+        mCabinBlurRadius = typeArray.getDimensionPixelSize(R.styleable.CabinMaskView_cabinBlurRadius, ConvertUtils.dp2px(10f)).toFloat()
 
         typeArray.recycle()
 
@@ -99,12 +99,17 @@ class CabinView @JvmOverloads constructor(
         mStrokePaint.strokeWidth = mCabinStrokeWidth
         mStrokePaint.color = mCabinStrokeColor
     }
+    
+    fun setRect(rectF: RectF){
+        mCurrentRectF = rectF
+        invalidate()
+    }
 
     /**
      * 开始动画
      */
     fun startAnimation(newRectF: RectF) {
-        val valueAnimator = ValueAnimator.ofObject(CabinRectEvaluator(), mCurrentRectF, newRectF)
+        val valueAnimator = ValueAnimator.ofObject(MaskRectEvaluator(), mCurrentRectF, newRectF)
         valueAnimator.duration = 500
         valueAnimator.start()
         valueAnimator.addUpdateListener { animation ->

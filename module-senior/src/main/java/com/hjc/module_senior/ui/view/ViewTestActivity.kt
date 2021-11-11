@@ -35,7 +35,9 @@ class ViewTestActivity : BaseActivity<SeniorActivityViewTestBinding, CommonViewM
     }
 
     override fun initData(savedInstanceState: Bundle?) {
-
+        val rectF =  RectF(250f, 100f, 300f, 180f)
+//        mBindingView.cabinMaskView.setRect(rectF)
+        mBindingView.ivCabin.setRect(rectF)
     }
 
     override fun addListeners() {
@@ -51,18 +53,21 @@ class ViewTestActivity : BaseActivity<SeniorActivityViewTestBinding, CommonViewM
     override fun onSingleClick(v: View?) {
         when (v?.id) {
             R.id.btn_cabin1 -> {
-                val rectF = RectF(200f, 100f, 300f, 300f)
-                mBindingView.cabinView.startAnimation(rectF)
+                val rectF =  RectF(250f, 100f, 300f, 180f)
+//                mBindingView.cabinMaskView.startAnimation(rectF)
+                mBindingView.ivCabin.startAnimation(rectF)
             }
 
             R.id.btn_cabin2 -> {
-                val rectF = RectF(200f, 300f, 300f, 600f)
-                mBindingView.cabinView.startAnimation(rectF)
+                val rectF = RectF(250f, 200f, 300f, 320f)
+//                mBindingView.cabinMaskView.startAnimation(rectF)
+                mBindingView.ivCabin.startAnimation(rectF)
             }
 
             R.id.btn_cabin3 -> {
-                val rectF = RectF(200f, 500f, 300f, 700f)
-                mBindingView.cabinView.startAnimation(rectF)
+                val rectF = RectF(250f, 340f, 300f, 440f)
+//                mBindingView.cabinMaskView.startAnimation(rectF)
+                mBindingView.ivCabin.startAnimation(rectF)
             }
 
             else -> {
