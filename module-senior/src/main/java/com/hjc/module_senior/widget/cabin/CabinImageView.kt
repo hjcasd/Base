@@ -62,7 +62,11 @@ class CabinImageView @JvmOverloads constructor(
     /**
      * 当前矩形
      */
-    private var mCurrentRectF: RectF = RectF(0f, 0f, 0f, 0f)
+    private var mCurrentRectF: RectF = RectF(50f, 50f, 100f, 150f)
+
+
+    private var mWidth: Int = 0
+    private var mHeight: Int = 0
 
     init {
         initTypeArray(attrs)
@@ -99,11 +103,26 @@ class CabinImageView @JvmOverloads constructor(
         mStrokePaint.strokeWidth = mMaskStrokeWidth
         mStrokePaint.color = mMaskStrokeColor
     }
-    
-    fun setRect(rectF: RectF){
+
+
+    /**
+     * 设置当前矩形
+     */
+    fun setCurrentRect(rectF: RectF) {
         mCurrentRectF = rectF
         invalidate()
     }
+
+    fun setCurrentRectAsync(leftPercent: Float, topPercent: Float, rightPercent: Float, bottomPercent: Float) {
+        val left = mWidth * leftPercent
+        val top = mHeight * topPercent
+        val right = mWidth * rightPercent
+        val bottom = mHeight * bottomPercent
+        val rectF = RectF(left, top, right, bottom)
+        mCurrentRectF = rectF
+        invalidate()
+    }
+
 
     /**
      * 开始动画
@@ -123,6 +142,40 @@ class CabinImageView @JvmOverloads constructor(
             }
 
         })
+    }
+
+    fun startAnimationAsync(leftPercent: Float, topPercent: Float, rightPercent: Float, bottomPercent: Float) {
+        val left = mWidth * leftPercent
+        val top = mHeight * topPercent
+        val right = mWidth * rightPercent
+        val bottom = mHeight * bottomPercent
+        val rectF = RectF(left, top, right, bottom)
+
+        val valueAnimator = ValueAnimator.ofObject(MaskRectEvaluator(), mCurrentRectF, rectF)
+        valueAnimator.duration = 500
+        valueAnimator.start()
+        valueAnimator.addUpdateListener { animation ->
+            mCurrentRectF = animation.animatedValue as RectF
+            invalidate()
+        }
+        valueAnimator.addListener(object : AnimatorListenerAdapter() {
+
+            override fun onAnimationEnd(animation: Animator?) {
+                mCurrentRectF = rectF
+            }
+
+        })
+    }
+
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        val widthSize = MeasureSpec.getSize(widthMeasureSpec)
+        val heightSize = MeasureSpec.getSize(heightMeasureSpec)
+
+        mWidth = widthSize
+        mHeight = heightSize
+
+        setMeasuredDimension(widthSize, heightSize)
     }
 
     override fun onDraw(canvas: Canvas) {

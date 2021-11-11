@@ -70,31 +70,10 @@
             android:src="@mipmap/base_img_example"
             app:maskBlurRadius="10dp"
             app:maskContentAlpha="125"
-            app:maskContentColor="#ff0000"
+            app:maskContentColor="#003236"
             app:maskCornerRadius="20dp"
             app:maskStrokeColor="#23CBF9"
             app:maskStrokeWidth="0.5dp" />
-
-        <!--        <LinearLayout-->
-        <!--            android:layout_width="200dp"-->
-        <!--            android:layout_height="200dp"-->
-        <!--            android:layout_gravity="center"-->
-        <!--            android:layout_marginTop="10dp"-->
-        <!--            android:layout_marginBottom="10dp"-->
-        <!--            android:background="@mipmap/base_img_example">-->
-
-        <!--            <com.hjc.module_senior.widget.cabin.CabinMaskView-->
-        <!--                android:id="@+id/cabin_mask_view"-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="match_parent"-->
-        <!--                app:cabinBlurRadius="10dp"-->
-        <!--                app:cabinContentAlpha="125"-->
-        <!--                app:cabinContentColor="#003236"-->
-        <!--                app:cabinCornerRadius="20dp"-->
-        <!--                app:cabinStrokeColor="#23CBF9"-->
-        <!--                app:cabinStrokeWidth="0.5dp" />-->
-
-        <!--        </LinearLayout>-->
 
         <Button
             android:id="@+id/btn_cabin1"

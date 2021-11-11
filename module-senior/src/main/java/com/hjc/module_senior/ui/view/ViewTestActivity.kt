@@ -1,6 +1,5 @@
 package com.hjc.module_senior.ui.view
 
-import android.graphics.RectF
 import android.os.Bundle
 import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
@@ -35,9 +34,12 @@ class ViewTestActivity : BaseActivity<SeniorActivityViewTestBinding, CommonViewM
     }
 
     override fun initData(savedInstanceState: Bundle?) {
-        val rectF =  RectF(250f, 100f, 300f, 180f)
-//        mBindingView.cabinMaskView.setRect(rectF)
-        mBindingView.ivCabin.setRect(rectF)
+//        val rectF = RectF(100f, 100f, 200f, 300f)
+//        mBindingView.ivCabin.setCurrentRect(rectF)
+
+        mBindingView.ivCabin.post {
+            mBindingView.ivCabin.setCurrentRectAsync(0.45f, 0.10f, 0.55f, 0.30f)
+        }
     }
 
     override fun addListeners() {
@@ -53,21 +55,21 @@ class ViewTestActivity : BaseActivity<SeniorActivityViewTestBinding, CommonViewM
     override fun onSingleClick(v: View?) {
         when (v?.id) {
             R.id.btn_cabin1 -> {
-                val rectF =  RectF(250f, 100f, 300f, 180f)
-//                mBindingView.cabinMaskView.startAnimation(rectF)
-                mBindingView.ivCabin.startAnimation(rectF)
+                mBindingView.ivCabin.post {
+                    mBindingView.ivCabin.startAnimationAsync(0.45f, 0.10f, 0.55f, 0.30f)
+                }
             }
 
             R.id.btn_cabin2 -> {
-                val rectF = RectF(250f, 200f, 300f, 320f)
-//                mBindingView.cabinMaskView.startAnimation(rectF)
-                mBindingView.ivCabin.startAnimation(rectF)
+                mBindingView.ivCabin.post {
+                    mBindingView.ivCabin.startAnimationAsync(0.45f, 0.30f, 0.55f, 0.60f)
+                }
             }
 
             R.id.btn_cabin3 -> {
-                val rectF = RectF(250f, 340f, 300f, 440f)
-//                mBindingView.cabinMaskView.startAnimation(rectF)
-                mBindingView.ivCabin.startAnimation(rectF)
+                mBindingView.ivCabin.post {
+                    mBindingView.ivCabin.startAnimationAsync(0.45f, 0.60f, 0.55f, 0.80f)
+                }
             }
 
             else -> {
