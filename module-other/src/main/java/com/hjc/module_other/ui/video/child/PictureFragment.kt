@@ -3,7 +3,7 @@ package com.hjc.module_other.ui.video.child
 import android.os.Bundle
 import android.view.View
 import com.hjc.library_base.fragment.BaseFragment
-import com.hjc.library_common.utils.ImageManager
+import com.hjc.library_common.utils.image.ImageManager
 import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.module_other.R
 import com.hjc.module_other.databinding.OtherFragmentPictureBinding

@@ -85,7 +85,7 @@ object CommonBindingAdapters {
             val requestOptions = RequestOptions()
                 .placeholder(drawable)
                 .error(drawable)
-                .transform(CenterCrop(),RoundedCorners(roundingRadius))
+                .transform(CenterCrop(), RoundedCorners(roundingRadius))
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
             Glide.with(imageView.context)
                 .load(url)

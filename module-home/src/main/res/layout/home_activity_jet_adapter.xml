@@ -54,7 +54,7 @@
             android:text="@string/home_adapter_btn3" />
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="100dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
@@ -63,10 +63,9 @@
             app:imageUrl='@{adapterViewModel.imageData}'
             app:placeholder="@{@drawable/base_img_default}" />
 
-
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="200dp"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
@@ -76,7 +75,7 @@
             app:roundingRadius='@{20}' />
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
@@ -84,7 +83,6 @@
             android:visibility='@{adapterViewModel.imageCircleData != null ? View.VISIBLE : View.GONE}'
             app:imageCircleUrl='@{adapterViewModel.imageCircleData}'
             app:placeholder="@{@drawable/base_img_default}" />
-
 
     </LinearLayout>
 

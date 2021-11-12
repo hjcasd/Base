@@ -1,15 +1,14 @@
-package com.hjc.library_common.utils
+package com.hjc.library_common.utils.image
 
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.hjc.library_base.R
 import jp.wasabeef.glide.transformations.BlurTransformation
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 
 /**
  * @Author: HJC
@@ -60,43 +59,77 @@ object ImageManager {
             .error(errorDrawable)
             .transform(CircleCrop())
             .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+            .dontAnimate()
 
         Glide.with(imageView.context)
             .load(url)
             .apply(requestOptions)
-            .transition(DrawableTransitionOptions.withCrossFade(500))
             .into(imageView)
     }
 
     /**
-     * 加载圆角图片
+     * 加载带圆角的图片
      *
      * @param imageView 控件id
      * @param url       图片地址
      * @param radius    圆角大小
+     * @param cornerType 圆角类型
      */
     fun loadRoundImage(
         imageView: ImageView,
         url: String,
         radius: Int,
+        cornerType: RoundedCornersTransformation.CornerType = RoundedCornersTransformation.CornerType.ALL,
         placeholderDrawable: Int = R.mipmap.base_img_default,
         errorDrawable: Int = R.mipmap.base_img_default
     ) {
         val requestOptions = RequestOptions()
             .placeholder(placeholderDrawable)
             .error(errorDrawable)
-            .transform(CenterCrop(), RoundedCorners(radius))
+            .transform(RoundedCornersTransformation(radius, 0, cornerType))
             .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+            .dontAnimate()
 
         Glide.with(imageView.context)
             .load(url)
             .apply(requestOptions)
-            .transition(DrawableTransitionOptions.withCrossFade(500))
             .into(imageView)
     }
 
     /**
-     * 加载图片指定大小
+     * 加载带边框和圆角的图片
+     *
+     * @param imageView 控件id
+     * @param url       图片地址
+     * @param radius 圆角大小
+     * @param borderWidth 边框宽度
+     * @param borderColor 边框颜色
+     */
+    fun loadBorderImage(
+        imageView: ImageView,
+        url: String,
+        radius: Int,
+        borderWidth: Int,
+        borderColor: Int,
+        placeholderDrawable: Int = R.mipmap.base_img_default,
+        errorDrawable: Int = R.mipmap.base_img_default
+    ) {
+        val requestOptions = RequestOptions()
+            .placeholder(placeholderDrawable)
+            .error(errorDrawable)
+            .transform(RoundBorderTransform(radius, borderColor, borderWidth))
+            .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+            .dontAnimate()
+
+        Glide.with(imageView.context)
+            .load(url)
+            .apply(requestOptions)
+            .into(imageView)
+    }
+
+
+    /**
+     * 加载指定大小的图片
      *
      * @param imageView 控件id
      * @param url       图片地址
@@ -125,7 +158,7 @@ object ImageManager {
     }
 
     /**
-     * 加载高斯模糊图片
+     * 加载高斯模糊的图片
      *
      * @param imageView 控件id
      * @param url       图片地址
