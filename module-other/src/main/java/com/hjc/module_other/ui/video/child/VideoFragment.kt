@@ -6,6 +6,8 @@ import com.blankj.utilcode.util.LogUtils
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
+import com.google.android.exoplayer2.source.DefaultMediaSourceFactory
+import com.google.android.exoplayer2.source.MediaSourceFactory
 import com.google.android.exoplayer2.ui.AspectRatioFrameLayout
 import com.hjc.library_base.event.EventManager
 import com.hjc.library_base.event.MessageEvent
@@ -15,11 +17,13 @@ import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.library_net.utils.RxSchedulers
 import com.hjc.module_other.R
 import com.hjc.module_other.databinding.OtherFragmentVideoBinding
+import com.hjc.module_other.ui.video.cache.CacheDataSourceFactory
 import io.reactivex.Observable
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
 import java.util.concurrent.TimeUnit
 import kotlin.math.round
+
 
 /**
  * @Author: HJC
@@ -67,8 +71,7 @@ class VideoFragment : BaseFragment<OtherFragmentVideoBinding, CommonViewModel>()
     }
 
     override fun initData(savedInstanceState: Bundle?) {
-        //设置播放器
-        player = SimpleExoPlayer.Builder(mContext).build()
+        player = createPlayer()
         mBindingView.playerView.player = player
         mBindingView.playerView.resizeMode = AspectRatioFrameLayout.RESIZE_MODE_FILL
 
@@ -110,6 +113,17 @@ class VideoFragment : BaseFragment<OtherFragmentVideoBinding, CommonViewModel>()
                 }
 
             })
+    }
+
+    /**
+     * 创建播放器
+     */
+    private fun createPlayer(): SimpleExoPlayer {
+        val cacheDataSourceFactory = CacheDataSourceFactory(mContext, 100 * 1024 * 1024, 10 * 1024 * 1024)
+        val mediaSourceFactory: MediaSourceFactory = DefaultMediaSourceFactory(cacheDataSourceFactory)
+        return SimpleExoPlayer.Builder(mContext)
+            .setMediaSourceFactory(mediaSourceFactory)
+            .build()
     }
 
     override fun addListeners() {

@@ -29,8 +29,8 @@ class LoginViewModel(application: Application) : KotlinViewModel(application) {
 
         loginModel.login(usernameData.value, passwordData.value)
             .subscribe(object : CommonObserver<LoginBean>(this, true) {
-                override fun onSuccess(result: LoginBean?) {
-                    loginData.value = result
+                override fun onSuccess(response: LoginBean?) {
+                    loginData.value = response
                 }
 
             })
