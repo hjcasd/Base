@@ -96,7 +96,7 @@ class VideoFragment : BaseFragment<OtherFragmentVideoBinding, CommonViewModel>()
                 override fun onNext(t: Long) {
                     player?.let {
                         val time = round(it.currentPosition / 1000.0).toInt()
-                        if (time == 3) {
+                        if (time >= 3) {
                             isFirstPlay = false
                             player?.pause()
                             disposable?.dispose()
