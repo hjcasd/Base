@@ -37,4 +37,10 @@ object RouteHomePath {
      */
     const val URL_COROUTINES = "$MODULE_HOME/coroutines"
 
+
+    /**
+     * Compose页面
+     */
+    const val URL_COMPOSE = "$MODULE_HOME/compose"
+
 }

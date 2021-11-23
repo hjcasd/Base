@@ -45,6 +45,8 @@ class HomeFragment : BaseFragment<HomeFragmentBinding, CommonViewModel>() {
 
             R.id.btn2 -> RouteManager.jump(RouteHomePath.URL_COROUTINES)
 
+            R.id.btn3 -> RouteManager.jump(RouteHomePath.URL_COMPOSE)
+
             else -> {
             }
         }

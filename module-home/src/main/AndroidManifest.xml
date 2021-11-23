@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hjc.module_home">
 
@@ -28,9 +29,13 @@
             android:name=".ui.jetpack.child.JetPagingActivity"
             android:screenOrientation="portrait" />
 
-
         <activity
             android:name=".ui.coroutines.CoroutinesActivity"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name=".ui.compose.ComposeTestActivity"
             android:screenOrientation="portrait" />
 
     </application>

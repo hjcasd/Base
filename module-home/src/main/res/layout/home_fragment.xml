@@ -45,6 +45,14 @@
             android:text="@string/home_btn2"
             android:textAllCaps="false" />
 
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{onClickListener}"
+            android:text="@string/home_btn3"
+            android:textAllCaps="false" />
+
     </LinearLayout>
 
 </layout>

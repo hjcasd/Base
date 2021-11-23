@@ -46,6 +46,11 @@
             android:name=".ui.coroutines.CoroutinesActivity"
             android:screenOrientation="portrait" />
 
+
+        <activity
+            android:name=".ui.compose.ComposeTestActivity"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>
