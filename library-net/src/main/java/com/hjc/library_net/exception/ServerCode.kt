@@ -13,7 +13,7 @@ object ServerCode {
     const val CODE_SUCCESS = 0
 
     /**
-     * 未知错误
+     * 请求失败
      */
     const val CODE_FAIL = -1
 

@@ -13,18 +13,14 @@
 
     </data>
 
-    <www.linwg.org.lib.LCardView
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="10dp"
-        app:cardBackgroundColor="@color/base_white"
-        app:cornerRadius="10dp"
-        app:shadowFluidShape="adsorption"
-        app:shadowSize="10dp"
-        app:shadowColor="@color/base_black_99"
-        app:shadowStartAlpha="120">
+        app:cardCornerRadius="15dp"
+        app:cardElevation="10dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_card"
@@ -73,6 +69,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </www.linwg.org.lib.LCardView>
+    </androidx.cardview.widget.CardView>
 
 </layout>

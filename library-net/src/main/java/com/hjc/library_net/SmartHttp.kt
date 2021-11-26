@@ -1,5 +1,6 @@
 package com.hjc.library_net
 
+import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.hjc.library_base.BaseApplication
 import com.hjc.library_net.interceptor.LogInterceptor
 import com.hjc.library_net.interceptor.OfflineCacheInterceptor
@@ -14,6 +15,9 @@ import retrofit2.Converter
 import retrofit2.Retrofit
 import java.io.File
 import java.util.concurrent.TimeUnit
+
+
+
 
 /**
  * @Author: HJC
@@ -41,6 +45,7 @@ object SmartHttp {
         mOkHttpBuilder.connectTimeout(DEFAULT_TIME_OUT, TimeUnit.SECONDS)
             .readTimeout(DEFAULT_TIME_OUT, TimeUnit.SECONDS)
             .writeTimeout(DEFAULT_TIME_OUT, TimeUnit.SECONDS)
+            .addNetworkInterceptor(StethoInterceptor())
             .retryOnConnectionFailure(true)
 
         mRetrofitBuilder.client(mOkHttpBuilder.build())

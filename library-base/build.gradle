@@ -133,14 +133,15 @@ dependencies {
     // 录音
     api 'com.github.ideastudios:IdealRecorder:2.0.4'
 
-    // 卡片(系统CardView效果不满足时使用)
-    api 'org.linwg1988:lcardview:1.5.4'
-
     // 动画
     api 'com.github.ybq:Android-SpinKit:1.4.0'
 
     // ExoPlayer
     api 'com.google.android.exoplayer:exoplayer-core:2.15.1'
     api 'com.google.android.exoplayer:exoplayer-ui:2.15.1'
+
+    // Stetho(debug时使用)
+    api 'com.facebook.stetho:stetho:1.6.0'
+    api 'com.facebook.stetho:stetho-okhttp3:1.6.0'
 
 }

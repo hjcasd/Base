@@ -3,6 +3,7 @@ package com.hjc.library_common
 import com.alibaba.android.arouter.launcher.ARouter
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.Utils
+import com.facebook.stetho.Stetho
 import com.hjc.library_base.BaseApplication
 import com.hjc.library_common.global.AppConstants
 import com.hjc.library_common.global.HttpConfig
@@ -14,6 +15,7 @@ import com.hjc.library_net.utils.GsonHelper
 import com.hjc.library_web.utils.X5WebUtils
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import tech.oom.idealrecorder.IdealRecorder
 
 /**
  * @Author: HJC
@@ -28,6 +30,8 @@ class CommonModuleInit : IModuleInit {
         initBugly(application)
         X5WebUtils.init(application)
         initHttp()
+        initStetho(application)
+        initRecord(application)
         return false
     }
 
@@ -74,6 +78,23 @@ class CommonModuleInit : IModuleInit {
             .addConverter(GsonConverterFactory.create(GsonHelper.buildGson()))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
 //            .addCache()
+    }
+
+    /**
+     * 初始化Stetho(用于监控网络请求等)
+     * chrome://inspect/#devices
+     */
+    private fun initStetho(application: BaseApplication) {
+        if (AppConstants.APP_IS_DEBUG) {
+            Stetho.initializeWithDefaults(application)
+        }
+    }
+
+    /**
+     * 初始化录音
+     */
+    private fun initRecord(application: BaseApplication) {
+        IdealRecorder.getInstance().init(application)
     }
 
     override fun onInitAfter(application: BaseApplication): Boolean {
