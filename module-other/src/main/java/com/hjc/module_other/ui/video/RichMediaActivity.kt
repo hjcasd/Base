@@ -3,13 +3,16 @@ package com.hjc.module_other.ui.video
 import android.os.Bundle
 import android.view.View
 import android.widget.FrameLayout
+import androidx.core.view.WindowCompat
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.blankj.utilcode.util.BarUtils
+import com.blankj.utilcode.util.LogUtils
 import com.hjc.library_base.activity.BaseActivity
 import com.hjc.library_base.event.EventManager
 import com.hjc.library_base.event.MessageEvent
 import com.hjc.library_common.global.EventCode
 import com.hjc.library_common.router.path.RouteOtherPath
+import com.hjc.library_common.utils.NotchSizeUtils
 import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.module_other.R
 import com.hjc.module_other.databinding.OtherActivityRichMediaBinding
@@ -18,6 +21,7 @@ import com.hjc.module_other.ui.video.view.FunctionView
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import java.util.*
+
 
 /**
  * @Author: HJC
@@ -44,8 +48,21 @@ class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonView
 
     override fun initView() {
         super.initView()
+//        val decorView = window.decorView
+//        decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+//        val windowInsetsControllerCompat = WindowInsetsControllerCompat(window, mBindingView.root)
+//        windowInsetsControllerCompat.hide(WindowInsetsCompat.Type.systemBars())
+//        windowInsetsControllerCompat.hide(WindowInsetsCompat.Type.navigationBars())
+
+        // 解决华为手机横屏刘海屏使用刘海区域导致布局遮挡问题
+        NotchSizeUtils.setNotFullScreenWindowLayoutInDisplayCutoutHW(window)
+
         val statusBarHeight = BarUtils.getStatusBarHeight()
-        if (statusBarHeight > 80) {
+        val isNavBarVisible = BarUtils.isNavBarVisible(this@RichMediaActivity)
+        LogUtils.e("isNavBarVisible: $isNavBarVisible")
+        if (!isNavBarVisible && statusBarHeight > 80) {
             val layoutParams = mBindingView.clRoot.layoutParams as FrameLayout.LayoutParams
             layoutParams.rightMargin = statusBarHeight
             mBindingView.clRoot.layoutParams = layoutParams

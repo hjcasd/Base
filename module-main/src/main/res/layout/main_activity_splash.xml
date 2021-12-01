@@ -42,25 +42,6 @@
             android:textColor="@color/base_white"
             android:background="@drawable/main_shape_bg_count_time" />
 
-<!--        <LinearLayout-->
-<!--            android:id="@+id/ll_time"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:gravity="end">-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/tv_time"-->
-<!--                android:layout_width="100dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginEnd="20dp"-->
-<!--                android:text="@string/main_splash_text"-->
-<!--                android:gravity="center"-->
-<!--                android:onClick="@{onClickListener}"-->
-<!--                android:textColor="@color/base_white"-->
-<!--                android:background="@drawable/main_shape_bg_count_time" />-->
-
-<!--        </LinearLayout>-->
-
     </FrameLayout>
 
 </layout>

@@ -1,8 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <style name="RichMediaTheme" parent="BaseAppTheme">
         <item name="android:windowBackground">@color/base_black</item>
         <item name="android:windowFullscreen">true</item>
+        <!--适配Android P刘海屏-->
+        <item name="android:windowLayoutInDisplayCutoutMode">never</item>
     </style>
 
 </resources>

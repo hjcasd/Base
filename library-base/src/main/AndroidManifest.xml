@@ -27,26 +27,25 @@
         android:networkSecurityConfig="@xml/base_network_security_config"
         android:preserveLegacyExternalStorage="true"
         android:requestLegacyExternalStorage="true"
-        android:resizeableActivity="true"
+        android:resizeableActivity="false"
         android:supportsRtl="true"
         android:theme="@style/BaseAppTheme"
         tools:ignore="AllowBackup,UnusedAttribute">
 
-
-        <!--适配通用刘海屏-->
+        <!--最大长宽比(resizeableActivity=true时,maxAspectRatio及max_aspect设置不生效)-->
         <meta-data
             android:name="android.max_aspect"
             android:value="2.4" />
 
-        <!--适配华为刘海屏-->
-        <meta-data
-            android:name="android.notch_support"
-            android:value="true" />
+        <!--适配华为刘海屏(使用刘海区域,P生效,Q不生效)-->
+<!--        <meta-data-->
+<!--            android:name="android.notch_support"-->
+<!--            android:value="true" />-->
 
-        <!--适配小米刘海屏-->
-        <meta-data
-            android:name="notch.config"
-            android:value="portrait|landscape" />
+        <!--适配小米刘海屏(使用刘海区域,仅P和Q生效,R不生效)-->
+<!--        <meta-data-->
+<!--            android:name="notch.config"-->
+<!--            android:value="portrait|landscape" />-->
 
 
         <!--============================================文件访问权限=========================================-->

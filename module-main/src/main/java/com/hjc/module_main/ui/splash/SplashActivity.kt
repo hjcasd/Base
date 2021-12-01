@@ -3,9 +3,11 @@ package com.hjc.module_main.ui.splash
 import android.os.Bundle
 import android.view.View
 import android.widget.FrameLayout
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.blankj.utilcode.util.BarUtils
-import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
 import com.hjc.library_common.router.RouteManager
 import com.hjc.library_common.router.path.RouteMainPath
@@ -38,16 +40,18 @@ class SplashActivity : BaseActivity<MainActivitySplashBinding, CommonViewModel>(
 
     override fun initView() {
         super.initView()
+        // 与getImmersionBar效果一致
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        WindowInsetsControllerCompat(window, mBindingView.root).hide(WindowInsetsCompat.Type.navigationBars())
+
         val layoutParams = mBindingView.tvTime.layoutParams as FrameLayout.LayoutParams
         layoutParams.topMargin = BarUtils.getStatusBarHeight()
         mBindingView.tvTime.layoutParams = layoutParams
     }
 
-    override fun getImmersionBar(): ImmersionBar? {
-        return ImmersionBar.with(this)
-            .transparentStatusBar()
-//            .titleBar(mBindingView.llTime)
-    }
+//    override fun getImmersionBar(): ImmersionBar? {
+//        return ImmersionBar.with(this)
+//    }
 
     override fun initData(savedInstanceState: Bundle?) {
         disposable1 = Observable.timer(3, TimeUnit.SECONDS)
