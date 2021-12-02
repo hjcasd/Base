@@ -30,50 +30,50 @@
             android:padding="20dp"
             app:customText="王者荣耀"
             app:customTextColor="@color/base_black"
-            app:customTextSize="24sp" />
+            app:customTextSize="@dimen/sp_24" />
 
         <com.hjc.module_senior.widget.TestViewGroup
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="@dimen/dp_100"
             android:background="@color/base_color">
 
             <View
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40"
                 android:background="@color/base_red" />
 
             <View
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40"
                 android:background="@color/base_red" />
 
             <View
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40"
                 android:background="@color/base_red" />
 
             <View
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40"
                 android:background="@color/base_red" />
 
         </com.hjc.module_senior.widget.TestViewGroup>
 
         <com.hjc.module_senior.widget.cabin.CabinImageView
             android:id="@+id/iv_cabin"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="@dimen/dp_200"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_10"
             android:scaleType="centerCrop"
             android:src="@mipmap/base_img_example"
-            app:maskBlurRadius="10dp"
+            app:maskBlurRadius="@dimen/dp_10"
             app:maskContentAlpha="125"
-            app:maskContentColor="#003236"
-            app:maskCornerRadius="20dp"
-            app:maskStrokeColor="#23CBF9"
-            app:maskStrokeWidth="0.5dp" />
+            app:maskContentColor="@color/senior_black"
+            app:maskCornerRadius="@dimen/dp_20"
+            app:maskStrokeColor="@color/senior_blue"
+            app:maskStrokeWidth="@dimen/dp_0_5" />
 
         <Button
             android:id="@+id/btn_cabin1"

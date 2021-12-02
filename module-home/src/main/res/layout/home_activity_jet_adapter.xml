@@ -20,8 +20,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
         <com.hjc.library_widget.bar.TitleBar
             android:id="@+id/title_bar"
@@ -54,32 +54,32 @@
             android:text="@string/home_adapter_btn3" />
 
         <ImageView
-            android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="@dimen/dp_100"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
             android:visibility='@{adapterViewModel.imageData != null ? View.VISIBLE : View.GONE}'
             app:imageUrl='@{adapterViewModel.imageData}'
             app:placeholder="@{@drawable/base_img_default}" />
 
         <ImageView
-            android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="@dimen/dp_100"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
             android:visibility='@{adapterViewModel.imageRoundData != null ? View.VISIBLE : View.GONE}'
             app:imageRoundUrl='@{adapterViewModel.imageRoundData}'
             app:placeholder="@{@drawable/base_img_default}"
             app:roundingRadius='@{20}' />
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="@dimen/dp_100"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
             android:visibility='@{adapterViewModel.imageCircleData != null ? View.VISIBLE : View.GONE}'
             app:imageCircleUrl='@{adapterViewModel.imageCircleData}'
             app:placeholder="@{@drawable/base_img_default}" />

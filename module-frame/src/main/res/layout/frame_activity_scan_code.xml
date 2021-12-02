@@ -26,15 +26,15 @@
             android:layout_height="match_parent"
             app:qrcv_animTime="1000"
             app:qrcv_borderColor="@color/base_white"
-            app:qrcv_borderSize="1dp"
+            app:qrcv_borderSize="@dimen/dp_1"
             app:qrcv_cornerColor="@color/frame_color"
-            app:qrcv_cornerLength="20dp"
-            app:qrcv_cornerSize="3dp"
+            app:qrcv_cornerLength="@dimen/dp_20"
+            app:qrcv_cornerSize="@dimen/dp_3"
             app:qrcv_maskColor="@color/frame_mask"
-            app:qrcv_rectWidth="240dp"
+            app:qrcv_rectWidth="@dimen/dp_240"
             app:qrcv_scanLineColor="@color/frame_color"
-            app:qrcv_scanLineSize="1dp"
-            app:qrcv_topOffset="120dp" />
+            app:qrcv_scanLineSize="@dimen/dp_1"
+            app:qrcv_topOffset="@dimen/dp_120" />
 
     </LinearLayout>
 

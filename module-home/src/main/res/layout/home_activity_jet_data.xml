@@ -56,7 +56,7 @@
             android:id="@+id/tv_test"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="@dimen/dp_10"
             android:text='@{personBean.name}'
             android:visibility='@{personBean.isShow ? View.VISIBLE : View.GONE }' />
 

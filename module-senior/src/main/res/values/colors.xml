@@ -2,5 +2,7 @@
 <resources>
     <color name="senior_color">#3387D1</color>
     <color name="senior_green">#24BA20</color>
+    <color name="senior_black">#003236</color>
+    <color name="senior_blue">#23CBF9</color>
 
 </resources>

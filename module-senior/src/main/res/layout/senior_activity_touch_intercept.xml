@@ -26,8 +26,8 @@
             android:background="@color/base_gray">
 
             <com.hjc.module_senior.ui.touch.view.InterceptView
-                android:layout_width="200dp"
-                android:layout_height="200dp"
+                android:layout_width="@dimen/dp_200"
+                android:layout_height="@dimen/dp_200"
                 android:layout_gravity="center"
                 android:background="@color/senior_green">
 

@@ -13,24 +13,25 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="@dimen/dp_10"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="UseCompoundDrawables">
 
         <ImageView
             android:id="@+id/iv_cover"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="@dimen/dp_25"
+            android:layout_height="@dimen/dp_25"
             android:background="@mipmap/ic_launcher" />
 
         <TextView
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="@dimen/dp_5"
             android:text="@{title}"
             android:textColor="@color/base_white"
-            android:textSize="11sp"
+            android:textSize="@dimen/sp_11"
             tools:text="标题" />
 
     </LinearLayout>

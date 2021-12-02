@@ -32,7 +32,6 @@
             android:text="@string/frame_zxing_btn1"
             android:textAllCaps="false" />
 
-
         <Button
             android:id="@+id/btn_generate"
             android:layout_width="match_parent"
@@ -59,15 +58,15 @@
 
         <ImageView
             android:id="@+id/iv_code_pic"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
+            android:layout_width="@dimen/dp_160"
+            android:layout_height="@dimen/dp_160"
             android:layout_gravity="center_horizontal" />
 
         <TextView
             android:id="@+id/tv_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/dp_10"
             android:gravity="center" />
 
     </LinearLayout>

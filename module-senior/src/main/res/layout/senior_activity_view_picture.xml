@@ -32,7 +32,7 @@
             <com.hjc.module_senior.widget.MyCustom3View
                 android:id="@+id/custom_view"
                 android:layout_width="match_parent"
-                android:layout_height="300dp" />
+                android:layout_height="@dimen/dp_300" />
 
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"

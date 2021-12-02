@@ -14,13 +14,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:padding="10dp">
+            android:padding="@dimen/dp_10">
 
             <ImageView
                 android:id="@+id/iv_square"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginEnd="12dp"
+                android:layout_width="@dimen/dp_80"
+                android:layout_height="@dimen/dp_80"
+                android:layout_marginEnd="@dimen/dp_12"
                 android:background="@color/common_shimmer_light" />
 
             <LinearLayout
@@ -32,7 +32,7 @@
                     android:id="@+id/tv_line1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginBottom="@dimen/dp_8"
                     android:background="@color/common_shimmer_light" />
 
                 <TextView
@@ -48,8 +48,8 @@
         <TextView
             android:id="@+id/tv_square"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:layout_margin="10dp"
+            android:layout_height="@dimen/dp_120"
+            android:layout_margin="@dimen/dp_10"
             android:background="@color/common_shimmer_light" />
 
     </LinearLayout>

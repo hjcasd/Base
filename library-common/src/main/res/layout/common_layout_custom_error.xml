@@ -7,24 +7,24 @@
     android:orientation="vertical">
 
     <ImageView
-        android:layout_width="160dp"
-        android:layout_height="120dp"
+        android:layout_width="@dimen/dp_160"
+        android:layout_height="@dimen/dp_120"
         android:background="@mipmap/common_icon_error" />
 
     <TextView
         android:id="@+id/tv_error"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_5"
         android:text="@string/common_status_error"
-        android:layout_marginTop="5dp"
         android:textColor="@color/base_black_33"
-        android:textSize="14sp" />
+        android:textSize="@dimen/sp_14" />
 
     <Button
         android:id="@+id/btn_retry"
-        android:layout_width="160dp"
+        android:layout_width="@dimen/dp_160"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/dp_10"
         android:background="@drawable/base_shape_btn_red"
         android:text="@string/common_status_retry"
         android:textColor="@color/base_white" />

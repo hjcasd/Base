@@ -27,12 +27,12 @@
 
         <com.hjc.library_widget.view.LineIndicatorView
             android:id="@+id/indicator_view"
-            android:layout_width="100dp"
-            android:layout_height="5dp"
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="@dimen/dp_5"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="@dimen/dp_30"
             app:indicatorColor="@color/other_color"
-            app:indicatorWidth="40dp" />
+            app:indicatorWidth="@dimen/dp_40" />
 
     </LinearLayout>
 

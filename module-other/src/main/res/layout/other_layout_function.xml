@@ -15,15 +15,15 @@
 
         <ImageView
             android:id="@+id/iv_plane"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
             android:src="@mipmap/other_icon_plane_red" />
 
         <ImageView
             android:id="@+id/iv_seat"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="15dp"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:layout_marginStart="@dimen/dp_15"
             android:src="@mipmap/other_icon_seat_white" />
 
     </LinearLayout>
@@ -32,7 +32,7 @@
         android:id="@+id/ll_eye"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="@dimen/dp_10"
         android:alpha="0.6"
         android:background="@drawable/other_shape_bg_panel_circle"
         android:gravity="center"
@@ -40,8 +40,8 @@
 
         <ImageView
             android:id="@+id/iv_eye"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
             android:src="@mipmap/other_icon_eyes_red" />
 
     </LinearLayout>

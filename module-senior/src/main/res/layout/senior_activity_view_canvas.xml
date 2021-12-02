@@ -32,7 +32,7 @@
             <com.hjc.module_senior.widget.MyCustom2View
                 android:id="@+id/custom_view"
                 android:layout_width="match_parent"
-                android:layout_height="300dp" />
+                android:layout_height="@dimen/dp_300" />
 
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
@@ -58,7 +58,6 @@
                         android:onClick="@{onClickListener}"
                         android:text="@string/senior_view_canvas_btn2"
                         android:textAllCaps="false" />
-
 
                     <Button
                         android:id="@+id/btn3"

@@ -16,54 +16,53 @@
         android:background="@drawable/other_shape_bg_dialog_audio"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="@dimen/dp_20">
 
         <TextView
             android:id="@+id/tv_recording_tip"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="20dp"
+            android:layout_height="@dimen/dp_60"
+            android:layout_marginTop="@dimen/dp_20"
             android:gravity="center"
             android:onClick="@{onClickListener}"
             android:text="@string/other_please_start_recording"
             android:textColor="@color/base_black_33"
-            android:textSize="16sp"
-            android:visibility="visible" />
+            android:textSize="@dimen/sp_16" />
 
         <com.hjc.library_widget.view.WaveView
             android:id="@+id/wave_view"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="20dp"
+            android:layout_height="@dimen/dp_60"
+            android:layout_marginTop="@dimen/dp_20"
             android:visibility="gone"
             app:baselineColor="@color/base_black"
-            app:space="10dp"
+            app:space="@dimen/dp_10"
             app:waveColor="@color/other_red"
-            app:waveStokeWidth="4dp" />
+            app:waveStokeWidth="@dimen/dp_4" />
 
         <TextView
             android:id="@+id/tv_record_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/dp_20"
             android:text="@string/other_time_hours"
             android:textColor="@color/base_black_33"
-            android:textSize="24sp"
+            android:textSize="@dimen/sp_24"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tv_start_recording"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="@dimen/dp_15"
             android:background="@drawable/other_shape_btn_record"
-            android:paddingLeft="20dp"
-            android:paddingTop="5dp"
-            android:paddingRight="20dp"
-            android:paddingBottom="5dp"
+            android:paddingLeft="@dimen/dp_20"
+            android:paddingTop="@dimen/dp_5"
+            android:paddingRight="@dimen/dp_20"
+            android:paddingBottom="@dimen/dp_5"
             android:text="@string/other_long_press_to_recording"
             android:textColor="@color/base_white"
-            android:textSize="16sp" />
+            android:textSize="@dimen/sp_16" />
 
     </LinearLayout>
 

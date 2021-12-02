@@ -18,29 +18,29 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/dp_120"
             android:scaleType="fitXY"
-            android:layout_marginBottom="120dp"
             android:src="@mipmap/main_img_splash" />
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:src="@mipmap/main_icon_splash_logo"
+            android:layout_height="@dimen/dp_120"
             android:layout_gravity="bottom"
             android:scaleType="fitXY"
+            android:src="@mipmap/main_icon_splash_logo"
             app:layout_constraintBottom_toBottomOf="parent" />
 
         <TextView
             android:id="@+id/tv_time"
-            android:layout_width="100dp"
+            android:layout_width="@dimen/dp_100"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
             android:layout_gravity="end"
-            android:text="@string/main_splash_text"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:background="@drawable/main_shape_bg_count_time"
             android:gravity="center"
             android:onClick="@{onClickListener}"
-            android:textColor="@color/base_white"
-            android:background="@drawable/main_shape_bg_count_time" />
+            android:text="@string/main_splash_text"
+            android:textColor="@color/base_white" />
 
     </FrameLayout>
 

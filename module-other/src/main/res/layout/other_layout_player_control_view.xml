@@ -8,17 +8,17 @@
         android:id="@+id/exo_position"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_10"
         android:textColor="@color/base_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <ImageView
         android:id="@+id/exo_play"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/dp_50"
+        android:layout_height="@dimen/dp_50"
         android:src="@mipmap/other_icon_play"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -27,8 +27,8 @@
 
     <ImageView
         android:id="@+id/exo_pause"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/dp_50"
+        android:layout_height="@dimen/dp_50"
         android:src="@mipmap/other_icon_pause"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -37,8 +37,8 @@
 
     <com.google.android.exoplayer2.ui.DefaultTimeBar
         android:id="@id/exo_progress"
-        android:layout_width="0dp"
-        android:layout_height="26dp"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="@dimen/dp_26"
         app:buffered_color="@android:color/darker_gray"
         app:layout_constraintBottom_toBottomOf="@id/exo_position"
         app:layout_constraintLeft_toRightOf="@id/exo_position"
@@ -51,9 +51,9 @@
         android:id="@+id/exo_duration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_10"
         android:textColor="@color/base_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />

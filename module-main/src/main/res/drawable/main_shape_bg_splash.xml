@@ -5,7 +5,7 @@
     <item android:drawable="@color/base_white" />
 
 
-    <item android:bottom="120dp">
+    <item android:bottom="@dimen/dp_120">
         <bitmap
             android:scaleType="fitXY"
             android:src="@mipmap/main_img_splash"
@@ -13,7 +13,7 @@
     </item>
 
     <item
-        android:height="120dp"
+        android:height="@dimen/dp_120"
         android:gravity="bottom"
         tools:targetApi="m"
         tools:ignore="UnusedAttribute">

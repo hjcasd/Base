@@ -31,8 +31,8 @@
                 android:orientation="vertical">
 
                 <com.hjc.module_senior.ui.touch.view.EventButton
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
+                    android:layout_width="@dimen/dp_200"
+                    android:layout_height="@dimen/dp_200"
                     android:layout_gravity="center_horizontal"
                     android:background="@color/senior_green"
                     android:text="@string/senior_touch_cancel_btn">
@@ -41,7 +41,7 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="1000dp" />
+                    android:layout_height="@dimen/dp_720" />
 
             </LinearLayout>
 

@@ -44,7 +44,7 @@
             android:id="@+id/iv_test"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/dp_20"
             android:src="@mipmap/senior_img_circle" />
 
 <!--        <com.hjc.module_senior.ui.animation.view.ValueAnimView-->

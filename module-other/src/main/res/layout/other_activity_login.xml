@@ -28,16 +28,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/other_color"
-            app:titleColor="@color/base_white"
             app:leftImage="@mipmap/widget_icon_back"
+            app:titleColor="@color/base_white"
             app:titleText="@string/other_login_title" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginRight="40dp">
+            android:layout_marginLeft="@dimen/dp_40"
+            android:layout_marginTop="@dimen/dp_40"
+            android:layout_marginRight="@dimen/dp_40">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_phone"
@@ -46,16 +46,16 @@
                 android:hint="@string/other_login_username_hint"
                 android:inputType="text"
                 android:text="@={loginViewModel.usernameData}"
-                android:textSize="14sp" />
+                android:textSize="@dimen/sp_14" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="40dp">
+            android:layout_marginLeft="@dimen/dp_40"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginRight="@dimen/dp_40">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_code"
@@ -64,7 +64,7 @@
                 android:hint="@string/other_login_pwd_hint"
                 android:inputType="textPassword"
                 android:text="@={loginViewModel.passwordData}"
-                android:textSize="14sp" />
+                android:textSize="@dimen/sp_14" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -72,9 +72,9 @@
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginRight="@dimen/dp_20"
             android:onClick="@{onClickListener}"
             android:text="@string/other_login_btn" />
 
@@ -82,9 +82,9 @@
             android:id="@+id/tv_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_20"
             android:text='@{@string/other_login_info + loginViewModel.loginData.username }' />
 
     </LinearLayout>

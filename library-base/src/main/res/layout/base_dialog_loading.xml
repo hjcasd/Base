@@ -10,12 +10,12 @@
         android:layout_gravity="center"
         android:background="@drawable/base_shape_bg_dialog_loading"
         android:gravity="center"
-        android:minWidth="120dp"
+        android:minWidth="@dimen/dp_120"
         android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingRight="20dp"
-        android:paddingBottom="10dp"
+        android:paddingLeft="@dimen/dp_20"
+        android:paddingTop="@dimen/dp_10"
+        android:paddingRight="@dimen/dp_20"
+        android:paddingBottom="@dimen/dp_10"
         tools:ignore="UselessParent">
 
         <ProgressBar
@@ -27,10 +27,10 @@
             android:id="@+id/tv_tip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/dp_10"
             android:text="@string/base_loading_tip"
             android:textColor="@color/base_white"
-            android:textSize="12sp" />
+            android:textSize="@dimen/sp_12" />
 
     </LinearLayout>
 

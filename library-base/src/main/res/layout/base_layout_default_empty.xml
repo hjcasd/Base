@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ll_empty"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:ignore="UseCompoundDrawables">
 
     <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="@dimen/dp_80"
+        android:layout_height="@dimen/dp_80"
         android:background="@mipmap/base_icon_empty" />
 
     <TextView
@@ -17,6 +19,6 @@
         android:layout_height="wrap_content"
         android:text="@string/base_status_empty"
         android:textColor="@color/base_black_33"
-        android:textSize="14sp" />
+        android:textSize="@dimen/sp_14" />
 
 </LinearLayout>

@@ -52,18 +52,18 @@
 
             <com.hjc.library_widget.view.ArcView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="@dimen/dp_200"
                 android:layerType="software"
-                app:arcHeight="50dp"
+                app:arcHeight="@dimen/dp_50"
                 app:bgColor="@color/base_color" />
 
             <com.hjc.module_other.widget.RecordVoiceButton
                 android:id="@+id/rvb_voice"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/dp_50"
+                android:layout_height="@dimen/dp_50"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="40dp"
+                android:layout_marginBottom="@dimen/dp_40"
                 android:background="@mipmap/other_img_stop" />
 
         </RelativeLayout>

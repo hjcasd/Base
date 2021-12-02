@@ -16,13 +16,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingStart="0dp"
-        android:paddingEnd="10dp">
+        android:paddingStart="@dimen/dp_0"
+        android:paddingEnd="@dimen/dp_10">
 
         <View
             android:id="@+id/view_line"
-            android:layout_width="2dp"
-            android:layout_height="20dp"
+            android:layout_width="@dimen/dp_2"
+            android:layout_height="@dimen/dp_20"
             android:background="@color/base_white"
             android:visibility='@{cabinBean.isSelected ? View.VISIBLE : View.INVISIBLE }'
             app:layout_constraintBottom_toBottomOf="@id/iv_cover"
@@ -31,9 +31,9 @@
 
         <ImageView
             android:id="@+id/iv_cover"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="10dp"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_60"
+            android:layout_marginStart="@dimen/dp_10"
             android:background="@mipmap/ic_launcher"
             app:layout_constraintLeft_toRightOf="@id/view_line"
             app:layout_constraintTop_toTopOf="parent" />
@@ -42,10 +42,10 @@
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="@dimen/dp_2"
             android:text="@{cabinBean.name}"
             android:textColor="@color/base_white"
-            android:textSize="12sp"
+            android:textSize="@dimen/sp_12"
             app:layout_constraintLeft_toLeftOf="@id/iv_cover"
             app:layout_constraintRight_toRightOf="@id/iv_cover"
             app:layout_constraintTop_toBottomOf="@id/iv_cover"
