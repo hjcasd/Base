@@ -22,4 +22,9 @@ object ServerCode {
      */
     const val CODE_UN_LOGIN = -1001
 
+    /**
+     * Token失效(模拟)
+     */
+    const val CODE_TOKEN_INVALID = 1234
+
 }

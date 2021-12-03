@@ -1,12 +1,7 @@
 <resources>
 
-<!--    <style name="Theme.Base.NoActionBar">-->
-<!--        <item name="windowActionBar">false</item>-->
-<!--        <item name="windowNoTitle">true</item>-->
-<!--    </style>-->
-
-<!--    <style name="Theme.Base.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />-->
-
-<!--    <style name="Theme.Base.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />-->
+    <style name="ComposeTheme" parent="BaseAppTheme">
+        <item name="android:statusBarColor">@color/base_color</item>
+    </style>
 
 </resources>

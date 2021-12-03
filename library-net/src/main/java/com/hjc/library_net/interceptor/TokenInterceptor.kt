@@ -9,24 +9,29 @@ import java.io.IOException
  * @Date: 2019/1/7 11:52
  * @Description: Token拦截器
  */
-class TokenInterceptor(private val token: String?) : Interceptor {
+class TokenInterceptor : Interceptor {
 
     companion object {
 
         /**
          * Token key
          */
-        private const val USER_TOKEN = "Authorization"
+        private const val TOKEN_KEY = "Authorization"
+
+        /**
+         * Token value
+         */
+        private const val TOKEN_VALUE = "xxx"
     }
 
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
         val originalRequest = chain.request()
-        if (token == null || originalRequest.header(USER_TOKEN) != null) {
+        if (originalRequest.header(TOKEN_KEY) != null) {
             return chain.proceed(originalRequest)
         }
         val request = originalRequest.newBuilder()
-            .header(USER_TOKEN, token)
+            .header(TOKEN_KEY, TOKEN_VALUE)
             .build()
         return chain.proceed(request)
     }

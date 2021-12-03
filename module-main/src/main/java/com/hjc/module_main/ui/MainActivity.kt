@@ -3,12 +3,12 @@ package com.hjc.module_main.ui
 import android.Manifest
 import android.content.IntentFilter
 import android.os.Bundle
-import android.os.SystemClock
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.blankj.utilcode.util.LogUtils
+import com.blankj.utilcode.util.ScreenUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseFragmentActivity
@@ -19,6 +19,7 @@ import com.hjc.module_main.databinding.MainActivityBinding
 import com.hjc.module_main.receiver.NetworkChangeReceiver
 import com.permissionx.guolindev.PermissionX
 import com.permissionx.guolindev.request.ExplainScope
+
 
 /**
  * @Author: HJC
@@ -64,13 +65,14 @@ class MainActivity : BaseFragmentActivity<MainActivityBinding, CommonViewModel>(
             ARouter.getInstance().build(RouteOtherPath.URL_OTHER_FRAGMENT).navigation() as Fragment?
                 ?: TestFragment.getInstance()
 
-        if (savedInstanceState == null){
+        if (savedInstanceState == null) {
             showFragment(mTab1Fragment)
         }
 
         requestPermission()
         registerBroadcastReceiver()
 //        anonymousInnerClass()
+        getSmallestWidth()
     }
 
     /**
@@ -121,28 +123,35 @@ class MainActivity : BaseFragmentActivity<MainActivityBinding, CommonViewModel>(
     }
 
     /**
-     * LeakCanary测试代码
-     * 匿名内部类持有外部类实例引用
+     * 获取屏幕最小宽度
      */
-    private fun anonymousInnerClass() {
-        object : Thread() {
-            override fun run() {
-                //执行异步处理
-                LogUtils.e("1111111")
-                SystemClock.sleep(240000)
-            }
-        }.start()
+    private fun getSmallestWidth() {
+        val heightPixels = ScreenUtils.getScreenHeight()
+        val widthPixels = ScreenUtils.getScreenWidth()
+        LogUtils.e("height: $heightPixels")
+        LogUtils.e("width: $widthPixels")
+
+        val density = resources.displayMetrics.density
+        val heightDP = heightPixels / density
+        val widthDP = widthPixels / density
+
+        val smallestWidthDP: Float = if (widthDP < heightDP) {
+            widthDP
+        } else {
+            heightDP
+        }
+        LogUtils.e("smallestWidth: $smallestWidthDP")
     }
 
     override fun addListeners() {
-        mBindingView.bottomView.setOnNavigationItemSelectedListener { item ->
+        mBindingView.bottomView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.item_tab1 -> showFragment(mTab1Fragment)
                 R.id.item_tab2 -> showFragment(mTab2Fragment)
                 R.id.item_tab3 -> showFragment(mTab3Fragment)
                 R.id.item_tab4 -> showFragment(mTab4Fragment)
             }
-            true
+            return@setOnItemSelectedListener true
         }
     }
 

@@ -47,6 +47,7 @@ object SmartHttp {
             .writeTimeout(DEFAULT_TIME_OUT, TimeUnit.SECONDS)
             .addNetworkInterceptor(StethoInterceptor())
             .retryOnConnectionFailure(true)
+//            .authenticator(TokenAuthenticator())
 
         mRetrofitBuilder.client(mOkHttpBuilder.build())
     }
