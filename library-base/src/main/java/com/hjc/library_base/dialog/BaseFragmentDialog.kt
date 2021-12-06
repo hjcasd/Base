@@ -10,8 +10,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
-import com.blankj.utilcode.util.ToastUtils
-import com.hjc.library_base.utils.ClickUtils.isFastClick
 import com.hjc.library_base.viewmodel.BaseViewModel
 
 /**
@@ -142,15 +140,6 @@ abstract class BaseFragmentDialog<VDB : ViewDataBinding, VM : BaseViewModel> : D
      */
     abstract fun onSingleClick(v: View?)
 
-    override fun onClick(v: View) {
-        //避免快速点击
-        if (isFastClick()) {
-            ToastUtils.showShort("点的太快了,歇会呗!")
-            return
-        }
-        onSingleClick(v)
-    }
-
     /**
      * 设置宽度为屏幕宽度的0.8
      */
@@ -188,6 +177,11 @@ abstract class BaseFragmentDialog<VDB : ViewDataBinding, VM : BaseViewModel> : D
      */
     fun showDialog(fm: FragmentManager) {
         show(fm, "DialogFragment")
+    }
+
+    override fun onClick(v: View) {
+        // ViewThrottleBindingAdapter已实现onClick事件防抖处理
+        onSingleClick(v)
     }
 
 }

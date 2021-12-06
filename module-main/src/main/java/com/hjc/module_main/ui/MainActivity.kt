@@ -128,8 +128,6 @@ class MainActivity : BaseFragmentActivity<MainActivityBinding, CommonViewModel>(
     private fun getSmallestWidth() {
         val heightPixels = ScreenUtils.getScreenHeight()
         val widthPixels = ScreenUtils.getScreenWidth()
-        LogUtils.e("height: $heightPixels")
-        LogUtils.e("width: $widthPixels")
 
         val density = resources.displayMetrics.density
         val heightDP = heightPixels / density

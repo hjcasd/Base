@@ -7,7 +7,6 @@ import androidx.core.app.ActivityOptionsCompat
 import com.alibaba.android.arouter.launcher.ARouter
 import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.ToastUtils
-import com.hjc.library_base.utils.ClickUtils
 import com.hjc.library_common.global.GlobalKey
 import com.hjc.library_common.router.path.RouteMainPath
 
@@ -100,10 +99,6 @@ object RouteManager {
      * @param url   链接地址
      */
     fun jumpToWeb(title: String?, url: String?) {
-        if (ClickUtils.isFastClick()) {
-            ToastUtils.showShort("点的太快了,歇会呗!")
-            return
-        }
         if (StringUtils.isEmpty(url)) {
             ToastUtils.showShort("链接地址不能为空")
             return

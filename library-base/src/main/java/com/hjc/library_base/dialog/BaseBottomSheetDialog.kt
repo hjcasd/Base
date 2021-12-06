@@ -11,11 +11,9 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.FragmentManager
-import com.blankj.utilcode.util.ToastUtils
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.hjc.library_base.utils.ClickUtils.isFastClick
 import com.hjc.library_base.viewmodel.BaseViewModel
 
 /**
@@ -137,11 +135,7 @@ abstract class BaseBottomSheetDialog<VDB : ViewDataBinding, VM : BaseViewModel> 
     abstract fun onSingleClick(v: View?)
 
     override fun onClick(v: View) {
-        //避免快速点击
-        if (isFastClick()) {
-            ToastUtils.showShort("点的太快了,歇会呗!")
-            return
-        }
+        // ViewThrottleBindingAdapter已实现onClick事件防抖处理
         onSingleClick(v)
     }
 

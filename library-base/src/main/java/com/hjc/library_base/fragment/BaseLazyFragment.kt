@@ -10,7 +10,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.launcher.ARouter
-import com.blankj.utilcode.util.ToastUtils
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.base.BaseActionEvent
 import com.hjc.library_base.base.ILoadingView
@@ -18,7 +17,6 @@ import com.hjc.library_base.base.IStatusView
 import com.hjc.library_base.base.IViewModelAction
 import com.hjc.library_base.loadsir.BaseLoadingViewImpl
 import com.hjc.library_base.loadsir.BaseStatusViewImpl
-import com.hjc.library_base.utils.ClickUtils
 import com.hjc.library_base.viewmodel.BaseViewModel
 import com.kingja.loadsir.callback.Callback
 
@@ -208,11 +206,7 @@ abstract class BaseLazyFragment<VDB : ViewDataBinding, VM : BaseViewModel> : Fra
     abstract fun onSingleClick(v: View?)
 
     override fun onClick(v: View) {
-        //避免快速点击
-        if (ClickUtils.isFastClick()) {
-            ToastUtils.showShort("点的太快了,歇会呗!")
-            return
-        }
+        // ViewThrottleBindingAdapter已实现onClick事件防抖处理
         onSingleClick(v)
     }
 
