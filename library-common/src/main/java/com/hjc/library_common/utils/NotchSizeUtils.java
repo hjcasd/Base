@@ -13,15 +13,63 @@ import java.lang.reflect.Method;
 /**
  * @Author: HJC
  * @Date: 2021/12/1 13:59
- * @Description: 刘海屏工具类
+ * @Description: 刘海屏工具类(Android O版本及以下才生效, 与xml中配置选其一就行)
  */
 @SuppressWarnings("ALL")
 public class NotchSizeUtils {
 
     /**
-     * 刘海屏全屏显示FLAG
+     * 小米刘海屏全屏显示Flag
+     */
+    private static final int XM_FLAG_NOTCH_SUPPORT = 0x00000100; // 开启配置
+    private static final int XM_FLAG_NOTCH_PORTRAIT = 0x00000200; // 竖屏配置
+    private static final int XM_FLAG_NOTCH_HORIZONTAL = 0x00000400; // 横屏配置
+
+    /**
+     * 是否有刘海屏(小米)
+     *
+     * @param context
+     * @return true：有刘海屏；false：没有刘海屏
+     */
+    public static boolean hasNotchInXM(Context context) {
+        boolean ret = false;
+        try {
+            ClassLoader cl = context.getClassLoader();
+            Class SystemProperties = cl.loadClass("android.os.SystemProperties");
+            Method get = SystemProperties.getMethod("getInt", String.class, int.class);
+            ret = (Integer) get.invoke(SystemProperties, "ro.miui.notch", 0) == 1;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return ret;
+        }
+    }
+
+
+    /**
+     * 设置小米刘海屏手机使用刘海区
+     * <p>
+     * 通过添加窗口FLAG的方式设置页面使用刘海区显示
+     *
+     * @param window 应用页面window对象
+     */
+    public static void setFullScreenWindowLayoutInDisplayCutout(Window window) {
+        // 竖屏绘制到耳朵区
+        int flag = XM_FLAG_NOTCH_SUPPORT | XM_FLAG_NOTCH_PORTRAIT;
+        try {
+            Method method = Window.class.getMethod("addExtraFlags", int.class);
+            method.invoke(window, flag);
+        } catch (Exception e) {
+            LogUtils.e("addExtraFlags not found.");
+        }
+    }
+
+
+    /**
+     * 华为刘海屏全屏显示Flag
      */
     private static final int HW_FLAG_NOTCH_SUPPORT = 0x00010000;
+
 
     /**
      * 是否为刘海屏(华为)
@@ -29,7 +77,7 @@ public class NotchSizeUtils {
      * @param context 上下文
      * @return result
      */
-    public static boolean hasNotchInScreenHW(Context context) {
+    public static boolean hasNotchInHW(Context context) {
         boolean ret = false;
         try {
             ClassLoader classLoader = context.getClassLoader();
@@ -117,5 +165,6 @@ public class NotchSizeUtils {
             LogUtils.e("other Exception");
         }
     }
+
 
 }

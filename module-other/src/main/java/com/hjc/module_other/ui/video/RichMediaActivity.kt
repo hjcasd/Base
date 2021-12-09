@@ -6,13 +6,11 @@ import android.widget.FrameLayout
 import androidx.core.view.WindowCompat
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.blankj.utilcode.util.BarUtils
-import com.blankj.utilcode.util.LogUtils
 import com.hjc.library_base.activity.BaseActivity
 import com.hjc.library_base.event.EventManager
 import com.hjc.library_base.event.MessageEvent
 import com.hjc.library_common.global.EventCode
 import com.hjc.library_common.router.path.RouteOtherPath
-import com.hjc.library_common.utils.NotchSizeUtils
 import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.module_other.R
 import com.hjc.module_other.databinding.OtherActivityRichMediaBinding
@@ -57,11 +55,10 @@ class RichMediaActivity : BaseActivity<OtherActivityRichMediaBinding, CommonView
 //        windowInsetsControllerCompat.hide(WindowInsetsCompat.Type.navigationBars())
 
         // 解决华为手机横屏刘海屏使用刘海区域导致布局遮挡问题
-        NotchSizeUtils.setNotFullScreenWindowLayoutInDisplayCutoutHW(window)
+//        NotchSizeUtils.setNotFullScreenWindowLayoutInDisplayCutoutHW(window)
 
         val statusBarHeight = BarUtils.getStatusBarHeight()
         val isNavBarVisible = BarUtils.isNavBarVisible(this@RichMediaActivity)
-        LogUtils.e("isNavBarVisible: $isNavBarVisible")
         if (!isNavBarVisible && statusBarHeight > 80) {
             val layoutParams = mBindingView.clRoot.layoutParams as FrameLayout.LayoutParams
             layoutParams.rightMargin = statusBarHeight

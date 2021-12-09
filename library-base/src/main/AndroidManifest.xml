@@ -23,26 +23,33 @@
 
     <application
         android:allowBackup="true"
-        android:maxAspectRatio="2.4"
         android:networkSecurityConfig="@xml/base_network_security_config"
         android:preserveLegacyExternalStorage="true"
         android:requestLegacyExternalStorage="true"
-        android:resizeableActivity="false"
+        android:resizeableActivity="true"
         android:supportsRtl="true"
         android:theme="@style/BaseAppTheme"
         tools:ignore="AllowBackup,UnusedAttribute">
 
-        <!--最大长宽比(resizeableActivity=true时,maxAspectRatio及max_aspect设置不生效)-->
-        <meta-data
-            android:name="android.max_aspect"
-            android:value="2.4" />
+        <!--最大长宽比-->
+<!--        resizeableActivity=true时,maxAspectRatio及max_aspect设置不生效-->
+<!--        android:maxAspectRatio="2.4"一起使用-->
+<!--        <meta-data-->
+<!--            android:name="android.max_aspect"-->
+<!--            android:value="2.4" />-->
 
-        <!--适配华为刘海屏(使用刘海区域,P生效,Q不生效)-->
+        <!--适配华为刘海屏(Android O及以下才生效)-->
+<!--        value=true : 使用刘海区域-->
+<!--        value=false : 不使用刘海区域-->
 <!--        <meta-data-->
 <!--            android:name="android.notch_support"-->
 <!--            android:value="true" />-->
 
-        <!--适配小米刘海屏(使用刘海区域,仅P和Q生效,R不生效)-->
+        <!--适配小米刘海屏(Android O及以下才生效)-->
+<!--        value=portrait : 竖屏使用刘海区域-->
+<!--        value=landscape : 横屏使用刘海区域-->
+<!--        value=portrait|landscape : 横竖屏都使用刘海区域-->
+<!--        value=none : 不使用刘海区域-->
 <!--        <meta-data-->
 <!--            android:name="notch.config"-->
 <!--            android:value="portrait|landscape" />-->
