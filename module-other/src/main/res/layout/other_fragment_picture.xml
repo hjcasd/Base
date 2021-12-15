@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY"
-            android:src="@mipmap/base_img_example"/>
+            android:src="@mipmap/common_img_example"/>
 
     </LinearLayout>
 

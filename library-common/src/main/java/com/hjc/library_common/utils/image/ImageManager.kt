@@ -6,7 +6,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
-import com.hjc.library_base.R
+import com.hjc.library_common.R
 import jp.wasabeef.glide.transformations.BlurTransformation
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 
@@ -26,8 +26,8 @@ object ImageManager {
     fun loadImage(
         imageView: ImageView,
         url: String,
-        placeholderDrawable: Int = R.mipmap.base_img_default,
-        errorDrawable: Int = R.mipmap.base_img_default
+        placeholderDrawable: Int = R.mipmap.common_img_default,
+        errorDrawable: Int = R.mipmap.common_img_default
     ) {
         val requestOptions = RequestOptions()
             .placeholder(placeholderDrawable)
@@ -51,8 +51,8 @@ object ImageManager {
     fun loadCircleImage(
         imageView: ImageView,
         url: String,
-        placeholderDrawable: Int = R.mipmap.base_img_default,
-        errorDrawable: Int = R.mipmap.base_img_default
+        placeholderDrawable: Int = R.mipmap.common_img_default,
+        errorDrawable: Int = R.mipmap.common_img_default
     ) {
         val requestOptions = RequestOptions()
             .placeholder(placeholderDrawable)
@@ -80,8 +80,8 @@ object ImageManager {
         url: String,
         radius: Int,
         cornerType: RoundedCornersTransformation.CornerType = RoundedCornersTransformation.CornerType.ALL,
-        placeholderDrawable: Int = R.mipmap.base_img_default,
-        errorDrawable: Int = R.mipmap.base_img_default
+        placeholderDrawable: Int = R.mipmap.common_img_default,
+        errorDrawable: Int = R.mipmap.common_img_default
     ) {
         val requestOptions = RequestOptions()
             .placeholder(placeholderDrawable)
@@ -111,8 +111,8 @@ object ImageManager {
         radius: Int,
         borderWidth: Int,
         borderColor: Int,
-        placeholderDrawable: Int = R.mipmap.base_img_default,
-        errorDrawable: Int = R.mipmap.base_img_default
+        placeholderDrawable: Int = R.mipmap.common_img_default,
+        errorDrawable: Int = R.mipmap.common_img_default
     ) {
         val requestOptions = RequestOptions()
             .placeholder(placeholderDrawable)
@@ -141,8 +141,8 @@ object ImageManager {
         url: String,
         width: Int,
         height: Int,
-        placeholderDrawable: Int = R.mipmap.base_img_default,
-        errorDrawable: Int = R.mipmap.base_img_default
+        placeholderDrawable: Int = R.mipmap.common_img_default,
+        errorDrawable: Int = R.mipmap.common_img_default
     ) {
         val requestOptions = RequestOptions()
             .placeholder(placeholderDrawable)
@@ -170,8 +170,8 @@ object ImageManager {
         url: String,
         radius: Int,
         sampling: Int,
-        placeholderDrawable: Int = R.mipmap.base_img_default,
-        errorDrawable: Int = R.mipmap.base_img_default
+        placeholderDrawable: Int = R.mipmap.common_img_default,
+        errorDrawable: Int = R.mipmap.common_img_default
     ) {
         val requestOptions = RequestOptions()
             .placeholder(placeholderDrawable)

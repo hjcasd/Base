@@ -1,4 +1,5 @@
 <resources>
+
     <!-- base dialog style -->
     <style name="Base_Dialog" parent="Theme.AppCompat.DayNight.Dialog">
         <!-- 背景颜色及和透明程度 -->
@@ -89,4 +90,5 @@
         <item name="android:windowEnterAnimation">@anim/base_dialog_right_in</item>
         <item name="android:windowExitAnimation">@anim/base_dialog_right_out</item>
     </style>
+
 </resources>

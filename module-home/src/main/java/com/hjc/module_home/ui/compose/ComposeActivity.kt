@@ -50,7 +50,7 @@ fun MessageCard(msg: Message) {
     ) {
         Row(modifier = Modifier.padding(all = 10.dp)) {
             Image(
-                painter = painterResource(id = R.mipmap.base_img_example),
+                painter = painterResource(id = R.mipmap.common_img_example),
                 contentDescription = "111",
                 modifier = Modifier
                     .size(50.dp)

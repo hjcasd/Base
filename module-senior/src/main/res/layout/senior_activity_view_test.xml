@@ -67,7 +67,7 @@
             android:layout_marginTop="@dimen/dp_10"
             android:layout_marginBottom="@dimen/dp_10"
             android:scaleType="centerCrop"
-            android:src="@mipmap/base_img_example"
+            android:src="@mipmap/common_img_example"
             app:maskBlurRadius="@dimen/dp_10"
             app:maskContentAlpha="125"
             app:maskContentColor="@color/senior_black"

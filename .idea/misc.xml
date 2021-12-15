@@ -41,6 +41,8 @@
         <entry key="..\:/MyProjects/Base/library-base/src/main/res/layout/base_layout_default_error.xml" value="0.2101851851851852" />
         <entry key="..\:/MyProjects/Base/library-base/src/main/res/layout/base_layout_default_progress.xml" value="0.24114583333333334" />
         <entry key="..\:/MyProjects/Base/library-base/src/main/res/layout/base_layout_default_timeout.xml" value="0.24114583333333334" />
+        <entry key="..\:/MyProjects/Base/library-base/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.25729166666666664" />
+        <entry key="..\:/MyProjects/Base/library-common/src/main/res/drawable/ic_launcher_background.xml" value="0.25729166666666664" />
         <entry key="..\:/MyProjects/Base/library-common/src/main/res/layout/common_item_shimmer.xml" value="0.2101851851851852" />
         <entry key="..\:/MyProjects/Base/library-common/src/main/res/layout/common_layout_custom_empty.xml" value="0.2101851851851852" />
         <entry key="..\:/MyProjects/Base/library-common/src/main/res/layout/common_layout_custom_error.xml" value="0.2101851851851852" />
@@ -48,9 +50,13 @@
         <entry key="..\:/MyProjects/Base/library-common/src/main/res/layout/common_layout_custom_timeout.xml" value="0.2101851851851852" />
         <entry key="..\:/MyProjects/Base/library-common/src/main/res/layout/common_layout_my_header.xml" value="0.2101851851851852" />
         <entry key="..\:/MyProjects/Base/library-common/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.25277777777777777" />
+        <entry key="..\:/MyProjects/Base/library-web/src/main/res/drawable/ic_launcher_background.xml" value="0.25729166666666664" />
         <entry key="..\:/MyProjects/Base/library-web/src/main/res/drawable/web_shape_progress_bar.xml" value="0.25277777777777777" />
         <entry key="..\:/MyProjects/Base/library-web/src/main/res/layout/web_layout.xml" value="0.2101851851851852" />
+        <entry key="..\:/MyProjects/Base/library-web/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.25729166666666664" />
+        <entry key="..\:/MyProjects/Base/library-widget/src/main/res/drawable/ic_launcher_background.xml" value="0.25729166666666664" />
         <entry key="..\:/MyProjects/Base/library-widget/src/main/res/layout/widget_layout_title_bar.xml" value="0.2101851851851852" />
+        <entry key="..\:/MyProjects/Base/library-widget/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.25729166666666664" />
         <entry key="..\:/MyProjects/Base/library_base/src/main/res/drawable/base_shape_btn_red.xml" value="0.1" />
         <entry key="..\:/MyProjects/Base/library_web/src/main/res/drawable/web_shape_progress_bar.xml" value="0.19296875" />
         <entry key="..\:/MyProjects/Base/library_web/src/main/res/layout/web_layout.xml" value="0.180859375" />

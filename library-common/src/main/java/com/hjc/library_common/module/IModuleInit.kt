@@ -5,18 +5,13 @@ import com.hjc.library_base.BaseApplication
 /**
  * @Author: HJC
  * @Date: 2021/2/1 15:49
- * @Description: 动态配置组件Application,有需要初始化的组件实现该接口,统一在宿主app 的Application进行初始化
+ * @Description: 组件初始化接口,组件Application中有初始化操作逻辑的需实现该接口
  */
 interface IModuleInit {
 
     /**
-     * 需要优先初始化的代码
+     * 初始化组件Application的操作
      */
-    fun onInitAhead(application: BaseApplication): Boolean
-
-    /**
-     * 可以后初始化的代码
-     */
-    fun onInitAfter(application: BaseApplication): Boolean
+    fun initModuleApp(application: BaseApplication)
 
 }

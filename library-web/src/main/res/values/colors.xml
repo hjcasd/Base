@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="web_white">#00ffffff</color>
     <color name="web_green">#ff00ff00</color>
     <color name="web_yellow">#80ffd300</color>

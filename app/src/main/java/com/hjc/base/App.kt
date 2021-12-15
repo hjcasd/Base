@@ -1,7 +1,7 @@
 package com.hjc.base
 
 import com.hjc.library_base.BaseApplication
-import com.hjc.library_common.config.ModuleLifecycleConfig
+import com.hjc.library_common.module.ModuleReflect
 
 /**
  * @Author: HJC
@@ -12,6 +12,6 @@ class App : BaseApplication() {
 
     override fun onCreate() {
         super.onCreate()
-        ModuleLifecycleConfig.getInstance().initModuleAhead(this)
+        ModuleReflect.getInstance().initModuleApp(this)
     }
 }

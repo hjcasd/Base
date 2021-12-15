@@ -15,7 +15,6 @@ import com.hjc.library_net.utils.GsonHelper
 import com.hjc.library_web.utils.X5WebUtils
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import tech.oom.idealrecorder.IdealRecorder
 
 /**
  * @Author: HJC
@@ -24,15 +23,14 @@ import tech.oom.idealrecorder.IdealRecorder
  */
 class CommonModuleInit : IModuleInit {
 
-    override fun onInitAhead(application: BaseApplication): Boolean {
+    override fun initModuleApp(application: BaseApplication) {
         initUtils(application)
         initARouter(application)
         initBugly(application)
         X5WebUtils.init(application)
         initHttp()
         initStetho(application)
-        initRecord(application)
-        return false
+//        initRecord(application)
     }
 
     /**
@@ -88,17 +86,6 @@ class CommonModuleInit : IModuleInit {
         if (AppConstants.APP_IS_DEBUG) {
             Stetho.initializeWithDefaults(application)
         }
-    }
-
-    /**
-     * 初始化录音
-     */
-    private fun initRecord(application: BaseApplication) {
-        IdealRecorder.getInstance().init(application)
-    }
-
-    override fun onInitAfter(application: BaseApplication): Boolean {
-        return false
     }
 
 }

@@ -1,6 +1,8 @@
 <resources>
+
     <string name="base_status_timeout">网络超时，点击重试</string>
     <string name="base_status_error">加载失败，点击重试</string>
     <string name="base_status_empty">暂无数据，点击重试</string>
     <string name="base_loading_tip">加载中…</string>
+
 </resources>
