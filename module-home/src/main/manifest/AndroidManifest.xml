@@ -1,4 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.hjc.module_home">
 
     <!--    单独module    -->
@@ -10,9 +11,12 @@
         android:label="@string/home_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/BaseAppTheme">
+        android:theme="@style/BaseAppTheme"
+        tools:ignore="AllowBackup">
 
-        <activity android:name=".ui.HomeActivity">
+        <activity
+            android:name=".ui.HomeActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -44,11 +48,6 @@
 
         <activity
             android:name=".ui.coroutines.CoroutinesActivity"
-            android:screenOrientation="portrait" />
-
-
-        <activity
-            android:name=".ui.compose.ComposeTestActivity"
             android:screenOrientation="portrait" />
 
     </application>

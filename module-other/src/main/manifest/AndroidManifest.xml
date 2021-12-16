@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/BaseAppTheme">
 
-        <activity android:name=".ui.OtherActivity">
+        <activity
+            android:name=".ui.OtherActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,10 +24,6 @@
 
         <activity
             android:name=".ui.dialog.DialogActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.login.LoginActivity"
             android:screenOrientation="portrait" />
 
         <activity

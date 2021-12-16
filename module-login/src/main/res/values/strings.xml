@@ -1,0 +1,11 @@
+<resources>
+
+    <string name="login_name">登录模块</string>
+
+    <string name="login_title">登录案例</string>
+    <string name="login_username_hint">请输入用户名</string>
+    <string name="login_pwd_hint">请输入密码</string>
+    <string name="login_btn">登录</string>
+    <string name="login_info">登录信息: </string>
+
+</resources>

@@ -28,11 +28,6 @@ object RouteOtherPath {
     const val URL_DIALOG = "$MODULE_OTHER/dialog"
 
     /**
-     * Login页面
-     */
-    const val URL_LOGIN = "$MODULE_OTHER/login"
-
-    /**
      * Audio页面
      */
     const val URL_AUDIO = "$MODULE_OTHER/audio"

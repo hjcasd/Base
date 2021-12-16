@@ -12,10 +12,6 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.login.LoginActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
             android:name=".ui.audio.AudioActivity"
             android:screenOrientation="portrait" />
 

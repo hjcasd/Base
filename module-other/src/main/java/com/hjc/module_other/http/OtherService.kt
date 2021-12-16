@@ -1,7 +1,5 @@
 package com.hjc.module_other.http
 
-import com.hjc.library_net.bean.BaseResponse
-import com.hjc.module_other.http.entity.LoginBean
 import io.reactivex.Observable
 import okhttp3.MultipartBody
 import okhttp3.ResponseBody
@@ -13,16 +11,6 @@ import retrofit2.http.*
  * @Description: Other模块接口请求
  */
 interface OtherService {
-
-    /**
-     * 登录
-     */
-    @FormUrlEncoded
-    @POST("/user/login")
-    fun login(
-        @Field("username") username: String?,
-        @Field("password") pwd: String?
-    ): Observable<BaseResponse<LoginBean>>
 
     /**
      * 下载App
@@ -42,4 +30,5 @@ interface OtherService {
     @Multipart
     @POST("/customize/voice/stream")
     suspend fun uploadVoiceFile(@Part body: MultipartBody.Part): Any?
+
 }

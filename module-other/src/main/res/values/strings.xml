@@ -9,12 +9,6 @@
     <string name="other_btn4">常见列表效果演示</string>
     <string name="other_btn5">富媒体演示</string>
 
-    <string name="other_login_title">登录案例</string>
-    <string name="other_login_username_hint">请输入用户名</string>
-    <string name="other_login_pwd_hint">请输入密码</string>
-    <string name="other_login_btn">登录</string>
-    <string name="other_login_info">登录信息: </string>
-
     <string name="other_dialog_title">弹框</string>
     <string name="other_dialog_btn1">退出登录演示</string>
     <string name="other_dialog_btn2">更新弹框演示</string>

@@ -135,6 +135,7 @@ dependencies {
         implementation project(':module-frame')
         implementation project(':module-senior')
         implementation project(':module-other')
+        implementation project(':module-login')
     }
 
 }

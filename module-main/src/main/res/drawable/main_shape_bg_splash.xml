@@ -4,12 +4,13 @@
 
     <item android:drawable="@color/base_white" />
 
-
     <item android:bottom="@dimen/dp_120">
+
         <bitmap
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             android:src="@mipmap/main_img_splash"
             android:tileMode="disabled" />
+
     </item>
 
     <item
@@ -17,9 +18,11 @@
         android:gravity="bottom"
         tools:targetApi="m"
         tools:ignore="UnusedAttribute">
+
         <bitmap
             android:scaleType="fitXY"
             android:src="@mipmap/main_icon_splash_logo" />
+
     </item>
 
 </layer-list>

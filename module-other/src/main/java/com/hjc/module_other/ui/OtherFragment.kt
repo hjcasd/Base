@@ -6,6 +6,7 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.fragment.BaseFragment
 import com.hjc.library_common.router.RouteManager
+import com.hjc.library_common.router.path.RouteLoginPath
 import com.hjc.library_common.router.path.RouteOtherPath
 import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.module_other.R
@@ -47,9 +48,9 @@ class OtherFragment : BaseFragment<OtherFragmentBinding, CommonViewModel>() {
 
             R.id.btn2 -> RouteManager.jumpWithTransition(
                 mContext,
-                RouteOtherPath.URL_LOGIN,
-                R.anim.other_login_open_enter,
-                R.anim.other_login_open_exit
+                RouteLoginPath.URL_LOGIN_ACTIVITY,
+                R.anim.common_login_open_enter,
+                R.anim.common_login_open_exit
             )
 
             R.id.btn3 -> RouteManager.jump(RouteOtherPath.URL_AUDIO)
