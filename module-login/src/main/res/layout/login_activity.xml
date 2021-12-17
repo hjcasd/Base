@@ -78,15 +78,6 @@
             android:onClick="@{onClickListener}"
             android:text="@string/login_btn" />
 
-        <TextView
-            android:id="@+id/tv_info"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dp_20"
-            android:layout_marginTop="@dimen/dp_10"
-            android:layout_marginRight="@dimen/dp_20"
-            android:text='@{@string/login_info + loginViewModel.loginData.username }' />
-
     </LinearLayout>
 
 </layout>

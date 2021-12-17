@@ -29,7 +29,7 @@ class BaseLoadingViewImpl(context: Context) : ILoadingView {
     }
 
     override fun dismissLoading() {
-        mLoadingDialog?.dismissDialog()
+        mLoadingDialog?.dismiss()
     }
 
 }

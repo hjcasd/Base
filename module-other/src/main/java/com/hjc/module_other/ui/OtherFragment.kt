@@ -6,7 +6,7 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.fragment.BaseFragment
 import com.hjc.library_common.router.RouteManager
-import com.hjc.library_common.router.path.RouteLoginPath
+import com.hjc.library_common.router.callback.LoginNavigationCallback
 import com.hjc.library_common.router.path.RouteOtherPath
 import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.module_other.R
@@ -44,20 +44,17 @@ class OtherFragment : BaseFragment<OtherFragmentBinding, CommonViewModel>() {
 
     override fun onSingleClick(v: View?) {
         when (v?.id) {
-            R.id.btn1 -> RouteManager.jump(RouteOtherPath.URL_DIALOG)
+            R.id.btn1 -> {
+                RouteManager.jumpWithNavigationCallback(mContext, RouteOtherPath.URL_DIALOG, LoginNavigationCallback(mContext))
+            }
 
-            R.id.btn2 -> RouteManager.jumpWithTransition(
-                mContext,
-                RouteLoginPath.URL_LOGIN_ACTIVITY,
-                R.anim.common_login_open_enter,
-                R.anim.common_login_open_exit
-            )
+            R.id.btn2 -> RouteManager.jump(RouteOtherPath.URL_AUDIO)
 
-            R.id.btn3 -> RouteManager.jump(RouteOtherPath.URL_AUDIO)
+            R.id.btn3 -> {
+                RouteManager.jumpWithNavigationCallback(mContext, RouteOtherPath.URL_SCROLL, LoginNavigationCallback(mContext))
+            }
 
-            R.id.btn4 -> RouteManager.jump(RouteOtherPath.URL_SCROLL)
-
-            R.id.btn5 -> RouteManager.jump(RouteOtherPath.URL_RICH_MEDIA)
+            R.id.btn4 -> RouteManager.jump(RouteOtherPath.URL_RICH_MEDIA)
 
             else -> {
 

@@ -17,4 +17,9 @@ object GlobalKey {
      */
     const val ROUTER_PARAMS = "router_params"
 
+    /**
+     * 登录页面拦截的路由路径
+     */
+    const val LOGIN_ROUTER_PATH = "login_router_path"
+
 }

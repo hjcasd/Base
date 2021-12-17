@@ -1,0 +1,15 @@
+<resources>
+
+    <!--部分手机上失效-->
+    <style name="LoginTheme" parent="BaseAppTheme">
+        <!--用于设置打开新的Activity并进入新的Activity展示的动画-->
+        <item name="android:activityOpenEnterAnimation">@anim/common_login_open_enter</item>
+        <!--用于设置打开新的Activity并销毁之前的Activity展示的动画-->
+        <item name="android:activityOpenExitAnimation">@anim/common_login_open_exit</item>
+        <!--用于设置关闭当前Activity进入上一个Activity展示的动画-->
+        <item name="android:activityCloseEnterAnimation">@anim/common_login_close_enter</item>
+        <!--用于设置关闭当前Activity时展示的动画-->
+        <item name="android:activityCloseExitAnimation">@anim/common_login_close_exit</item>
+    </style>
+
+</resources>

@@ -5,7 +5,8 @@
 
         <activity
             android:name=".ui.LoginActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/LoginTheme" />
 
     </application>
 

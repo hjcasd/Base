@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import androidx.core.app.ActivityOptionsCompat
+import com.alibaba.android.arouter.facade.callback.NavigationCallback
 import com.alibaba.android.arouter.launcher.ARouter
 import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.ToastUtils
@@ -29,6 +30,19 @@ object RouteManager {
     }
 
     /**
+     * 页面跳转(回调)
+     *
+     * @param context 当前页面
+     * @param path 要跳转页面对应的路由url
+     * @param callback 跳转回调
+     */
+    fun jumpWithNavigationCallback(context: Context, path: String?, callback: NavigationCallback) {
+        ARouter.getInstance()
+            .build(path)
+            .navigation(context, callback)
+    }
+
+    /**
      * 页面跳转(bundle)
      *
      * @param path   要跳转页面对应的路由url
@@ -42,17 +56,18 @@ object RouteManager {
     }
 
     /**
-     * 页面跳转(bundle)
+     * 页面跳转(bundle + transition)
      *
      * @param path      要跳转页面对应的路由url
      * @param enterAnim 进入动画
      * @param exitAnim  退出动画
      * @param context   对应页面
      */
-    fun jumpWithTransition(context: Context, path: String?, enterAnim: Int, exitAnim: Int) {
+    fun jumpWithTransition(context: Context, path: String?, enterAnim: Int, exitAnim: Int, bundle: Bundle? = null) {
         ARouter.getInstance()
             .build(path)
             .withTransition(enterAnim, exitAnim)
+            .withBundle(GlobalKey.ROUTER_PARAMS, bundle)
             .navigation(context)
     }
 
