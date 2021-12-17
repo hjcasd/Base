@@ -11,7 +11,7 @@ import retrofit2.http.Path
  * @Date: 2019/1/7 11:53
  * @Description: Frame模块接口请求
  */
-interface FrameService {
+interface FrameApiService {
 
     /**
      * 列表

@@ -1,6 +1,6 @@
 package com.hjc.module_other.utils.update
 
-import com.hjc.module_other.http.OtherService
+import com.hjc.module_other.http.OtherApiService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import okhttp3.OkHttpClient
@@ -24,7 +24,7 @@ object DownloadManager {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        retrofit.create(OtherService::class.java)
+        retrofit.create(OtherApiService::class.java)
             .downloadApk(url)
             .subscribeOn(Schedulers.io())
             .observeOn(Schedulers.io())

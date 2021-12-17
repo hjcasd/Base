@@ -5,11 +5,15 @@ import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
+import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.blankj.utilcode.util.LogUtils
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
 import com.hjc.library_base.utils.ActivityHelper
+import com.hjc.library_common.router.ServicePath
 import com.hjc.library_common.router.path.RouteOtherPath
+import com.hjc.library_common.router.services.ILoginService
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_other.R
 import com.hjc.module_other.databinding.OtherActivityDialogBinding
@@ -25,6 +29,9 @@ import com.hjc.module_other.viewmodel.AudioViewModel
 @Route(path = RouteOtherPath.URL_DIALOG)
 class DialogActivity : BaseActivity<OtherActivityDialogBinding, AudioViewModel>() {
 
+    @JvmField
+    @Autowired(name = ServicePath.LOGIN_SERVICE)
+    var loginService: ILoginService? = null
 
     override fun getLayoutId(): Int {
         return R.layout.other_activity_dialog
@@ -41,7 +48,7 @@ class DialogActivity : BaseActivity<OtherActivityDialogBinding, AudioViewModel>(
     }
 
     override fun initData(savedInstanceState: Bundle?) {
-
+        LogUtils.e("username: ${loginService?.getUsername()}")
     }
 
     override fun addListeners() {

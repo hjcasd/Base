@@ -9,7 +9,7 @@ import retrofit2.http.Path
  * @Date: 2019/1/7 11:53
  * @Description: 首页模块接口请求
  */
-interface HomeService {
+interface HomeApiService {
 
     @Headers("url_name:test1")
     @GET("/api/v2/data/category/{category}/type/{type}/page/{page}/count/{count}")

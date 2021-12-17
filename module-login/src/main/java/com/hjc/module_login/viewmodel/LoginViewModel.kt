@@ -2,7 +2,6 @@ package com.hjc.module_login.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
-import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.hjc.library_common.utils.AccountHelper
@@ -34,7 +33,6 @@ class LoginViewModel(application: Application) : KotlinViewModel(application) {
             .subscribe(object : CommonObserver<LoginBean>(this, true) {
                 override fun onSuccess(response: LoginBean?) {
                     ToastUtils.showShort("登录成功")
-                    LogUtils.e("result: ${response?.username}")
                     AccountHelper.isLogin = true
                     loginData.value = true
                 }

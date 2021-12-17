@@ -10,9 +10,9 @@ import retrofit2.http.POST
 /**
  * @Author: HJC
  * @Date: 2019/1/7 11:53
- * @Description: Login模块接口请求
+ * @Description: Login模块接口Api
  */
-interface LoginService {
+interface LoginApiService {
 
     /**
      * 登录

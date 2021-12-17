@@ -10,7 +10,7 @@ import retrofit2.http.*
  * @Date: 2019/1/7 11:53
  * @Description: Other模块接口请求
  */
-interface OtherService {
+interface OtherApiService {
 
     /**
      * 下载App
