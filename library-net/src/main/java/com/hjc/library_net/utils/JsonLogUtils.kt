@@ -5,16 +5,15 @@ import com.blankj.utilcode.util.LogUtils
 /**
  * @Author: HJC
  * @Date: 2019/3/7 16:33
- * @Description: 格式化Log工具类
+ * @Description: Json Log工具类
  */
-
-object FormatUtils {
+object JsonLogUtils {
 
     /**
      * 将json格式化并在logcat中输出
      * @param jsonStr json字符串
      */
-    fun formatJsonAndLog(jsonStr: String) {
+    fun printJson(jsonStr: String) {
         var level = 0
         val sb = StringBuffer()
         for (element in jsonStr) {

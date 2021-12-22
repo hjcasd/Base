@@ -1,7 +1,7 @@
 package com.hjc.library_net.interceptor
 
 import com.blankj.utilcode.util.LogUtils
-import com.hjc.library_net.utils.FormatUtils
+import com.hjc.library_net.utils.JsonLogUtils
 import okhttp3.Interceptor
 import okhttp3.RequestBody
 import okhttp3.Response
@@ -41,7 +41,7 @@ class LogInterceptor : Interceptor {
         LogUtils.e("Request: $requestJson")
 
         val responseJson = buffer.clone().readString(UTF8)
-        FormatUtils.formatJsonAndLog(responseJson)
+        JsonLogUtils.printJson(responseJson)
 
         return response
     }

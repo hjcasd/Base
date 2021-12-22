@@ -3,7 +3,9 @@ package com.hjc.library_base
 import android.app.Activity
 import android.app.Application
 import android.os.Bundle
+import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.multidex.MultiDexApplication
+import com.hjc.library_base.lifecycle.ApplicationLifecycleObserver
 import com.hjc.library_base.loadsir.callback.DefaultEmptyCallback
 import com.hjc.library_base.loadsir.callback.DefaultErrorCallback
 import com.hjc.library_base.loadsir.callback.DefaultProgressCallback
@@ -37,6 +39,7 @@ open class BaseApplication : MultiDexApplication() {
     override fun onCreate() {
         super.onCreate()
         mInstance = this
+        ProcessLifecycleOwner.get().lifecycle.addObserver(ApplicationLifecycleObserver())
 
         initLoadSir()
         registerActivity()
