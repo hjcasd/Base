@@ -72,6 +72,7 @@
         <attr name="indicatorWidth" format="dimension"/>
     </declare-styleable>
 
+    <!--高斯模糊View-->
     <declare-styleable name="RealtimeBlurView">
         <attr name="realtimeBlurRadius" format="dimension"/>
         <attr name="realtimeDownSampleFactor" format="float"/>
