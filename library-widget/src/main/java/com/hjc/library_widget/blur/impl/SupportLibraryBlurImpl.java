@@ -1,4 +1,4 @@
-package com.hjc.library_widget.blur;
+package com.hjc.library_widget.blur.impl;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
@@ -8,7 +8,7 @@ import android.renderscript.Element;
 import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
 
-public class AndroidStockBlurImpl implements BlurImpl {
+public class SupportLibraryBlurImpl implements BlurImpl {
     private RenderScript mRenderScript;
     private ScriptIntrinsicBlur mBlurScript;
     private Allocation mBlurInput, mBlurOutput;

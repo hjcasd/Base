@@ -15,7 +15,11 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 
 import com.hjc.library_widget.R;
-
+import com.hjc.library_widget.blur.impl.AndroidStockBlurImpl;
+import com.hjc.library_widget.blur.impl.AndroidXBlurImpl;
+import com.hjc.library_widget.blur.impl.BlurImpl;
+import com.hjc.library_widget.blur.impl.EmptyBlurImpl;
+import com.hjc.library_widget.blur.impl.SupportLibraryBlurImpl;
 
 /**
  * A realtime blurring overlay (like iOS UIVisualEffectView). Just put it above

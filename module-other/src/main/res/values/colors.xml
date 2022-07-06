@@ -5,5 +5,6 @@
     <color name="other_red">#ff0000</color>
     <color name="other_red_dark">#d81e06</color>
     <color name="other_black">#ff291C17</color>
+    <color name="other_gray_D8">#4DD8D8D8</color>
 
 </resources>

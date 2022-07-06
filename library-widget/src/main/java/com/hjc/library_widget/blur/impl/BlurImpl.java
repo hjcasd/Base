@@ -1,9 +1,9 @@
-package com.hjc.library_widget.blur;
+package com.hjc.library_widget.blur.impl;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 
-interface BlurImpl {
+public interface BlurImpl {
 
     boolean prepare(Context context, Bitmap buffer, float radius);
 
