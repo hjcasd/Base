@@ -41,4 +41,9 @@ object RouteFramePath {
     const val URL_QR_CODE = "$MODULE_FRAME/zxing/show"
     const val URL_SCAN_CODE = "$MODULE_FRAME/zxing/scan"
 
+    /**
+     * 瀑布流页面
+     */
+    const val URL_STAGGER = "$MODULE_FRAME/stagger"
+
 }

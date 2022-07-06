@@ -45,7 +45,7 @@ class OtherFragment : BaseFragment<OtherFragmentBinding, CommonViewModel>() {
     override fun onSingleClick(v: View?) {
         when (v?.id) {
             R.id.btn1 -> {
-                RouteManager.jumpWithNavigationCallback(mContext, RouteOtherPath.URL_DIALOG, LoginNavigationCallback(mContext))
+                RouteManager.jump(RouteOtherPath.URL_DIALOG)
             }
 
             R.id.btn2 -> RouteManager.jump(RouteOtherPath.URL_AUDIO)

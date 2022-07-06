@@ -33,7 +33,7 @@ class LoginInterceptor : IInterceptor {
         if (!AccountHelper.isLogin) {
             when (path) {
                 // 需要登录的页面拦截下来
-                RouteOtherPath.URL_DIALOG, RouteOtherPath.URL_SCROLL -> {
+                RouteOtherPath.URL_SCROLL -> {
                     callback.onInterrupt(null)
                 }
                 // 不需要登录的页面不拦截

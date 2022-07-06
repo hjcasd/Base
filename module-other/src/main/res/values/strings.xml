@@ -27,6 +27,8 @@
         7: 7777777777777777777777777
     </string>
 
+    <string name="other_dialog_notice">浦东出港航班由于疫情原因需提供48小时内</string>
+
     <string name="other_audio_title">录音案例</string>
     <string name="other_audio_btn1">开始播放录音</string>
     <string name="other_audio_btn2">停止播放录音</string>
@@ -51,5 +53,7 @@
     <string name="other_rich_plane_text3">机龄 5年</string>
     <string name="other_rich_plane_text4">座位数 388</string>
     <string name="other_rich_plane_text5">飞行里程 18888km</string>
+
+
 
 </resources>

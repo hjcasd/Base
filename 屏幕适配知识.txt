@@ -1,0 +1,62 @@
+ppi和dpi都表示每英寸上的屏幕像素点数
+ppi: Android手机物理像素密度
+dpi: Android开发中的像素密度
+注意: dpi不等同于ppi,dpi是通过displayMetrics获取的,可以修改
+
+计算公式：
+px = density * dp;
+density = dpi / 160;
+px = dp * (dpi / 160);
+
+density 是 DisplayMetrics 中的成员变量
+DisplayMetrics#density 就是上述的density
+DisplayMetrics#densityDpi 就是上述的dpi
+DisplayMetrics#scaledDensity 字体的缩放因子，正常情况下和density相等，但是调节系统字体大小后会改变这个值
+
+
+小米10: 
+分辨率: 2340*1080 
+尺寸: 6.67英寸
+屏幕像素密度: 386ppi
+实际宽度: 447dp
+densityDpi=440 density=3 即1dp=2.75px
+smallestWidth: 392dp
+
+
+荣耀9:
+分辨率: 1920*1080
+尺寸: 5.15英寸
+屏幕像素密度: 428ppi 
+实际宽度: 403dp
+densityDpi=480  density=3 即1dp=3px
+smallestWidth: 360dp
+
+
+//        dataList.add(StaggerBean(500, 500, R.drawable.a1))
+//        dataList.add(StaggerBean(500, 1000, R.drawable.a2))
+//        dataList.add(StaggerBean(500, 750, R.drawable.a3))
+//        dataList.add(StaggerBean(500, 530, R.drawable.a4))
+//        dataList.add(StaggerBean(500, 400, R.drawable.a5))
+//        dataList.add(StaggerBean(500, 980, R.drawable.a6))
+//        dataList.add(StaggerBean(500, 600, R.drawable.a7))
+//        dataList.add(StaggerBean(500, 620, R.drawable.a8))
+//        dataList.add(StaggerBean(500, 680, R.drawable.c1))
+//        dataList.add(StaggerBean(500, 705, R.drawable.c2))
+//        dataList.add(StaggerBean(500, 885, R.drawable.c3))
+
+
+//        dataList.add(StaggerBean(R.drawable.a1, "Xiaomi MIX 4小米最新上市旗舰手机", "最高可用5000积分"))
+//        dataList.add(StaggerBean(R.drawable.a2,"小米 MI 儿童电话手表", "最高可用560积分"))
+//        dataList.add(StaggerBean(R.drawable.a3,"Apple AirPods 第三代", "最高可用54353积分"))
+//        dataList.add(StaggerBean(R.drawable.a4,"AirPods Pro耳机保护套软壳保护套", "最高可用50010积分"))
+//        dataList.add(StaggerBean(R.drawable.a5,"稻田迷你家用小蒸锅", "最高可用50020积分"))
+//        dataList.add(StaggerBean(R.drawable.a6, "Xiaomi MIX 4小米最新上市旗舰手机", "最高可用502100积分"))
+//        dataList.add(StaggerBean(R.drawable.a7, "AirPods Pro耳机保护套软壳保护套", "最高可用5232积分"))
+//        dataList.add(StaggerBean(R.drawable.a8,"稻田迷你家用小蒸锅", "最高可用123积分"))
+//        dataList.add(StaggerBean(R.drawable.c1, "小米 MI 儿童电话手表", "最高可用343433积分"))
+//        dataList.add(StaggerBean(R.drawable.c2, "AirPods Pro耳机保护套软壳保护套", "最高可用232积分"))
+//        dataList.add(StaggerBean(R.drawable.c3, "Xiaomi MIX 4小米最新上市旗舰手机", "最高可用2121分"))
+//        dataList.add(StaggerBean(R.drawable.c4, "稻田迷你家用小蒸锅", "最高可用12120积分"))
+//        dataList.add(StaggerBean(R.drawable.c5, "Xiaomi MIX 4小米最新上市旗舰手机", "最高可用121积分"))
+//        dataList.add(StaggerBean(R.drawable.c6, "Apple AirPods 第三代", "最高可用233积分"))
+//        dataList.add(StaggerBean(R.drawable.c7, "稻田迷你家用小蒸锅", "最高可用222积分"))

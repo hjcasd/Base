@@ -46,6 +46,42 @@
             android:onClick="@{onClickListener}"
             android:text="@string/other_dialog_btn3" />
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@mipmap/common_img_example"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_35"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="8dp"
+                app:cardBackgroundColor="@android:color/transparent">
+
+                <com.hjc.library_widget.blur.RealtimeBlurView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:realtimeBlurRadius="10dp"
+                    app:realtimeOverlayColor="#4DD8D8D8" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/base_white"
+                    android:layout_gravity="center"
+                    android:text="@string/other_dialog_notice"/>
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
     </LinearLayout>
 
 </layout>
