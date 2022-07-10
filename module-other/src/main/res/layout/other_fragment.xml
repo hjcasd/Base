@@ -51,6 +51,14 @@
             android:text="@string/other_btn4"
             android:onClick="@{onClickListener}"/>
 
+        <Button
+            android:id="@+id/btn5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{onClickListener}"
+            android:text="@string/other_btn5"
+            android:textAllCaps="false" />
+
     </LinearLayout>
 
 </layout>

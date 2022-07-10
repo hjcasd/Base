@@ -11,17 +11,17 @@ class ConcertBean : BaseObservable() {
     @get:Bindable
     var author: String? = null
 
-    override fun equals(obj: Any?): Boolean {
-        if (this === obj) {
+    override fun equals(other: Any?): Boolean {
+        if (this === other) {
             return true
         }
-        if (obj == null) {
+        if (other == null) {
             return false
         }
-        if (this.javaClass == obj.javaClass) {
+        if (this.javaClass == other.javaClass) {
             return true
         }
-        val concert = obj as ConcertBean
+        val concert = other as ConcertBean
         return title == concert.title && author == concert.author
     }
 

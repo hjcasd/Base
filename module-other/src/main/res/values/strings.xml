@@ -7,6 +7,7 @@
     <string name="other_btn2">录音案例演示</string>
     <string name="other_btn3">常见列表效果演示</string>
     <string name="other_btn4">富媒体演示</string>
+    <string name="other_btn5">瀑布流演示</string>
 
     <string name="other_dialog_title">弹框</string>
     <string name="other_dialog_btn1">退出登录演示</string>
@@ -54,6 +55,6 @@
     <string name="other_rich_plane_text4">座位数 388</string>
     <string name="other_rich_plane_text5">飞行里程 18888km</string>
 
-
+    <string name="other_stagger_title">瀑布流</string>
 
 </resources>

@@ -7,15 +7,12 @@
     <string name="frame_btn2">EventBus演示</string>
     <string name="frame_btn3">ZXing演示</string>
     <string name="frame_btn4">X5WebView演示</string>
-    <string name="frame_btn5">瀑布流演示</string>
 
     <string name="frame_status_title">LoadSir</string>
     <string name="frame_status_btn1">默认状态布局</string>
     <string name="frame_status_btn2">自定义状态布局</string>
     <string name="frame_status_default_title">Default</string>
     <string name="frame_status_custom_title">Custom</string>
-
-    <string name="frame_stagger_title">瀑布流</string>
 
     <string name="frame_event_post_title">EventBus(发送者)</string>
     <string name="frame_event_post_btn1">发送粘性消息</string>
@@ -32,6 +29,5 @@
     <string name="frame_zxing_btn2">生成二维码</string>
     <string name="frame_zxing_btn3">生成二维码(logo)</string>
     <string name="frame_zxing_btn4">识别图片二维码</string>
-
 
 </resources>

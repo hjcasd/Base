@@ -44,4 +44,9 @@ object RouteOtherPath {
      */
     const val URL_RICH_MEDIA = "$MODULE_OTHER/richMedia"
 
+    /**
+     * 瀑布流页面
+     */
+    const val URL_STAGGER = "$MODULE_OTHER/stagger"
+
 }

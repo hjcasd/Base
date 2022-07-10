@@ -15,10 +15,10 @@
             android:id="@+id/title_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/frame_color"
+            android:background="@color/other_color"
             app:leftImage="@mipmap/widget_icon_back"
             app:titleColor="@color/base_white"
-            app:titleText="@string/frame_stagger_title" />
+            app:titleText="@string/other_stagger_title" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_list"

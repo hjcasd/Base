@@ -1,4 +1,4 @@
-package com.hjc.module_frame.http.entity
+package com.hjc.module_other.http.entity
 
 /**
  * @Author: HJC
@@ -9,6 +9,7 @@ data class StaggerBean(
     var url: String = "",
     var title: String = "",
     var subTitle: String = "",
+    var ratio : Float = 0f,
     var height: Int = 0,
     var width: Int = 0,
 )

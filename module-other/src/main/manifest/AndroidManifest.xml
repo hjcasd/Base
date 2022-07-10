@@ -48,6 +48,10 @@
             android:screenOrientation="landscape"
             android:theme="@style/RichMediaTheme" />
 
+        <activity
+            android:name=".ui.stagger.StaggerActivity"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

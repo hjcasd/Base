@@ -6,8 +6,9 @@ import okhttp3.RequestBody
 import okhttp3.Response
 import okio.BufferedSink
 import okio.GzipSink
-import okio.buffer
+import okio.Okio
 import java.io.IOException
+
 
 /**
  * @Author: HJC
@@ -45,7 +46,7 @@ class GzipRequestInterceptor : Interceptor {
 
             @Throws(IOException::class)
             override fun writeTo(sink: BufferedSink) {
-                val gzipSink = GzipSink(sink).buffer()
+                val gzipSink = Okio.buffer(GzipSink(sink))
                 body?.writeTo(gzipSink)
                 gzipSink.close()
             }
