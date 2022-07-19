@@ -93,7 +93,7 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel> : Fragmen
         }
         mViewModel?.let {
             val viewModelAction: IViewModelAction = it
-            viewModelAction.getActionLiveData().observe(viewLifecycleOwner, { baseActionEvent: BaseActionEvent? ->
+            viewModelAction.getActionLiveData().observe(viewLifecycleOwner) { baseActionEvent: BaseActionEvent? ->
                 baseActionEvent?.let { event ->
                     when (event.action) {
                         BaseActionEvent.SHOW_LOADING_DIALOG -> mLoadingView?.showLoading()
@@ -114,7 +114,7 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel> : Fragmen
                         }
                     }
                 }
-            })
+            }
         }
     }
 

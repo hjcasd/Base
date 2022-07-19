@@ -5,6 +5,7 @@ import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.blankj.utilcode.util.KeyboardUtils
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
 import com.hjc.library_common.global.GlobalKey
@@ -43,6 +44,9 @@ class LoginActivity : BaseActivity<LoginActivityBinding, LoginViewModel>() {
 
     override fun initData(savedInstanceState: Bundle?) {
         mBindingView.loginViewModel = mViewModel
+
+        mBindingView.etPhone.requestFocus()
+        KeyboardUtils.showSoftInput(mBindingView.etPhone)
     }
 
     override fun observeLiveData() {

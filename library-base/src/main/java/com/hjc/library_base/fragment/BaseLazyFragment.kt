@@ -73,6 +73,7 @@ abstract class BaseLazyFragment<VDB : ViewDataBinding, VM : BaseViewModel> : Fra
         mContext = context
     }
 
+    @Deprecated("Deprecated in Java")
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
         isFragmentVisible = isVisibleToUser
@@ -112,7 +113,7 @@ abstract class BaseLazyFragment<VDB : ViewDataBinding, VM : BaseViewModel> : Fra
         }
         mViewModel?.let {
             val viewModelAction: IViewModelAction = it
-            viewModelAction.getActionLiveData().observe(viewLifecycleOwner, { baseActionEvent: BaseActionEvent? ->
+            viewModelAction.getActionLiveData().observe(viewLifecycleOwner) { baseActionEvent: BaseActionEvent? ->
                 baseActionEvent?.let { event ->
                     when (event.action) {
                         BaseActionEvent.SHOW_LOADING_DIALOG -> mLoadingView?.showLoading()
@@ -133,7 +134,7 @@ abstract class BaseLazyFragment<VDB : ViewDataBinding, VM : BaseViewModel> : Fra
                         }
                     }
                 }
-            })
+            }
         }
     }
 

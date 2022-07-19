@@ -73,7 +73,7 @@ abstract class BaseActivity<VDB : ViewDataBinding, VM : BaseViewModel> : AppComp
         }
         mViewModel?.let {
             val viewModelAction: IViewModelAction = it
-            viewModelAction.getActionLiveData().observe(this, { baseActionEvent: BaseActionEvent? ->
+            viewModelAction.getActionLiveData().observe(this) { baseActionEvent: BaseActionEvent? ->
                 baseActionEvent?.let { event ->
                     when (event.action) {
                         BaseActionEvent.SHOW_LOADING_DIALOG -> mLoadingView?.showLoading()
@@ -94,7 +94,7 @@ abstract class BaseActivity<VDB : ViewDataBinding, VM : BaseViewModel> : AppComp
                         }
                     }
                 }
-            })
+            }
         }
     }
 
