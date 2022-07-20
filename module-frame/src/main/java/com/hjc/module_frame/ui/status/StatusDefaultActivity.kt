@@ -3,10 +3,10 @@ package com.hjc.module_frame.ui.status
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.blankj.utilcode.util.ToastUtils
-import com.chad.library.adapter.base.BaseQuickAdapter
 import com.gyf.immersionbar.ImmersionBar
 import com.hjc.library_base.activity.BaseActivity
 import com.hjc.library_common.router.path.RouteFramePath
@@ -14,6 +14,7 @@ import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_frame.R
 import com.hjc.module_frame.adapter.ArticleAdapter
 import com.hjc.module_frame.databinding.FrameActivityStatusDefaultBinding
+import com.hjc.module_frame.utils.MyItemTouchCallBack
 import com.hjc.module_frame.viewmodel.StatusDefaultViewModel
 import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
@@ -53,7 +54,10 @@ class StatusDefaultActivity : BaseActivity<FrameActivityStatusDefaultBinding, St
         mAdapter = ArticleAdapter(null)
         mBindingView.rvList.adapter = mAdapter
 
-        mAdapter.setAnimationWithDefault(BaseQuickAdapter.AnimationType.SlideInLeft)
+        mAdapter.animationEnable = false
+
+        val itemTouchHelper = ItemTouchHelper(MyItemTouchCallBack(mAdapter))
+        itemTouchHelper.attachToRecyclerView(mBindingView.rvList)
     }
 
     override fun getImmersionBar(): ImmersionBar? {

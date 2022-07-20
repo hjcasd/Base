@@ -7,6 +7,7 @@ import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.hjc.module_frame.R
 import com.hjc.module_frame.databinding.FrameItemArticleBinding
 import com.hjc.module_frame.http.entity.ArticleBean
+import java.util.*
 
 /**
  * @Author: HJC
@@ -26,6 +27,13 @@ class ArticleAdapter(data: MutableList<ArticleBean>?) : BaseQuickAdapter<Article
         binding?.let {
             it.articleBean = item
         }
+    }
+
+    fun onItemMove(fromPosition: Int, toPosition: Int) {
+        // 更换数据List的位置
+        Collections.swap(data, fromPosition, toPosition)
+        // 更换Adapter Item的视图位置
+        notifyItemMoved(fromPosition, toPosition)
     }
 
 }
