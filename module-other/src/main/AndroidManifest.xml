@@ -31,10 +31,18 @@
         <activity
             android:name=".ui.video.RichMediaActivity"
             android:screenOrientation="landscape"
-            android:theme="@style/RichMediaTheme"/>
+            android:theme="@style/RichMediaTheme" />
 
         <activity
             android:name=".ui.stagger.StaggerActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.camera.Camera2Activity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.camera.CameraXActivity"
             android:screenOrientation="portrait" />
 
     </application>

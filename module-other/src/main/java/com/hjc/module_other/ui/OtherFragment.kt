@@ -58,6 +58,10 @@ class OtherFragment : BaseFragment<OtherFragmentBinding, CommonViewModel>() {
 
             R.id.btn5 -> RouteManager.jump(RouteOtherPath.URL_STAGGER)
 
+            R.id.btn6 -> RouteManager.jump(RouteOtherPath.URL_CAMERA_2)
+
+            R.id.btn7 -> RouteManager.jump(RouteOtherPath.URL_CAMERA_X)
+
             else -> {
 
             }

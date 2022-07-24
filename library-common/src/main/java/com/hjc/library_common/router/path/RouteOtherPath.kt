@@ -49,4 +49,14 @@ object RouteOtherPath {
      */
     const val URL_STAGGER = "$MODULE_OTHER/stagger"
 
+    /**
+     * Camera2相机页面
+     */
+    const val URL_CAMERA_2 = "$MODULE_OTHER/camera/2"
+
+    /**
+     * CameraX相机页面
+     */
+    const val URL_CAMERA_X = "$MODULE_OTHER/camera/x"
+
 }

@@ -78,7 +78,7 @@ public class RealtimeBlurView extends View {
                 bmp.recycle();
                 BLUR_IMPL = 3;
             } catch (Throwable e) {
-                Log.e("blur", e.toString());
+
             }
         }
         if (BLUR_IMPL == 0) {
@@ -96,7 +96,7 @@ public class RealtimeBlurView extends View {
                 bmp.recycle();
                 BLUR_IMPL = 1;
             } catch (Throwable e) {
-                Log.e("blur", e.toString());
+
             }
         }
         if (BLUR_IMPL == 0) {
@@ -114,7 +114,7 @@ public class RealtimeBlurView extends View {
                 bmp.recycle();
                 BLUR_IMPL = 2;
             } catch (Throwable e) {
-                Log.e("blur", e.toString());
+
             }
         }
         if (BLUR_IMPL == 0) {
@@ -219,7 +219,7 @@ public class RealtimeBlurView extends View {
 
                 r = true;
             } catch (OutOfMemoryError e) {
-                Log.e("blur", e.toString());
+
             } finally {
                 if (!r) {
                     release();
@@ -272,7 +272,7 @@ public class RealtimeBlurView extends View {
                     }
                     decor.draw(mBlurringCanvas);
                 } catch (StopException e) {
-                    Log.e("blur", e.toString());
+
                 } finally {
                     mIsRendering = false;
                     RENDERING_COUNT--;

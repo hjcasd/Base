@@ -52,6 +52,14 @@
             android:name=".ui.stagger.StaggerActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".ui.camera.Camera2Activity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.camera.CameraXActivity"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

@@ -147,4 +147,11 @@ dependencies {
     // RxBinding
     api 'com.jakewharton.rxbinding4:rxbinding:4.0.0'
 
+    // CameraX core library using camera2 implementation
+    api "androidx.camera:camera-camera2:1.0.0-beta03"
+    // CameraX Lifecycle Library
+    api "androidx.camera:camera-lifecycle:1.0.0-beta03"
+    // CameraX View class
+    api "androidx.camera:camera-view:1.0.0-alpha10"
+
 }

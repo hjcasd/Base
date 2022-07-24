@@ -13,12 +13,17 @@
         <entry key="..\:/AndroidProjects/Application/Base/module-home/src/main/res/layout/home_activity_jet_adapter.xml" value="0.180859375" />
         <entry key="..\:/AndroidProjects/Application/Base/module-login/src/main/res/layout/login_activity.xml" value="0.180859375" />
         <entry key="..\:/AndroidProjects/Application/Base/module-main/src/main/res/layout/main_activity.xml" value="0.180859375" />
+        <entry key="..\:/AndroidProjects/Application/Base/module-other/src/main/res/drawable/ic_camera.xml" value="0.168" />
         <entry key="..\:/AndroidProjects/Application/Base/module-other/src/main/res/drawable/other_shape_bg_test.xml" value="0.176" />
         <entry key="..\:/AndroidProjects/Application/Base/module-other/src/main/res/drawable/other_shape_grid_item_decoration.xml" value="0.183" />
         <entry key="..\:/AndroidProjects/Application/Base/module-other/src/main/res/layout/frame_item_stagger.xml" value="0.180859375" />
+        <entry key="..\:/AndroidProjects/Application/Base/module-other/src/main/res/layout/other_activity_camera.xml" value="0.180859375" />
+        <entry key="..\:/AndroidProjects/Application/Base/module-other/src/main/res/layout/other_activity_camera_2.xml" value="0.1" />
+        <entry key="..\:/AndroidProjects/Application/Base/module-other/src/main/res/layout/other_activity_camera_x.xml" value="0.180859375" />
         <entry key="..\:/AndroidProjects/Application/Base/module-other/src/main/res/layout/other_activity_dialog.xml" value="0.180859375" />
         <entry key="..\:/AndroidProjects/Application/Base/module-other/src/main/res/layout/other_activity_scroll_indicator.xml" value="0.180859375" />
         <entry key="..\:/AndroidProjects/Application/Base/module-other/src/main/res/layout/other_activity_stagger.xml" value="0.180859375" />
+        <entry key="..\:/AndroidProjects/Application/Base/module-other/src/main/res/layout/other_activity_test.xml" value="0.180859375" />
         <entry key="..\:/AndroidProjects/Application/Base/module-other/src/main/res/layout/other_fragment.xml" value="0.180859375" />
         <entry key="..\:/AndroidProjects/Application/Base/module-other/src/main/res/layout/other_fragment_picture.xml" value="0.180859375" />
         <entry key="..\:/AndroidProjects/Application/Base/module-other/src/main/res/layout/other_item_scroll.xml" value="0.180859375" />

@@ -4,7 +4,6 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.ViewModelProvider
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.blankj.utilcode.util.LogUtils
@@ -14,12 +13,12 @@ import com.hjc.library_base.utils.ActivityHelper
 import com.hjc.library_common.router.ServicePath
 import com.hjc.library_common.router.path.RouteOtherPath
 import com.hjc.library_common.router.services.ILoginService
+import com.hjc.library_common.viewmodel.CommonViewModel
 import com.hjc.library_widget.bar.OnViewLeftClickListener
 import com.hjc.module_other.R
 import com.hjc.module_other.databinding.OtherActivityDialogBinding
 import com.hjc.module_other.dialog.TestDialog
 import com.hjc.module_other.dialog.UpdateDialog
-import com.hjc.module_other.viewmodel.AudioViewModel
 
 /**
  * @Author: HJC
@@ -27,7 +26,7 @@ import com.hjc.module_other.viewmodel.AudioViewModel
  * @Description: 弹框演示
  */
 @Route(path = RouteOtherPath.URL_DIALOG)
-class DialogActivity : BaseActivity<OtherActivityDialogBinding, AudioViewModel>() {
+class DialogActivity : BaseActivity<OtherActivityDialogBinding, CommonViewModel>() {
 
     @JvmField
     @Autowired(name = ServicePath.LOGIN_SERVICE)
@@ -37,8 +36,8 @@ class DialogActivity : BaseActivity<OtherActivityDialogBinding, AudioViewModel>(
         return R.layout.other_activity_dialog
     }
 
-    override fun createViewModel(): AudioViewModel {
-        return ViewModelProvider(this)[AudioViewModel::class.java]
+    override fun createViewModel(): CommonViewModel? {
+        return null
     }
 
     override fun getImmersionBar(): ImmersionBar? {
